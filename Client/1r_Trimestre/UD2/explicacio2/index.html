@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="redirecciona()">Pitjar aqui</button>
+    <button onclick="openGame()">NOO pitja aqui</button>
+    <demo></demo>
+
+
+    <script>
+        var ample = window.screen.availWidth;
+        var alt = window.screen.availHeight; 
+        ample = ample/2 -200;
+        alt = alt/2 -200;  
+        function redirecciona(){
+            window.location.href = "https://www.iesmanacor.cat";
+        } 
+        function openGame(){ 
+            var myWindow = window.open("finestra.html", "", "width=500,height=500,left="+ample+",top="+alt); 
+        } 
+    </script>
+</body>
+</html>

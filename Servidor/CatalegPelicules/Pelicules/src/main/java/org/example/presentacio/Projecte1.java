@@ -1,5 +1,7 @@
 package org.example.presentacio;
 
+import org.example.dades.IAccessDades;
+import org.example.dades.impl.MySQL;
 import org.example.domini.Pelicula;
 import org.example.negoci.CatalegPelicules;
 import org.example.negoci.ICatalegPelicules;
@@ -7,6 +9,18 @@ import org.example.negoci.ICatalegPelicules;
 import java.util.*;
 
 public class Projecte1 {
+    private IAccessDades accessDades;
+    private ICatalegPelicules iCatalegPelicules;
+
+    public Projecte1() {
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.nextLine().equalsIgnoreCase("mysql")) {
+            this.accessDades = new MySQL();
+            this.iCatalegPelicules = new CatalegPelicules(this, accessDades);
+            this.menu();
+        }
+    }
+
     private final ICatalegPelicules catalegPelicules = new CatalegPelicules();
 
     public void menu() {
@@ -19,19 +33,19 @@ public class Projecte1 {
         switch (sc.nextInt()) {
             case 1:
                 System.out.println("Has elegit llistar pelicules");
-                catalegPelicules.llistarPelicules();
+                iCatalegPelicules.llistarPelicules();
                 break;
             case 2:
                 System.out.println("Has elegit afegir pelicula");
-                catalegPelicules.afegirPelicula(indicarPelicula());
+                iCatalegPelicules.afegirPelicula(indicarPelicula());
                 break;
             case 3:
                 System.out.println("Has elegit iniciar Cataleg Pelicules");
-                catalegPelicules.iniciarCataleg();
+                iCatalegPelicules.iniciarCataleg();
                 break;
             case 4:
                 System.out.println("Has elegit cercar pelicula ");
-                catalegPelicules.cercarPelicula(indicarTitol());
+                iCatalegPelicules.cercarPelicula(indicarTitol());
                 break;
 
             default:

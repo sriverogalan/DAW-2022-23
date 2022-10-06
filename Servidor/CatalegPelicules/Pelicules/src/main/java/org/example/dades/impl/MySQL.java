@@ -22,35 +22,6 @@ public class MySQL implements IAccessDades {
             e.printStackTrace();
         }
     }
-
-    @Override
-    public boolean exists(String title) {
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM catalegpelicules WHERE titol LIKE '" + title + "'");
-            if (resultSet.next()) {
-                return true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    @Override
-    public void mostrarNomPelicules() {
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM catalegpelicules");
-            while (rs.next()) {
-                System.out.println(rs.getString("titol"));
-            }
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public List<Pelicula> list() {
         List<Pelicula> llistaPelicules = new ArrayList<>();
@@ -67,14 +38,19 @@ public class MySQL implements IAccessDades {
         }
         return llistaPelicules;
     }
-
-
     @Override
-    public void update(Pelicula pelicula, String titol) {
-        String sql = "UPDATE catalegpelicules SET titol = ?, any = ?, director = ?, genere = ?, duracio = ? WHERE titol = " + titol;
-        if (exists(titol)) preparedStatementConection(sql, pelicula);
+    public boolean exists(String title) {
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM catalegpelicules WHERE titol LIKE '" + title + "'");
+            if (resultSet.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
-
     public void preparedStatementConection(String sql, Pelicula film) {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -90,32 +66,12 @@ public class MySQL implements IAccessDades {
             e.printStackTrace();
         }
     }
-
     @Override
     public void create(Pelicula pelicula, String titol) {
         String sql = "INSERT INTO catalegpelicules (titol, any, director, genere, duracio) VALUES (?, ?, ?, ?, ?)";
         if (!exists(titol)){preparedStatementConection(sql, pelicula);} else { System.out.println("La pelicula ja existeix"); }
 
     }
-
-    @Override
-    public void delete(String title) {
-        try {
-            if (exists(title)) {
-                PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM catalegpelicules WHERE titol = ?");
-                preparedStatement.setString(1, title);
-                preparedStatement.executeUpdate();
-                connection.close();
-                System.out.println("Se ha borrado correctamente la pelicula" + title);
-            } else {
-                System.out.println("No existe la pelicula que deseas eliminar");
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public void search(String title) {
         try {
@@ -136,5 +92,27 @@ public class MySQL implements IAccessDades {
             e.printStackTrace();
         }
 
+    }
+    @Override
+    public void update(Pelicula pelicula, String titol) {
+        String sql = "UPDATE catalegpelicules SET titol = ?, any = ?, director = ?, genere = ?, duracio = ? WHERE titol = " + titol;
+        if (exists(titol)) preparedStatementConection(sql, pelicula);
+    }
+    @Override
+    public void delete(String title) {
+        try {
+            if (exists(title)) {
+                PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM catalegpelicules WHERE titol = ?");
+                preparedStatement.setString(1, title);
+                preparedStatement.executeUpdate();
+                connection.close();
+                System.out.println("Se ha borrado correctamente la pelicula" + title);
+            } else {
+                System.out.println("No existe la pelicula que deseas eliminar");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

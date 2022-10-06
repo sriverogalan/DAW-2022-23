@@ -3,33 +3,45 @@ package org.example.negoci;
 import org.example.dades.IAccessDades;
 import org.example.dades.impl.MySQL;
 import org.example.domini.Pelicula;
+import org.example.presentacio.Projecte1;
 
 import java.util.ArrayList;
 
 public class CatalegPelicules implements ICatalegPelicules {
-    private IAccessDades accessDades = new MySQL();
+    private IAccessDades dataAccess;
+    private Projecte1 mainMenu;
 
+    public CatalegPelicules(Projecte1 mainMenu, IAccessDades dataAccess) {
+        this.mainMenu = mainMenu;
+        this.dataAccess = dataAccess;
+
+    }
 
     @Override
     public void llistarPelicules() {
-        ArrayList<Pelicula> pelicules = (ArrayList<Pelicula>) accessDades.list();
+        ArrayList<Pelicula> pelicules = (ArrayList<Pelicula>) dataAccess.list();
         for (Pelicula pelicula : pelicules) {
             System.out.println(pelicula);
         }
     }
-
     @Override
     public void afegirPelicula(Pelicula pelicula) {
-        accessDades.create(pelicula, pelicula.getTitol());
+        dataAccess.create(pelicula, pelicula.getTitol());
     }
-
-    @Override
-    public void iniciarCataleg() {
-        accessDades.mostrarNomPelicules();
-    }
-
     @Override
     public void cercarPelicula(String titol) {
-        accessDades.search(titol);
+        dataAccess.search(titol);
+    }
+    @Override
+    public void reiniciarCataleg() {
+
+    }
+    @Override
+    public void eliminarPelicula(String title) {
+
+    }
+    @Override
+    public void sobreEscriurePelicula(String title, Pelicula pelicula) {
+
     }
 }

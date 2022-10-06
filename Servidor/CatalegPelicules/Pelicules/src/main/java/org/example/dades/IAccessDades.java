@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface IAccessDades {
     boolean exists(String titol) throws SQLException;
-    void mostrarNomPelicules() ;
     List<Pelicula> list();
     void update(Pelicula pelicula, String titol);
     void create(Pelicula pelicula, String titol);
