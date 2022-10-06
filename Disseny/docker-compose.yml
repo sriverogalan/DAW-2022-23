@@ -1,0 +1,10 @@
+version: '4.1'
+services:
+
+  node-gulp:
+    build:
+      context: ./Dockerfile
+      dockerfile: node
+    volumes:
+      - ./volumes:/app
+    tty: true
