@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <h1>Hola</h1>
+    <script>   
+        // mostrar per consola
+
+        // console.log("Hola mundo");
+        //alert("Hola mundo");
+        // Variables
+        var a = 1; // Números
+        var b = " suh"; //String
+        var c = true; // Boolean
+        var d //undefined
+        var e = null; // null
+        var f = [1,2,3,4,5]; // Array
+        var g = {
+            nombre: "Sergi",
+            apellido: "Rivero",
+            numCans:2
+
+        } // Objecte
+
+        var h = function(a,b) {
+            return a + b;
+        } // Funció
+        var i= h(2,3);
+        var j = h(3,4); 
+     // Object  
+        console.log(a,b,c,d,e,f,g,h(2,3), i,j)
+        var moneda = Math.floor(Math.random() * 2);
+        if(moneda===1){
+            console.log("Has guanyat, ha sortit cara");
+        } else{
+            console.log("Has perdut, ha sortit creu");
+        }
+
+        //Variables
+
+        var sergi = {
+            nombre: "Sergi",
+            apellido: "Rivero", 
+        } 
+        var tomeu = {
+            nombre: "Tomeu",
+            apellido: "Galan",
+        }
+
+        function Persona(nombre,apellido){
+            this.nombre = nombre;
+            this.apellido = apellido; 
+        } 
+
+        var tomeu = new Persona("Tomeu","Gakan");
+        console.log(sergi, tomeu, typeof tomeu, typeof sergi);
+        function operacions(a,b){
+            return {
+                suma: a + b,
+                resta: a - b,
+                multiplicacio: a * b,
+                divisio: a / b
+            } 
+        }
+        var x = operacions(3,2);
+        console.log(x.suma, x.resta, x.multiplicacio, x.divisio);
+
+        tomeu.cames = 3;
+        console.log(tomeu);
+        delete tomeu.cames;
+        console.log(tomeu);
+        
+
+        // Arrays
+        var fruites = ["Platano","Pera","Melicoto"];
+        console.log(fruites);
+        console.log(fruites[2]);
+        fruites.pop() // Elimina l'últim element
+        console.log(fruites);
+        fruites.push("Melicoto") // Afegeix un element al final
+        console.log(fruites);
+        fruites.shift() // Elimina el primer element
+        console.log(fruites);
+        fruites.unshift("Platano") // Afegeix un element al principi
+        console.log(fruites);
+        fruites.splice() // Elimina un element en concret
+        console.log(fruites);
+ 
+        var canco = "una mosca volava per la llum";
+        var vocals = ["a","e","i","o","u"];
+
+        function isVocal(lletra){
+            if(lletra){
+                return vocals.includes(lletra.toLowerCase());
+            }
+            return false;
+        }
+
+        function canta(vocal,canco) {
+            var cancoVocal = [];
+            for(var i=0; i<canco.length; i++) {
+                if(isVocal(canco[i])){
+                    cancoVocal.push(vocal);
+                } else {
+                    cancoVocal.push(canco[i]);
+                }
+            }
+            return cancoVocal.join("");
+        }
+
+        function pintar(canco){
+            console.log(canco);
+        }
+
+        //Init programa
+        for(var vocal of vocals){
+            var cancoVocal = canta(vocal,canco);
+            pintar(cancoVocal);
+        }
+        
+        function Dau(cares){
+            this.cares = cares
+            this.tirar = function(){
+                return Math.floor(Math.random() * this.cares) + 1;
+                // el math floor arrodoneix el número
+                // el math random genera un número aleatori entre 0 i el número que li passem
+            }
+        }
+        function Dau2(cares){ 
+            this.cares = cares
+            this.tirar = function(){
+                return Math.floor(Math.random() * this.cares.length) + 1; 
+            }
+        }
+
+        var dau6 = new Dau(6)
+        console.log(dau6.tirar(), dau6.tirar());
+
+        function pintarDau(dau){
+            var resultat = dau.tirar();
+            console.log("Ha sortit el número " + resultat);
+        };
+
+        var dau2 = new Dau2(["Uno","Dos","Tres","Cuatro","Cinco","Seis"]);
+        pintarDau(dau2);
+
+
+    </script> 
+</body>
+</html>
