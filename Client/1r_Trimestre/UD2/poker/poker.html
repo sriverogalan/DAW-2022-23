@@ -57,17 +57,18 @@
             this.generateCardsPlay();
             this.printCards();  
             this.comprobateResult();
-        } 
+        }   
 
-        this.winEver = function(){  
-            this.reset();
-            while(this.ifYouWin() !== true){ 
+        this.winEver = function(){   
+                this.reset();
+            while(this.ifYouWin() !== true){
+                this.reset();
                 this.init(); 
                 this.generateCardsPlay();
-                this.printCards(); 
+                this.printCards();   
                 this.ifYouWin();
-            }
-            document.querySelector("h1").innerHTML = "Has guanyat amb par TRAMPOS";
+            }  
+            document.querySelector("h1").innerHTML = "Has guanyat amb el par pero recorda que ets un trampós!";
         }
 
         this.comprobateResult = function(){
@@ -100,11 +101,21 @@
             this.cardsPlayed = [];
         }
   
-    }
+    } 
+    var joc = new Game();  
+    
+    
+    var url = new URL(window.location.href);
+    var info = url.searchParams.get("info");
 
-    var joc = new Game(); 
-    document.querySelector("button").onclick = function(){joc.winEver()};
+    if(info === "SI"){
+        document.querySelector("button").onclick = function(){joc.winEver()};
+    }else if(info === "NO"){
+        document.querySelector("button").onclick = function(){joc.play()};
+    } 
 
+
+ 
     </script>
 </body>
 </html>
