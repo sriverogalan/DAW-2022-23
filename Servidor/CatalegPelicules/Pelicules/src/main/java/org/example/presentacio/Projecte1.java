@@ -21,33 +21,22 @@ public class Projecte1 {
         }
     }
 
-    private final ICatalegPelicules catalegPelicules = new CatalegPelicules();
-
     public void menu() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introdueix el numero que vols que faci el programa :");
-        System.out.println("1. Llistar pelicules");
-        System.out.println("2. Afegir pelicula");
-        System.out.println("3. Iniciar Cataleg Pelicules");
-        System.out.println("4. Cercar pelicula");
+        System.out.println("1. Llistat de pelicules");
+        System.out.println("2. Crear pelicula");
+        System.out.println("3. Cercar pelicula per id");
+        System.out.println("4. Canvis a una pelicula");
+        System.out.println("5. Borrar una pelicula");
         switch (sc.nextInt()) {
             case 1:
-                System.out.println("Has elegit llistar pelicules");
+                System.out.println("Has seleccionat llistar pelicules");
                 iCatalegPelicules.llistarPelicules();
                 break;
             case 2:
-                System.out.println("Has elegit afegir pelicula");
-                iCatalegPelicules.afegirPelicula(indicarPelicula());
-                break;
-            case 3:
-                System.out.println("Has elegit iniciar Cataleg Pelicules");
-                iCatalegPelicules.iniciarCataleg();
-                break;
-            case 4:
-                System.out.println("Has elegit cercar pelicula ");
-                iCatalegPelicules.cercarPelicula(indicarTitol());
-                break;
-
+                System.out.println("Has escollit crear una pelicula");
+                indicarPelicula();
             default:
                 System.out.println("Has elegit una opcio incorrecta");
                 break;

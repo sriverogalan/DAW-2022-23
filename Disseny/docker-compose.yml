@@ -6,5 +6,5 @@ services:
       context: ./Dockerfile
       dockerfile: node
     volumes:
-      - ./volumes:/app
+      - ./volumes/app:/app
     tty: true

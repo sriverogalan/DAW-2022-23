@@ -1,45 +1,48 @@
-const {watch, src, dest, series, task, parallel} = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
-const minifyCSS = require('gulp-clean-css');
-const concat = require('gulp-concat-css');
+const {watch, src,dest,series,parallel} = require('gulp')
+const cleanCSS = require('gulp-clean-css');
+const concatCss = require('gulp-concat-css'); 
 const validate = require('gulp-w3c-css');
 
-
-async function compileSASS() {
-    return src('./scss/**/*.scss')
-        .pipe(sass.sync().on('error', sass.logError))
-        .pipe(dest('./css'));
-}
-
+//exemple com un hola mundo
 function defaultTask(cb) {
-    // place code for your default task here
+    //put code for your default task here
     cb();
 }
 
-function minimizeCSS() {
-    return src('./css/*.css') 
-        .pipe(dest('./css/mini'));
+function compiladorSASS(){
+    return src('./scss/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(dest('./dist/estils'));
 }
 
-async function concatCSS() {
-    return src(['./scss/**/b.css', './scss/**/c.css', "./scss/**/a.css"])
-        .pipe(concat("./estils/bundle.css")) 
-        .pipe(dest('./estils'));
+function vigilarSASS(){
+    watch('./scss/**/*.scss', {usePolling: true}, series('compila'));
+}
+    
+function minimizarCSS() {
+    return src('dist/*.css')
+        .pipe(cleanCSS())
+        .pipe(dest('./dist/estils'));
 }
 
-async function validateCSS () {
-    return src(['./css/**/*.css', './estils/**/*.css']) 
-        .pipe(dest('./css/valid'));
+function concatCSS(){
+    return src(['./dist/estils/b.css','./dist/estils/c.css', './dist/estils/a.css', './dist/estils/styles.css'])
+        .pipe(concatCss('estils/bundle.css'))
+        .pipe(dest('./dist/estils'))
 }
- 
 
-task('watcher', async function () {
-    watch('/app/scss/**/*.scss', {usePolling: true}, series('compile', 'minify'));
-}); 
- 
-exports.defaultTask = defaultTask;
-exports.compile = compileSASS;
-exports.minify = minimizeCSS;
-exports.concat = concatCSS;
-exports.validate = validateCSS;
-exports.build = parallel(defaultTask, series(compileSASS, minimizeCSS, concatCSS, validateCSS));
+function validateCSS(){
+    return src('dist/**/*.css')
+    .pipe(validate())
+    .pipe(dest('validator'))
+}
+
+//serveix per exportar les tasques creades
+exports.default = defaultTask;
+exports.compila = compiladorSASS;
+exports.vigila = vigilarSASS;
+exports.minimizar = minimizarCSS;
+exports.concatenar = concatCSS;
+exports.validar = validateCSS;
+exports.build = parallel(defaultTask,series(compiladorSASS,minimizarCSS,concatCSS,));

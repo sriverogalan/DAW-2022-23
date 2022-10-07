@@ -32,7 +32,6 @@ public class MySQL implements IAccessDades {
                 Pelicula pelicula = new Pelicula(rs.getInt("id"), rs.getString("titol"), rs.getInt("any"), rs.getString("director"), rs.getString("genere"), rs.getInt("duracio"));
                 llistaPelicules.add(pelicula);
             }
-            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -61,7 +60,6 @@ public class MySQL implements IAccessDades {
             preparedStatement.setInt(5, film.getDuracio());
             preparedStatement.execute();
             System.out.println("Se ha pujat correctament a la base de dades");
-            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -102,15 +100,21 @@ public class MySQL implements IAccessDades {
     public void delete(String title) {
         try {
             if (exists(title)) {
-                PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM catalegpelicules WHERE titol = ?");
-                preparedStatement.setString(1, title);
-                preparedStatement.executeUpdate();
-                connection.close();
-                System.out.println("Se ha borrado correctamente la pelicula" + title);
+                Statement statement = connection.createStatement();
+                statement.executeUpdate("DELETE FROM catalegpelicules WHERE titol = '"+ title +"'");
+                System.out.println("Se ha borrado correctamente la pelicula");
             } else {
                 System.out.println("No existe la pelicula que deseas eliminar");
             }
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    // close connection
+    public void closeConnection() {
+        try {
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
