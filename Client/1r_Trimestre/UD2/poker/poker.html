@@ -13,7 +13,7 @@
     <img>
     <img>
     <button object.onclick = function(){myScript}>Jugar !</button> 
-    <h3></h3>
+    <h1></h1> 
 
     <script>  
     document.querySelector("body").style.backgroundColor = "green";
@@ -39,12 +39,11 @@
                 }
             }
         }
-        this.win = function(){ 
+        this.ifYouWin = function(){ 
             for(var i = 0; i < this.cardsPlayed.length; i++){
                 for(var j = 0; j < this.cardsPlayed.length; j++){
                     if(i !== j){
-                        if(this.cardsPlayed[i].num === this.cardsPlayed[j].num){
-                            document.querySelector("h3").innerHTML = "<h3>Has ganado!</h3>"; 
+                        if(this.cardsPlayed[i].num === this.cardsPlayed[j].num){ 
                             return true;
                         } 
                     }
@@ -52,14 +51,32 @@
             }
             return false;
         } 
-
         this.play = function(){ 
             this.reset();
             this.init(); 
             this.generateCardsPlay();
             this.printCards();  
-            this.win();
+            this.comprobateResult();
         } 
+
+        this.winEver = function(){  
+            this.reset();
+            while(this.ifYouWin() !== true){ 
+                this.init(); 
+                this.generateCardsPlay();
+                this.printCards(); 
+                this.ifYouWin();
+            }
+            document.querySelector("h1").innerHTML = "Has guanyat amb par TRAMPOS";
+        }
+
+        this.comprobateResult = function(){
+            if(this.ifYouWin()){
+                document.querySelector("h1").innerHTML = "Has guanyat amb par";
+            }else{
+                document.querySelector("h1").innerHTML = "Has perdut";
+            }
+        }
 
         this.generateCardsPlay = function(){ 
             var cardRandom = this.cards[Math.floor(Math.random() * this.cards.length)];
@@ -81,17 +98,12 @@
         } 
         this.reset = function() {
             this.cardsPlayed = [];
-            document.querySelector("h3").innerHTML = "<h3>Has perdido!</h3>";
         }
-
-        this.winEver = function(){
-
-        }
-
+  
     }
 
-    var joc = new Game();
-    document.querySelector("button").onclick = function(){joc.play()};
+    var joc = new Game(); 
+    document.querySelector("button").onclick = function(){joc.winEver()};
 
     </script>
 </body>
