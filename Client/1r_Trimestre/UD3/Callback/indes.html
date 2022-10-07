@@ -8,9 +8,49 @@
 </head> 
 <body>
     
-
+    <div id="resultat"></div>
     <script>
-        
+        function suma(a,b){
+            return a+b;
+        }
+
+        function resta(a,b){
+            return a-b;
+        }
+        function operar(a,b,cb){
+            return cb(a,b);
+        }
+ 
+        console.log(operar(2,3,suma));
+        console.log(operar(2,3,resta)); 
+
+        function pinta(cb){
+            document.querySelector("#resultat").innerHTML = cb();
+        } 
+
+        function hola(){
+            return "Hola";
+        }
+        pinta(hola);
+
+        // funcions anonimes
+        // 1 - Desar dins una variable
+        // 2 - Callback
+
+        var x = function(a,b){
+            return "hola"+(a+b);
+        }
+
+        pinta(function(){
+            return x(2,3);
+        });
+
+        document.querySelector("#resultat").addEventListener("click",function(){
+            document.querySelector("#resultat").innerHTML = "<h1>Tocado</h1>";
+            console.log("Tocado");
+        }); 
+  
     </script>
+
 </body>
 </html>
