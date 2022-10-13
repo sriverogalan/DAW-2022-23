@@ -1,16 +1,29 @@
 package org.example.domini;
-import lombok.*;
 
-@Data
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 @AllArgsConstructor
+@Getter @Setter
 public class Pelicula {
-    // crear atributs
+
+    /*
+    * Atributs
+    * @id: identificador de la pelicula
+    * @titol: titol de la pelicula
+    * @director: director de la pelicula
+    * @any: any de la pelicula
+    * @genere: genero de la pelicula
+    * @duracio: duracion de la pelicula
+    */
+
     private int id;
-    private String titol; // String
-    private int any; // any de publicació
-    private String director; // director
-    private String genero; // genere
-    private int duracio; // duració en minuts
+    private String titol;
+    private int any;
+    private String director;
+    private String genero;
+    private int duracio;
 
     public Pelicula(String titol, String director, int any, String genero, int duracio) {
         this.titol = titol;

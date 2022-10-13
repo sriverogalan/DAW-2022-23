@@ -1,13 +1,13 @@
 package org.example.texto;
 
 public class Text {
-    public static void menuDatabase() {
+    public static void menuBaseDeDades() {
         System.out.println("Elige una opcion:");
         System.out.println("1. MySQL");
         System.out.println("2. PostgreSQL");
     }
 
-    public static void menuOptions() {
+    public static void menuOpcions() {
         System.out.println("Introdueix el numero que vols que faci el programa :");
         System.out.println("1. Llistat de pelicules");
         System.out.println("2. Crear pelicula");

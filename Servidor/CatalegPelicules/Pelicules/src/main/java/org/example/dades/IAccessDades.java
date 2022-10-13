@@ -6,10 +6,12 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IAccessDades {
-    boolean exists(String titol) throws SQLException;
-    List<Pelicula> list();
-    void update(Pelicula pelicula, String titol);
-    void create(Pelicula pelicula, String titol);
-    void delete(String titol);
-    void search(String titol);
+    boolean existeix(int id);
+    List<Pelicula> llistar();
+    void actualitzar(int id, Pelicula pelicula);
+    void crear(Pelicula pelicula);
+    void borrar(int id);
+    void cercar(String titol);
+    void tancarConexio();
+    void reiniciarCataleg();
 }
