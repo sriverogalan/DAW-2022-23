@@ -18,4 +18,9 @@ public class Text {
         System.out.println("7. Sortir");
     }
 
+    public static void separtacio() {
+        System.out.println();
+        System.out.println("--------------------------------------------------");
+        System.out.println();
+    }
 }

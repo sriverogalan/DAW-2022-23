@@ -37,6 +37,7 @@ public class Projecte1 {
     }
 
     public void menuPrincipal() {
+        Text.separtacio();
         Text.menuOpcions();
         Scanner sc = new Scanner(System.in);
         switch (sc.nextInt()) {
@@ -100,7 +101,6 @@ public class Projecte1 {
     public String indicarTitol() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introdueix el titol de la pelicula");
-
         return sc.nextLine();
     }
 

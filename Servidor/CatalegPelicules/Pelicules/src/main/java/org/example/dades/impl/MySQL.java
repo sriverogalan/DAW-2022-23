@@ -14,9 +14,8 @@ public class MySQL implements IAccessDades {
 
     public MySQL() {
         try {
-            String url = "jdbc:mysql://localhost:3306/cataleg";
+            String url = "jdbc:mysql://localhost:3306/prova";
             this.connection = DriverManager.getConnection(url, "root", "root");
-            System.out.println("Se ha conectado correctamente a la base de datos");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -26,9 +25,9 @@ public class MySQL implements IAccessDades {
         List<Pelicula> llistaPelicules = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM films");
+            ResultSet rs = statement.executeQuery("SELECT * FROM catalegpelicules");
             while (rs.next()) {
-                Pelicula pelicula = new Pelicula(rs.getInt("id"), rs.getString("title"), rs.getInt("year"), rs.getString("director"), rs.getString("gender"), rs.getInt("duration"));
+                Pelicula pelicula = new Pelicula(rs.getInt("id"), rs.getString("titol"), rs.getInt("any"), rs.getString("director"), rs.getString("genere"), rs.getInt("duracio"));
                 llistaPelicules.add(pelicula);
             }
         } catch (SQLException e) {
@@ -40,7 +39,7 @@ public class MySQL implements IAccessDades {
     public boolean existeix(int id) {
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM films WHERE id LIKE '" + id + "'");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM catalegpelicules WHERE id LIKE '" + id + "'");
             if (resultSet.next()) return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -51,14 +50,12 @@ public class MySQL implements IAccessDades {
     public void crear(Pelicula pelicula) {
         try {
             if (!this.existeix(pelicula.getId())) {
-                String sql = "INSERT INTO catalegpelicules (title, year, director, gender, duration) VALUES (?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO catalegpelicules (titol, any, director, genere,duracio) VALUES (?, ?, ?, ?, ?)";
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 this.statementObject(preparedStatement, pelicula);
                 preparedStatement.executeUpdate();
-                System.out.println("Pelicula creada");
                 return;
             }
-            System.out.println("La pelicula ja existeix");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -78,7 +75,7 @@ public class MySQL implements IAccessDades {
     @Override
     public void actualitzar(int id, Pelicula pelicula) {
         try {
-            PreparedStatement statement = this.connection.prepareStatement("UPDATE films set title = ?, year = ?, director = ?, gender = ?, duration = ? WHERE id = " + id);
+            PreparedStatement statement = this.connection.prepareStatement("UPDATE catalegpelicules set titol = ?, any = ?, director = ?, genere = ?, duracio = ? WHERE id = " + id);
             this.statementObject(statement, pelicula);
             statement.executeUpdate();
         } catch (Exception e) {
@@ -89,13 +86,11 @@ public class MySQL implements IAccessDades {
     public void borrar(int id) {
         try {
             if (this.existeix(id)) {
-                PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM films WHERE id = ?");
+                PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM catalegpelicules WHERE id = ?");
                 preparedStatement.setInt(1, id);
                 preparedStatement.execute();
-                System.out.println("Se ha borrado correctamente la pelicula");
                 return;
             }
-            System.out.println("La pelicula no existeix");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -113,7 +108,7 @@ public class MySQL implements IAccessDades {
     public void reiniciarCataleg() {
         try {
             Statement statement = connection.createStatement();
-            statement.execute("DROP TABLE IF EXISTS films");
+            statement.execute("DELETE FROM catalegpelicules");
         } catch (Exception e) {
             e.printStackTrace();
         }

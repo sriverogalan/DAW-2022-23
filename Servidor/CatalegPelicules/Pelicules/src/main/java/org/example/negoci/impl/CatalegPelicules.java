@@ -15,6 +15,9 @@ public class CatalegPelicules implements ICatalegPelicules {
         for (Pelicula pelicula : this.iAccessDades.llistar()) {
             System.out.println(pelicula);
         }
+        if (this.iAccessDades.llistar().isEmpty()) {
+            System.out.println("No hi ha cap pelicula");
+        }
     }
     @Override
     public void crearPelicula(Pelicula pelicula) {
@@ -33,16 +36,16 @@ public class CatalegPelicules implements ICatalegPelicules {
     public void eliminarPelicula(String title) {
         for (Pelicula pelicula : this.iAccessDades.llistar()) {
             if (pelicula.getTitol().equals(title)) {
-                this.iAccessDades.borrar(pelicula.getId());
-            }
+               if (this.iAccessDades.existeix(pelicula.getId())) this.iAccessDades.borrar(pelicula.getId());
+            } else System.out.println("No existeix o no es troba la pelicula");
         }
     }
     @Override
     public void sobreEscriurePelicula(String title, Pelicula pelicula) {
         for (Pelicula p : this.iAccessDades.llistar()) {
             if (p.getTitol().equals(title)) {
-                this.iAccessDades.actualitzar(p.getId(), pelicula);
-            }
+                if (this.iAccessDades.existeix(pelicula.getId())) this.iAccessDades.actualitzar(p.getId(), pelicula);
+            }else System.out.println("No existeix o no es troba la pelicula");
         }
     }
 }

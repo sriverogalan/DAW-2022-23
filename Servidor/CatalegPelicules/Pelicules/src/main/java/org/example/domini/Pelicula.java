@@ -36,13 +36,13 @@ public class Pelicula {
 
     @Override
     public String toString() {
-        return "Pelicula{" +
-                "id=" + id +
-                ", titol='" + titol + '\'' +
-                ", any=" + any +
-                ", director='" + director + '\'' +
-                ", genero='" + genero + '\'' +
-                ", duracio=" + duracio +
-                '}';
+        return "| Pelicula " +
+                "| id " + id +
+                "| titol='" + titol + '\'' +
+                "| any=" + any +
+                "| director='" + director + '\'' +
+                "| genero='" + genero + '\'' +
+                "| duracio=" + duracio + '\'' +
+                '|';
     }
 }
