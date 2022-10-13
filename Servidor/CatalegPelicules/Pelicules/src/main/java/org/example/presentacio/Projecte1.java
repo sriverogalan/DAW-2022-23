@@ -14,7 +14,7 @@ public class Projecte1 {
 
     public Projecte1() {
         Scanner scanner = new Scanner(System.in);
-        if (scanner.nextLine().equalsIgnoreCase("mysql")) {
+        if (scanner.nextLine().equalsIgnoreCase("1")) {
             this.accessDades = new MySQL();
             this.iCatalegPelicules = new CatalegPelicules(this, accessDades);
             this.menu();
@@ -32,11 +32,11 @@ public class Projecte1 {
         switch (sc.nextInt()) {
             case 1:
                 System.out.println("Has seleccionat llistar pelicules");
-                iCatalegPelicules.llistarPelicules();
                 break;
             case 2:
                 System.out.println("Has escollit crear una pelicula");
                 indicarPelicula();
+                break;
             default:
                 System.out.println("Has elegit una opcio incorrecta");
                 break;

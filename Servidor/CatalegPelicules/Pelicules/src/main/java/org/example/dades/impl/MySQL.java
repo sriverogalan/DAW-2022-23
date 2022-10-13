@@ -100,13 +100,13 @@ public class MySQL implements IAccessDades {
     public void delete(String title) {
         try {
             if (exists(title)) {
-                Statement statement = connection.createStatement();
-                statement.executeUpdate("DELETE FROM catalegpelicules WHERE titol = '"+ title +"'");
+                PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM catalegpelicules WHERE titol = ?");
+                preparedStatement.setString(1, title);
+                preparedStatement.execute();
                 System.out.println("Se ha borrado correctamente la pelicula");
             } else {
                 System.out.println("No existe la pelicula que deseas eliminar");
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -9,11 +9,11 @@
 }
 
 .perro {
-  background: url("../../../img/perro.jpg");
+  background: url("../../img/perro.jpg");
 }
 
 .gato {
-  background: url("../../../img/gato.jpg");
+  background: url("../../img/gato.jpg");
 }
 .colors {
   background-color: #ff0000;
