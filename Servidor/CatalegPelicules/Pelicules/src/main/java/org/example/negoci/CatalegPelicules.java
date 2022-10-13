@@ -1,11 +1,10 @@
 package org.example.negoci;
 
 import org.example.dades.IAccessDades;
-import org.example.dades.impl.MySQL;
 import org.example.domini.Pelicula;
 import org.example.presentacio.Projecte1;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class CatalegPelicules implements ICatalegPelicules {
     private IAccessDades dataAccess;
@@ -14,18 +13,16 @@ public class CatalegPelicules implements ICatalegPelicules {
     public CatalegPelicules(Projecte1 mainMenu, IAccessDades dataAccess) {
         this.mainMenu = mainMenu;
         this.dataAccess = dataAccess;
-
     }
-
     @Override
     public void llistarPelicules() {
-        ArrayList<Pelicula> pelicules = (ArrayList<Pelicula>) dataAccess.list();
+        List<Pelicula> pelicules = dataAccess.list();
         for (Pelicula pelicula : pelicules) {
             System.out.println(pelicula);
         }
     }
     @Override
-    public void afegirPelicula(Pelicula pelicula) {
+    public void crearPelicula(Pelicula pelicula) {
         dataAccess.create(pelicula, pelicula.getTitol());
     }
     @Override
@@ -34,14 +31,13 @@ public class CatalegPelicules implements ICatalegPelicules {
     }
     @Override
     public void reiniciarCataleg() {
-
     }
     @Override
     public void eliminarPelicula(String title) {
-
+        dataAccess.delete(title);
     }
     @Override
     public void sobreEscriurePelicula(String title, Pelicula pelicula) {
-
+        dataAccess.update(pelicula, title);
     }
 }

@@ -10,13 +10,11 @@ import java.util.List;
 public class MySQL implements IAccessDades {
 
     private Connection connection;
-    private final String url = "jdbc:mysql://localhost:3306/prova";
-    private String user = "root";
-    private String password = "root";
 
     public MySQL() {
         try {
-            this.connection = DriverManager.getConnection(url, user, password);
+            String url = "jdbc:mysql://localhost:3306/prova";
+            this.connection = DriverManager.getConnection(url, "root", "root");
             System.out.println("Se ha conectado correctamente a la base de datos");
         } catch (Exception e) {
             e.printStackTrace();
@@ -95,6 +93,7 @@ public class MySQL implements IAccessDades {
     public void update(Pelicula pelicula, String titol) {
         String sql = "UPDATE catalegpelicules SET titol = ?, any = ?, director = ?, genere = ?, duracio = ? WHERE titol = " + titol;
         if (exists(titol)) preparedStatementConection(sql, pelicula);
+
     }
     @Override
     public void delete(String title) {
@@ -107,14 +106,6 @@ public class MySQL implements IAccessDades {
             } else {
                 System.out.println("No existe la pelicula que deseas eliminar");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    // close connection
-    public void closeConnection() {
-        try {
-            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

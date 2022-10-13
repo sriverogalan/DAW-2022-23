@@ -4,7 +4,7 @@ import org.example.domini.Pelicula;
 
 public interface ICatalegPelicules {
     void llistarPelicules();
-    void afegirPelicula(Pelicula pelicula);
+    void crearPelicula(Pelicula pelicula);
     void cercarPelicula(String titol);
     void reiniciarCataleg();
     void eliminarPelicula(String title);

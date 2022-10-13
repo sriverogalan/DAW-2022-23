@@ -5,6 +5,7 @@ import org.example.dades.impl.MySQL;
 import org.example.domini.Pelicula;
 import org.example.negoci.CatalegPelicules;
 import org.example.negoci.ICatalegPelicules;
+import org.example.texto.Text;
 
 import java.util.*;
 
@@ -13,6 +14,7 @@ public class Projecte1 {
     private ICatalegPelicules iCatalegPelicules;
 
     public Projecte1() {
+        Text.menuDatabase();
         Scanner scanner = new Scanner(System.in);
         if (scanner.nextLine().equalsIgnoreCase("1")) {
             this.accessDades = new MySQL();
@@ -22,27 +24,44 @@ public class Projecte1 {
     }
 
     public void menu() {
+        Text.menuOptions();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Introdueix el numero que vols que faci el programa :");
-        System.out.println("1. Llistat de pelicules");
-        System.out.println("2. Crear pelicula");
-        System.out.println("3. Cercar pelicula per id");
-        System.out.println("4. Canvis a una pelicula");
-        System.out.println("5. Borrar una pelicula");
         switch (sc.nextInt()) {
             case 1:
-                System.out.println("Has seleccionat llistar pelicules");
+                iCatalegPelicules.llistarPelicules();
+                this.menu();
                 break;
             case 2:
-                System.out.println("Has escollit crear una pelicula");
-                indicarPelicula();
+                iCatalegPelicules.crearPelicula(indicarPelicula());
+                this.menu();
+                break;
+            case 3:
+                iCatalegPelicules.cercarPelicula(indicarTitol());
+                this.menu();
+                break;
+            case 4:
+                iCatalegPelicules.sobreEscriurePelicula(indicarTitol(), indicarPelicula());
+                this.menu();
+                break;
+            case 5:
+                iCatalegPelicules.eliminarPelicula(indicarTitol());
+                this.menu();
+                break;
+            case 6:
+                iCatalegPelicules.reiniciarCataleg();
+                this.menu();
+                break;
+            case 7:
+                System.exit(0);
                 break;
             default:
                 System.out.println("Has elegit una opcio incorrecta");
+                this.menu();
                 break;
         }
     }
-    public Pelicula indicarPelicula(){
+
+    public Pelicula indicarPelicula() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Introdueix el titol de la pelicula");
@@ -58,7 +77,7 @@ public class Projecte1 {
         return new Pelicula(titol, director, any, genero, duracio);
     }
 
-    public String indicarTitol(){
+    public String indicarTitol() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introdueix el titol de la pelicula");
         return sc.nextLine();
