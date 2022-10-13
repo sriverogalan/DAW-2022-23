@@ -2,7 +2,6 @@ package org.example.presentacio;
 
 import org.example.dades.IAccessDades;
 import org.example.dades.impl.MySQL;
-import org.example.dades.impl.PostgreSQL;
 import org.example.domini.Pelicula;
 import org.example.negoci.impl.CatalegPelicules;
 import org.example.negoci.ICatalegPelicules;

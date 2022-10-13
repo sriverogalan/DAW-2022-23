@@ -2,7 +2,6 @@ package org.example.dades;
 
 import org.example.domini.Pelicula;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface IAccessDades {
