@@ -5,7 +5,7 @@ import org.example.dades.impl.MySQL;
 import org.example.domini.Pelicula;
 import org.example.negoci.impl.CatalegPelicules;
 import org.example.negoci.ICatalegPelicules;
-import org.example.texto.Text;
+import org.example.texte.Texte;
 
 import java.util.*;
 
@@ -18,7 +18,7 @@ public class Projecte1 {
     }
 
     public void seleccioBaseDeDades() {
-        Text.menuBaseDeDades();
+        Texte.menuBaseDeDades();
         Scanner scanner = new Scanner(System.in);
         switch (scanner.nextInt()) {
             case 1:
@@ -37,8 +37,8 @@ public class Projecte1 {
     }
 
     public void menuPrincipal() {
-        Text.separtacio();
-        Text.menuOpcions();
+        Texte.separtacio();
+        Texte.menuOpcions();
         Scanner sc = new Scanner(System.in);
         switch (sc.nextInt()) {
             case 1:

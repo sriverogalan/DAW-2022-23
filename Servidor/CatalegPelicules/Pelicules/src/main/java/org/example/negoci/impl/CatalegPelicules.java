@@ -6,7 +6,6 @@ import org.example.negoci.ICatalegPelicules;
 
 public class CatalegPelicules implements ICatalegPelicules {
     private final IAccessDades iAccessDades;
-
     public CatalegPelicules(IAccessDades dataAccess) {
         this.iAccessDades = dataAccess;
     }
@@ -27,7 +26,6 @@ public class CatalegPelicules implements ICatalegPelicules {
     public void cercarPelicula(String titol) {
         this.iAccessDades.cercar(titol);
     }
-
     @Override
     public void reiniciarCataleg() {
         this.iAccessDades.reiniciarCataleg();

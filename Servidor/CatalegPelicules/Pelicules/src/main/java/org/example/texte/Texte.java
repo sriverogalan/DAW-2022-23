@@ -1,6 +1,6 @@
-package org.example.texto;
+package org.example.texte;
 
-public class Text {
+public class Texte {
     public static void menuBaseDeDades() {
         System.out.println("Elige una opcion:");
         System.out.println("1. MySQL");
