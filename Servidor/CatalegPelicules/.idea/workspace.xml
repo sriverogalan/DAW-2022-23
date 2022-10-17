@@ -5,84 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/IAccessDades.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/MySQL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Pelicula.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/negoci/ICatalegPelicules.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/negoci/impl/CatalegPelicules.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Projecte1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/texte/Texte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/alta.producte.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/fitxa.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/fitxa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/llista.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/llista.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatalegPelicules.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/Pelicules.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/dades/IAccessDades.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/dades/impl/MySQL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/domini/Pelicula.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/negoci/ICatalegPelicules.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/negoci/impl/CatalegPelicules.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/presentacio/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/presentacio/Projecte1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/texte/Texte.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/dades/IAccessDades.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/dades/impl/MySQL.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/domini/Pelicula.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/negoci/ICatalegPelicules.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/negoci/impl/CatalegPelicules.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/presentacio/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/presentacio/Projecte1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/texte/Texte.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CatalegPelixules/Domini/Pelicula.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CatalegPelixules/Presentacio/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CatalegPelixules/Presentacio/Projecte1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domini/Pelicula.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentacio/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Presentacio/Projecte1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/out/production/untitled/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/out/production/untitled/domini/Pelicula.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/src/dades/IAccessDades.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/src/domini/Pelicula.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/untitled.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/src/main/java/com/example/myfirstjavafx/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/src/main/java/com/example/myfirstjavafx/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/src/main/resources/com/example/myfirstjavafx/hello-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SergiRiveroGalan - SETMANA1 SERVIDOR JAVA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665995239048</updated>
-      <workItem from="1665995240785" duration="368000" />
+      <workItem from="1665995240785" duration="2306000" />
     </task>
     <servers />
   </component>
