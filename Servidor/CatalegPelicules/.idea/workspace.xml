@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ff5c58bd-6f9d-4326-b1a8-18a354104362" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/src/main/java/com/example/entorngrafic/HelloApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/src/main/java/com/example/entorngrafic/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/src/main/resources/com/example/entorngrafic/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/alta.producte.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/fitxa.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/fitxa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/llista.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/llista.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CatalegPelicules.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CatalegPelicules.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Pelicules/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Pelicules/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Pelicules/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/negoci/impl/CatalegPelicules.class" beforeDir="false" afterPath="$PROJECT_DIR$/Pelicules/target/classes/org/example/negoci/impl/CatalegPelicules.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ff5c58bd-6f9d-4326-b1a8-18a354104362" name="Changes" comment="" />
+      <created>1665992752176</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665992752176</updated>
+      <workItem from="1665992753456" duration="38000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
