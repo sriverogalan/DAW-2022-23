@@ -10,6 +10,35 @@
 
 </head>
 <body> 
+    
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Botiga.cat</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li> 
+        </div>
+    </div>
+</nav>
 <div class="container text-center">
   <div class="row"> 
 <?php
@@ -21,11 +50,17 @@ $result = $conn->query($sql); // Execute query
 if ($result->num_rows > 0) { // output data of each row
     while($row = $result->fetch_assoc()) { 
         echo "<div class='col-6'><img src='img/".$row["id"].".jpg' class='col-12'></div>";
-        echo "<div class='col-6 align-middle'><h3>".$row["nom"]."</h3>";
-        echo "<p>".$row["descripcio"]."</p>";
-        echo "<p>".$row["preu"]." €</p>";
-        echo "<a href='carreto.php' class='btn btn-primary'>Comprar</a>";
-        echo "<a href='llista.php' class='btn btn-danger'>Tornar</a></div>";
+        echo "<div class='col-6 d-flex align-items-center'>";
+            echo "<div class='col-12 row'>";
+                echo "<h2>".$row["nom"]."</h2>";
+                echo "<p>".$row["descripcio"]."</p>";
+                echo "<p>".$row["preu"]." €</p>";
+                echo "<div class='d-flex justify-content-between'>";
+                    echo "<a href='carreto.php' class='btn btn-primary col-4'>Comprar</a>";
+                    echo "<a href='llista.php' class='btn btn-danger col-4'>Tornar</a>"; 
+                echo "</div>";
+            echo "</div>";
+        echo "</div>";
 
     }
 } else {

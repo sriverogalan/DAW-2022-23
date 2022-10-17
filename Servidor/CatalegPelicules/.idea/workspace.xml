@@ -1,29 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff5c58bd-6f9d-4326-b1a8-18a354104362" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/src/main/java/com/example/entorngrafic/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/src/main/java/com/example/entorngrafic/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pelicules/entorngrafic/src/main/resources/com/example/entorngrafic/hello-view.fxml" afterDir="false" />
+    <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/IAccessDades.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/MySQL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Pelicula.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/negoci/ICatalegPelicules.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/negoci/impl/CatalegPelicules.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Projecte1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/texte/Texte.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/alta.producte.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/fitxa.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/fitxa.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/llista.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Desplegament/llista.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CatalegPelicules.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CatalegPelicules.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Pelicules/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Pelicules/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Pelicules/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/negoci/impl/CatalegPelicules.class" beforeDir="false" afterPath="$PROJECT_DIR$/Pelicules/target/classes/org/example/negoci/impl/CatalegPelicules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CatalegPelicules.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/Pelicules.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/dades/IAccessDades.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/dades/impl/MySQL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/domini/Pelicula.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/negoci/ICatalegPelicules.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/negoci/impl/CatalegPelicules.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/presentacio/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/presentacio/Projecte1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/src/main/java/org/example/texte/Texte.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/dades/IAccessDades.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/dades/impl/MySQL.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/domini/Pelicula.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/negoci/ICatalegPelicules.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/negoci/impl/CatalegPelicules.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/presentacio/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/presentacio/Projecte1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pelicules/target/classes/org/example/texte/Texte.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CatalegPelixules/Domini/Pelicula.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CatalegPelixules/Presentacio/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CatalegPelixules/Presentacio/Projecte1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domini/Pelicula.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentacio/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Presentacio/Projecte1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/out/production/untitled/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/out/production/untitled/domini/Pelicula.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/dades/IAccessDades.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/src/domini/Pelicula.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/untitled.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/src/main/java/com/example/myfirstjavafx/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/src/main/java/com/example/myfirstjavafx/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX/MyFirstJavaFX/src/main/resources/com/example/myfirstjavafx/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SergiRiveroGalan - SETMANA1 SERVIDOR JAVA.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,20 +95,70 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2GFraalGB7zI5M44zP4bhz7sJGK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.org.catalegpelicules.presentacio.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.catalegpelicules.Main" />
+      <module name="CatalegPelicules" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.catalegpelicules.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="org.catalegpelicules.presentacio.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.catalegpelicules.presentacio.Main" />
+      <module name="CatalegPelicules" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.catalegpelicules.presentacio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.org.catalegpelicules.presentacio.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ff5c58bd-6f9d-4326-b1a8-18a354104362" name="Changes" comment="" />
-      <created>1665992752176</created>
+      <changelist id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="" />
+      <created>1665995239048</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1665992752176</updated>
-      <workItem from="1665992753456" duration="38000" />
+      <updated>1665995239048</updated>
+      <workItem from="1665995240785" duration="368000" />
     </task>
     <servers />
   </component>
@@ -66,5 +175,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

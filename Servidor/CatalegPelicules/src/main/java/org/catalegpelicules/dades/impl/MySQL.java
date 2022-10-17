@@ -1,7 +1,7 @@
-package org.example.dades.impl;
+package org.catalegpelicules.dades.impl;
 
-import org.example.dades.IAccessDades;
-import org.example.domini.Pelicula;
+import org.catalegpelicules.dades.IAccessDades;
+import org.catalegpelicules.domini.Pelicula;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -20,6 +20,7 @@ public class MySQL implements IAccessDades {
             e.printStackTrace();
         }
     }
+
     @Override
     public List<Pelicula> llistar() {
         List<Pelicula> llistaPelicules = new ArrayList<>();
@@ -35,6 +36,7 @@ public class MySQL implements IAccessDades {
         }
         return llistaPelicules;
     }
+
     @Override
     public boolean existeix(int id) {
         try {
@@ -46,6 +48,7 @@ public class MySQL implements IAccessDades {
         }
         return false;
     }
+
     @Override
     public void crear(Pelicula pelicula) {
         try {
@@ -60,6 +63,7 @@ public class MySQL implements IAccessDades {
             e.printStackTrace();
         }
     }
+
     @Override
     public void cercar(String titol) {
         try {
@@ -82,6 +86,7 @@ public class MySQL implements IAccessDades {
             e.printStackTrace();
         }
     }
+
     @Override
     public void borrar(int id) {
         try {

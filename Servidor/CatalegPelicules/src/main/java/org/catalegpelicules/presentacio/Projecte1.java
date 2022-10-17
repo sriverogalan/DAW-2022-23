@@ -1,13 +1,13 @@
-package org.example.presentacio;
+package org.catalegpelicules.presentacio;
 
-import org.example.dades.IAccessDades;
-import org.example.dades.impl.MySQL;
-import org.example.domini.Pelicula;
-import org.example.negoci.impl.CatalegPelicules;
-import org.example.negoci.ICatalegPelicules;
+import org.catalegpelicules.dades.IAccessDades;
+import org.catalegpelicules.dades.impl.MySQL;
+import org.catalegpelicules.domini.Pelicula;
+import org.catalegpelicules.negoci.ICatalegPelicules;
+import org.catalegpelicules.negoci.impl.CatalegPelicules;
 import org.example.texte.Texte;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Projecte1 {
     private ICatalegPelicules iCatalegPelicules;
@@ -26,7 +26,7 @@ public class Projecte1 {
                 this.iCatalegPelicules = new CatalegPelicules(iAccessDades);
                 this.menuPrincipal();
                 break;
-            case  2:
+            case 2:
                 System.out.println("No implementat");
                 break;
             default:

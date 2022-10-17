@@ -1,22 +1,23 @@
-package org.example.domini;
+package org.catalegpelicules.domini;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @AllArgsConstructor
-@Getter @Setter
+@Getter
+@Setter
 public class Pelicula {
 
     /*
-    * Atributs
-    * @id: identificador de la pelicula
-    * @titol: titol de la pelicula
-    * @director: director de la pelicula
-    * @any: any de la pelicula
-    * @genere: genero de la pelicula
-    * @duracio: duracion de la pelicula
-    */
+     * Atributs
+     * @id: identificador de la pelicula
+     * @titol: titol de la pelicula
+     * @director: director de la pelicula
+     * @any: any de la pelicula
+     * @genere: genero de la pelicula
+     * @duracio: duracion de la pelicula
+     */
 
     private int id;
     private String titol;
