@@ -2,6 +2,7 @@ package org.catalegpelicules.presentacio;
 
 import org.catalegpelicules.dades.IAccessDades;
 import org.catalegpelicules.dades.impl.MySQL;
+import org.catalegpelicules.dades.impl.PosgreSQL;
 import org.catalegpelicules.domini.Pelicula;
 import org.catalegpelicules.negoci.ICatalegPelicules;
 import org.catalegpelicules.negoci.impl.CatalegPelicules;
@@ -27,7 +28,8 @@ public class Projecte1 {
                 this.menuPrincipal();
                 break;
             case 2:
-                System.out.println("No implementat");
+                this.iAccessDades = new PosgreSQL();
+                this.iCatalegPelicules = new CatalegPelicules(iAccessDades);
                 break;
             default:
                 System.out.println("Opció incorrecta");

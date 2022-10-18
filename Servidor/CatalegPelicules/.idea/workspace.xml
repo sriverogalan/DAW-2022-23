@@ -5,12 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/PosgreSQL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Director.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/MySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/MySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Pelicula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Pelicula.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Projecte1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Projecte1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/MySQL.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/MySQL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Projecte1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Projecte1.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -26,19 +43,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.org.catalegpelicules.presentacio.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.catalegpelicules.Main" />
@@ -82,6 +99,8 @@
       <option name="presentableId" value="Default" />
       <updated>1665995239048</updated>
       <workItem from="1665995240785" duration="2306000" />
+      <workItem from="1666032374815" duration="4614000" />
+      <workItem from="1666073652611" duration="1864000" />
     </task>
     <servers />
   </component>

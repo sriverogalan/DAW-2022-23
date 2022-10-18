@@ -14,8 +14,7 @@ public class MySQL implements IAccessDades {
 
     public MySQL() {
         try {
-            String url = "jdbc:mysql://localhost:3306/prova";
-            this.connection = DriverManager.getConnection(url, "root", "root");
+            this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/prova", "root", "root");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -28,7 +27,7 @@ public class MySQL implements IAccessDades {
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery("SELECT * FROM catalegpelicules");
             while (rs.next()) {
-                Pelicula pelicula = new Pelicula(rs.getInt("id"), rs.getString("titol"), rs.getInt("any"), rs.getString("director"), rs.getString("genere"), rs.getInt("duracio"));
+                Pelicula pelicula = new Pelicula(rs.getInt("id"), rs.getString("titol"), rs.getInt("any"), rs.getString("director_nom"), rs.getString("director_llinatges"), rs.getString("genere"), rs.getInt("duracio"));
                 llistaPelicules.add(pelicula);
             }
         } catch (SQLException e) {

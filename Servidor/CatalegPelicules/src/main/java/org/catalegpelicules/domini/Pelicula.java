@@ -22,13 +22,13 @@ public class Pelicula {
     private int id;
     private String titol;
     private int any;
-    private String director;
+    private Director director;
     private String genero;
     private int duracio;
 
-    public Pelicula(String titol, String director, int any, String genero, int duracio) {
+    public Pelicula(String titol, String director_nom, String director_llinatges, int any, String genero, int duracio) {
         this.titol = titol;
-        this.director = director;
+        this.director = new Director(director_nom,director_llinatges);
         this.any = any;
         this.genero = genero;
         this.duracio = duracio;

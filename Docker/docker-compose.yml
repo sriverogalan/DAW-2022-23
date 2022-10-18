@@ -1,4 +1,4 @@
-version: '2'
+version: '3.8'
 services:
 
   php:
@@ -35,3 +35,28 @@ services:
       - 8083:80
     expose:
       - 8083
+
+  postgres:
+    image: postgres:latest
+    volumes:
+      - ./volums/postgres:º
+    environment:
+      DATABASE_HOST: 127.0.0.1
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: user
+      POSTGRES_DB: db
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root@root.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - 8084:80
+    expose:
+      - 8084
