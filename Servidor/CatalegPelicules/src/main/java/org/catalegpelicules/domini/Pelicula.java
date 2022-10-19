@@ -8,32 +8,21 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Pelicula {
-
-    /*
-     * Atributs
-     * @id: identificador de la pelicula
-     * @titol: titol de la pelicula
-     * @director: director de la pelicula
-     * @any: any de la pelicula
-     * @genere: genero de la pelicula
-     * @duracio: duracion de la pelicula
-     */
-
     private int id;
     private String titol;
     private int any;
     private Director director;
-    private String genero;
+    private Genere genere;
     private int duracio;
 
-    public Pelicula(String titol, String director_nom, String director_llinatges, int any, String genero, int duracio) {
+    public Pelicula(int id, Director director, Genere genere, String titol, int any, int duracio) {
+        this.id = id;
         this.titol = titol;
-        this.director = new Director(director_nom,director_llinatges);
         this.any = any;
-        this.genero = genero;
+        this.director = director;
+        this.genere = genere;
         this.duracio = duracio;
     }
-
 
     @Override
     public String toString() {
@@ -41,8 +30,8 @@ public class Pelicula {
                 "| id " + id +
                 "| titol='" + titol + '\'' +
                 "| any=" + any +
-                "| director='" + director + '\'' +
-                "| genero='" + genero + '\'' +
+                "| " + director + '\'' +
+                "| " + genere + '\'' +
                 "| duracio=" + duracio + '\'' +
                 '|';
     }

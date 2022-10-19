@@ -1,7 +1,7 @@
 package org.catalegpelicules.dades.impl;
 
 import org.catalegpelicules.dades.IAccessDades;
-import org.catalegpelicules.domini.Pelicula;
+import org.catalegpelicules.domini.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -25,9 +25,12 @@ public class MySQL implements IAccessDades {
         List<Pelicula> llistaPelicules = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT * FROM catalegpelicules");
-            while (rs.next()) {
-                Pelicula pelicula = new Pelicula(rs.getInt("id"), rs.getString("titol"), rs.getInt("any"), rs.getString("director_nom"), rs.getString("director_llinatges"), rs.getString("genere"), rs.getInt("duracio"));
+            ResultSet rs_pelicules = statement.executeQuery("SELECT * FROM catalegpelicules");
+            ResultSet rs_directors = statement.executeQuery("SELECT * FROM directors");
+            ResultSet rs_generes = statement.executeQuery("SELECT * FROM generes");
+
+            while (rs_pelicules.next()) {
+            Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Director(rs_directors.getInt("id")), new Genere(rs.getInt("genere")), rs.getString("titol"), rs.getInt("any"), rs.getInt("duracio"));
                 llistaPelicules.add(pelicula);
             }
         } catch (SQLException e) {

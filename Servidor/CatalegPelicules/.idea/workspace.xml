@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/PosgreSQL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Director.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Genere.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/MySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/MySQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Director.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Pelicula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Pelicula.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Projecte1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Projecte1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/MySQL.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/MySQL.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Projecte1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Projecte1.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +96,9 @@
       <updated>1665995239048</updated>
       <workItem from="1665995240785" duration="2306000" />
       <workItem from="1666032374815" duration="4614000" />
-      <workItem from="1666073652611" duration="1864000" />
+      <workItem from="1666073652611" duration="6489000" />
+      <workItem from="1666112063425" duration="1949000" />
+      <workItem from="1666199730593" duration="625000" />
     </task>
     <servers />
   </component>

@@ -85,8 +85,11 @@ public class Projecte1 {
         System.out.println("Introdueix el titol de la pelicula");
         String titol = sc.nextLine();
 
-        System.out.println("Introdueix el director de la pelicula");
-        String director = sc.nextLine();
+        System.out.println("Introdueix el nom del director de la pelicula");
+        String director_nom = sc.nextLine();
+
+        System.out.println("Introdueix els llinatges del director de la pelicula");
+        String director_llinatges = sc.nextLine();
 
         System.out.println("Introdueix el genero de la pelicula");
         String genero = sc.nextLine();
@@ -97,7 +100,7 @@ public class Projecte1 {
         System.out.println("Introdueix la duracio de la pelicula");
         int duracio = sc.nextInt();
 
-        return new Pelicula(titol, director, any, genero, duracio);
+        return new Pelicula(titol, director_nom, director_llinatges, any, genero, duracio);
     }
 
     public String indicarTitol() {
