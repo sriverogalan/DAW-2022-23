@@ -1,6 +1,5 @@
-package org.catalegpelicules.dades.access.impl;
-import org.catalegpelicules.dades.access.IAccessDades;
-import org.catalegpelicules.domini.Genere;
+package org.catalegpelicules.dades.access;
+import org.catalegpelicules.dades.IAccessDades;
 import org.catalegpelicules.domini.Pelicula;
 
 import java.sql.Connection;
@@ -19,14 +18,8 @@ public class PosgreSQL implements IAccessDades {
             e.printStackTrace();
         }
     }
-
     @Override
     public boolean existeixCataleg(int id) {
-        return false;
-    }
-
-    @Override
-    public boolean existeixGenere(int id) {
         return false;
     }
 
@@ -41,17 +34,7 @@ public class PosgreSQL implements IAccessDades {
     }
 
     @Override
-    public void actualitzarPelicula(int id, Genere genere) {
-
-    }
-
-    @Override
     public void crearPelicules(Pelicula pelicula) {
-
-    }
-
-    @Override
-    public void crearGenere(Pelicula pelicula) {
 
     }
 
@@ -61,17 +44,7 @@ public class PosgreSQL implements IAccessDades {
     }
 
     @Override
-    public void borrarGenere(int id) {
-
-    }
-
-    @Override
     public void cercarPelicula(String titol) {
-
-    }
-
-    @Override
-    public void cercarGenere(String titol) {
 
     }
 
