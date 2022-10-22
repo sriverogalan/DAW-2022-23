@@ -2,42 +2,101 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Title</title>
 </head>
-<body> 
-    <script> 
-        function Lletra(valor){ 
-            this.valor=valor;
-            this.seleccionat=false;
+<body>
+<script>
+    function Lletra(id,valor){
+        this.id=id;
+        this.valor=valor;
+        this.seleccionat=false;
+    }
+
+    function Paraula(){
+        var paraules=["windows","linux","mac"]
+        var paraulesArr = [];
+        this.seleccionada;
+        this.init=function(lletres){
+            for(var paraula of paraules){
+                var current = [];
+                for(var lletraParaula of paraula){
+                    for(var lletra of lletres){
+                        if(lletra.valor===lletraParaula){
+                            current.push(lletra)
+                        }
+                    }
+                }
+                paraulesArr.push(current);
+            }
+            this.seleccionada = paraulesArr[Math.floor(Math.random()*paraules.length)];
+        }
+        this.desbloquetjar=function(lletraSelecionada){
+            for(var lletra of this.seleccionada){
+                lletra.seleccionat=true;
+            }
+        }
+    }
+
+    function Penjat(){
+        this.imatge=1;
+        this.lletres=[];
+        this.paraulaSeleccionada;
+
+        this.init=function(){
+            var lletres="abcdefghijklmnopqrstuvwxyzñçáàéèíóòú";
+            var i=0;
+            for(var lletra of lletres){
+                this.lletres.push(new Lletra("ll"+i,lletra));
+                i++;
+            }
+
+            var paraula = new Paraula();
+            paraula.init(this.lletres);
+            this.paraulaSeleccionada=paraula.seleccionada;
+
+            this.pinta();
         }
 
-        function Paraula(lletres){
-            this.lletres = lletres; 
-        } 
-        function Penjat(){
-            this.imatge=1; 
-            this.lletres=[];
+        this.pinta=function(){
+            var scriptInicial = document.querySelector("body").innerHTML;
 
-            
-            this.init=function(){ 
-                var lletres="abcdefghijklmnopqrstuvwxyz";
-                for(var lletra of lletres){
-                    this.lletres.push(new Lletra(lletra));
-                }
-                
-                console.log(this.lletres);
-            } 
+            document.querySelector("body").innerHTML='<img src="img/'+this.imatge+'.PNG" alt="penjat">';
+            document.querySelector("body").innerHTML += scriptInicial;
 
+            for(var lletra of this.lletres){
+                var boto = document.createElement("button");
+                boto.addEventListener('click',this.play);
+                boto.innerHTML=lletra.valor;
+                boto.objLletra = lletra;
+                boto.id=lletra.id
 
-            this.pintar=function(){
-                document.querySelector("body").innerHTML+="<img src='img/"+this.imatge+".PNG'>";
+                document.querySelector("body").appendChild(boto);
             }
-        } 
-        var penjat = new Penjat();
-        penjat.init();
-        penjat.pintar();
-    </script>
+ 
+            for(var l of this.paraulaSeleccionada){
+                var txt = document.createElement("span");
+                if(l.seleccionada) {
+                    txt.innerHTML += l.valor;
+                } else {
+                    txt.innerHTML += " _ ";
+                }
+                document.querySelector("body").appendChild(txt);
+            } 
+        }
+
+        this.play=function(evt){
+            var lletra = evt.currentTarget.objLletra;
+            console.log(lletra);
+            lletra.seleccionada=true; 
+            if(lletra.seleccionada ){ 
+                document.querySelector("#"+lletra.id).disabled=true;
+            }
+
+        }
+    }
+
+    var penjat = new Penjat();
+    penjat.init();
+</script>
 </body>
 </html>

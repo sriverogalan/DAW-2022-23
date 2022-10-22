@@ -29,6 +29,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="carreto.php">Carreto</a>
                 </li> 
+            </ul>
         </div>
     </div>
 </nav>

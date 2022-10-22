@@ -1,23 +1,22 @@
 package org.catalegpelicules.dades;
 
+import org.catalegpelicules.domini.Genere;
 import org.catalegpelicules.domini.Pelicula;
 
 import java.util.List;
 
 public interface IAccessDades {
-    boolean existeix(int id);
-
-    List<Pelicula> llistar();
-
-    void actualitzar(int id, Pelicula pelicula);
-
-    void crear(Pelicula pelicula);
-
-    void borrar(int id);
-
-    void cercar(String titol);
-
+    List<Pelicula> llistarCataleg();
+    List<Genere> llistarGeneres();
+    void actualitzarGenere(int id, Genere genere);
+    boolean existeixCataleg(int id);
+    boolean existeixGenere(int id);
+    void actualitzarPelicula(int id, Pelicula pelicula);
+    void crearPelicules(Pelicula pelicula);
+    void crearGenere(String genere);
+    void borrarPelicula(int id);
+    void cercarPelicula(int id);
+    void borrarGenere(int id);
     void tancarConexio();
-
     void reiniciarCataleg();
 }

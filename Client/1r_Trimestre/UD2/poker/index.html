@@ -4,47 +4,87 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>POKER</title>
 </head>
 <body>
-    <button onclick="openGame()">Play!</button>
-    <button onclick="closeWin()">Tanca la finestra del joc</button>
-    <button onclick="closeProgram()">Tanca tot el programa</button>
-    <script>
-            function start(){
-                var str=prompt('Vols fer trampes? ("SI" o "NO")','');
-                while(/^\s*$/.test(str)) 
-                str=prompt('Vols fer trampes? ("SI" o "NO")',''); 
-                if(str=="SI"){
-                    alert("Ah... com que ets un trampos? Anem a jugar facil");  
-                    return str; 
-                }else if(str=="NO"){
-                    alert("Ets molt honrat, però segur que perdràs!");   
-                    return str; 
-                }else{
-                    alert("No has triat una opció vàlida");
-                    location.reload(); 
-                } 
-            } 
+    <img>
+    <img>
+    <img>
+    <img>
+    <img>
+    <button object.onclick = function(){myScript}>Jugar !</button> 
+    <h1></h1>
 
-            var resposta = start();
-            var url = "poker.html"+"?info="+resposta; 
-            
-  
-            var myWindow;
+    <script>  
+    document.querySelector("body").style.backgroundColor = "green";
+    function Card(num, type){
+        this.num = num;
+        this.type = type;
+        this.src = function(){
+            return "./img/"+ this.num + "_of_" + this.type + ".png";
+        }
+    }
+ 
+    function Game(){
+        var numbers = ["2","3","4","5","6","7","8","9","10","jack","queen","king","ace"];
+        var types = ["clubs","diamonds","hearts","spades"];
+        this.cards = [];
+        this.cardsPlayed = [];
 
-            function openGame(){ 
-                myWindow = window.open(url, "", "width=800, height=300");
-            }   
-
-            function closeWin() {
-                myWindow.close();
+        this.init = function(){
+            for(number of numbers){
+                for(type of types){
+                    var card = new Card(number, type);
+                    this.cards.push(card);
+                }
             }
+        }
+        this.win = function(){ 
+            for(var i = 0; i < this.cardsPlayed.length; i++){
+                for(var j = 0; j < this.cardsPlayed.length; j++){
+                    if(i !== j){
+                        if(this.cardsPlayed[i].num === this.cardsPlayed[j].num){
+                            document.querySelector("h1").innerHTML = "<h1>Has ganado!</h1>"; 
+                        } 
+                    }
+                }
+            }
+        } 
 
-            function closeProgram() {
-                window.close();
+        this.play = function(){ 
+            this.reset();
+            this.init(); 
+            this.generateCardsPlay();
+            this.printCards();  
+            this.win();
+        } 
+
+        this.generateCardsPlay = function(){ 
+            var cardRandom = this.cards[Math.floor(Math.random() * this.cards.length)];
+
+            for(var i = 0; i < 5; i++){  
+                while(this.cardsPlayed.includes(cardRandom)){
+                    cardRandom = this.cards[Math.floor(Math.random() * this.cards.length)];
+                }
+                this.cardsPlayed.push(cardRandom);
             }  
+        }
 
+        this.printCards = function(){
+            var array_img = document.querySelectorAll("img"); 
+            for(var i = 0; i < 5; i++){
+                array_img[i].style.width = "250px";
+                array_img[i].src = this.cardsPlayed[i].src();
+            } 
+        } 
+        this.reset = function() {
+            this.cardsPlayed = [];
+            document.querySelector("h1").innerHTML = "<h1>Has perdido!</h1>";
+        }
+    }
+
+    var joc = new Game();
+    document.querySelector("button").onclick = function(){joc.play()};
 
     </script>
 </body>

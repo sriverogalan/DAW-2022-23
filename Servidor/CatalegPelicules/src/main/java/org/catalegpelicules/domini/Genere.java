@@ -1,39 +1,34 @@
 package org.catalegpelicules.domini;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.sql.Connection;
+
+@Getter
+@Setter
 public class Genere {
     private int id;
-    private String nom;
-
-    public Genere(int id, String nom) {
-        this.id = id;
-        this.nom = nom;
-    }
+    private String genere;
 
     public Genere(int id){
         this.id = id;
     }
-
-    public int getId() {
-        return id;
+    public Genere(String genere){
+        this.genere = genere;
     }
 
-    public void setId(int id) {
+    public Genere(int id, String nom) {
         this.id = id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
+        this.genere = nom;
     }
 
     @Override
     public String toString() {
         return "Genere{" +
                 "id=" + id +
-                ", nom='" + nom + '\'' +
+                ", nom='" + genere + '\'' +
                 '}';
     }
 }

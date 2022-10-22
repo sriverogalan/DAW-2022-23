@@ -5,13 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Genere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/PostgreSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Client/1r_Trimestre/UD2/explicacio1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/1r_Trimestre/UD2/explicacio1/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Client/1r_Trimestre/UD2/poker/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/1r_Trimestre/UD2/poker/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Client/1r_Trimestre/UD2/poker/poker.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Client/1r_Trimestre/UD2/pokerBOM/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/1r_Trimestre/UD2/pokerBOM/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Client/1r_Trimestre/UD3/Penjat/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/1r_Trimestre/UD3/Penjat/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Desplegament/botiga.cat/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Desplegament/botiga.cat/navbar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/IAccessDades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/IAccessDades.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/access/IAccessDades.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/access/impl/MySQL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/access/impl/PosgreSQL.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/MySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/MySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Director.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Director.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/PosgreSQL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Genere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Genere.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Pelicula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/domini/Pelicula.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/negoci/ICatalegPelicules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/negoci/ICatalegPelicules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/negoci/impl/CatalegPelicules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/negoci/impl/CatalegPelicules.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Projecte1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Projecte1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/texte/Texte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/texte/Texte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/IAccessDades.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/IAccessDades.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/MySQL.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/MySQL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/PosgreSQL.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/PosgreSQL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/domini/Pelicula.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/domini/Pelicula.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/ICatalegPelicules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/ICatalegPelicules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/impl/CatalegPelicules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/impl/CatalegPelicules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Projecte1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Projecte1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/texte/Texte.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,19 +60,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.org.catalegpelicules.presentacio.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.catalegpelicules.Main" />
@@ -98,7 +124,13 @@
       <workItem from="1666032374815" duration="4614000" />
       <workItem from="1666073652611" duration="6489000" />
       <workItem from="1666112063425" duration="1949000" />
-      <workItem from="1666199730593" duration="625000" />
+      <workItem from="1666199730593" duration="1214000" />
+      <workItem from="1666252891436" duration="5443000" />
+      <workItem from="1666281827571" duration="8446000" />
+      <workItem from="1666332741842" duration="4918000" />
+      <workItem from="1666345183790" duration="7370000" />
+      <workItem from="1666363272026" duration="4473000" />
+      <workItem from="1666437788435" duration="11450000" />
     </task>
     <servers />
   </component>

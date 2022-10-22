@@ -1,26 +1,24 @@
 package org.catalegpelicules.domini;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
 @AllArgsConstructor
 @Getter
 @Setter
 public class Pelicula {
     private int id;
+    private Genere genere;
+    private String director;
     private String titol;
     private int any;
-    private Director director;
-    private Genere genere;
     private int duracio;
 
-    public Pelicula(int id, Director director, Genere genere, String titol, int any, int duracio) {
-        this.id = id;
-        this.titol = titol;
-        this.any = any;
+
+    public Pelicula(String director, String titol, int genere, int any, int duracio) {
         this.director = director;
-        this.genere = genere;
+        this.titol = titol;
+        this.genere = new Genere(genere);
+        this.any = any;
         this.duracio = duracio;
     }
 
@@ -28,10 +26,10 @@ public class Pelicula {
     public String toString() {
         return "| Pelicula " +
                 "| id " + id +
+                "| " + genere + '\'' +
                 "| titol='" + titol + '\'' +
                 "| any=" + any +
                 "| " + director + '\'' +
-                "| " + genere + '\'' +
                 "| duracio=" + duracio + '\'' +
                 '|';
     }

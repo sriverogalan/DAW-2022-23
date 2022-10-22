@@ -1,4 +1,4 @@
-package org.example.texte;
+package org.catalegpelicules.texte;
 
 public class Texte {
     public static void menuBaseDeDades() {
@@ -8,14 +8,18 @@ public class Texte {
     }
 
     public static void menuOpcions() {
-        System.out.println("Introdueix el numero que vols que faci el programa :");
-        System.out.println("1. Llistat de pelicules");
-        System.out.println("2. Crear pelicula");
-        System.out.println("3. Cercar pelicula per id");
-        System.out.println("4. Canvis a una pelicula");
-        System.out.println("5. Borrar una pelicula");
-        System.out.println("6. Reiniciar el cataleg");
-        System.out.println("7. Sortir");
+        System.out.println("Elige una opcion:");
+        System.out.println("1. Llistar peliculas");
+        System.out.println("2. Llistar generes");
+        System.out.println("3. Crear genere");
+        System.out.println("4. Crear pelicula");
+        System.out.println("5. Cercar pelicula");
+        System.out.println("6. Sobre escriure pelicula");
+        System.out.println("7. Sobre escriure genero");
+        System.out.println("8. Borrar pelicula");
+        System.out.println("9. Borrar genero");
+        System.out.println("10. Reiniciar cataleg");
+        System.out.println("11. Sortir");
     }
 
     public static void separtacio() {

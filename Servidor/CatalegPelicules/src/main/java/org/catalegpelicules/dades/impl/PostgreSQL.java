@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("all")
-public class MySQL implements IAccessDades {
+public class PostgreSQL implements IAccessDades {
     private Connection connection;
-    public MySQL() {
+    public PostgreSQL() {
         try {
-            this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/prova", "root", "root");
+            this.connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bd", "user", "root");
         } catch (Exception e) {
             e.printStackTrace();
         }

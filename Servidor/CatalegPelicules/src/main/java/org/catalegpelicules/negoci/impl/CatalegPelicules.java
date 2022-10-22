@@ -1,6 +1,7 @@
 package org.catalegpelicules.negoci.impl;
 
 import org.catalegpelicules.dades.IAccessDades;
+import org.catalegpelicules.domini.Genere;
 import org.catalegpelicules.domini.Pelicula;
 import org.catalegpelicules.negoci.ICatalegPelicules;
 
@@ -13,44 +14,84 @@ public class CatalegPelicules implements ICatalegPelicules {
 
     @Override
     public void llistarPelicules() {
-        for (Pelicula pelicula : this.iAccessDades.llistar()) {
+        for (Pelicula pelicula : this.iAccessDades.llistarCataleg()) {
             System.out.println(pelicula);
         }
-        if (this.iAccessDades.llistar().isEmpty()) {
+        if (this.iAccessDades.llistarCataleg().isEmpty()) {
             System.out.println("No hi ha cap pelicula");
         }
+    }
+    @Override
+    public void llistarGeneres(){
+        for (Genere genere : this.iAccessDades.llistarGeneres()) {
+            System.out.println(genere);
+        }
+        if (this.iAccessDades.llistarGeneres().isEmpty()) {
+            System.out.println("No hi ha cap genere");
+        }
+    }
+
+    @Override
+    public void crearGenere(Genere genere) {
+        this.iAccessDades.crearGenere(genere.getGenere());
+        System.out.println("Genere creat correctament");
     }
 
     @Override
     public void crearPelicula(Pelicula pelicula) {
-        this.iAccessDades.crear(pelicula);
+        this.iAccessDades.crearPelicules(pelicula);
+        System.out.println("Pelicula creada correctament");
     }
 
     @Override
-    public void cercarPelicula(String titol) {
-        this.iAccessDades.cercar(titol);
+    public void cercarPelicula(int id) {
+        if (this.iAccessDades.existeixCataleg(id)) {
+            this.iAccessDades.cercarPelicula(id);
+        } else {
+            System.out.println("No existeix la pelicula");
+        }
     }
-
     @Override
     public void reiniciarCataleg() {
         this.iAccessDades.reiniciarCataleg();
+        System.out.println("Cataleg reiniciat");
     }
-
     @Override
-    public void eliminarPelicula(String title) {
-        for (Pelicula pelicula : this.iAccessDades.llistar()) {
-            if (pelicula.getTitol().equals(title)) {
-                if (this.iAccessDades.existeix(pelicula.getId())) this.iAccessDades.borrar(pelicula.getId());
-            } else System.out.println("No existeix o no es troba la pelicula");
+    public void eliminarPelicula(int id) {
+        if (this.iAccessDades.existeixCataleg(id)) {
+            this.iAccessDades.borrarPelicula(id);
+            System.out.println("Pelicula eliminada");
+        } else {
+            System.out.println("No existeix la pelicula");
         }
     }
 
     @Override
-    public void sobreEscriurePelicula(String title, Pelicula pelicula) {
-        for (Pelicula p : this.iAccessDades.llistar()) {
-            if (p.getTitol().equals(title)) {
-                if (this.iAccessDades.existeix(pelicula.getId())) this.iAccessDades.actualitzar(p.getId(), pelicula);
-            } else System.out.println("No existeix o no es troba la pelicula");
+    public void eliminarGenere(int id) {
+        if (this.iAccessDades.existeixGenere(id)) {
+            this.iAccessDades.borrarGenere(id);
+            System.out.println("Genere eliminat");
+        } else {
+            System.out.println("No existeix el genere");
+        }
+    }
+
+    @Override
+    public void sobreEscriurePelicula(int id, Pelicula pelicula) {
+        if (this.iAccessDades.existeixCataleg(id)) {
+            this.iAccessDades.actualitzarPelicula(id, pelicula);
+            System.out.println("Pelicula actualitzada");
+        } else {
+            System.out.println("No existeix la pelicula");
+        }
+    }
+    @Override
+    public void sobreEscriureGenere(int id, Genere genere) {
+        if (this.iAccessDades.existeixGenere(id)) {
+            this.iAccessDades.actualitzarGenere(id, genere);
+            System.out.println("Genere actualitzat");
+        } else {
+            System.out.println("No existeix el genere");
         }
     }
 }

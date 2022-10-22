@@ -1,17 +1,23 @@
 package org.catalegpelicules.negoci;
 
+import org.catalegpelicules.domini.Genere;
 import org.catalegpelicules.domini.Pelicula;
 
 public interface ICatalegPelicules {
     void llistarPelicules();
+    void llistarGeneres();
+    void crearGenere(Genere nom);
 
     void crearPelicula(Pelicula pelicula);
 
-    void cercarPelicula(String titol);
+    void cercarPelicula(int id);
 
     void reiniciarCataleg();
 
-    void eliminarPelicula(String title);
+    void eliminarPelicula(int id);
+    void eliminarGenere(int id);
 
-    void sobreEscriurePelicula(String title, Pelicula pelicula);
+    void sobreEscriurePelicula(int id, Pelicula pelicula);
+
+    void sobreEscriureGenere(int id, Genere genere);
 }
