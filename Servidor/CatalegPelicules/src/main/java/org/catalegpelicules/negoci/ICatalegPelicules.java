@@ -5,6 +5,12 @@ import org.catalegpelicules.domini.Pelicula;
 
 public interface ICatalegPelicules {
     void llistarPelicules();
+    void llistarPeliculesOrdenadesPerId();
+    void llistarPeliculesOrdenadesPerNom();
+    void llistarPeliculesOrdenadesPerDirector();
+    void llistarPeliculesOrdenadesPerAny();
+    void llistarPeliculesOrdenadesPerGenere();
+    void llistarPeliculesOrdenadesPerDurada();
     void llistarGeneres();
     void crearGenere(Genere nom);
 
@@ -20,4 +26,5 @@ public interface ICatalegPelicules {
     void sobreEscriurePelicula(int id, Pelicula pelicula);
 
     void sobreEscriureGenere(int id, Genere genere);
+
 }

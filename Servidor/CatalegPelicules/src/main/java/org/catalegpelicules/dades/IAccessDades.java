@@ -7,6 +7,12 @@ import java.util.List;
 
 public interface IAccessDades {
     List<Pelicula> llistarCataleg();
+    List<Pelicula> llistarCatalegOrdenatPerId();
+    List<Pelicula> llistarPeliculesOrdenadesPerNom();
+    List<Pelicula> llistarPeliculesOrdenadesPerAny();
+    List<Pelicula> llistarPeliculesOrdenadesPerDurada();
+    List<Pelicula> llistarPeliculesOrdenadesPerDirector();
+    List<Pelicula> llistarPeliculesOrdenadesPerGenere();
     List<Genere> llistarGeneres();
     void actualitzarGenere(int id, Genere genere);
     boolean existeixCataleg(int id);

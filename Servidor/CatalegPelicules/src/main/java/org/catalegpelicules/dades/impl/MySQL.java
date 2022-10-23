@@ -11,6 +11,7 @@ import java.util.List;
 @SuppressWarnings("all")
 public class MySQL implements IAccessDades {
     private Connection connection;
+
     public MySQL() {
         try {
             this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/prova", "root", "root");
@@ -18,6 +19,7 @@ public class MySQL implements IAccessDades {
             e.printStackTrace();
         }
     }
+
     @Override
     public List<Pelicula> llistarCataleg() {
         List<Pelicula> llistaPelicules = new ArrayList<>();
@@ -25,7 +27,100 @@ public class MySQL implements IAccessDades {
             Statement statement = connection.createStatement();
             ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id");
             while (rs_pelicules.next()) {
+                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+                llistaPelicules.add(pelicula);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return llistaPelicules;
+    }
+
+    @Override
+    public List<Pelicula> llistarCatalegOrdenatPerId() {
+        List<Pelicula> llistaPelicules = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id ORDER BY catalegpelicules.id");
+            while (rs_pelicules.next()) {
+                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+                llistaPelicules.add(pelicula);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return llistaPelicules;
+    }
+
+    @Override
+    public List<Pelicula> llistarPeliculesOrdenadesPerNom() {
+        List<Pelicula> llistaPelicules = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id ORDER BY catalegpelicules.titol");
+            while (rs_pelicules.next()) {
+                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+                llistaPelicules.add(pelicula);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return llistaPelicules;
+    }
+    @Override
+    public List<Pelicula> llistarPeliculesOrdenadesPerAny() {
+        List<Pelicula> llistaPelicules = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id ORDER BY catalegpelicules.any");
+            while (rs_pelicules.next()) {
                 Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"),rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+                llistaPelicules.add(pelicula);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return llistaPelicules;
+    }
+
+    @Override
+    public List<Pelicula> llistarPeliculesOrdenadesPerDurada() {
+        List<Pelicula> llistaPelicules = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id ORDER BY catalegpelicules.duracio");
+            while (rs_pelicules.next()) {
+                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+                llistaPelicules.add(pelicula);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return llistaPelicules;
+    }
+    @Override
+    public List<Pelicula> llistarPeliculesOrdenadesPerDirector() {
+        List<Pelicula> llistaPelicules = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id ORDER BY catalegpelicules.director");
+            while (rs_pelicules.next()) {
+                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+                llistaPelicules.add(pelicula);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return llistaPelicules;
+    }
+    @Override
+    public List<Pelicula> llistarPeliculesOrdenadesPerGenere() {
+        List<Pelicula> llistaPelicules = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id ORDER BY genere.genere");
+            while (rs_pelicules.next()) {
+                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
                 llistaPelicules.add(pelicula);
             }
         } catch (SQLException e) {

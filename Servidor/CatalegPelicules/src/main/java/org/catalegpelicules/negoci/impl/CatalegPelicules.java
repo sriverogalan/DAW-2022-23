@@ -21,6 +21,67 @@ public class CatalegPelicules implements ICatalegPelicules {
             System.out.println("No hi ha cap pelicula");
         }
     }
+
+    @Override
+    public void llistarPeliculesOrdenadesPerId() {
+        for (Pelicula pelicula : this.iAccessDades.llistarCatalegOrdenatPerId()) {
+            System.out.println(pelicula);
+        }
+        if (this.iAccessDades.llistarCatalegOrdenatPerId().isEmpty()) {
+            System.out.println("No hi ha cap pelicula");
+        }
+    }
+
+    @Override
+    public void llistarPeliculesOrdenadesPerNom() {
+        for (Pelicula pelicula : this.iAccessDades.llistarPeliculesOrdenadesPerNom()) {
+            System.out.println(pelicula);
+        }
+        if (this.iAccessDades.llistarPeliculesOrdenadesPerNom().isEmpty()) {
+            System.out.println("No hi ha cap pelicula");
+        }
+    }
+
+    @Override
+    public void llistarPeliculesOrdenadesPerDirector() {
+        for (Pelicula pelicula : this.iAccessDades.llistarPeliculesOrdenadesPerDirector()) {
+            System.out.println(pelicula);
+        }
+        if (this.iAccessDades.llistarPeliculesOrdenadesPerDirector().isEmpty()) {
+            System.out.println("No hi ha cap pelicula");
+        }
+    }
+
+    @Override
+    public void llistarPeliculesOrdenadesPerAny() {
+        for (Pelicula pelicula : this.iAccessDades.llistarPeliculesOrdenadesPerAny()) {
+            System.out.println(pelicula);
+        }
+        if (this.iAccessDades.llistarPeliculesOrdenadesPerAny().isEmpty()) {
+            System.out.println("No hi ha cap pelicula");
+        }
+    }
+
+    @Override
+    public void llistarPeliculesOrdenadesPerGenere() {
+        for (Pelicula pelicula : this.iAccessDades.llistarPeliculesOrdenadesPerGenere()) {
+            System.out.println(pelicula);
+        }
+        if (this.iAccessDades.llistarPeliculesOrdenadesPerGenere().isEmpty()) {
+            System.out.println("No hi ha cap pelicula");
+        }
+    }
+
+    @Override
+    public void llistarPeliculesOrdenadesPerDurada() {
+        for (Pelicula pelicula : this.iAccessDades.llistarPeliculesOrdenadesPerDurada()) {
+            System.out.println(pelicula);
+        }
+        if (this.iAccessDades.llistarPeliculesOrdenadesPerDurada().isEmpty()) {
+            System.out.println("No hi ha cap pelicula");
+        }
+    }
+
     @Override
     public void llistarGeneres(){
         for (Genere genere : this.iAccessDades.llistarGeneres()) {

@@ -43,7 +43,7 @@ public class Projecte1 {
         Scanner sc = new Scanner(System.in);
         switch (sc.nextInt()) {
             case 1:
-                this.iCatalegPelicules.llistarPelicules();
+                this.llistarPelicules();
                 this.menuPrincipal();
                 break;
             case 2:
@@ -146,5 +146,47 @@ public class Projecte1 {
         System.out.println("Introdueix el nom del nou genere");
         String nom = sc.nextLine();
         return new Genere(nom);
+    }
+
+    public void llistarPelicules() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Aquests son les pelicules que hi ha :");
+        System.out.println("1. Llistar per id");
+        System.out.println("2. Llistar per titol");
+        System.out.println("3. Llistar per director");
+        System.out.println("4. Llistar per genere");
+        System.out.println("5. Llistar per any");
+        System.out.println("6. Llistar per duracio");
+
+        switch (sc.nextInt()){
+            case 1:
+                this.iCatalegPelicules.llistarPeliculesOrdenadesPerId();
+                this.menuPrincipal();
+                break;
+            case 2:
+                this.iCatalegPelicules.llistarPeliculesOrdenadesPerNom();
+                this.menuPrincipal();
+                break;
+            case 3:
+                this.iCatalegPelicules.llistarPeliculesOrdenadesPerDirector();
+                this.menuPrincipal();
+                break;
+            case 4:
+                this.iCatalegPelicules.llistarPeliculesOrdenadesPerGenere();
+                this.menuPrincipal();
+                break;
+            case 5:
+                this.iCatalegPelicules.llistarPeliculesOrdenadesPerAny();
+                this.menuPrincipal();
+                break;
+            case 6:
+                this.iCatalegPelicules.llistarPeliculesOrdenadesPerDurada();
+                this.menuPrincipal();
+                break;
+            default:
+                System.out.println("Has elegit una opcio incorrecta");
+                this.menuPrincipal();
+                break;
+        }
     }
 }

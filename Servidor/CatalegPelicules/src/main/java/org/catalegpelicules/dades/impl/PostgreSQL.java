@@ -11,6 +11,7 @@ import java.util.List;
 @SuppressWarnings("all")
 public class PostgreSQL implements IAccessDades {
     private Connection connection;
+
     public PostgreSQL() {
         try {
             this.connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bd", "user", "root");
@@ -18,6 +19,7 @@ public class PostgreSQL implements IAccessDades {
             e.printStackTrace();
         }
     }
+
     @Override
     public List<Pelicula> llistarCataleg() {
         List<Pelicula> llistaPelicules = new ArrayList<>();
@@ -25,7 +27,7 @@ public class PostgreSQL implements IAccessDades {
             Statement statement = connection.createStatement();
             ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id");
             while (rs_pelicules.next()) {
-                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"),rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
                 llistaPelicules.add(pelicula);
             }
         } catch (SQLException e) {
@@ -33,6 +35,104 @@ public class PostgreSQL implements IAccessDades {
         }
         return llistaPelicules;
     }
+
+    @Override
+    public List<Pelicula> llistarCatalegOrdenatPerId() {
+        List<Pelicula> llistaPelicules = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id ORDER BY catalegpelicules.id ASC");
+            while (rs_pelicules.next()) {
+                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+                llistaPelicules.add(pelicula);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return llistaPelicules;
+    }
+
+    @Override
+    public List<Pelicula> llistarPeliculesOrdenadesPerNom() {
+        List<Pelicula> llistaPelicules = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id ORDER BY catalegpelicules.titol ASC");
+            while (rs_pelicules.next()) {
+                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+                llistaPelicules.add(pelicula);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return llistaPelicules;
+    }
+
+    @Override
+    public List<Pelicula> llistarPeliculesOrdenadesPerAny() {
+        List<Pelicula> llistaPelicules = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id ORDER BY catalegpelicules.any ASC");
+            while (rs_pelicules.next()) {
+                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+                llistaPelicules.add(pelicula);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return llistaPelicules;
+    }
+
+    @Override
+    public List<Pelicula> llistarPeliculesOrdenadesPerDurada() {
+        List<Pelicula> llistaPelicules = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id ORDER BY catalegpelicules.duracio ASC");
+            while (rs_pelicules.next()) {
+                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+                llistaPelicules.add(pelicula);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return llistaPelicules;
+    }
+
+    @Override
+    public List<Pelicula> llistarPeliculesOrdenadesPerDirector() {
+        List<Pelicula> llistaPelicules = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id ORDER BY catalegpelicules.director ASC");
+            while (rs_pelicules.next()) {
+                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+                llistaPelicules.add(pelicula);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return llistaPelicules;
+    }
+
+    @Override
+    public List<Pelicula> llistarPeliculesOrdenadesPerGenere() {
+        List<Pelicula> llistaPelicules = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id ORDER BY genere.genere ASC");
+            while (rs_pelicules.next()) {
+                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+                llistaPelicules.add(pelicula);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return llistaPelicules;
+    }
+
 
     @Override
     public List<Genere> llistarGeneres() {
@@ -49,6 +149,7 @@ public class PostgreSQL implements IAccessDades {
         }
         return llistaGeneres;
     }
+
     @Override
     public void crearGenere(String genere) {
         try {
@@ -59,28 +160,31 @@ public class PostgreSQL implements IAccessDades {
             e.printStackTrace();
         }
     }
+
     @Override
     public boolean existeixCataleg(int id) {
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM catalegpelicules WHERE id LIKE '" + id + "'");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM catalegpelicules WHERE id = '" + id + "'");
             if (resultSet.next()) return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
     }
+
     @Override
     public boolean existeixGenere(int id) {
         try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM genere WHERE id LIKE '" + id + "'");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM genere WHERE id  = '" + id + "'");
             if (resultSet.next()) return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
     }
+
     @Override
     public void crearPelicules(Pelicula pelicula) {
         try {
@@ -90,6 +194,7 @@ public class PostgreSQL implements IAccessDades {
             e.printStackTrace();
         }
     }
+
     @Override
     public void cercarPelicula(int id) {
         try {
@@ -103,6 +208,7 @@ public class PostgreSQL implements IAccessDades {
             e.printStackTrace();
         }
     }
+
     @Override
     public void borrarPelicula(int id) {
         try {
@@ -116,6 +222,7 @@ public class PostgreSQL implements IAccessDades {
             e.printStackTrace();
         }
     }
+
     @Override
     public void borrarGenere(int id) {
         try {
@@ -129,15 +236,17 @@ public class PostgreSQL implements IAccessDades {
             e.printStackTrace();
         }
     }
+
     @Override
     public void actualitzarPelicula(int id, Pelicula pelicula) {
         try {
             Statement statement = connection.createStatement();
-            statement.executeUpdate("UPDATE catalegpelicules SET id_genere = '" + pelicula.getGenere().getId() + "', director = '" + pelicula.getDirector() + "', titol = '" + pelicula.getTitol() + "', any = '" + pelicula.getAny() + "', duracio = '" + pelicula.getDuracio() + "' WHERE id = '" + id + "'");
+            statement.executeUpdate("UPDATE catalegpelicules SET id_genere = '" + pelicula.getGenere().getId() + "', director = '" + pelicula.getDirector() + "', titol = '" + pelicula.getTitol() + "', \"any\" = '" + pelicula.getAny() + "', duracio = '" + pelicula.getDuracio() + "' WHERE id = '" + id + "'");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @Override
     public void actualitzarGenere(int id, Genere genere) {
         try {
@@ -147,6 +256,7 @@ public class PostgreSQL implements IAccessDades {
             exception.printStackTrace();
         }
     }
+
     public void tancarConexio() {
         try {
             this.connection.close();
@@ -154,6 +264,7 @@ public class PostgreSQL implements IAccessDades {
             e.printStackTrace();
         }
     }
+
     @Override
     public void reiniciarCataleg() {
         try {
