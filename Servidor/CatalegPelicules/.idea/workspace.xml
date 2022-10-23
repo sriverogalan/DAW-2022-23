@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules-SergiRiveroGalan.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Client/1r_Trimestre/UD3/Callback/prova.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/1r_Trimestre/UD3/Callback/prova.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/IAccessDades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/IAccessDades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/MySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/MySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/PostgreSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/dades/impl/PostgreSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/negoci/ICatalegPelicules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/negoci/ICatalegPelicules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/negoci/impl/CatalegPelicules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/negoci/impl/CatalegPelicules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Projecte1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Projecte1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/IAccessDades.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/IAccessDades.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/MySQL.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/MySQL.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/PosgreSQL.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/ICatalegPelicules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/ICatalegPelicules.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/impl/CatalegPelicules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/impl/CatalegPelicules.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Projecte1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Projecte1.class" afterDir="false" />
-    </list>
+    <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,25 +31,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.org.catalegpelicules.presentacio.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.catalegpelicules.Main" />
@@ -122,6 +104,7 @@
       <workItem from="1666363272026" duration="4473000" />
       <workItem from="1666437788435" duration="12186000" />
       <workItem from="1666521870108" duration="8228000" />
+      <workItem from="1666560297826" duration="50000" />
     </task>
     <task id="LOCAL-00001" summary="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
       <created>1666453172806</created>
