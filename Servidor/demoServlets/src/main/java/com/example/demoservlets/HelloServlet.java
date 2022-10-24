@@ -1,6 +1,8 @@
 package com.example.demoservlets;
 
 import java.io.*;
+
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -9,9 +11,8 @@ public class HelloServlet extends HttpServlet {
     private String message;
 
     public void init() {
-        message = "Hello World!";
+        message = "Hola Sergi!!";
     }
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
@@ -21,7 +22,18 @@ public class HelloServlet extends HttpServlet {
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
     }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        String nom = req.getParameter("nom");
+        String contra = req.getParameter("contra");
 
-    public void destroy() {
+        // Hello
+        PrintWriter out = resp.getWriter();
+        out.println("<html><body>");
+        out.println("<h1> L'usuari i la contra son : </h1>");
+        out.println("<h1> " + nom + " </h1>");
+        out.println("<h1> " + contra + " </h1>");
+        out.println("</body></html>");
     }
 }

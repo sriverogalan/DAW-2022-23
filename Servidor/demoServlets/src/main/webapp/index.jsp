@@ -2,11 +2,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JSP - Hello World</title>
+    <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %></h1>
+<h1><%= "Hello World!" %>
+</h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<a href="hello-servlet">Hello Servlet</a><br>
+<form action="/demoServlets_war_exploded/hello-servlet" method="post">
+    Ingresa tu nombre: <input type="text" name="nom"><br>
+    Ingresa tu contraseña: <input type="password" name="contra"><br>
+    <input type="submit" value="Enviar">
+</form>
+
+
 </body>
 </html>
