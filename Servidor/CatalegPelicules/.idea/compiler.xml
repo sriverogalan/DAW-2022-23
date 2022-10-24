@@ -10,5 +10,8 @@
         <module name="CatalegPelicules" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="CatalegPelicules" target="" />
+    </bytecodeTargetLevel>
   </component>
 </project>

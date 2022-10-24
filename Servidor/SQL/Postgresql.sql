@@ -44,6 +44,15 @@ VALUES ('Drama'),
 INSERT INTO catalegpelicules
 VALUES  (DEFAULT, 3, 'Martin afsafa', 'El lobo de Wall Street', 2013, 180),
         (DEFAULT, 5, 'Martin Carreyt', 'El renacido', 2015, 156);
-
+INSERT INTO catalegpelicules
+VALUES  (DEFAULT, 1, 'Martin Scorsese', 'El lobo de Wall Street', 2013, 180),
+        (DEFAULT, 1, 'Martin Scorsese', 'El irlandés', 2019, 209),
+        (DEFAULT, 1, 'Martin Scorsese', 'Casino', 1995, 178),
+        (DEFAULT, 1, 'Martin Scorsese', 'Taxi Driver', 1976, 113),
+        (DEFAULT, 1, 'Martin Scorsese', 'Shutter Island', 2010, 138),
+        (DEFAULT, 1, 'Martin Scorsese', 'El aviador', 2004, 170),
+        (DEFAULT, 1, 'Martin Scorsese', 'El color del dinero', 1986, 119),
+        (DEFAULT, 1, 'Martin Scorsese', 'Gangs of New York', 2002, 167),
+        (DEFAULT, 1, 'Martin Scorsese', 'El renacido', 2015, 156);
 
 SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id;
