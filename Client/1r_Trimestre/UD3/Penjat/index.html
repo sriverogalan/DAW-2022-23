@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<div id="game"></div>
 <script>
     function Lletra(id,valor){
         this.id=id;
@@ -13,10 +14,10 @@
     }
 
     function Paraula(){
-        var paraules=["windows","linux","mac"]
-        var paraulesArr = [];
         this.seleccionada;
         this.init=function(lletres){
+            var paraules=["windows","linux","mac"]
+            var paraulesArr = [];
             for(var paraula of paraules){
                 var current = [];
                 for(var lletraParaula of paraula){
@@ -29,11 +30,6 @@
                 paraulesArr.push(current);
             }
             this.seleccionada = paraulesArr[Math.floor(Math.random()*paraules.length)];
-        }
-        this.desbloquetjar=function(lletraSelecionada){
-            for(var lletra of this.seleccionada){
-                lletra.seleccionat=true;
-            }
         }
     }
 
@@ -58,10 +54,12 @@
         }
 
         this.pinta=function(){
-            var scriptInicial = document.querySelector("body").innerHTML;
+            document.querySelector("#game").innerHTML = "";
 
-            document.querySelector("body").innerHTML='<img src="img/'+this.imatge+'.PNG" alt="penjat">';
-            document.querySelector("body").innerHTML += scriptInicial;
+            var scriptInicial = document.querySelector("#game").innerHTML;
+
+            document.querySelector("#game").innerHTML='<img src="img/'+this.imatge+'.PNG" alt="penjat">';
+            document.querySelector("#game").innerHTML += scriptInicial;
 
             for(var lletra of this.lletres){
                 var boto = document.createElement("button");
@@ -69,32 +67,56 @@
                 boto.innerHTML=lletra.valor;
                 boto.objLletra = lletra;
                 boto.id=lletra.id
+                if(lletra.seleccionat){
+                    if(this.paraulaSeleccionada.includes(lletra)){
+                        boto.style.backgroundColor="green";
+                    } else {
+                        boto.style.backgroundColor="red";
+                    }
+                }
 
-                document.querySelector("body").appendChild(boto);
+                document.querySelector("#game").appendChild(boto);
             }
- 
+
             for(var l of this.paraulaSeleccionada){
-                var txt = document.createElement("span");
-                if(l.seleccionada) {
+                var txt = document.createElement("span")
+                if(l.seleccionat) {
                     txt.innerHTML += l.valor;
                 } else {
                     txt.innerHTML += " _ ";
                 }
-                document.querySelector("body").appendChild(txt);
-            } 
+                document.querySelector("#game").appendChild(txt);
+            }
         }
 
         this.play=function(evt){
             var lletra = evt.currentTarget.objLletra;
-            console.log(lletra);
-            lletra.seleccionada=true; 
-            if(lletra.seleccionada ){ 
-                document.querySelector("#"+lletra.id).disabled=true;
+            lletra.seleccionat=true;
+            if(!this.paraulaSeleccionada.includes(lletra)){
+                this.imatge++;
             }
+            this.pinta();
+            this.checkWin();
+        }.bind(this)
 
+
+        this.checkWin=function(){ 
+            if(this.imatge == 7){
+                document.querySelector("#game").innerHTML = "Has perdut";
+            }
+            var guanyat = true;
+            for(var l of this.paraulaSeleccionada){
+                if(!l.seleccionat){
+                    guanyat = false;
+                    break;
+                }
+            }
+            if(guanyat){
+                document.querySelector("#game").innerHTML="<p>HAS GUANYAT!!!</p>";
+            }
         }
     }
-
+ 
     var penjat = new Penjat();
     penjat.init();
 </script>

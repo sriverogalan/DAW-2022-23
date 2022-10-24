@@ -11,10 +11,12 @@
     <button onclick="closeWin()">Tanca la finestra del joc</button>
     <button onclick="closeProgram()">Tanca tot el programa</button>
     <script>
+            var resposta = start();
+            var url = "poker.html"+"?info="+resposta; 
+            var myWindow;
+
             function start(){
-                var str=prompt('Vols fer trampes? ("SI" o "NO")','');
-                while(/^\s*$/.test(str)) 
-                str=prompt('Vols fer trampes? ("SI" o "NO")',''); 
+                var str=prompt('Vols fer trampes? ("SI" o "NO")',''); 
                 if(str=="SI"){
                     alert("Ah... com que ets un trampos? Anem a jugar facil");  
                     return str; 
@@ -26,12 +28,6 @@
                     location.reload(); 
                 } 
             } 
-
-            var resposta = start();
-            var url = "poker.html"+"?info="+resposta; 
-            
-  
-            var myWindow;
 
             function openGame(){ 
                 myWindow = window.open(url, "", "width=800, height=300");
