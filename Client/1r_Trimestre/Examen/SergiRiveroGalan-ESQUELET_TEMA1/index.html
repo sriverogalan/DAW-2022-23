@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <title>Examen Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/tv.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="title">
+        <h1>Examen Vanilla JS</h1>
+    </div>
+    <div id="timer">5</div>
+    <div id="screen">
+        <img src="img/tv.png" alt="tv" id="tv">
+        <video autoplay loop id="program">
+            <source src="videos/alldayfilms.webm" type="video/webm" id="program-source">
+        </video>
+    </div>
+    <div id="cabinet">
+        <img src="img/tvcabinet.png" alt="cabinet" id="tvcabinet">
+
+        <div id="remote">
+            <button id="anterior" class="button">&lt;&lt;</button>
+            <button id="play" class="button">Play</button>
+            <button id="stop" class="button">Stop</button>
+            <button id="seguent" class="button">&gt;&gt;</button>
+        </div>
+    </div>
+    <script>
+        /* EXAMEN JS - ESCRIVIU AQUÍ LA VOSTRA SOLUCIÓ */
+        var canal = new Tele(0); 
+        canal.reproduir();
+        canal.contarEnrere(); 
+            document.querySelector("#play").addEventListener("click", function () {
+                canal.reproduir();
+            })
+
+            document.querySelector("#stop").addEventListener("click", function () {
+                canal.aturar();
+            })
+
+            document.querySelector("#anterior").addEventListener("click", function () {
+                canal.canviarEnrere();
+            })
+
+            document.querySelector("#seguent").addEventListener("click", function () {
+                canal.canviarSeguent();
+        }) 
+
+        function Tele(num) {
+            this.canal = num;
+            this.videos = ["videos/alldayfilms.webm", "videos/kidstv.webm", "videos/natureplus.webm", "videos/sportstv.webm", "videos/technologytoday.webm", "videos/xtremsports.webm"];
+ 
+            this.canviarSeguent = function () {
+                if (this.canal < this.videos.length - 1) {
+                    this.canal++;
+                } else {
+                    this.canal = 0;
+                }
+                document.querySelector("#program-source").src = this.videos[this.canal];
+                document.querySelector("#program").load();
+            }
+            this.canviarEnrere = function () {
+                if (this.canal > 0) {
+                    this.canal--;
+                } else {
+                    this.canal = this.videos.length - 1;
+                }
+                document.querySelector("#program-source").src = this.videos[this.canal];
+                document.querySelector("#program").load();
+            }
+            this.aturar = function () {
+                document.querySelector("#program").pause();
+            }
+            this.reproduir = function () { 
+                document.querySelector("#program").play();
+            } 
+            this.contarEnrere = function () {
+                var num = 5 ; 
+                var inter = setInterval(function(){
+                    document.querySelector("#timer").innerHTML = num--;
+                    if(num === -1) {
+                        clearInterval(inter);
+                        document.querySelector("#program").pause();
+                    }
+                },1000)
+            }
+        } 
+        document.querySelector("body").innerHTML += "<button id='pagar'>Pagar</button>";
+        document.querySelector("body").innerHTML += "<button id='tancar'>Tancar</button>";
+        var paypal;
+        document.querySelector("#pagar").addEventListener("click", function () {  
+            paypal = window.open("https://www.paypal.com/es/signin", "paypal", "width=600, height=400");
+        })
+        document.querySelector("#tancar").addEventListener("click", function () {  
+            paypal.close();
+        })
+
+    </script>
+</body>
+
+</html>

@@ -7,13 +7,12 @@
     <title>Compte-Enrere Sergi Rivero Galan</title>
 </head>
 <body> 
-    <input type="text" id="number">
-    <button id="play">Go!</button>
+    <input type="text" id="number"> 
     <span id="counter"></span>
     <script>
         var number;
         var inter; 
-        document.querySelector("button").addEventListener("click", function(){
+        document.querySelector("#number").addEventListener("input", function(){
             number = document.getElementById("number").value; 
             if(!isNaN(number)) {
                 clearInterval(inter);
