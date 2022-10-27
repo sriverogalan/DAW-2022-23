@@ -5,7 +5,7 @@ function Tecla(id, tecla, audio) {
 }
 
 function Piano() {
-    this.teclas = [];
+    this.teclas ;
     this.teclaActual = null;
     this.teclaAnterior = null;
     this.teclaSiguiente = null;
