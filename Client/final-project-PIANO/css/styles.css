@@ -1,12 +1,8 @@
 * {
-    box-sizing: flex;
-    flex-direction: column;
-}
-body {
     margin: 0;
-    box-sizing: flex;
-    flex-direction: column;
-    justify-content: center;
+    box-sizing: flex; 
+}
+body { 
     background-image: url(../images/background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -27,17 +23,78 @@ body {
     margin: 0;
     padding: 0;
 }
-.piano-div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 75%; 
+
+.btn-white{
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 50px;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 0 10px black;
+}
+.btn-white:active{
     background-color: black;
-} 
-.piano-div ul{
-    display: flex;
-    flex-direction: row; 
-    justify-content: center;
+    color: white;
+    box-shadow: 0 0 10px white;
+}
+.btn-white:hover{
+    background-color: rgb(236, 236, 236);
+    color: white;
+    box-shadow: 0 0 10px white;
+}
+.btn-black{ 
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 50px;
+  height: 100px;
+  margin: 0;
+  box-shadow: 0 0 10px white; 
+}
+.btn-black:active{
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 10px black;
+}
+.btn-black:hover{
+    background-color: rgb(36, 36, 36);
+    color: white;
+    box-shadow: 0 0 10px white;
 }
  
+.piano-dev {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;   
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+.piano-dev div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+} 
+.piano{ 
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;   
+  background-image: url("https://images6.alphacoders.com/371/371656.jpg");
+  background-size: cover;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 400px;
+}  
+.resultats-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
