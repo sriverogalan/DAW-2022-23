@@ -5,9 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pelicules/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pelicules/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pelicules/.idea/artifacts/Pelicules_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pelicules/.idea/artifacts/Pelicules_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pelicules/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pelicules/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pelicules/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pelicules/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pelicules/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pelicules/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pelicules/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pelicules/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/artifacts/webAplication_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/artifacts/webAplication_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/HelloServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Client/final-project-PIANO/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/final-project-PIANO/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/catalegpelicules/presentacio/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoServlets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demoServlets/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +180,9 @@
       <workItem from="1666563211597" duration="100000" />
       <workItem from="1666563338930" duration="452000" />
       <workItem from="1666689492882" duration="633000" />
+      <workItem from="1666857563993" duration="1028000" />
+      <workItem from="1666859216552" duration="1419000" />
+      <workItem from="1666865620716" duration="288000" />
     </task>
     <task id="LOCAL-00001" summary="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
       <created>1666453172806</created>
