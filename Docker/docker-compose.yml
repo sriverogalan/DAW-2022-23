@@ -61,15 +61,3 @@ services:
     expose:
       - 8084
 
-  tomcat:
-    image: tomcat:c
-    volumes:
-      - ./volums/tomcat:/usr/local/tomcat/webapps 
-    environment:
-      - CATALINA_HOME=/usr/local/tomcat
-      - CATALINA_BASE=/usr/local/tomcat
-      - CATALINA_TMPDIR=/usr/local/tomcat/temp
-    ports:
-      - 8888:8888
-    expose:
-      - 8888
