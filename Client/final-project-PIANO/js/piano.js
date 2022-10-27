@@ -1,14 +1,9 @@
-function Tecla(id, tecla, audio) {
-    this.id = id;
-    this.tecla = tecla;
-    this.audio = audio;
+function Nota() {
+    this.nota;
+    this.type;
+    this.AddCerca = function (nota) {
+        this.nota = nota;
+        this.type = "Cerca";
+    }
 }
-
-function Piano() {
-    this.teclas ;
-    this.teclaActual = null;
-    this.teclaAnterior = null;
-    this.teclaSiguiente = null;
-    
  
-}
