@@ -12,12 +12,13 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "films", value = "/film")
+public class Films extends HttpServlet {
     private Connection connection;
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");  
+        response.setContentType("text/html");
+        int numeros = Integer.parseInt(request.getParameter("numeros"));
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -32,6 +33,7 @@ public class HelloServlet extends HttpServlet {
 
         List<Pelicula> cataleg = llistarCataleg();
         PrintWriter out = response.getWriter();
+        out.println(numeros);
         out.println("<html><body>");
         out.println("<h1>El catalago de peliculas es:</h1>");
         out.println("<table border=\"1\">");
@@ -52,10 +54,7 @@ public class HelloServlet extends HttpServlet {
             out.println("   </tr>");
         }
         out.println("</table>");
-        // imprimir taula de generos por pantalla por id y nombre
-        
-
-
+        out.println("</body></html>");
 
     }
 

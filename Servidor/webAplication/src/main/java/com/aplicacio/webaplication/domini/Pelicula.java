@@ -9,20 +9,11 @@ import lombok.Setter;
 @Setter
 public class Pelicula {
     private int id;
-    private Genere genere;
-    private String director;
     private String titol;
+    private String director;
+    private String genere;
     private int any;
     private int duracio;
-
-
-    public Pelicula(String director, String titol, int genere, int any, int duracio) {
-        this.director = director;
-        this.titol = titol;
-        this.genere = new Genere(genere);
-        this.any = any;
-        this.duracio = duracio;
-    }
 
     @Override
     public String toString() {
