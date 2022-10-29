@@ -1,4 +1,4 @@
-package com.web.web.dades.impl;
+package org.catalegpelicules.dades.impl;
 
 import org.catalegpelicules.dades.IAccessDades;
 import org.catalegpelicules.domini.Genere;
@@ -13,6 +13,13 @@ public class MySQL implements IAccessDades {
     private Connection connection;
 
     public MySQL() {
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         try {
             this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/prova", "root", "root");
         } catch (Exception e) {
@@ -258,6 +265,8 @@ public class MySQL implements IAccessDades {
             e.printStackTrace();
         }
     }
-
-
+    public boolean esMesGranQueLesPeliculesBD(int num) {
+        if (num > this.llistarCataleg().size()) return true;
+        return false;
+    }
 }

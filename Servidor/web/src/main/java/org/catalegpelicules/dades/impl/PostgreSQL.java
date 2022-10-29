@@ -1,4 +1,4 @@
-package com.web.web.dades.impl;
+package org.catalegpelicules.dades.impl;
 
 import org.catalegpelicules.dades.IAccessDades;
 import org.catalegpelicules.domini.Genere;

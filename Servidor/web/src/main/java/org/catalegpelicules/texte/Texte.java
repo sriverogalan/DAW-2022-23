@@ -1,4 +1,4 @@
-package com.web.web.texte;
+package org.catalegpelicules.texte;
 
 public class Texte {
     public static void menuBaseDeDades() {

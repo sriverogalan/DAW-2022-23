@@ -1,4 +1,4 @@
-package com.web.web.dades;
+package org.catalegpelicules.dades;
 
 import org.catalegpelicules.domini.Genere;
 import org.catalegpelicules.domini.Pelicula;

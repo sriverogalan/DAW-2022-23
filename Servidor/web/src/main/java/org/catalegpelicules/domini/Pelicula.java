@@ -1,4 +1,4 @@
-package com.web.web.domini;
+package org.catalegpelicules.domini;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

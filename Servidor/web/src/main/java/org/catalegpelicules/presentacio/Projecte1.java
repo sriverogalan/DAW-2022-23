@@ -1,4 +1,4 @@
-package com.web.web.presentacio;
+package org.catalegpelicules.presentacio;
 import org.catalegpelicules.dades.IAccessDades;
 import org.catalegpelicules.dades.impl.MySQL;
 import org.catalegpelicules.dades.impl.PostgreSQL;

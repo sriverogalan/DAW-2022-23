@@ -1,4 +1,4 @@
-package com.web.web.negoci;
+package org.catalegpelicules.negoci;
 
 import org.catalegpelicules.domini.Genere;
 import org.catalegpelicules.domini.Pelicula;
