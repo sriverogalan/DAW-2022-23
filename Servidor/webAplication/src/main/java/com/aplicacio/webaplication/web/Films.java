@@ -1,6 +1,5 @@
 package com.aplicacio.webaplication.web;
 
-import com.aplicacio.webaplication.domini.Genere;
 import com.aplicacio.webaplication.domini.Pelicula;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,9 +17,7 @@ public class HelloServlet extends HttpServlet {
     private Connection connection;
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-        String number = request.getParameter("number");
-
+        response.setContentType("text/html");  
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -28,7 +25,7 @@ public class HelloServlet extends HttpServlet {
         }
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Cataleg", "root", "root");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdpelicules", "root", "root");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -66,9 +63,9 @@ public class HelloServlet extends HttpServlet {
         List<Pelicula> llistaPelicules = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
-            ResultSet rs_pelicules = statement.executeQuery("SELECT DISTINCT * FROM catalegpelicules, genere where catalegpelicules.id_genere = genere.id");
-            while (rs_pelicules.next()) {
-                Pelicula pelicula = new Pelicula(rs_pelicules.getInt("id"), new Genere(rs_pelicules.getInt("id_genere"), rs_pelicules.getString("genere")), rs_pelicules.getString("director"), rs_pelicules.getString("titol"), rs_pelicules.getInt("any"), rs_pelicules.getInt("duracio"));
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM catalegpelicules");
+            while (resultSet.next()) {
+                Pelicula pelicula = new Pelicula(resultSet.getInt("id"), resultSet.getString("titol"), resultSet.getString("director"), resultSet.getString("genere"), resultSet.getInt("any"), resultSet.getInt("duracio"));
                 llistaPelicules.add(pelicula);
             }
         } catch (SQLException e) {
