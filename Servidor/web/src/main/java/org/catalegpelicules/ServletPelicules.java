@@ -1,14 +1,17 @@
 package org.catalegpelicules;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.catalegpelicules.dades.impl.MySQL;
 import org.catalegpelicules.domini.Pelicula;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "film", value = "/film")
 public class ServletPelicules extends HttpServlet {
@@ -27,13 +30,15 @@ public class ServletPelicules extends HttpServlet {
         int nPelicules = Integer.parseInt(req.getParameter("films"));
         List<Pelicula> pelicules = new ArrayList<>();
         MySQL mySQL = new MySQL();
+        PrintWriter out = resp.getWriter();
         int contador = 0;
 
-        if (mySQL.esMesGranQueLesPeliculesBD(nPelicules)) return;
-
+        if (mySQL.esMesGranQueLesPeliculesBD(nPelicules)) {
+            out.println("<html><body><h1>El numero de peliculas que has introducido es mayor o menor que el numero de peliculas que hay en la base de datos</h1><a href='/web_war_exploded/'>Tornar</a></body></html>");
+            return;
+        }
         pelicules = mySQL.llistarPeliculesOrdenadesPerNom();
 
-        PrintWriter out = resp.getWriter();
         out.println("<html><body>");
         out.println("<table>");
         out.println("   <tr>");
@@ -57,6 +62,7 @@ public class ServletPelicules extends HttpServlet {
             contador++;
         }
         out.println("</table>");
+        out.println("<a href='/web_war_exploded/'>Tornar</a>");
         out.println("</body></html>");
     }
 
