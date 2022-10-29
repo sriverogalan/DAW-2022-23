@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
-      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/Domini/Genere.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/Domini/Pelicula.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Client/final-project-PIANO/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/final-project-PIANO/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Client/final-project-PIANO/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/final-project-PIANO/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Client/final-project-PIANO/js/piano.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/final-project-PIANO/js/piano.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/IAccessDades.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/IAccessDades.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/MySQL.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/MySQL.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/PostgreSQL.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/PostgreSQL.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/domini/Genere.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/domini/Genere.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/domini/Pelicula.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/domini/Pelicula.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/ICatalegPelicules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/ICatalegPelicules.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/impl/CatalegPelicules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/impl/CatalegPelicules.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Projecte1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Projecte1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/texte/Texte.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/texte/Texte.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demoServlets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demoServlets/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demoServlets/src/main/java/com/example/demoservlets/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demoServlets/src/main/java/com/example/demoservlets/HelloServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webAplication/.idea/artifacts/webAplication_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../webAplication/.idea/artifacts/webAplication_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webAplication/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../webAplication/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/web/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/web/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/web/HelloServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +171,7 @@
       <workItem from="1666859216552" duration="1419000" />
       <workItem from="1666865620716" duration="288000" />
       <workItem from="1666939101242" duration="57000" />
-      <workItem from="1667051871670" duration="824000" />
+      <workItem from="1667051871670" duration="1187000" />
     </task>
     <task id="LOCAL-00001" summary="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
       <created>1666453172806</created>

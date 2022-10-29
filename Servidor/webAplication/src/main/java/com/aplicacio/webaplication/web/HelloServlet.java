@@ -15,11 +15,7 @@ import java.util.List;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
-    private String message;
     private Connection connection;
-
-    public void init() {
-    }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
@@ -30,11 +26,33 @@ public class HelloServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         List cataleg = llistarCataleg();
         PrintWriter out = response.getWriter();
+        // imprimir catalago por pantalla por id, titulo, año, genero y duracion
+        out.println("<html><body>");
+        out.println("<h1>El catalago de peliculas es:</h1>");
+        out.println("<table border=\"1\">");
+        out.println("<tr>");
+        out.println("<th>Id</th>");
+        out.println("<th>Titulo</th>");
+        out.println("<th>Año</th>");
+        out.println("<th>Genero</th>");
+        out.println("<th>Duracion</th>");
+        out.println("</tr>");
         for (int i = 0; i < cataleg.size(); i++) {
-            out.println(cataleg.get(i));
+            Pelicula pelicula = (Pelicula) cataleg.get(i);
+            out.println("<tr>");
+            out.println("<td>" + pelicula.getId() + "</td>");
+            out.println("<td>" + pelicula.getTitol() + "</td>");
+            out.println("<td>" + pelicula.getAny() + "</td>");
+            out.println("<td>" + pelicula.getGenere().getId() + "</td>");
+            out.println("<td>" + pelicula.getDuracio() + "</td>");
+            out.println("</tr>");
         }
+        out.println("</table>");
+        // imprimir taula de generos por pantalla por id y nombre
+        
 
 
 
