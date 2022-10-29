@@ -1,0 +1,38 @@
+version: '4.1'
+services:
+
+  apache-php:
+    build: 
+      context: ./dockerfile
+      dockerfile: Dockerfile
+    volumes:
+      - ./volums/apache:/var/www/html/
+    ports:
+      - "80:80"
+    expose:
+      - 80
+
+      
+  mysql:
+    image: mysql:8.0.23
+    volumes:
+      - ./mysql/volumes:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+
+  phpmyadmin:
+    image: phpmyadmin:5.1.3-apache
+    restart: always
+    environment:
+      - PMA_ARBITRARY=1
+    ports:
+      - 83:83
+    expose:
+      - 83

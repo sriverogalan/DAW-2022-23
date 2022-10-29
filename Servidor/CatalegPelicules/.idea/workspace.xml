@@ -5,38 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
-      <change afterPath="$PROJECT_DIR$/../Pelicules/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pelicules/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pelicules/.idea/artifacts/Pelicules_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pelicules/.idea/artifacts/Pelicules_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pelicules/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pelicules/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pelicules/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pelicules/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pelicules/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pelicules/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pelicules/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Pelicules/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/artifacts/webAplication_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/artifacts/webAplication_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../webAplication/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/Domini/Genere.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/Domini/Pelicula.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Client/final-project-PIANO/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/final-project-PIANO/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Client/final-project-PIANO/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/final-project-PIANO/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Client/final-project-PIANO/js/piano.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/final-project-PIANO/js/piano.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/IAccessDades.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/IAccessDades.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/MySQL.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/MySQL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/PostgreSQL.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/dades/impl/PostgreSQL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/domini/Genere.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/domini/Genere.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/domini/Pelicula.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/domini/Pelicula.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/ICatalegPelicules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/ICatalegPelicules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/impl/CatalegPelicules.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/negoci/impl/CatalegPelicules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Projecte1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/presentacio/Projecte1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/catalegpelicules/texte/Texte.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/catalegpelicules/texte/Texte.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../demoServlets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demoServlets/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demoServlets/src/main/java/com/example/demoservlets/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demoServlets/src/main/java/com/example/demoservlets/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webAplication/.idea/artifacts/webAplication_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../webAplication/.idea/artifacts/webAplication_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webAplication/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../webAplication/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/web/HelloServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +81,20 @@
     ]
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.catalegpelicules.presentacio.Main" />
+      <module name="CatalegPelicules" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.catalegpelicules.presentacio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <module name="CatalegPelicules" />
       <method v="2">
@@ -155,6 +158,11 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -183,6 +191,8 @@
       <workItem from="1666857563993" duration="1028000" />
       <workItem from="1666859216552" duration="1419000" />
       <workItem from="1666865620716" duration="288000" />
+      <workItem from="1666939101242" duration="57000" />
+      <workItem from="1667051871670" duration="824000" />
     </task>
     <task id="LOCAL-00001" summary="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
       <created>1666453172806</created>

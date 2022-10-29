@@ -27,13 +27,17 @@ public class HelloServlet extends HttpServlet {
         resp.setContentType("text/html");
         String nom = req.getParameter("nom");
         String contra = req.getParameter("contra");
+        if (nom.equals("sergi") && contra.equals("1234")) {
+            PrintWriter out = resp.getWriter();
+            out.println("<html><body>");
+            out.println("<h1> L'usuari i la contra son : </h1>");
+            out.println("<h1> " + nom + " </h1>");
+            out.println("<h1> " + contra + " </h1>");
+            out.println("</body></html>");
+        } else {
+            resp.sendRedirect("http://www.youtube.com");
+        }
 
         // Hello
-        PrintWriter out = resp.getWriter();
-        out.println("<html><body>");
-        out.println("<h1> L'usuari i la contra son : </h1>");
-        out.println("<h1> " + nom + " </h1>");
-        out.println("<h1> " + contra + " </h1>");
-        out.println("</body></html>");
     }
 }
