@@ -4,3 +4,6 @@ Docker/mariadb
 Disseny/volumes/app/node_modules 
 Disseny/volumes/app/package-lock.json 
 Docker/volums
+
+.idea
+.idea/*
