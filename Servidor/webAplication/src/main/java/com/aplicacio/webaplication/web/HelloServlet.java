@@ -1,7 +1,7 @@
 package com.aplicacio.webaplication.web;
 
-import com.aplicacio.webaplication.Domini.Genere;
-import com.aplicacio.webaplication.Domini.Pelicula;
+import com.aplicacio.webaplication.domini.Genere;
+import com.aplicacio.webaplication.domini.Pelicula;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,33 +22,37 @@ public class HelloServlet extends HttpServlet {
         String number = request.getParameter("number");
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/prova", "root", "root");
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Cataleg", "root", "root");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        List cataleg = llistarCataleg();
+        List<Pelicula> cataleg = llistarCataleg();
         PrintWriter out = response.getWriter();
-        // imprimir catalago por pantalla por id, titulo, año, genero y duracion
         out.println("<html><body>");
         out.println("<h1>El catalago de peliculas es:</h1>");
         out.println("<table border=\"1\">");
-        out.println("<tr>");
-        out.println("<th>Id</th>");
-        out.println("<th>Titulo</th>");
-        out.println("<th>Año</th>");
-        out.println("<th>Genero</th>");
-        out.println("<th>Duracion</th>");
-        out.println("</tr>");
-        for (int i = 0; i < cataleg.size(); i++) {
-            Pelicula pelicula = (Pelicula) cataleg.get(i);
-            out.println("<tr>");
-            out.println("<td>" + pelicula.getId() + "</td>");
-            out.println("<td>" + pelicula.getTitol() + "</td>");
-            out.println("<td>" + pelicula.getAny() + "</td>");
-            out.println("<td>" + pelicula.getGenere().getId() + "</td>");
-            out.println("<td>" + pelicula.getDuracio() + "</td>");
-            out.println("</tr>");
+        out.println("   <tr>");
+        out.println("       <th>Id</th>");
+        out.println("       <th>Titulo</th>");
+        out.println("       <th>Año</th>");
+        out.println("       <th>Genero</th>");
+        out.println("       <th>Duracion</th>");
+        out.println("   </tr>");
+        for (Pelicula pelicula : cataleg) {
+            out.println("   <tr>");
+            out.println("       <td>" + pelicula.getId() + "</td>");
+            out.println("       <td>" + pelicula.getTitol() + "</td>");
+            out.println("       <td>" + pelicula.getAny() + "</td>");
+            out.println("       <td>" + pelicula.getGenere() + "</td>");
+            out.println("       <td>" + pelicula.getDuracio() + "</td>");
+            out.println("   </tr>");
         }
         out.println("</table>");
         // imprimir taula de generos por pantalla por id y nombre
