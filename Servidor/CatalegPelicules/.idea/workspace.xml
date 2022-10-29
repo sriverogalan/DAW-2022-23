@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
-      <change beforePath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/web/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../webAplication/src/main/java/com/aplicacio/webaplication/web/HelloServlet.java" afterDir="false" />
-    </list>
+    <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,6 +170,7 @@
       <workItem from="1666865620716" duration="288000" />
       <workItem from="1666939101242" duration="57000" />
       <workItem from="1667051871670" duration="1188000" />
+      <workItem from="1667054222710" duration="40000" />
     </task>
     <task id="LOCAL-00001" summary="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
       <created>1666453172806</created>
