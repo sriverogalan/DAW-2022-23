@@ -4,6 +4,7 @@
 </head>
 <body>
 <a href="exercicisVideos/index.php">PRIMER VIDEOS PHP</a>
+<a href="PDO-Desplegament/llista.php">Llista php</a>
 </body>
 </html>
 
