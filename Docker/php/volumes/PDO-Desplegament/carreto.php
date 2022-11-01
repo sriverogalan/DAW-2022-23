@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include 'navbar.php';
+    if( empty(session_id()) && !headers_sent()){
+        session_start();
+    }
+    require 'navbar.php';
 ?>
-<body>   
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Preu</th>
-                            <th scope="col">Quantitat</th>
-                            <th scope="col">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody> 
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<body>    
+    <?php
+    require 'config/database.php';
+    $codi = $_GET["codi"];
+    $sql = "SELECT id, nom, descripcio, preu FROM articles WHERE id = $codi"; // Query
+    $result = $pdo->query($sql); // Execute query
+    $article = $result->fetch(PDO::FETCH_ASSOC); // Fetch result
+    if (isset($_SESSION['carreto'])) {
+        $carreto = $_SESSION['carreto'];
+        $carreto[$codi] = $article;
+        $_SESSION['carreto'] = $carreto;
+    } else {
+        $carreto = array();
+        $carreto[$codi] = $article;
+        $_SESSION['carreto'] = $carreto;
+    }
+
+    var_dump($_SESSION['carreto']);
+
+
+    $pdo = null;
+?>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

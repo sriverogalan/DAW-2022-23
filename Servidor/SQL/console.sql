@@ -1,4 +1,6 @@
+use Botiga;
 SELECT * from articles;
+
 
 
 insert into articles(nom, descripcio, preu) values  ("Pantalons", "Pantalons de verano", 23.50);
