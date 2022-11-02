@@ -9,5 +9,5 @@ Docker/volums
 .idea/*
 
 *.zip
-*.rar
-.Docker/php/volumes/PDO-Desplegament/config/config.php
+*.rar  
+Docker/php/volumes/PDO-Desplegament/config/config.php
