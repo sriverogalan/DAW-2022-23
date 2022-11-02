@@ -10,4 +10,4 @@ Docker/volums
 
 *.zip
 *.rar
-.php/volumes/PDO-Desplegament/config/*
+.php/volumes/PDO-Desplegament/config/config.php
