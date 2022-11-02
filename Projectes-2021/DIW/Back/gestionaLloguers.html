@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veure els teus lloguers | Vacations Mallorca</title>
+    <!--Importam bootstrap -->
+    <link rel="stylesheet" href="./css/custom.css">
+    <!--Importam icones bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  </head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-light bg-light-blue sticky-top">
+        <div class="container-fluid">
+          <a href="index.html" class="navbar-brand"><img src="./img/Logo.png" width="120px"></a>
+          <div class="d-flex">
+            <a href="#" class="btn d-none d-md-block" >Benvingut : joan@gmail.com</a>
+            <a href="login.html"><button class="btn btn-danger" type="submit">Tanca Sessió</button></a>
+          </div>
+        </div>
+      </nav>
+
+    <!-- BODY -->
+      
+    <main class="container p-4">
+        <div class="col-12 " >
+             <div class="row border bg-light-blue p-4 justify-content-around "> 
+                 <h1 class="text-center col-12">Els teus lloguers</h1>  
+                 <table class="table">
+                  <thead class="text-center">
+                    <tr>
+                      <th scope="col">ID</th>  
+                      <th scope="col">Nom</th> 
+                    </tr>
+                  </thead>
+                  <tbody class="text-center">
+                    <tr>
+                      <th scope="row">001</th> 
+                      <td>San Miquel 1</td>
+                      <td class="text-center">
+                        <a href="./editaLloguer.html" class="btn btn-primary">Edita el lloguer</a>
+                      </td> 
+                      <td>
+                        <a href="./llistatReserves.html" class="btn btn-success">Reserves</a>
+                      </td> 
+                      <td class="text-center">
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal1">
+                          Eliminar lloguer
+                        </button> 
+                      </td>
+                    </tr> <tr>
+                      <th scope="row">002</th> 
+                      <td>San Miquel 2</td>
+                      <td>
+                        <a href="./editaLloguer.html" class="btn btn-primary">Edita el lloguer</a>
+                      </td> 
+                      <td>
+                        <a href="./llistatReserves.html" class="btn btn-success">Reserves</a>
+                      </td> 
+                      <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal1">
+                          Eliminar lloguer
+                        </button> 
+                      </td>
+                    </tr> 
+                    <tr>
+                      <th scope="row">003</th> 
+                      <td>Finca San Llobets</td>
+                      <td>
+                        <a href="./editaLloguer.html" class="btn btn-primary">Edita el lloguer</a>
+                      </td> 
+                      <td>
+                        <a href="./llistatReserves.html" class="btn btn-success">Reserves</a>
+                      </td> 
+                      <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal1">
+                          Eliminar lloguer
+                        </button> 
+                      </td>
+                    </tr> 
+                    <tr>
+                      <th scope="row">012</th> 
+                      <td>San Miquel 5</td>
+                      <td>
+                        <a href="./editaLloguer.html" class="btn btn-primary">Edita el lloguer</a>
+                      </td> 
+                      <td>
+                        <a href="./llistatReserves.html" class="btn btn-success">Reserves</a>
+                      </td> 
+                      <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal1">
+                          Eliminar lloguer
+                        </button> 
+                      </td>
+                    </tr> 
+                    <tr>
+                      <th scope="row">025</th> 
+                      <td>Finca Son Moix</td>
+                      <td>
+                        <a href="./editaLloguer.html" class="btn btn-primary">Edita el lloguer</a>
+                      </td> 
+                      <td>
+                        <a href="./llistatReserves.html" class="btn btn-success">Reserves</a>
+                      </td> 
+                      <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal1">
+                          Eliminar lloguer
+                        </button> 
+                      </td>
+                    </tr> 
+                    <tr>
+                      <th scope="row">096</th> 
+                      <td>Cabanya a la cantonada</td>
+                      <td>
+                        <a href="./editaLloguer.html" class="btn btn-primary">Edita el lloguer</a>
+                      </td> 
+                      <td>
+                        <a href="./llistatReserves.html" class="btn btn-success">Reserves</a>
+                      </td> 
+                      <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal1">
+                          Eliminar lloguer
+                        </button> 
+                      </td>
+                    </tr> 
+                  </tbody>
+                </table>
+                <div class="modal fade" id="modal1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content"> 
+                      <div class="modal-body row  text-center">
+                        <h2 class="col-12">Vols eliminar el teu lloguer?</h2> 
+                        <input type="text" name="texte" id="texte" class="col-12 form-control" placeholder='Introdueix el nom del teu lloguer ex:"San Miquelet 1" per eliminar-lo'>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tornar enrere</button>
+                        <a href="./gestionaLloguers.html" type="button" class="btn btn-danger">ELIMINA EL LLOGUER</a>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+        </div>
+    </main>
+
+
+       
+    <!-- FOOTER -->   
+
+    <footer class="bg-light-blue text-center text-lg-start mt-select-1">
+        
+        <div class="container p-4">
+
+          <div class="row d-flex justify-content-around">
+
+            <div class="col-6 text-center my-auto">   
+                <h5> © 2022 Copyright: Vacations Mallorca </h5>  
+            </div>
+
+            <div class="col-6 text-center my-auto"> 
+                 <a href="index.html" class="navbar-brand"><img src="./img/Logo.png" width="120px"></a>
+            </div> 
+          </div> 
+        </div> 
+      </footer>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://www.sergi-server.me/</loc>
+  <lastmod>2022-02-09T18:54:29+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/index.html</loc>
+  <lastmod>2022-02-09T18:54:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/login.html</loc>
+  <lastmod>2022-02-09T18:54:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/resultatsCerca.html</loc>
+  <lastmod>2022-02-09T18:54:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/fitxa.html</loc>
+  <lastmod>2022-02-09T18:54:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/gestionaLloguers.html</loc>
+  <lastmod>2022-02-09T18:54:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/recuperarContra.html</loc>
+  <lastmod>2022-02-09T18:54:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/registrarPropietari.html</loc>
+  <lastmod>2022-02-09T18:54:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/pagament.html</loc>
+  <lastmod>2022-02-09T18:54:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/editaLloguer.html</loc>
+  <lastmod>2022-02-09T18:54:28+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/llistatReserves.html</loc>
+  <lastmod>2022-02-09T18:54:29+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/bonoReserves.html</loc>
+  <lastmod>2022-02-09T18:54:28+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/fitxaReserva.html</loc>
+  <lastmod>2022-02-09T18:54:29+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/modificarReserva.html</loc>
+  <lastmod>2022-02-09T18:54:30+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>http://www.sergi-server.me/cancelarReserva.html</loc>
+  <lastmod>2022-02-09T18:54:28+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+
+
+</urlset>

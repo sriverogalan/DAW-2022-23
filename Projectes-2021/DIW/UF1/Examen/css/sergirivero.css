@@ -1,0 +1,234 @@
+/* Exercici 1 - GENERAL */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Quicksand', sans-serif;
+    background-color: #485460;
+    font-size: 12px;
+    width: 1000px; 
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+header {
+    width: 100%;
+}
+
+/* Exercici 2 - LOGO */
+
+
+h1{ 
+    font-family: 'Lobster';
+    color: #05c46b;
+    text-shadow: 0px 0px 20px #808e9b;
+    text-decoration-line: underline;
+    text-align: center;
+    text-transform: lowercase;
+    font-weight: bold;
+    font-size: 5em;
+    letter-spacing: 0.5em;
+}
+
+/* Exercici 4 - SIDEBAR */
+
+aside{
+    background-color: #05c46b;
+    margin-bottom: 20px;
+    padding: 30px;
+}
+
+aside section {
+    border: dashed 5px #7f8c8d; 
+    margin-bottom: 20px;
+    text-align: center;
+} 
+
+aside section h2 {  
+    margin: 10px; 
+}
+
+table, tr,th, td {
+    border: solid 0.5px black;
+    border-collapse: collapse; 
+    margin-left: auto;
+    margin-right: auto; 
+    padding: 10px;
+}
+
+tr td:first-child{
+    background-color: white;
+}
+tr td:last-child{
+    background-color: grey;
+}
+
+tr th{
+    background-color: black;
+    color: white;
+}
+th, td{
+    padding: 5px;
+} 
+section iframe{ 
+    width: 100%;
+}
+/* Exercici 5 - CONTAINER */
+main section {
+    background-image: url("../img/background4.jpg");
+}
+#container{ 
+    background-repeat: repeat;
+    background-color: rgb(194, 253, 194);
+    padding: 20px 40px;
+}
+
+#container p{
+    color: #1e272e ;
+    text-indent: 50px;
+    text-align: justify;
+}
+
+#container p:first-line{
+    font-size: 2em;
+    color: #05c46b;
+}
+
+#container p:nth-of-type(2){
+    color: #3c40c6;
+}
+
+/* Exercici 6 - GALLERY */
+
+#gallery{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    text-align: center;
+}
+
+article{
+    width: 33.33%;
+}
+
+article img{ 
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    filter: grayscale(100%);     
+    transition-timing-function: filter 2s, transform 2s ;
+}
+
+article img:hover{
+    position: absolute;
+    filter: grayscale(0%); 
+    transform: rotate(360deg);
+}
+
+article h3{
+    text-align: center;
+    background-color: #d2dae2;
+    border-radius: 50%;
+    margin: auto;
+    width: 80px;
+}
+
+/* Exercici 7 - INFINITE DOG */
+ footer h2{
+    background-color:#05c46b;  
+ } 
+footer #animation{  
+    animation: animacioCa 5s infinite;
+    height: 220px;
+}
+
+@keyframes animacioCa{
+    0%{
+        background-image: url("../img/animation/long-dachshund-dog-cartoon-vector-1116614.jpg") ;
+        background-position: 1000px 550px;
+    }
+    100%{
+        background-image: url("../img/animation/long-dachshund-dog-cartoon-vector-1116614.jpg") ;
+        background-position: 0px 550px;
+    }
+}
+
+
+
+/* Exercici 3 - LAYOUT RESPONSIVE */
+ 
+body{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: [start-col] 250px [primera] 250px [segona] 250px [tercera] 250px [end-col];
+  grid-template-rows: [start-row] auto [row1] auto [row2] auto [end-row];
+  
+  /*a nes header ferli lo de es fills on comença i on acaba i lo mateix amb lo altre...
+  */
+
+  grid-template-areas: 
+    "header header header header"
+    "main main main aside"
+    "footer footer . . ";
+} 
+
+header{
+    grid-column-start: start-col;
+    grid-column-end: end-col;
+    grid-row-start: start-row;
+    grid-row-end: row1; 
+}
+main{
+    grid-column-start: start-col;
+    grid-column-end: tercera;
+    grid-row-start: row1;
+    grid-row-end: row2; 
+} 
+aside{
+    grid-column-start: tercera;
+    grid-column-end: end-col;
+    grid-row-start: row1;
+    grid-row-end: row2; 
+    height: 100%; 
+} 
+footer{
+    grid-column-start: start-col;
+    grid-column-end: segona;
+    grid-row-start: row3;
+    grid-row-end: end-row; 
+}
+
+/* Exercici 8 - RESPONSIVE */
+
+@media only screen and (max-width: 600px) {
+    body { 
+        display: grid;
+        justify-content: center;
+        grid-template-columns: [start-col] 200px [primera] 200px [segona] 200px [tercera];
+        grid-template-rows: [start-row] auto [row1] auto [row2] auto [end-row];
+        margin: 0;
+    }
+    aside{
+        display: none;
+    }
+    header{
+        grid-column-start: start-col;
+        grid-column-end: tercera;
+        grid-row-start: start-row;
+        grid-row-end: row1;
+    }
+    
+    footer{
+        grid-column-start: start-col;
+        grid-column-end: tercera;
+        grid-row-start: row2;
+        grid-row-end: end-row; 
+    }
+  }

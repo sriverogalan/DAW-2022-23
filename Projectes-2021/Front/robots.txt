@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /admin.sergi-server.me/
+Disallow: /bd.sergi-server.me/
+Disallow: /stats.sergi-server.me/
+
+User-agent: Googlebot
+Allow: /www.sergi-server.me/
+Allow: /api.sergi-server.me/
+
+Sitemap: http://www.sergi-server.me/sitemap.xml

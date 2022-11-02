@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Surfers</title> 
+    <link rel="stylesheet" href="./scss/custom.scss">
+    <script src="./js/bootstrap.bundle.js"></script>
+    <link rel="manifest" href="../manifest.json">
+</head>
+<script type="module">
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register(new URL('./sw.js', import.meta.url),
+                {type: 'module'}).then(function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+</script>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top  ">
+        <div class="container-fluid ">
+          <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div>
+            <img src="./img/logo.jpg" class="img-size-logo navbar-nav " >
+          </div>
+          </button>
+            <div class="collapse navbar-collapse " id="navbar">
+                <ul class="navbar-nav mx-lg-auto">
+                    <li class="btn nav-item dropdown-item">
+                      <a class="nav-link active" aria-current="page" href="#">Shop</a>
+                    </li>
+                    <li class="btn nav-item dropdown-item">
+                      <a class="nav-link" href="#">Company</a>
+                    </li>
+                    <li class="btn nav-item dropdown-item">
+                      <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="btn nav-item dropdown-item">
+                      <a class="nav-link" href="#">Support</a>
+                    </li>
+                    <li class="btn nav-item dropdown-item">
+                      <a class="nav-link" href="#">Surfboard</a>
+                    </li>
+                    <li class="btn nav-item dropdown-item">
+                      <a class="nav-link" href="#">Contact</a>
+                    </li>
+                  </ul>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn nav-item col" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                    <button class="btn nav-item col" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                    </button>
+                    <button class="btn nav-item col" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h4 id="offcanvasRightLabel">Your Bag</h4>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p class="col-12 ">3 items</p>
+            <img src="./img/porcentaje.jpg" class="col-12">
+            <br>
+            <br>
+            <article class="row">
+                <img class="col-6" src="./img/board.jpg" alt="board" height="auto">
+                <div class="col-6">
+                    <div >
+                        <h5> Class Maptern Tacitos Del</h5>
+                    </div>
+                    <div class="col-12 row">
+                        <h6 class="col-9">S / Black </h6>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square col-3" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                        </svg>
+                    </div>
+                    <div class="col-12 row">
+                        <h4 class="col-9">$89.00</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg col-3" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                            <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="col-12">
+                        <input type="number" class="col-2">
+                    </div>
+                </div>
+            </article>
+            <br><article class="row">
+                <img class="col-6" src="./img/board.jpg" alt="board" height="auto">
+                <div class="col-6">
+                    <div >
+                        <h5> Class Maptern Tacitos Del</h5>
+                    </div>
+                    <div class="col-12 row">
+                        <h6 class="col-9">S / Black </h6>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square col-3" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                        </svg>
+                    </div>
+                    <div class="col-12 row">
+                        <h4 class="col-9">$89.00</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg col-3" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                            <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="col-12">
+                        <input type="number" class="col-2">
+                    </div>
+                </div>
+            </article>
+            <br>
+            <article class="row">
+                <img class="col-6" src="./img/board.jpg" alt="board" height="auto">
+                <div class="col-6">
+                    <div >
+                        <h5> Class Maptern Tacitos Del</h5>
+                    </div>
+                    <div class="col-12 row">
+                        <h6 class="col-9">S / Black </h6>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square col-3" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                        </svg>
+                    </div>
+                    <div class="col-12 row">
+                        <h4 class="col-9">$89.00</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg col-3" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                            <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                        </svg>
+                    </div>
+                    <div class="col-12">
+                        <input type="number" class="col-2">
+                    </div>
+                </div>
+            </article>
+            <br><br>
+            <div class="row ">
+              <p class="col-12"> <input type="checkbox" class="col-1 "> I agree with the <a href="#">Terms & conditions</a></p>
+              <button type="button" class="btn btn-primary">Buy</button>
+            </div>
+        </div>
+    </div>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Shop</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Home</li>
+        </ol>
+    </nav>
+
+    <!-- MAIN 1 -->
+
+
+    <div id="carousel1" class="carousel slide col-lg-12 d-none d-lg-block" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./img/sliderPrincipal.jpg" class="d-block w-100" alt="principalPC">
+          </div>
+          <div class="carousel-item ">
+            <img src="./img/sliderPrincipal-2.jpg" class="d-block w-100" alt="principalPC">
+          </div>
+        </div>
+      </div>
+      <div id="carousel1-mob" class="carousel slide col-sm-12 d-block d-lg-none" data-bs-ride="carousel2">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./img/sliderPrincipalMov.jpg" class="d-block w-100" alt="principalmob">
+          </div>
+        </div>
+      </div>
+
+
+    <!-- MAIN 2 -->
+
+      <div id="carousel2" class="carousel slide col-lg-12 d-none d-lg-block" data-bs-ride="carousel3">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./img/standUp-ss.jpg" class="d-block w-100" alt="principalPC">
+          </div>
+        </div>
+      </div>
+      <div id="carousel2-mob" class="carousel slide col-sm-12 d-block d-lg-none" data-bs-ride="carousel4">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./img/standUp-ss-mob.jpg" class="d-block w-100" alt="principalmob">
+          </div>
+        </div>
+      </div>
+ <br>
+<!-- PRODUCTS -->
+<section id="products">
+ <section class="col-12">
+  <div class="container">
+  <div class="row justify-content-end">
+    <div class="col-4  text-center">
+    <h2>New Products</h2>
+    </div>
+    <div class="col-4  text-end">
+      <a href="#">View all</a>
+    </div>
+  </div>
+  </div>
+ </section>
+  <section class="col-12 row">
+
+       <article class="col-lg-3 col-6">
+        <div class="card " >
+          <img src="./img/board.jpg" class="card-img-top " alt="...">
+          <div class="card-img-overlay row"> <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class=" row">
+            <div class="col-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+              </svg>
+            </div>
+            <div class="col-6">
+              <p class="border-4 btn-danger text-center text-white">Sale</p>
+            </div>
+          </a>
+          </div>
+          <div class="col-12 d-block d-lg-none">
+            <button type="button" class="btn btn-white col-12">ADD CARD</button>
+          </div>
+          <div class="card-body row text-center">
+              <h5 class="col-12">Table Soleded</h5>
+              <h6>Lulla Model 1</h6>
+              <h2><span class="stars">★★★</span>★★</h2>
+              <p class="text-decoration-line-through col-6 text-end">199.99</p>
+              <p class="col-6 danger text-start ">99.99</p>
+              <div class="text-center">
+                  <button class="btn btn-danger rounded-circle"></button>
+                  <button class="btn btn-iesmanacor rounded-circle"></button>
+                  <button class="btn btn-daw rounded-circle"></button>
+              </div>
+          </div>
+        </div>
+      </article>  <article class="col-lg-3 col-6">
+        <div class="card " >
+          <img src="./img/board.jpg" class="card-img-top " alt="...">
+          <div class="card-img-overlay row"> <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class=" row">
+            <div class="col-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+              </svg>
+            </div>
+            <div class="col-6">
+              <p class="border-4 btn-danger text-center text-white">Sale</p>
+            </div>
+          </a>
+          </div>
+          <div class="col-12 d-block d-lg-none">
+            <button type="button" class="btn btn-white col-12">ADD CARD</button>
+          </div>
+          <div class="card-body row text-center">
+              <h5 class="col-12">Table Soleded</h5>
+              <h6>Lulla Model 1</h6>
+              <h2><span class="stars">★★★</span>★★</h2>
+              <p class="text-decoration-line-through col-6 text-end">199.99</p>
+              <p class="col-6 danger text-start ">99.99</p>
+              <div class="text-center">
+                  <button class="btn btn-danger rounded-circle"></button>
+                  <button class="btn btn-iesmanacor rounded-circle"></button>
+                  <button class="btn btn-daw rounded-circle"></button>
+              </div>
+          </div>
+        </div>
+      </article> <article class="col-lg-3 col-6">
+        <div class="card " >
+          <img src="./img/board.jpg" class="card-img-top " alt="...">
+          <div class="card-img-overlay row"> <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class=" row">
+            <div class="col-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+              </svg>
+            </div>
+            <div class="col-6">
+              <p class="border-4 btn-danger text-center text-white">Sale</p>
+            </div>
+          </a>
+          </div>
+          <div class="col-12 d-block d-lg-none">
+            <button type="button" class="btn btn-white col-12">ADD CARD</button>
+          </div>
+          <div class="card-body row text-center">
+              <h5 class="col-12">Table Soleded</h5>
+              <h6>Lulla Model 1</h6>
+              <h2><span class="stars">★★★</span>★★</h2>
+              <p class="text-decoration-line-through col-6 text-end">199.99</p>
+              <p class="col-6 danger text-start ">99.99</p>
+              <div class="text-center">
+                  <button class="btn btn-danger rounded-circle"></button>
+                  <button class="btn btn-iesmanacor rounded-circle"></button>
+                  <button class="btn btn-daw rounded-circle"></button>
+              </div>
+          </div>
+        </div>
+      </article> <article class="col-lg-3 col-6">
+        <div class="card " >
+          <img src="./img/board.jpg" class="card-img-top " alt="...">
+          <div class="card-img-overlay row"> <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class=" row">
+            <div class="col-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+              </svg>
+            </div>
+            <div class="col-6">
+              <p class="border-4 btn-danger text-center text-white">Sale</p>
+            </div>
+          </a>
+          </div>
+          <div class="col-12 d-block d-lg-none">
+            <button type="button" class="btn btn-white col-12">ADD CARD</button>
+          </div>
+          <div class="card-body row text-center">
+              <h5 class="col-12">Table Soleded</h5>
+              <h6>Lulla Model 1</h6>
+              <h2><span class="stars">★★★</span>★★</h2>
+              <p class="text-decoration-line-through col-6 text-end">199.99</p>
+              <p class="col-6 danger text-start ">99.99</p>
+              <div class="text-center">
+                  <button class="btn btn-danger rounded-circle"></button>
+                  <button class="btn btn-iesmanacor rounded-circle"></button>
+                  <button class="btn btn-daw rounded-circle"></button>
+              </div>
+          </div>
+        </div>
+      </article> <article class="col-lg-3 col-6">
+        <div class="card " >
+          <img src="./img/board.jpg" class="card-img-top " alt="...">
+          <div class="card-img-overlay row"> <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class=" row">
+            <div class="col-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+              </svg>
+            </div>
+            <div class="col-6">
+              <p class="border-4 btn-danger text-center text-white">Sale</p>
+            </div>
+          </a>
+          </div>
+          <div class="col-12 d-block d-lg-none">
+            <button type="button" class="btn btn-white col-12">ADD CARD</button>
+          </div>
+          <div class="card-body row text-center">
+              <h5 class="col-12">Table Soleded</h5>
+              <h6>Lulla Model 1</h6>
+              <h2><span class="stars">★★★</span>★★</h2>
+              <p class="text-decoration-line-through col-6 text-end">199.99</p>
+              <p class="col-6 danger text-start ">99.99</p>
+              <div class="text-center">
+                  <button class="btn btn-danger rounded-circle"></button>
+                  <button class="btn btn-iesmanacor rounded-circle"></button>
+                  <button class="btn btn-daw rounded-circle"></button>
+              </div>
+          </div>
+        </div>
+      </article> <article class="col-lg-3 col-6">
+        <div class="card " >
+          <img src="./img/board.jpg" class="card-img-top " alt="...">
+          <div class="card-img-overlay row"> <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class=" row">
+            <div class="col-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+              </svg>
+            </div>
+            <div class="col-6">
+              <p class="border-4 btn-danger text-center text-white">Sale</p>
+            </div>
+          </a>
+          </div>
+          <div class="col-12 d-block d-lg-none">
+            <button type="button" class="btn btn-white col-12">ADD CARD</button>
+          </div>
+          <div class="card-body row text-center">
+              <h5 class="col-12">Table Soleded</h5>
+              <h6>Lulla Model 1</h6>
+              <h2><span class="stars">★★★</span>★★</h2>
+              <p class="text-decoration-line-through col-6 text-end">199.99</p>
+              <p class="col-6 danger text-start ">99.99</p>
+              <div class="text-center">
+                  <button class="btn btn-danger rounded-circle"></button>
+                  <button class="btn btn-iesmanacor rounded-circle"></button>
+                  <button class="btn btn-daw rounded-circle"></button>
+              </div>
+          </div>
+        </div>
+      </article> <article class="col-lg-3 col-6">
+        <div class="card " >
+          <img src="./img/board.jpg" class="card-img-top " alt="...">
+          <div class="card-img-overlay row"> <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class=" row">
+            <div class="col-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+              </svg>
+            </div>
+            <div class="col-6">
+              <p class="border-4 btn-danger text-center text-white">Sale</p>
+            </div>
+          </a>
+          </div>
+          <div class="col-12 d-block d-lg-none">
+            <button type="button" class="btn btn-white col-12">ADD CARD</button>
+          </div>
+          <div class="card-body row text-center">
+              <h5 class="col-12">Table Soleded</h5>
+              <h6>Lulla Model 1</h6>
+              <h2><span class="stars">★★★</span>★★</h2>
+              <p class="text-decoration-line-through col-6 text-end">199.99</p>
+              <p class="col-6 danger text-start ">99.99</p>
+              <div class="text-center">
+                  <button class="btn btn-danger rounded-circle"></button>
+                  <button class="btn btn-iesmanacor rounded-circle"></button>
+                  <button class="btn btn-daw rounded-circle"></button>
+              </div>
+          </div>
+        </div>
+      </article> <article class="col-lg-3 col-6">
+        <div class="card " >
+          <img src="./img/board.jpg" class="card-img-top " alt="...">
+          <div class="card-img-overlay row"> <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class=" row">
+            <div class="col-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+              </svg>
+            </div>
+            <div class="col-6">
+              <p class="border-4 btn-danger text-center text-white">Sale</p>
+            </div>
+          </a>
+          </div>
+          <div class="col-12 d-block d-lg-none">
+            <button type="button" class="btn btn-white col-12">ADD CARD</button>
+          </div>
+          <div class="card-body row text-center">
+              <h5 class="col-12">Table Soleded</h5>
+              <h6>Lulla Model 1</h6>
+              <h2><span class="stars">★★★</span>★★</h2>
+              <p class="text-decoration-line-through col-6 text-end">199.99</p>
+              <p class="col-6 danger text-start ">99.99</p>
+              <div class="text-center">
+                  <button class="btn btn-danger rounded-circle"></button>
+                  <button class="btn btn-iesmanacor rounded-circle"></button>
+                  <button class="btn btn-daw rounded-circle"></button>
+              </div>
+          </div>
+        </div>
+      </article>
+  </section>
+</section>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <section class="row">
+          <div class="col-6">
+              <img src="./img/board.jpg" alt="img-ficha" class="col-12">
+              <div class="row">
+                  <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-chevron-left col-2" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                  </svg>
+                  <img class=" col-2" src="./img/board.jpg" alt="img-ficha1">
+                  <img class=" col-2" src="./img/board.jpg" alt="img-ficha2">
+                  <img class=" col-2" src="./img/board.jpg" alt="img-ficha3">
+                  <img class=" col-2" src="./img/board.jpg" alt="img-ficha4">
+                  <svg  xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class=" col-2 bi bi-chevron-right" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+              </div>
+          </div>
+          <div class="col-6">
+                <h1>Cosmopolis Namino Odi</h1>
+                <h2 class="stars">★★★★★</h2>
+                <h5>No reviews</h5>
+              <div id="col-12">
+                      <p>Brand: Ella - halothemes</p>
+                      <p>Product Code: KJSU-58636</p>
+                      <p>Availabity: 10 in stock</p>
+              </div>
+              <h2>$59.00</h2>
+                          <div class="row">
+                                  <p class="col-6"> <strong> Size </strong></span> <span class="danger">*</span> XS</p>
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-rulers col-3" viewBox="0 0 16 16">
+                                      <path d="M1 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h5v-1H2v-1h4v-1H4v-1h2v-1H2v-1h4V9H4V8h2V7H2V6h4V2h1v4h1V4h1v2h1V2h1v4h1V4h1v2h1V2h1v4h1V1a1 1 0 0 0-1-1H1z"/>
+                                  </svg>
+                                  <a href="#" class="col-3"><p>Size Guide</p></a>
+                          </div>
+                          <div class="co-12">
+                              <button class="active btn rounded-circle">XS</button>
+                              <button class="active btn rounded-circle">S</button>
+                              <button class="active btn rounded-circle">M</button>
+                              <button class="active btn rounded-circle">L</button>
+                              <button class="active btn rounded-circle">XL</button>
+                          </div>
+                  <div id="color">
+                      <div id="text-color">
+                          <div>
+                            <p> <strong>Color</strong> <span class="danger">*</span> slategray</p>
+                          </div>
+                      </div>
+                      <div class="text-start">
+                        <button class="btn btn-danger rounded-circle"></button>
+                        <button class="btn btn-iesmanacor rounded-circle"></button>
+                        <button class="btn btn-daw rounded-circle"></button>
+                    </div>
+                  <div class="col-12">
+                      <div id="text-quantity">
+                          <div>
+                              <h4>Quantity :</h4>
+                          </div>
+                      </div>
+                      <img src="./img/numbers.jpg" alt="numbers" class="col-12">
+                  </div>
+                  <div class="row">
+                      <button class="btn-primary btn col-6" data-bs-dismiss="modal">ADD TO CARD</button>
+                      <button class="btn btn-primary col-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                              <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                          </svg>
+                      </button>
+                      <button class="btn btn-primary col-3">
+                          <svg class="auto"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                              <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                          </svg>
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<br>
+
+<!-- SECTION 2 -->
+<section class="col-12 row  justify-content-center text-center">
+  <section class="col-12 ">
+    <h4>What Our Customers Say...</h4>
+  </section>
+  <section class="col-12 ">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </section>
+  <section class="row  justify-content-center">
+    <div class="col-lg col-2 position-relative">
+      <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor"  width="40" height="40"  class="bi bi-chevron-left position-absolute top-50 start-50 translate-middle" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+       </svg>
+    </div>
+    <div class="col-8 col-lg row">
+      <img class="rounded-circle col-12" src="./img/valoration1.jpg" alt="val1">
+      <p class="size-stars  col-12"><span class="stars">★★</span>★★★</p>
+      <p class=" col-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat tempor diam. Nulla vel erat varius, commodo turpis quis.</p>
+      <p class=" col-12">- Annie, @annie_le, United Kingdom</p>
+    </div>
+    <div class="col-lg row d-none d-lg-block">
+      <img class="rounded-circle col-12" src="./img/valoration1.jpg" alt="val1">
+      <p class="size-stars  col-12"><span class="stars">★★</span>★★★</p>
+      <p class=" col-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat tempor diam. Nulla vel erat varius, commodo turpis quis.</p>
+      <p class=" col-12">- Annie, @annie_le, United Kingdom</p>
+    </div>
+    <div class="col-lg row  d-none d-lg-block">
+      <img class="rounded-circle col-12" src="./img/valoration1.jpg" alt="val1">
+      <p class="size-stars  col-12"><span class="stars">★★</span>★★★</p>
+      <p class=" col-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat tempor diam. Nulla vel erat varius, commodo turpis quis.</p>
+      <p class=" col-12">- Annie, @annie_le, United Kingdom</p>
+    </div>
+    <div class="col-lg row d-none d-lg-block">
+      <img class="rounded-circle col-12" src="./img/valoration1.jpg" alt="val1">
+      <p class="size-stars  col-12"><span class="stars">★★</span>★★★</p>
+      <p class=" col-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat tempor diam. Nulla vel erat varius, commodo turpis quis.</p>
+      <p class=" col-12">- Annie, @annie_le, United Kingdom</p>
+    </div>
+  <div class="col-lg col-2 position-relative">
+      <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor"  width="40" height="40"  class="bi bi-chevron-right position-absolute top-50 start-50 translate-middle" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+  </div>
+  </section>
+
+</section>
+
+ <!-- FOOTER -->
+ <footer class="bg-dark text-white  col-12">
+  <div class="container">
+    <div class="row  p-2">
+
+      <div class="col-lg col-md ">
+        <img src="./img/logo.jpg" class="img-size-logo navbar-nav " >
+        <div class="list-unstyled mb-0 ">
+          <div class="flex-start p-footer-font-size gray">
+            <address>685 Market Street</address>
+            <address>San Francisco, CA 94105</address>
+            <address>United States</address>
+            <address>Call us: 1.808.000.6690</address>
+            <address>Email: suppor@halothemes.com</address></div>
+        </div>
+      </div>
+
+      <div class="col-lg col-md  mb-4 mb-md-0">
+        <h5 class="text-uppercase">Information</h5>
+        <ul class="list-unstyled mb-0 d-none d-md-block">
+          <li>
+            <a href="#!" class="text-white">Application</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Shop</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Location</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Marks</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Things</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Potatoes</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Tomatoes</a>
+          </li>
+        </ul>
+        <div class="col-12 border-bottom-1 d-block d-md-none"></div>
+      </div>
+
+      <div class="col-lg col-md  mb-4 mb-md-0">
+        <h5 class="text-uppercase">Customer Service</h5>
+        <ul class="list-unstyled mb-0 d-none d-md-block">
+          <li>
+            <a href="#!" class="text-white">Application</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Shop</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Location</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Marks</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Things</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Potatoes</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Tomatoes</a>
+          </li>
+        </ul>
+        <div class="col-12 border-bottom-1 d-block d-md-none"></div>
+      </div>
+      <div class="col-lg col-md  mb-4 mb-md-0">
+        <h5 class="text-uppercase">Customer Service</h5>
+        <ul class="list-unstyled mb-0 d-none d-md-block">
+          <li>
+            <a href="#!" class="text-white">Application</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Shop</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Location</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Marks</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Things</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Potatoes</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Tomatoes</a>
+          </li>
+        </ul>
+        <div class="col-12 border-bottom-1 d-block d-md-none"></div>
+      </div>
+      <div class="col-lg col-md  mb-4 mb-md-0">
+        <h5 class="text-uppercase">Newsletter Sign Up</h5>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <div class="row">
+              <form id="emailForm row  needs-validation" >
+                <div class="col-12">
+                  <label for="Emails" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="Emails" placeholder="Ex: surf@email.com" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                 <div class="col-12">
+                  <button class="btn btn-iesmanacor" type="submit">Submit </button>
+                </div>
+            </form>
+            </div>
+      </div>
+    </div>
+  </div>
+
+</footer>
+</body>
+</html>

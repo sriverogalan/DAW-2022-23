@@ -1,0 +1,89 @@
+/* Reset */
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* 1 Tots els enllaços no estiguin subrallats i de color verd. 
+A més quan hi passem el ratoli per damunt ha de canviar a color vermell */
+a {
+    text-decoration:none;
+    color: green;
+}
+
+a:hover {
+    color: red;
+    text-decoration:none;
+}
+
+/* 2. La primera fila i la tercera de les dues llistes hab de tenis el background gris */
+/*
+li:first-child, li:last-child 
+*/
+/*
+li:nth-child(1), li:nth-child(3) 
+*/
+li:nth-child(2n + 3){
+    background-color: #CCC;
+}
+
+/* 3. Quan passem per damunt la fila de la primera llista,
+ i només la primera, el fons ha de quedar de color blau */
+/* header li:hover */
+/* header>nav>ul:nth-child(1)>li:hover */
+header>nav>ul>li:hover{
+    background-color: blue;
+}
+
+/* Primer section : background verd, fons del numero blau */
+
+#s1{
+    background-color: green;
+}
+
+#s1>span{
+    background-color: blue;
+}
+
+/* Segon section : background blau i fons del numero groc */
+
+.s2:nth-child(2){
+    background-color: blue;
+}
+
+.s2:nth-child(2)>span {
+    background-color: yellow;
+}
+
+/* Tercer section : background blau i fons del numero groc */
+
+.s2:nth-child(3){
+    background-color: yellow;
+}
+
+.s2:nth-child(3)>span {
+    background-color: blue;
+}
+
+/* section de es footer en rosa */
+
+footer section {
+    background-color: pink !important;
+}
+
+/* Tots els que tenen una classe, el text de color vermell */
+[class]{
+    color: red;
+}
+
+/* Totes les id que CONTENEN el numero "1", el text de color taronja */
+[id*="1"]{
+    color: orange;
+}
+
+/*  */
+
+body{
+    /*background-color: rgb(255, 0, 0);*/
+    background-image: url("../img/img.jpeg" );
+}

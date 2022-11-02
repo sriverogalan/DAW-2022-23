@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Vacations Mallorca</title>
+    <!--Importam bootstrap -->
+    <link rel="stylesheet" href="./css/custom.css">
+    <!--Importam icones bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  </head>
+<body>
+    <!-- NAVBAR -->
+   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top border-bottom">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html">
+          <img src="/img/Logo.webp" alt="logo" width="120px">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarButton"
+          aria-controls="navbarLangs" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarButton">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          </ul>
+  
+  
+  
+          <div class="collapse navbar-collapse row" id="navbarButton">
+            <ul class="navbar-nav mb-2 mb-lg-0 justify-content-end">
+  
+              <li class="nav-item">
+                <!-- Button trigger modal -->
+                <button type="button" class="text-start btn btn-secondary mx-4 mb-2 mx-lg-2 mb-lg-0"
+                  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <img id="flagActual" class="rounded-circle" src="/img/cataluna.webp" width="15" height="15"
+                    alt="idioma-triat">
+                  <span id="textActual" class="ms-1">Català</span>
+                </button>
+              </li>
+  
+              <li class="nav-item">
+                <a href="/login.html">
+                  <button class="btn btn-primary mx-4 mb-2 mx-lg-2 mb-lg-0" type="submit" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="Log-in per propietaris">Ets propietari?</button>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+ 
+
+<!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Tria el teu idioma</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">  
+              <div class="row col-11 mx-auto">
+                <button class="btn btn-body col-3 py-2 text-start" data-bs-dismiss="modal" onclick="canviaEsp()">
+                  <img id="espF" src="/img/espana.webp" width="20" height="20" alt="esp">
+                  <span id="espT" class="ms-1">Español</span> 
+                </button>
+
+                <button class="btn btn-body col-3 py-2 text-start" data-bs-dismiss="modal" onclick="canviaCat()">  
+                  <img id="catF" class="rounded-circle" src="/img/cataluna.webp" width="20" height="20" alt="cat">
+                  <span id="catT" class="ms-1">Català</span> 
+                </button>
+
+                <button class="btn btn-body col-3 py-2 text-start" data-bs-dismiss="modal" onclick="canviaFra()">
+                  <img id="fraF" src="/img/francia.webp" width="20" height="20" alt="fra">
+                  <span id="fraT" class="ms-1">Français</span>
+                </button>
+
+                <button class="btn btn-body col-3 py-2 text-start" data-bs-dismiss="modal" onclick="canviaAle()">
+                  <img id="aleF" src="/img/alemania.webp" width="20" height="20" alt="ale">
+                  <span id="aleT" class="ms-1">Deutsch</span> 
+                </button>
+
+                <button class="btn btn-body col-3 py-2 text-start" data-bs-dismiss="modal" onclick="canviaEng()">
+                  <img id="engF" src="/img/reino-unido.webp" width="20" height="20" alt="eng">
+                  <span id="engT" class="ms-1">English(UK)</span> 
+                </button>
+
+                <button class="btn btn-body col-3 py-2 text-start" data-bs-dismiss="modal" onclick="canviaEeuu()">
+                  <img id="eeuuF" src="/img/estados-unidos.webp" width="20" height="20" alt="eeuu">
+                  <span id="eeuuT" class="ms-1">English(USA)</span> 
+                </button>
+
+                <button class="btn btn-body col-3 py-2 text-start" data-bs-dismiss="modal" onclick="canviaIta()">
+                  <img id="itaF" src="/img/italia.webp" width="20" height="20" alt="ita">
+                  <span id="itaT" class="ms-1">Italiano</span> 
+                </button>
+
+
+                <button class="btn btn-body col-3 py-2 text-start" data-bs-dismiss="modal" onclick="canviaPor()">
+                  <img id="porF" src="/img/portugal.webp" width="20" height="20" alt="por">
+                  <span id="porT" class="ms-1">Portugues</span> 
+                </button>
+
+                <button class="btn btn-body col-3 py-2 text-start" data-bs-dismiss="modal" onclick="canviaJap()">
+                  <img id="japF" src="/img/japon.webp" width="20" height="20" alt="jap">
+                  <span id="japT" class="ms-1">日本</span> 
+                </button>
+              </div> 
+            </div> 
+          </div>
+        </div>
+      </div>
+ 
+    <!-- BODY --> 
+
+     <!-- Barra de cerca  -->
+ 
+     <!-- Ofertes i destacats -->
+    <main class="container mt-3"> 
+      <div class="row border rounded-start p-2 text-center bg-light justify-content-around">
+        <div class="col-xl-5 col-6">
+          <h6 class="col-12 ">
+            Zona 
+          </h6> 
+          <select class="form-select rounded-pill col-12" aria-label="Default select example"> 
+            <option value="1">Palma de Mallorca</option>
+            <option value="2" selected>Serra de Tramuntana</option>
+            <option value="3">Raiguer</option> 
+            <option value="4">Pla de Mallorca</option>
+            <option value="5">Llevant</option>
+            <option value="6">Migjorn</option>
+          </select>
+        </div> 
+        <div class="col-xl-2 col-6">
+          <label class="col-12 h6" for="arribada">
+            Arribada 
+          </label>
+          <input class="form-control rounded-pill bg-white col-12 " type="date" id="arribada" name="arribada" value="2022-04-08" min="2022-04-08" >
+        </div> 
+        <div class="col-xl-2 col-6">
+          <label class="col-12 h6" for="sortida">
+            Sortida
+          </label>   
+            <input class="form-control rounded-pill bg-white col-12 " type="date" id="sortida" name="sortida" value="2022-04-10" min="2022-04-10" >
+        </div> 
+        <div class="col-xl-2 col-6">
+          <h6 class="col-12">
+            Persones 
+          </h6> 
+          <select class="form-select rounded-pill col-12" aria-label="Default select example"> 
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option> 
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        </div> 
+        <div class="col-xl-1 col-12 mx-auto my-auto  ">
+          <a href="./resultatsCerca.html" class="btn btn-success rounded-start text-center mt-3"> Cerca  </a>
+        </div>
+      </div> 
+        
+          
+             <div class="row p-md-5 justify-content-around border  ">   
+                  <h4 class="text-center mt-3">
+                      Serra Tramuntana: 41 allotjaments disponibles
+                    </h4>
+
+                  <div class="card md-4 mt-5" >
+                    <div class="row g-0">
+                      <div class="col-lg-4 my-auto">
+                        <div id="card-2" class="carousel slide my-auto" data-bs-ride="carousel">
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <img src="./img/casa-busqueda1.webp" class=" w-100" alt="img1">
+                            </div> 
+                          </div> 
+                        </div> 
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="card-body">
+                          <h5 class="card-title">Cabanya a la cantonada</h5>
+                          <p class="card-text">Àtic Xemeneia duplex, sota taulada a casa de pedra de només tres plantes, al centre. Casa de pedra, cuina independent, i dos banys complets un per a zona de dia, i un altre en planta duplex per a habitacions...</p>
+                          <div class="row"> 
+                            <p class="col-6 col-md-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-egg-fried" viewBox="0 0 16 16">
+                                <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                <path d="M13.997 5.17a5 5 0 0 0-8.101-4.09A5 5 0 0 0 1.28 9.342a5 5 0 0 0 8.336 5.109 3.5 3.5 0 0 0 5.201-4.065 3.001 3.001 0 0 0-.822-5.216zm-1-.034a1 1 0 0 0 .668.977 2.001 2.001 0 0 1 .547 3.478 1 1 0 0 0-.341 1.113 2.5 2.5 0 0 1-3.715 2.905 1 1 0 0 0-1.262.152 4 4 0 0 1-6.67-4.087 1 1 0 0 0-.2-1 4 4 0 0 1 3.693-6.61 1 1 0 0 0 .8-.2 4 4 0 0 1 6.48 3.273z"/>
+                              </svg>
+                              Cuina completa</p>
+                            <p class="col-6 col-md-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                                <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/>
+                              </svg>
+                              Aire acondicionat</p> 
+                              <p class="col-6 col-md-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-life-preserver" viewBox="0 0 16 16">
+                                  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm6.43-5.228a7.025 7.025 0 0 1-3.658 3.658l-1.115-2.788a4.015 4.015 0 0 0 1.985-1.985l2.788 1.115zM5.228 14.43a7.025 7.025 0 0 1-3.658-3.658l2.788-1.115a4.015 4.015 0 0 0 1.985 1.985L5.228 14.43zm9.202-9.202-2.788 1.115a4.015 4.015 0 0 0-1.985-1.985l1.115-2.788a7.025 7.025 0 0 1 3.658 3.658zm-8.087-.87a4.015 4.015 0 0 0-1.985 1.985L1.57 5.228A7.025 7.025 0 0 1 5.228 1.57l1.115 2.788zM8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                </svg>
+                                Piscina</p>   
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-2">  
+                        <div class="card-body row d-flex justify-content-center">   
+                          <div class="row text-center">  
+                            <h3 class="text-danger col-xxl-6 col-12">10€</h3> 
+                            <h3 class=" text-decoration-line-through col-xxl-6 col-12">140€</h3> 
+                            <div class="col-12">
+                              <h4 class="text-center">per vespre</h4>
+                            </div>
+                          </div>
+                          <a href="./fitxa.html" class="btn btn-primary " >Més informació</a>   
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="card md-4 mt-2" >
+                    <div class="row g-0">
+                      <div class="col-lg-4 my-auto">
+                        <div id="card-2" class="carousel slide my-auto" data-bs-ride="carousel">
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <img src="./img/casa-busqueda2.webp" class="d-block w-100" alt="img1">
+                            </div> 
+                          </div> 
+                        </div> 
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="card-body">
+                          <h5 class="card-title">
+                            Casa del Molino</h5>
+                          <p class="card-text">Àtic Xemeneia duplex, sota taulada a casa de pedra de només tres plantes, al centre. Casa de pedra, cuina independent, i dos banys complets un per a zona de dia, i un altre en planta duplex per a habitacions...</p>
+                          <div class="row"> 
+                            <p class="col-6 col-md-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-egg-fried" viewBox="0 0 16 16">
+                                <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                <path d="M13.997 5.17a5 5 0 0 0-8.101-4.09A5 5 0 0 0 1.28 9.342a5 5 0 0 0 8.336 5.109 3.5 3.5 0 0 0 5.201-4.065 3.001 3.001 0 0 0-.822-5.216zm-1-.034a1 1 0 0 0 .668.977 2.001 2.001 0 0 1 .547 3.478 1 1 0 0 0-.341 1.113 2.5 2.5 0 0 1-3.715 2.905 1 1 0 0 0-1.262.152 4 4 0 0 1-6.67-4.087 1 1 0 0 0-.2-1 4 4 0 0 1 3.693-6.61 1 1 0 0 0 .8-.2 4 4 0 0 1 6.48 3.273z"/>
+                              </svg>
+                              Cuina completa</p>
+                            <p class="col-6 col-md-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                                <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/>
+                              </svg>
+                              Aire acondicionat</p> 
+                              <p class="col-6 col-md-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-life-preserver" viewBox="0 0 16 16">
+                                  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm6.43-5.228a7.025 7.025 0 0 1-3.658 3.658l-1.115-2.788a4.015 4.015 0 0 0 1.985-1.985l2.788 1.115zM5.228 14.43a7.025 7.025 0 0 1-3.658-3.658l2.788-1.115a4.015 4.015 0 0 0 1.985 1.985L5.228 14.43zm9.202-9.202-2.788 1.115a4.015 4.015 0 0 0-1.985-1.985l1.115-2.788a7.025 7.025 0 0 1 3.658 3.658zm-8.087-.87a4.015 4.015 0 0 0-1.985 1.985L1.57 5.228A7.025 7.025 0 0 1 5.228 1.57l1.115 2.788zM8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                </svg>
+                                Piscina</p>   
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-2">  
+                        <div class="card-body row d-flex justify-content-center">   
+                          <div class="row text-center">  
+                            <h3 class="text-danger col-xxl-6 col-12">43€</h3> 
+                            <h3 class=" text-decoration-line-through col-xxl-6 col-12">87€</h3> 
+                            <div class="col-12">
+                              <h4 class="text-center">per vespre</h4>
+                            </div>
+                          </div>
+                          <a href="./fitxa.html" class="btn btn-primary " >Més informació</a>   
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="card md-4 mt-2" >
+                    <div class="row g-0">
+                      <div class="col-lg-4 my-auto">
+                        <div id="card-2" class="carousel slide my-auto" data-bs-ride="carousel">
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <img src="./img/casa-busqueda3.webp" class="d-block w-100" alt="img1">
+                            </div> 
+                          </div> 
+                        </div> 
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="card-body">
+                          <h5 class="card-title">
+                            La casa Blanca</h5>
+                          <p class="card-text">Àtic Xemeneia duplex, sota taulada a casa de pedra de només tres plantes, al centre. Casa de pedra, cuina independent, i dos banys complets un per a zona de dia, i un altre en planta duplex per a habitacions...</p>
+                          <div class="row"> 
+                            <p class="col-6 col-md-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-egg-fried" viewBox="0 0 16 16">
+                                <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                <path d="M13.997 5.17a5 5 0 0 0-8.101-4.09A5 5 0 0 0 1.28 9.342a5 5 0 0 0 8.336 5.109 3.5 3.5 0 0 0 5.201-4.065 3.001 3.001 0 0 0-.822-5.216zm-1-.034a1 1 0 0 0 .668.977 2.001 2.001 0 0 1 .547 3.478 1 1 0 0 0-.341 1.113 2.5 2.5 0 0 1-3.715 2.905 1 1 0 0 0-1.262.152 4 4 0 0 1-6.67-4.087 1 1 0 0 0-.2-1 4 4 0 0 1 3.693-6.61 1 1 0 0 0 .8-.2 4 4 0 0 1 6.48 3.273z"/>
+                              </svg>
+                              Cuina completa</p>
+                            <p class="col-6 col-md-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                                <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/>
+                              </svg>
+                              Aire acondicionat</p> 
+                              <p class="col-6 col-md-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-life-preserver" viewBox="0 0 16 16">
+                                  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm6.43-5.228a7.025 7.025 0 0 1-3.658 3.658l-1.115-2.788a4.015 4.015 0 0 0 1.985-1.985l2.788 1.115zM5.228 14.43a7.025 7.025 0 0 1-3.658-3.658l2.788-1.115a4.015 4.015 0 0 0 1.985 1.985L5.228 14.43zm9.202-9.202-2.788 1.115a4.015 4.015 0 0 0-1.985-1.985l1.115-2.788a7.025 7.025 0 0 1 3.658 3.658zm-8.087-.87a4.015 4.015 0 0 0-1.985 1.985L1.57 5.228A7.025 7.025 0 0 1 5.228 1.57l1.115 2.788zM8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                </svg>
+                                Piscina</p>   
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-2">  
+                        <div class="card-body row d-flex justify-content-center">   
+                          <div class="row text-center">  
+                            <h3 class="text-danger col-xxl-6 col-12">34€</h3> 
+                            <h3 class=" text-decoration-line-through col-xxl-6 col-12">75€</h3> 
+                            <div class="col-12">
+                              <h4 class="text-center">per vespre</h4>
+                            </div>
+                          </div>
+                          <a href="./fitxa.html" class="btn btn-primary " >Més informació</a>   
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="card md-4 mt-2" >
+                    <div class="row g-0">
+                      <div class="col-lg-4 my-auto">
+                        <div id="card-2" class="carousel slide my-auto" data-bs-ride="carousel">
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <img src="./img/casa-busqueda4.webp" class="d-block w-100" alt="img1">
+                            </div> 
+                          </div> 
+                        </div> 
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="card-body">
+                          <h5 class="card-title">Brises marines</h5>
+                          <p class="card-text">Àtic Xemeneia duplex, sota taulada a casa de pedra de només tres plantes, al centre. Casa de pedra, cuina independent, i dos banys complets un per a zona de dia, i un altre en planta duplex per a habitacions...</p>
+                          <div class="row"> 
+                            <p class="col-6 col-md-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-egg-fried" viewBox="0 0 16 16">
+                                <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                <path d="M13.997 5.17a5 5 0 0 0-8.101-4.09A5 5 0 0 0 1.28 9.342a5 5 0 0 0 8.336 5.109 3.5 3.5 0 0 0 5.201-4.065 3.001 3.001 0 0 0-.822-5.216zm-1-.034a1 1 0 0 0 .668.977 2.001 2.001 0 0 1 .547 3.478 1 1 0 0 0-.341 1.113 2.5 2.5 0 0 1-3.715 2.905 1 1 0 0 0-1.262.152 4 4 0 0 1-6.67-4.087 1 1 0 0 0-.2-1 4 4 0 0 1 3.693-6.61 1 1 0 0 0 .8-.2 4 4 0 0 1 6.48 3.273z"/>
+                              </svg>
+                              Cuina completa</p>
+                            <p class="col-6 col-md-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                                <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/>
+                              </svg>
+                              Aire acondicionat</p> 
+                              <p class="col-6 col-md-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-life-preserver" viewBox="0 0 16 16">
+                                  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm6.43-5.228a7.025 7.025 0 0 1-3.658 3.658l-1.115-2.788a4.015 4.015 0 0 0 1.985-1.985l2.788 1.115zM5.228 14.43a7.025 7.025 0 0 1-3.658-3.658l2.788-1.115a4.015 4.015 0 0 0 1.985 1.985L5.228 14.43zm9.202-9.202-2.788 1.115a4.015 4.015 0 0 0-1.985-1.985l1.115-2.788a7.025 7.025 0 0 1 3.658 3.658zm-8.087-.87a4.015 4.015 0 0 0-1.985 1.985L1.57 5.228A7.025 7.025 0 0 1 5.228 1.57l1.115 2.788zM8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                </svg>
+                                Piscina</p>   
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-2">  
+                        <div class="card-body row d-flex justify-content-center">   
+                          <div class="row text-center">  
+                            <h3 class="text-danger col-xxl-6 col-12">24€</h3> 
+                            <h3 class=" text-decoration-line-through col-xxl-6 col-12">79€</h3> 
+                            <div class="col-12">
+                              <h4 class="text-center">per vespre</h4>
+                            </div>
+                          </div>
+                          <a href="./fitxa.html" class="btn btn-primary " >Més informació</a>   
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="card md-4 mt-2" >
+                    <div class="row g-0">
+                      <div class="col-lg-4 my-auto">
+                        <div id="card-2" class="carousel slide my-auto" data-bs-ride="carousel">
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <img src="./img/casa-busqueda5.webp" class="d-block w-100" alt="img1">
+                            </div> 
+                          </div> 
+                        </div> 
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="card-body">
+                          <h5 class="card-title">Casa de la Costa</h5>
+                          <p class="card-text">Àtic Xemeneia duplex, sota taulada a casa de pedra de només tres plantes, al centre. Casa de pedra, cuina independent, i dos banys complets un per a zona de dia, i un altre en planta duplex per a habitacions...</p>
+                          <div class="row"> 
+                            <p class="col-6 col-md-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-egg-fried" viewBox="0 0 16 16">
+                                <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                <path d="M13.997 5.17a5 5 0 0 0-8.101-4.09A5 5 0 0 0 1.28 9.342a5 5 0 0 0 8.336 5.109 3.5 3.5 0 0 0 5.201-4.065 3.001 3.001 0 0 0-.822-5.216zm-1-.034a1 1 0 0 0 .668.977 2.001 2.001 0 0 1 .547 3.478 1 1 0 0 0-.341 1.113 2.5 2.5 0 0 1-3.715 2.905 1 1 0 0 0-1.262.152 4 4 0 0 1-6.67-4.087 1 1 0 0 0-.2-1 4 4 0 0 1 3.693-6.61 1 1 0 0 0 .8-.2 4 4 0 0 1 6.48 3.273z"/>
+                              </svg>
+                              Cuina completa</p>
+                            <p class="col-6 col-md-4">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                                <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/>
+                              </svg>
+                              Aire acondicionat</p> 
+                              <p class="col-6 col-md-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-life-preserver" viewBox="0 0 16 16">
+                                  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm6.43-5.228a7.025 7.025 0 0 1-3.658 3.658l-1.115-2.788a4.015 4.015 0 0 0 1.985-1.985l2.788 1.115zM5.228 14.43a7.025 7.025 0 0 1-3.658-3.658l2.788-1.115a4.015 4.015 0 0 0 1.985 1.985L5.228 14.43zm9.202-9.202-2.788 1.115a4.015 4.015 0 0 0-1.985-1.985l1.115-2.788a7.025 7.025 0 0 1 3.658 3.658zm-8.087-.87a4.015 4.015 0 0 0-1.985 1.985L1.57 5.228A7.025 7.025 0 0 1 5.228 1.57l1.115 2.788zM8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                </svg>
+                                Piscina</p>   
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-2">  
+                        <div class="card-body row d-flex justify-content-center">   
+                          <div class="row text-center">  
+                            <h3 class="text-danger col-xxl-6 col-12">54€</h3> 
+                            <h3 class=" text-decoration-line-through col-xxl-6 col-12">94€</h3> 
+                            <div class="col-12">
+                              <h4 class="text-center">per vespre</h4>
+                            </div>
+                          </div>
+                          <a href="./fitxa.html" class="btn btn-primary " >Més informació</a>   
+                        </div>
+                      </div>
+                    </div>
+                  </div>  
+                  <div class="btn-toolbar justify-content-center mt-3" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group me-2" role="group" aria-label="First group">
+                      <button type="button" class="btn btn-primary">1</button>
+                      <button type="button" class="btn btn-primary">2</button>
+                      <button type="button" class="btn btn-primary">3</button> 
+                      <button type="button" class="btn btn-primary">...</button>
+                      <button type="button" class="btn btn-primary">8</button> 
+                    </div>
+                  </div>
+               <h3 class="text-center mt-5"> 
+                  Allotjaments disponibles que has consultat fa poc
+               </h3>
+               <div class="card md-4 mt-2" >
+                 <div class="row g-0">
+                   <div class="col-lg-4">
+                     <div id="card-1" class="carousel slide my-auto" data-bs-ride="carousel">
+                       <div class="carousel-inner">
+                         <div class="carousel-item active">
+                           <img src="./img/lloguer-1-1.webp" class="d-block w-100" alt="img1">
+                         </div>
+                         <div class="carousel-item">
+                           <img src="./img/lloguer-1-2.webp" class="d-block w-100" alt="img2">
+                         </div> 
+                       </div>
+                       <button class="carousel-control-prev" type="button" data-bs-target="#card-1" data-bs-slide="prev">
+                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                         <span class="visually-hidden">Previous</span>
+                       </button>
+                       <button class="carousel-control-next" type="button" data-bs-target="#card-1" data-bs-slide="next">
+                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                         <span class="visually-hidden">Next</span>
+                       </button>
+                     </div> 
+                   </div>
+                   <div class="col-lg-6">
+                     <div class="card-body">
+                       <h5 class="card-title">Finca es Llobets</h5>
+                       <p class="card-text">Àtic Xemeneia duplex, sota taulada a casa de pedra de només tres plantes, al centre. Casa de pedra, cuina independent, i dos banys complets un per a zona de dia, i un altre en planta duplex per a habitacions...</p>
+                       <div class="row"> 
+                         <p class="col-6 col-md-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-egg-fried" viewBox="0 0 16 16">
+                             <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                             <path d="M13.997 5.17a5 5 0 0 0-8.101-4.09A5 5 0 0 0 1.28 9.342a5 5 0 0 0 8.336 5.109 3.5 3.5 0 0 0 5.201-4.065 3.001 3.001 0 0 0-.822-5.216zm-1-.034a1 1 0 0 0 .668.977 2.001 2.001 0 0 1 .547 3.478 1 1 0 0 0-.341 1.113 2.5 2.5 0 0 1-3.715 2.905 1 1 0 0 0-1.262.152 4 4 0 0 1-6.67-4.087 1 1 0 0 0-.2-1 4 4 0 0 1 3.693-6.61 1 1 0 0 0 .8-.2 4 4 0 0 1 6.48 3.273z"/>
+                           </svg>
+                           Cuina completa</p>
+                         <p class="col-6 col-md-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                             <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/>
+                           </svg>
+                           Aire acondicionat</p> 
+                           <p class="col-6 col-md-4">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-life-preserver" viewBox="0 0 16 16">
+                               <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm6.43-5.228a7.025 7.025 0 0 1-3.658 3.658l-1.115-2.788a4.015 4.015 0 0 0 1.985-1.985l2.788 1.115zM5.228 14.43a7.025 7.025 0 0 1-3.658-3.658l2.788-1.115a4.015 4.015 0 0 0 1.985 1.985L5.228 14.43zm9.202-9.202-2.788 1.115a4.015 4.015 0 0 0-1.985-1.985l1.115-2.788a7.025 7.025 0 0 1 3.658 3.658zm-8.087-.87a4.015 4.015 0 0 0-1.985 1.985L1.57 5.228A7.025 7.025 0 0 1 5.228 1.57l1.115 2.788zM8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                             </svg>
+                             Piscina</p>  
+                       </div>
+                     </div>
+                   </div>
+                   <div class="col-lg-2">  
+                     <div class="card-body row d-flex justify-content-center">   
+                       <div class="row text-center">  
+                         <h3 class="text-danger col-xxl-6 col-12">64€</h3> 
+                         <h3 class=" text-decoration-line-through col-xxl-6 col-12">95€</h3> 
+                         <div class="col-12">
+                           <h4 class="text-center">per vespre</h4>
+                         </div>
+                       </div>
+                       <a href="./fitxa.html" class="btn btn-primary " >Més informació</a>   
+                     </div>
+                   </div>
+                 </div>
+               </div> 
+               <div class="card md-4 mt-2" >
+                 <div class="row g-0">
+                   <div class="col-lg-4">
+                     <div id="card-2" class="carousel slide my-auto" data-bs-ride="carousel">
+                       <div class="carousel-inner">
+                         <div class="carousel-item active">
+                           <img src="./img/lloguer-1-3.webp" class="d-block w-100" alt="img1">
+                         </div>
+                         <div class="carousel-item">
+                           <img src="./img/lloguer-1-4.webp" class="d-block w-100" alt="img2">
+                         </div> 
+                       </div>
+                       <button class="carousel-control-prev" type="button" data-bs-target="#card-2" data-bs-slide="prev">
+                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                         <span class="visually-hidden">Previous</span>
+                       </button>
+                       <button class="carousel-control-next" type="button" data-bs-target="#card-2" data-bs-slide="next">
+                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                         <span class="visually-hidden">Next</span>
+                       </button>
+                     </div> 
+                   </div>
+                   <div class="col-lg-6">
+                     <div class="card-body">
+                       <h5 class="card-title">San Toniet</h5>
+                       <p class="card-text">Àtic Xemeneia duplex, sota taulada a casa de pedra de només tres plantes, al centre. Casa de pedra, cuina independent, i dos banys complets un per a zona de dia, i un altre en planta duplex per a habitacions...</p>
+                       <div class="row"> 
+                         <p class="col-6 col-md-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-egg-fried" viewBox="0 0 16 16">
+                             <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                             <path d="M13.997 5.17a5 5 0 0 0-8.101-4.09A5 5 0 0 0 1.28 9.342a5 5 0 0 0 8.336 5.109 3.5 3.5 0 0 0 5.201-4.065 3.001 3.001 0 0 0-.822-5.216zm-1-.034a1 1 0 0 0 .668.977 2.001 2.001 0 0 1 .547 3.478 1 1 0 0 0-.341 1.113 2.5 2.5 0 0 1-3.715 2.905 1 1 0 0 0-1.262.152 4 4 0 0 1-6.67-4.087 1 1 0 0 0-.2-1 4 4 0 0 1 3.693-6.61 1 1 0 0 0 .8-.2 4 4 0 0 1 6.48 3.273z"/>
+                           </svg>
+                           Cuina completa</p>
+                         <p class="col-6 col-md-4">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                             <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/>
+                           </svg>
+                           Aire acondicionat</p> 
+                           <p class="col-6 col-md-4">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-life-preserver" viewBox="0 0 16 16">
+                               <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm6.43-5.228a7.025 7.025 0 0 1-3.658 3.658l-1.115-2.788a4.015 4.015 0 0 0 1.985-1.985l2.788 1.115zM5.228 14.43a7.025 7.025 0 0 1-3.658-3.658l2.788-1.115a4.015 4.015 0 0 0 1.985 1.985L5.228 14.43zm9.202-9.202-2.788 1.115a4.015 4.015 0 0 0-1.985-1.985l1.115-2.788a7.025 7.025 0 0 1 3.658 3.658zm-8.087-.87a4.015 4.015 0 0 0-1.985 1.985L1.57 5.228A7.025 7.025 0 0 1 5.228 1.57l1.115 2.788zM8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                             </svg>
+                             Piscina</p>   
+                       </div>
+                     </div>
+                   </div>
+                   <div class="col-lg-2">  
+                     <div class="card-body row d-flex justify-content-center">   
+                       <div class="row text-center">  
+                         <h3 class="text-danger col-xxl-6 col-12">24€</h3> 
+                         <h3 class=" text-decoration-line-through col-xxl-6 col-12">45€</h3> 
+                         <div class="col-12">
+                           <h4 class="text-center">per vespre</h4>
+                         </div>
+                       </div>
+                       <a href="./fitxa.html" class="btn btn-primary " >Més informació</a>   
+                     </div>
+                   </div>
+                 </div>
+               </div> 
+               
+ 
+             </div>
+        </div>
+    </main>
+
+
+       
+    <!-- FOOTER -->   
+
+    <!-- FOOTER -->    
+    <div class="container-fluid bg-light border-top mt-5">
+      <footer class="pt-3 pb-1 px-5">
+        <div class="row">
+          <div class="col-12 col-lg-2">
+            <h5>Seccions</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="/index.html" class="nav-link p-0 text-black">Inici</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-black">Característiques</a></li>
+              <li class="nav-item mb-2"><a href="/index.html" class="nav-link p-0 text-black">Preus</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-black">Sobre nosaltres</a></li>
+              <li class="nav-item mb-2"><a href="/formulariIncidencies.html"
+                  class="nav-link p-0 text-black">Contacte'ns</a></li>
+            </ul>
+          </div>
+  
+          <div class="col-12 col-lg-6">
+            <h5>La nostra ubicació</h5>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3075.909590809514!2d3.1976512153470664!3d39.56164607947369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1296490b762be963%3A0x246faf0a7fa80aac!2sInstituto%20p%C3%BAblico%20Manacor!5e0!3m2!1ses!2ses!4v1646321664608!5m2!1ses!2ses"
+              width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" title="ourLocation"></iframe>
+          </div>
+  
+          <div class="col-12 col-lg-4">
+            <form>
+              <h5>Subscriu-te al nostre newsletter per estar al dia</h5>
+              <p>Noves oportunitats cada dia</p>
+              <div class="d-flex w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden">Correu electrònic</label>
+                <input id="newsletter1" type="text" class="form-control" placeholder="Correu electrònic">
+                <button class="btn btn-primary" type="button">Susbscriure</button>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+        <div class="d-flex justify-content-between flex-column flex-lg-row py-4 my-4 border-top">
+          <p>&copy; 2022 Copyright: Vacations Mallorca <br>
+            <a class="text-decoration-none text-dark" href="">
+              Polítiques de privacitat
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-down-left-square" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm10.096 3.146a.5.5 0 1 1 .707.708L6.707 9.95h2.768a.5.5 0 1 1 0 1H5.5a.5.5 0 0 1-.5-.5V6.475a.5.5 0 1 1 1 0v2.768l4.096-4.097z" />
+              </svg>
+            </a>
+          </p>
+  
+          <ul class="list-unstyled d-flex mx-auto mx-lg-0">
+            <li class="ms-3">
+              <a class="link-dark" href="https://www.instagram.com/?hl=es">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                </svg>
+              </a>
+            </li>
+            <li class="ms-3">
+              <a class="link-dark" href="https://twitter.com/?lang=es">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-twitter"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                </svg>
+              </a>
+            </li>
+            <li class="ms-3">
+              <a class="link-dark" href="https://es-es.facebook.com/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+  
+          <a href="index.html" class="navbar-brand mx-auto mx-lg-0"><img src="./img/Logo.webp" width="120px"
+              alt="Logo"></a>
+        </div>
+      </footer>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

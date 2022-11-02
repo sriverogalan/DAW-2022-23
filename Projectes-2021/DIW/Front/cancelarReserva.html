@@ -1,0 +1,166 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel·lar reserva</title>
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+      <a href="index.html" class="navbar-brand"><img src="./img/Logo.png" width="120px"></a>
+      <form class="d-flex"> 
+        <a class="btn btn-outline-success" href="login.html">Ets propietari?</a>
+      </form>
+    </div>
+  </nav>
+
+      <div class="container py-2">
+          <div class="col-12 d-flex justify-content-center my-4">
+              <h1>Anulau la vostre reserva</h1>
+          </div>
+
+          <form class="row d-flex justify-content-lg-center flex-column col-9 col-md-8 col-lg-9 flex-lg-row shadow bg-body mx-auto py-4">
+
+            <div class="mb-1 col-9 mx-auto">
+              <h2 class="text-center">Finca Es Llobets</h2>
+            </div>
+
+            <div class="mb-3 col-9 mx-auto">
+              <h4 class="text-center">Ses Salines, Campos</h4>
+            </div>
+
+            
+            <div class="mb-1 col-9 col-lg-10 mx-auto">
+              <span class="fs-5">Condicions de la cancel·lació</span>
+            </div>
+
+            <div class="mb-3 col-9 col-lg-10 mx-auto d-flex justify-content-between border-bottom">
+              <span>3 vespres/1 adult</span>
+              <span>Gratuit</span>
+            </div>
+
+
+            <div class="mb-1 col-9 col-lg-10 mx-auto">
+              <span class="fs-5">Import per la cancel·lació</span>
+            </div>
+
+            <div class="mb-3 col-9 col-lg-10 mx-auto border-bottom">
+              <span>Gratuit</span>
+            </div>
+
+            <div class="mb-3 col-9 col-lg-5 mx-auto mx-lg-0">
+                <span class="fs-5">Nom</span>
+                <br>
+                <span>Martin</span>
+            </div>
+
+              <div class="mb-3 col-9 col-lg-5 mx-auto mx-lg-0">
+                <span class="fs-5">Llinatge/s</span>
+                <br>
+                <span>Valjent</span>
+              </div>
+
+            <div class="col-9 col-lg-5 pb-3 mx-auto mx-lg-0">
+              <span class="fs-5">Correu electrònic</span>
+              <br>
+              <span>mvaljent@gmail.com</span>
+            </div>
+
+            <div class="col-9 col-lg-5 pb-3 mx-auto mx-lg-0">
+              <span class="fs-5">Número de telèfon</span>
+              <br>
+              <span>+34 696 609 301</span>    
+            </div>
+
+            <div class="col-9 col-lg-5 pb-3 mx-auto mx-lg-0">
+              <span class="fs-5">Data d'entrada</span>
+              <br>
+              <span>26/09/2022</span>    
+            </div>
+
+            <div class="col-9 col-lg-5 pb-3 mx-auto mx-lg-0">
+              <span class="fs-5">Data de sortida</span>
+              <br>
+              <span>29/09/2022</span>    
+            </div>
+
+            <div class="col-9 col-lg-5 pb-3 mx-auto mx-lg-0">
+              <span class="fs-5">Preu per vespre</span>
+              <br>
+              <span>26/09/2022 - 50€</span>
+              <br>
+              <span>27/09/2022 - 70€</span>
+              <br>
+              <span>28/09/2022 - 70€</span>
+                  
+            </div>
+
+            <div class="col-9 col-lg-5 pb-3 mx-auto mx-lg-0">
+              <span class="fs-5">Import total</span>
+              <br>
+              <span>190€</span>    
+            </div>
+            
+            
+
+            <div class="col-9 col-lg-10 mx-auto mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Motiu pel que vol cancel·lar la seva reserva</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="La seva opinió és important per nosaltres."></textarea>
+            </div>
+
+
+            <div class="col-12 d-flex pb-3 justify-content-center">
+                <button class="btn btn-success mt-3" type="button" data-bs-toggle="modal" data-bs-target="#cancelar">Cancel·lar</button>
+            </div>
+
+            <div class="modal fade" id="cancelar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      Si esteu segur de que voleu cancel·lar la reserva escribiu "Estic d'acord".
+
+                      <div class="mb-3 mt-2">
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Estic d'acord">
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <a class="btn btn-success" href="index.html">Confirmar</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+           <h6 class="col-9 text-danger text-center mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-diamond-fill" viewBox="0 0 16 16">
+                <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+              </svg>   
+            Recordi que un pic cancel·lada la reserva perdrà el dret de l'estança reservada anteriorment.</h6>
+        </form>
+      </div>
+
+
+      <footer class="bg-light text-center text-lg-start">
+        
+        <div class="container p-4">
+
+          <div class="row d-flex justify-content-around">
+
+            <div class="col-6 text-center my-auto">   
+                <h5> © 2022 Copyright: Vacations Mallorca </h5>  
+            </div>
+
+            <div class="col-6 text-center my-auto"> 
+                 <a href="index.html" class="navbar-brand"><img src="./img/Logo.png" width="120px"></a>
+            </div> 
+          </div> 
+        </div> 
+      </footer>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"name": "ProjectsSass",
+			"path": "..\\..\\..\\..\\ProjectsSass"
+		},
+		{
+			"name": "DAW 2n ANY",
+			"path": "."
+		},
+		{
+			"path": "\\\\192.168.1.236\\apacheCompartida\\html"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "DAW 2n ANY"
+	}
+}

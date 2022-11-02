@@ -1,0 +1,99 @@
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+}
+
+#cub{
+    position: relative;
+    transform-style: preserve-3d; 
+    animation: giro360 1s infinite ;
+    margin: 200px; 
+    transform:rotateX(-45deg) rotateY(-45deg) rotateZ(-45deg);
+}
+
+#cub div{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#frontal{
+    animation: canviColor 5s infinite;
+    background-color: red;  
+    transform: translateZ(50px);
+
+}
+
+#darrera{
+    background-color: pink;
+    transform: translateZ(-50px);
+}
+
+#amunt{    
+    background-color: purple;
+    transform: rotateX(-90deg) translateZ(50px) ;
+}
+
+
+#davall{
+    background-color: gold; 
+    transform: rotateX(90deg) translateZ(50px) ;
+}
+
+#esquerre{
+    background-color: rgb(255, 123, 0);
+    transform: rotateY(-90deg) translateZ(50px) ;
+
+}
+
+#dreta{
+    background-color: royalblue;
+    transform: rotateY(90deg) translateZ(50px) ;
+}
+
+
+
+/*    Animació   */
+/* 1- KEY FRAMES */
+
+@keyframes canviColor {
+    0%{
+        background-color: red;
+    }
+    16%{
+        background-color: rebeccapurple;
+    }
+    25%{
+        background-color: gold; 
+    }
+    50%{
+        background-color: aqua;
+    }
+    75%{
+        background-color: palegreen;
+    }
+    100%{
+        background-color: pink;
+    }
+}
+
+/* 2- Animacio 360º */
+
+@keyframes giro360 {
+    0%{ 
+        transform:rotateY(0deg) rotateX(45Deg) rotateZ(45deg);
+        transform-origin: 50px 50px;
+    }   
+    100%{
+        transform:rotateY(360deg) rotateX(45deg)  rotateZ(45deg);
+        transform-origin: 50px 50px;
+    }
+}

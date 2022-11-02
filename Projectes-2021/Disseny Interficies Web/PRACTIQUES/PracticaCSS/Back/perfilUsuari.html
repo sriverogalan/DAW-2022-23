@@ -1,0 +1,178 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de l'usuari</title>
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+<body>
+    
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark-blue  sticky-top border-bottom ">
+    <div class="container-fluid">
+      <a href="https://www.sergi-server.me/" class="navbar-brand" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Home"><img src="./img/Logo.webp" width="120px" alt="first"></a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list text-white" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </button>  
+      <div class="collapse navbar-collapse row " id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end"> 
+          <li class="nav-item"> 
+            <!-- DESCOMENTAR EL SEGUENT CODI PER BOTO LLOGUERS -->
+            <a href="./gestionaLloguers.html" class="btn btn-primary mx-4 mb-2 mx-lg-0 mb-lg-0 " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Gestiona els teus lloguers">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 18">
+                <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+              </svg>Lloguers 
+            </a> 
+          </li>
+          <li class="nav-item">
+            <a href="https://admin.sergi-server.me/"><button class="btn btn-danger px-auto pe-2 mx-4 mb-2 mx-lg-2 mb-lg-0 text-danger" type="submit" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sortir"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left text-white" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+            <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+            </svg>.</button></a>
+          </li>
+        </ul>  
+      </div>
+    </div>
+  </nav> 
+
+    <div class="container">
+
+      <div id="liveAlertPlaceholder" class="my-2">
+        <!--svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi flex-shrink-0 me-2" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+        <div>
+          Els canvis s'han guardat correctament.
+        </div-->
+      </div>
+
+      <div id="contraAlert" class="my-2">
+        <!--svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi flex-shrink-0 me-2" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+        <div>
+          Els canvis s'han guardat correctament.
+        </div-->
+      </div>
+
+
+        <h1 class="text-center py-2">Canvia les teves dades</h1>
+
+
+          <div class="row col-9 mx-auto rounded shadow my-4 py-4 d-flex justify-content-center">
+
+            <div class="col-10 col-lg-5 mx-auto mx-lg-0 py-2">
+              <label for="exampleFormControlInput1" class="form-label">Foto de perfil</label>
+              <img class="rounded" src="/img/user-1.webp" width="44" alt="userLog">
+            </div>
+
+            <div class="col-10 col-lg-5 mx-auto mx-lg-0 py-2">
+              <label for="exampleFormControlInput1" class="form-label">Foto de perfil</label>
+              <input type="file" class="form-control" id="exampleFormControlInput1" value="Seleccioni una foto">
+            </div>
+            
+
+            <div class="col-10 col-lg-5 mx-auto mx-lg-0 py-2">
+                <label for="exampleFormControlInput1" class="form-label">Nom d'ususari</label>
+                <input class="form-control" type="text" value="Joanet20" aria-label="Disabled input example">
+            </div>
+
+            <div class="col-10 col-lg-5 mx-auto mx-lg-0 py-2">
+                <label for="exampleFormControlInput1" class="form-label">Nom</label>
+                <input class="form-control" type="text" value="Joan" aria-label="Disabled input example" disabled readonly>
+              </div>
+    
+              <div class="col-10 col-lg-5 mx-auto mx-lg-0 py-2">
+                <label for="exampleFormControlInput1" class="form-label">Primer llinatge</label>
+                <input class="form-control" type="text" value="Vallbona" aria-label="Disabled input example" disabled readonly>
+              </div>
+    
+              <div class="col-10 col-lg-5 mx-auto mx-lg-0 py-2">
+                <label for="exampleFormControlInput1" class="form-label">Segon llinatge</label>
+                <input class="form-control" type="text" value="Arroyo" aria-label="Disabled input example" disabled readonly>
+              </div>
+    
+              <div class="col-10 col-lg-5 mx-auto mx-lg-0 py-2">
+                <label for="exampleFormControlInput1" class="form-label">Correu electrònic</label>
+                <input class="form-control" type="email" value="johnyvallbona@gmail.com" aria-label="Disabled input example">
+              </div>
+    
+              <div class="col-10 col-lg-5 mx-auto mx-lg-0 py-2">
+                <label for="exampleFormControlInput1" class="form-label">Contrassenya</label>
+                <input class="form-control" type="password" aria-label="Disabled input example">
+              </div>
+    
+    
+              <div class="col-10 col-lg-5 mx-auto mx-lg-0 py-2">
+                <label for="exampleFormControlInput1" class="form-label">Direcció</label>
+                <input class="form-control" type="text" value="Carrer de Felanitx, 32" aria-label="Disabled input example">
+              </div>
+
+              <div class="col-10 col-lg-5 mx-auto mx-lg-0 py-2">
+                <label for="exampleFormControlInput1" class="form-label">Número de telèfon</label>
+                <input class="form-control" type="text" value="696 609 301" aria-label="Disabled input example">
+              </div>
+
+
+              <div class="col-10 col-lg-10 mx-auto mx-lg-0 py-2 d-flex justify-content-around">
+                <button type="button" class="btn btn-primary mx-1 my-1" id="liveAlertBtn" data-bs-toggle="modal" data-bs-target="#canviDades">Guardar</button>
+                <button type="button" class="btn btn-primary mx-1 my-1" data-bs-toggle="modal" data-bs-target="#canviContra">Canvia correu i contrassenya</button>
+              </div>
+
+              <div class="modal fade" id="canviContra" tabindex="-1" aria-labelledby="canviContra" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="canviContra">Confirma el correu i la contrassenya</h5>
+                    </div>
+                    <div class="modal-body">
+
+                      <div class="col-10 py-2 mx-auto">
+                        <label for="exampleFormControlInput1" class="form-label">Confirma el correu electrònic</label>
+                        <input class="form-control" type="text" aria-label="Disabled input example">
+                      </div>
+
+                      <div class="col-10 py-2 mx-auto">
+                        <label for="exampleFormControlInput1" class="form-label">Confirma la contrassenya</label>
+                        <input class="form-control" type="password" aria-label="Disabled input example">
+                      </div>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Torna</button>
+                      <button type="button" class="btn btn-primary" id="contraButton" data-bs-dismiss="modal">Guarda els canvis</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+          </div>
+
+          
+      </div>
+      </div>
+
+      <footer class="bg-dark-blue text-center text-lg-start mt-select-1">
+        
+        <div class="container p-4">
+
+          <div class="row d-flex justify-content-around">
+
+            <div class="col-6 text-center my-auto text-white">   
+                <h5> © 2022 Copyright: Vacations Mallorca </h5>  
+            </div>
+
+            <div class="col-6 text-center my-auto"> 
+                 <a href="https://www.sergi-server.me/" class="navbar-brand"><img src="./img/Logo.webp" width="120px"></a>
+            </div> 
+          </div> 
+        </div> 
+      </footer>
+
+      <script src="/js/scripts.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>
