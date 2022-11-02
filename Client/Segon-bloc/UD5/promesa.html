@@ -9,7 +9,17 @@
 <body>
     
     <script>
-        const promesa = new Promise();
+        const notaExamen = new Promise((resolt,rebutja)=>{  
+            setTimeout(function(){
+                resolt();
+            },2000);
+        })
+
+        setTimeout(function(){
+            console.log(notaExamen);
+        },4000);
+
+        console.log(notaExamen);
     </script>
 </body>
 </html>

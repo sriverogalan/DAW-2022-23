@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const ara = new Date();
+        console.log(ara.getHours() + ":" + ara.getMinutes() + ":" + ara.getSeconds());
+
+        let rellotge = new Promise((r, error) => {
+            setTimeout(() => r(), 10000);
+        });
+
+        rellotge.then(() => {
+            console.log(ara.getHours() + ":" + ara.getMinutes() + ":" + ara.getSeconds());
+        });
+
+    </script>
+</body>
+
+</html>
