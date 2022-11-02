@@ -13,7 +13,7 @@ include 'navbar.php';
         echo '<div class="row">';
     if ($articles) {
         foreach ($articles as $article) {
-            echo '<div class="col-md-4 ">'; 
+            echo '<div class="col-md-4">'; 
             echo '<a href="fitxa.php?codi='.$article['id'].'" class="text-decoration-none p-1 border">';
                 echo '<div class="card mb-4 shadow-sm ">';
                     echo '<img src="img/'.$article['id'].'.jpg" class="align-self-center img-fluid">';
