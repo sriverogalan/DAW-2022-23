@@ -7,17 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <table>
+    <table style="text-align: center;">
         <thead>
             <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>username</th>
-                <th>email</th>
-                <th>address</th>
-                <th>phone</th>
-                <th>website</th>
-                <th>company</th>
+                <th>idusuari</th>
+                <th>nom</th> 
+                <th>cognom1</th>
+                <th>cognom2</th>
+                <th>sexe</th>
             </tr>
         </thead>
         <tbody id="tbody">
@@ -27,11 +24,18 @@
         const f = fetch("https://theteacher.codiblau.com/exercicis/other/usuaris/list")
  
         .then(r => r.json())
-        .then(r => {   
-            for (let i = 0; i <10; i++) {
-                document.querySelector("#tbody").innerHTML += '<tr><td>' + r[i].id + '</td><td>' + r[i].name + '</td><td>' + r[i].username + '</td><td>' + r[i].email + '</td><td>' + r[i].address.street + '</td><td>' + r[i].phone + '</td><td>' + r[i].website + '</td><td>' + r[i].company.name + '</td></tr>';
-            }
-        }) 
+        .then(r => { 
+            r.sort()
+            for (let i = 0; i < r.length; i++) { 
+                document.querySelector("#tbody").innerHTML += 
+                `<tr>
+                    <td>${r[i].idusuari}</td>
+                    <td>${r[i].nom}</td>
+                    <td>${r[i].cognom1}</td>
+                    <td>${r[i].cognom2}</td>
+                    <td>${r[i].sexe}</td>
+                </tr>` 
+            } })
 
     </script>
 </body>
