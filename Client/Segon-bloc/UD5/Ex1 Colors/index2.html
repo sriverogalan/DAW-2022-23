@@ -24,7 +24,18 @@
             if (min && max) {
                 const peticio = fetch("https://theteacher.codiblau.com/exercicis/other/color?min=" + min + "&max=" + max + "")
                 console.log(peticio);
-                const resolve1 = peticio.then(r => {
+                peticio.then((resposta) => {
+                    console.log(resposta);
+                    resposta.json().then((r) => {
+                        console.log(dades);
+                        document.querySelector('#quadre').style.backgroundColor = r.color;
+                    })
+                })
+            
+
+
+
+                /**const resolve1 = peticio.then(r => {
                     document.querySelector('#quadre').style.backgroundColor = r.color;
                     console.log(r);
                     return r.json();
@@ -32,13 +43,8 @@
                 const resolve2 = resolve1.then(r => {
                     console.log(r);
                     document.querySelector('#quadre').style.backgroundColor = r.color;
-                })
-                
-                
-                
-                
-                
-                /**.then(r => r.json())
+                })  .then(r => r.json())
+               
                     .then(r => {
                         console.log(r);
                         document.querySelector('body').style.backgroundColor = '#' + r.background;
@@ -50,6 +56,10 @@
                         console.log(r);
                         document.querySelector('body').innerHTML += '<p>ERROR : ' + error.message() + '</p>';
                     })*/
+                
+                
+                
+                
             }
         })
     </script>

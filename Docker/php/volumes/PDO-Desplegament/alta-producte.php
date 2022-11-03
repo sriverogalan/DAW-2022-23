@@ -1,12 +1,14 @@
 <?php
+require 'navbar.php';
 require 'config/database.php';
 $nom = $_POST['nom'];
 $descripcio = $_POST['descripcio'];
 $preu = $_POST['preu'];
 
-
-$sql = "INSERT INTO articles (nom, descripcio, preu) VALUES ('$nom', '$descripcio', '$preu')"; // Query
-$pdo->exec($sql); // Execute query
+$connection = AccessDatabase::getInstance();
+$pdo = $connection->getConnection();
+$sql = $pdo->prepare("INSERT INTO articles (nom, descripcio, preu) VALUES ('$nom', '$descripcio', '$preu')"); // Query
+$sql->execute();
 
 $insert = $pdo->lastInsertId();
 $target_dir = "img/";

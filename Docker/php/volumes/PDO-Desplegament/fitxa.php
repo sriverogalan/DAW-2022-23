@@ -4,32 +4,42 @@
 include 'navbar.php';
 ?>
 
+<header>
+    <title>Fitxa</title>
+</header> 
 <body>
     <div class="container text-center mt-5">
         <div class="row col-12">
             <?php
             require 'config/database.php';
             $codi = $_GET["codi"];
-            $sql = "SELECT id, nom, descripcio, preu FROM articles WHERE id = $codi"; // Query
-            $result = $pdo->query($sql); // Execute query 
-            $article = $result->fetch(PDO::FETCH_ASSOC); // Fetch result 
-            echo '<div class="col-md-6 row">';
-            echo '<img src="img/' . $article['id'] . '.jpg" class="card-img-top col-12" >';
-            echo '</div>';
-            ?>
-            <div class="col-md-6 text-center align-self-center row">
-                <?php
-                echo '<h1 class="col-12">' . $article['nom'] . '</h1>';
-                echo '<p class="col-12">' . $article['descripcio'] . '</p>';
-                echo '<h2 class="col-12">' . $article['preu'] . ' €</h2>';
-                $pdo = null;
-                echo '<div class="btn-group mt-5">';
-                echo     '<a href="llista.php" class="btn btn-sm btn-outline-secondary"><h5>Seguir comprant</h5></a>';
-                echo     '<a href="carreto.php?codi=' . $article['id'] . '" class="btn btn-sm btn-outline-success"><h5>Afegir al carreto</h5></a>';
-                echo '</div>';
-                ?>
-            </div>
-        </div>
+            $connection = AccessDatabase::getInstance();
+            $pdo = $connection->getConnection();
+            $sql = $pdo->prepare("SELECT * FROM articles WHERE id = $codi"); // id (tambe es l'id de les imatges + .jpg), nom, descripcio, preu
+            $sql->execute();
+            $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
+            if ($articles) {
+                foreach ($articles as $article) {
+                    echo '<div class="col-md-6 row">';
+                    echo    '<img src="img/' . $article['id'] . '.jpg" class="card-img-top col-12" >';
+                    echo '</div>';
+                    echo "<div class='col-md-6 text-center align-self-center row'>";
+                    echo    '<h1 class="col-12">' . $article['nom'] . '</h1>';
+                    echo    '<p class="col-12">' . $article['descripcio'] . '</p>';
+                    echo    '<h2 class="col-12">' . $article['preu'] . ' €</h2>'; 
+                    echo    '<div class="btn-group mt-5">';
+                    echo        '<a href="llista.php" class="btn btn-sm btn-outline-secondary"><h5>Seguir comprant</h5></a>';
+                    echo        '<a href="carreto.php?codi=' . $article['id'] . '" class="btn btn-sm btn-outline-success"><h5>Afegir al carreto</h5></a>';
+                    echo    '</div>';
+                    echo '</div>';
+                }
+            } else {
+                echo "0 results";
+            }
+
+
+            ?> 
+    </div>
     </div>
 </body>
 

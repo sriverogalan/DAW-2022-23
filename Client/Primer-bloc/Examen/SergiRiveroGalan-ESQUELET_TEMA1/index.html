@@ -29,47 +29,40 @@
             <button id="seguent" class="button">&gt;&gt;</button>
         </div>
     </div>
-    <script>
-        /* EXAMEN JS - ESCRIVIU AQUÍ LA VOSTRA SOLUCIÓ */
-        var canal = new Tele(0); 
-        
-
+    <script> 
+        var canal = new Tele(0);
         function Tele(num) {
             this.canal = num;
             this.videos = ["videos/alldayfilms.webm", "videos/kidstv.webm", "videos/natureplus.webm", "videos/sportstv.webm", "videos/technologytoday.webm", "videos/xtremsports.webm"];
+           
+            this.init = function () {
+                document.querySelector("#anterior").addEventListener("click",this.canviarAnterior)
+                document.querySelector("#play").addEventListener("click",this.reproduir)
+                document.querySelector("#stop").addEventListener("click",this.aturar)
+                document.querySelector("#seguent").addEventListener("click",this.canviarSeguent)
+            } 
             this.canviarSeguent = function () {
-                document.querySelector("#seguent").addEventListener("click", function () {
-                    if (this.canal < this.videos.length - 1) {
-                        this.canal++;
-                    } else {
-                        this.canal = 0;
-                    }
-                    document.querySelector("#program-source").src = this.videos[this.canal];
-                    document.querySelector("#program").load();
-
-                })
-            }
+                if (this.canal < this.videos.length - 1) {
+                    this.canal++;
+                } else {
+                    this.canal = 0;
+                }
+                document.querySelector("#program-source").src = this.videos[this.canal];
+            } 
             this.canviarEnrere = function () {
                 console.log("canviarEnrere");
-                document.querySelector("#anterior").addEventListener("click", function () {
-                    if (this.canal > 0) {
-                        this.canal--;
-                    } else {
-                        this.canal = this.videos.length - 1;
-                    }
-                    document.querySelector("#program-source").src = this.videos[this.canal];
-                    document.querySelector("#program").load();
-                })
+                if (this.canal > 0) {
+                    this.canal--;
+                } else {
+                    this.canal = this.videos.length - 1;
+                }
+                document.querySelector("#program-source").src = this.videos[this.canal];
             }
             this.aturar = function () {
-                document.querySelector("#stop").addEventListener("click", function () {
-                    document.querySelector("#program").pause();
-                })
+                document.querySelector("#program").pause();
             }
             this.reproduir = function () {
-                document.querySelector("#play").addEventListener("click", function () {
-                    document.querySelector("#program").play();
-                })
+                document.querySelector("#program").play();
             }
             this.contarEnrere = function () {
                 var num = 5;
@@ -83,6 +76,8 @@
             }
         }
 
+        canal.init();
+        /*
         document.querySelector("body").innerHTML += "<button id='pagar'>Pagar</button>";
         document.querySelector("body").innerHTML += "<button id='tancar'>Tancar</button>";
         var paypal;
@@ -91,7 +86,7 @@
         })
         document.querySelector("#tancar").addEventListener("click", function () {
             paypal.close();
-        }) 
+        }) */
     </script>
 </body>
 

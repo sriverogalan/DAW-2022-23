@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>username</th>
+                <th>email</th>
+                <th>address</th>
+                <th>phone</th>
+                <th>website</th>
+                <th>company</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+    <script> 
+        const f = fetch("https://theteacher.codiblau.com/exercicis/other/usuaris/list")
+ 
+        .then(r => r.json())
+        .then(r => {   
+            for (let i = 0; i <10; i++) {
+                document.querySelector("#tbody").innerHTML += '<tr><td>' + r[i].id + '</td><td>' + r[i].name + '</td><td>' + r[i].username + '</td><td>' + r[i].email + '</td><td>' + r[i].address.street + '</td><td>' + r[i].phone + '</td><td>' + r[i].website + '</td><td>' + r[i].company.name + '</td></tr>';
+            }
+        }) 
+
+    </script>
+</body>
+</html>
