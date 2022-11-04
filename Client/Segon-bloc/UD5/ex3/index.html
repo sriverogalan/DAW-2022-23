@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <table style="text-align: center;">
         <thead>
             <tr>
                 <th>idusuari</th>
-                <th>nom</th> 
+                <th>nom</th>
                 <th>cognom1</th>
                 <th>cognom2</th>
                 <th>sexe</th>
@@ -20,23 +22,25 @@
         <tbody id="tbody">
         </tbody>
     </table>
-    <script> 
+    <script>
         const f = fetch("https://theteacher.codiblau.com/exercicis/other/usuaris/list")
- 
-        .then(r => r.json())
-        .then(r => { 
-            r.sort()
-            for (let i = 0; i < r.length; i++) { 
-                document.querySelector("#tbody").innerHTML += 
-                `<tr>
-                    <td>${r[i].idusuari}</td>
-                    <td>${r[i].nom}</td>
-                    <td>${r[i].cognom1}</td>
-                    <td>${r[i].cognom2}</td>
-                    <td>${r[i].sexe}</td>
-                </tr>` 
-            } })
+
+            .then(r => r.json())
+            .then(r => {
+                r.sort()
+                for (let i = 0; i < r.length; i++) {
+                    document.querySelector("#tbody").innerHTML +=
+                        `<tr>
+                            <td>${r[i].idusuari}</td>
+                            <td>${r[i].nom}</td>
+                            <td>${r[i].cognom1}</td>
+                            <td>${r[i].cognom2}</td>
+                            <td>${r[i].sexe}</td>
+                        </tr>`
+                }
+            })
 
     </script>
 </body>
+
 </html>
