@@ -1,6 +1,5 @@
 <?php
-
-require 'config/config.php';
+require '../config/config.php';
 
 class AccessDatabase { 
     private $connection;

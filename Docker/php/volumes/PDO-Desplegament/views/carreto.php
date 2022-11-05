@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-require 'navbar.php';
+require '../views/navbar.php';
 ?>
 <header>
     <title>Carrito</title>

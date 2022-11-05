@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include 'navbar.php';
+include '../views/navbar.php';
 ?>
 <header>
     <title>Llista</title>
@@ -9,7 +9,7 @@ include 'navbar.php';
 
 <body>
     <?php
-    require 'config/database.php';
+    require '../model/database.php';
     $connection = AccessDatabase::getInstance();
     $pdo = $connection->getConnection();
     $sql = $pdo->prepare("SELECT * FROM articles"); // id (tambe es l'id de les imatges + .jpg), nom, descripcio, preu
@@ -23,7 +23,7 @@ include 'navbar.php';
             echo '<div class="col-md-4">';
             echo '<a href="fitxa.php?codi=' . $article['id'] . '" class="text-decoration-none p-1 border">';
             echo '<div class="card mb-4 shadow-sm ">';
-            echo '<img src="img/' . $article['id'] . '.jpg" class="align-self-center img-fluid">';
+            echo '<img src="../img/' . $article['id'] . '.jpg" class="align-self-center img-fluid">';
             echo '<div class="card-body">';
             echo '<h3 class="card-title">' . $article['preu'] . ' €</h3>';
             echo '<h5 class="card-text">' . $article['nom'] . '</h5>';

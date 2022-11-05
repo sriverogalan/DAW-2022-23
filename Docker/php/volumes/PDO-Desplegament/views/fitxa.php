@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include 'navbar.php';
+include '../views/navbar.php'; 
+require '../controllers/ProductController.php';
+require '../model/database.php';
+$codi = $_GET["codi"]; 
+$articles = getProduct($codi);
 ?>
 
 <header>
@@ -11,17 +15,10 @@ include 'navbar.php';
     <div class="container text-center mt-5">
         <div class="row col-12">
             <?php
-            require 'config/database.php';
-            $codi = $_GET["codi"];
-            $connection = AccessDatabase::getInstance();
-            $pdo = $connection->getConnection();
-            $sql = $pdo->prepare("SELECT * FROM articles WHERE id = $codi"); // id (tambe es l'id de les imatges + .jpg), nom, descripcio, preu
-            $sql->execute();
-            $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
             if ($articles) {
                 foreach ($articles as $article) {
                     echo '<div class="col-md-6 row">';
-                    echo    '<img src="img/' . $article['id'] . '.jpg" class="card-img-top col-12" >';
+                    echo    '<img src="../img/' . $article['id'] . '.jpg" class="card-img-top col-12" >';
                     echo '</div>';
                     echo "<div class='col-md-6 text-center align-self-center row'>";
                     echo    '<h1 class="col-12">' . $article['nom'] . '</h1>';
