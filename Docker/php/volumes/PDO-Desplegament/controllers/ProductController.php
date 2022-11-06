@@ -38,9 +38,10 @@ function insertProduct($nom, $descripcio, $preu)
         $sql->bindParam(':nom', $nom);
         $sql->bindParam(':descripcio', $descripcio);
         $sql->bindParam(':preu', $preu);
+        if(!insertProductPicture()){
+            return;
+        }
         $sql->execute(); 
-        insertProductPicture();
-        
         $pdo = null;
     } catch (PDOException $e) {
         echo $e->getMessage();
