@@ -29,24 +29,24 @@
             <button id="seguent" class="button">&gt;&gt;</button>
         </div>
     </div>
-    <script>  
+    <script>
         function Tele(num) {
-            this.canal = num; 
+            this.canal = num;
             this.videos = ["videos/alldayfilms.webm", "videos/kidstv.webm", "videos/natureplus.webm", "videos/sportstv.webm", "videos/technologytoday.webm", "videos/xtremsports.webm"];
-            
+
             this.anterior = () => {
                 this.canal--;
                 if (this.canal < 0) {
                     this.canal = this.videos.length - 1;
                 }
                 document.querySelector("#program-source").src = this.videos[this.canal];
-                document.querySelector("#program").load();
+                document.querySelector("#program").load(); 
             }
             this.play = () => {
-                document.querySelector("#program").play();
+                document.querySelector("#program").play(); 
             }
-            this.stop = () =>{
-                document.querySelector("#program").pause();
+            this.stop = () => {
+                document.querySelector("#program").pause(); 
             }
             this.seguent = () => {
                 this.canal++;
@@ -54,32 +54,22 @@
                     this.canal = 0;
                 }
                 document.querySelector("#program-source").src = this.videos[this.canal];
-                document.querySelector("#program").load();
+                document.querySelector("#program").load(); 
             }
-            this.init = function () {
-                document.querySelector("#anterior").addEventListener("click",this.anterior)
-                document.querySelector("#play").addEventListener("click",this.play)
-                document.querySelector("#stop").addEventListener("click",this.stop)
-                document.querySelector("#seguent").addEventListener("click",this.seguent)
-            }  
-        } 
-        
-        function counter (){
-            var counter = document.querySelector("#timer");
-            var time = 5;
-            counter.innerHTML = time;
-            var interval = setInterval(function(){
-                time--;
-                counter.innerHTML = time;
-                if(time === 0){
-                    clearInterval(interval);  
-                    document.querySelector("#program").pause();
-                }
-            }, 1000);
+            this.init = function () { 
+                document.querySelector("#anterior").addEventListener("click", this.anterior)
+                document.querySelector("#play").addEventListener("click", this.play)
+                document.querySelector("#stop").addEventListener("click", this.stop)
+                document.querySelector("#seguent").addEventListener("click", this.seguent)
+            }
         }
-        
+
+        function counter() { 
+
+        }
+
         Tele = new Tele(0);
-        Tele.init(); 
+        Tele.init();
         counter();
         /**
         const body = document.querySelector("");

@@ -12,8 +12,10 @@
 <html>
 <head>
   <title>Title</title>
+  
 </head>
 <body>
+<h1>Productes:</h1>
 <table>
   <tr>
     <th>Id</th>
@@ -30,7 +32,5 @@
     <td><%= product.getDescripcio() %></td>
   </tr>
     <% } %>
-  <h1>This is test.jsp</h1>
-
 </body>
 </html>
