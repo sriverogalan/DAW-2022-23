@@ -29,64 +29,70 @@
             <button id="seguent" class="button">&gt;&gt;</button>
         </div>
     </div>
-    <script> 
-        var canal = new Tele(0);
+    <script>  
         function Tele(num) {
-            this.canal = num;
+            this.canal = num; 
             this.videos = ["videos/alldayfilms.webm", "videos/kidstv.webm", "videos/natureplus.webm", "videos/sportstv.webm", "videos/technologytoday.webm", "videos/xtremsports.webm"];
-           
-            this.init = function () {
-                document.querySelector("#anterior").addEventListener("click",this.canviarAnterior)
-                document.querySelector("#play").addEventListener("click",this.reproduir)
-                document.querySelector("#stop").addEventListener("click",this.aturar)
-                document.querySelector("#seguent").addEventListener("click",this.canviarSeguent)
-            } 
-            this.canviarSeguent = function () {
-                if (this.canal < this.videos.length - 1) {
-                    this.canal++;
-                } else {
-                    this.canal = 0;
-                }
-                document.querySelector("#program-source").src = this.videos[this.canal];
-            } 
-            this.canviarEnrere = function () {
-                console.log("canviarEnrere");
-                if (this.canal > 0) {
-                    this.canal--;
-                } else {
+            
+            this.anterior = () => {
+                this.canal--;
+                if (this.canal < 0) {
                     this.canal = this.videos.length - 1;
                 }
                 document.querySelector("#program-source").src = this.videos[this.canal];
+                document.querySelector("#program").load();
             }
-            this.aturar = function () {
-                document.querySelector("#program").pause();
-            }
-            this.reproduir = function () {
+            this.play = () => {
                 document.querySelector("#program").play();
             }
-            this.contarEnrere = function () {
-                var num = 5;
-                var inter = setInterval(function () {
-                    document.querySelector("#timer").innerHTML = num--;
-                    if (num === -1) {
-                        clearInterval(inter);
-                        document.querySelector("#program").pause();
-                    }
-                }, 1000)
+            this.stop = () =>{
+                document.querySelector("#program").pause();
             }
+            this.seguent = () => {
+                this.canal++;
+                if (this.canal > this.videos.length - 1) {
+                    this.canal = 0;
+                }
+                document.querySelector("#program-source").src = this.videos[this.canal];
+                document.querySelector("#program").load();
+            }
+            this.init = function () {
+                document.querySelector("#anterior").addEventListener("click",this.anterior)
+                document.querySelector("#play").addEventListener("click",this.play)
+                document.querySelector("#stop").addEventListener("click",this.stop)
+                document.querySelector("#seguent").addEventListener("click",this.seguent)
+            }  
+        } 
+        
+        function counter (){
+            var counter = document.querySelector("#timer");
+            var time = 5;
+            counter.innerHTML = time;
+            var interval = setInterval(function(){
+                time--;
+                counter.innerHTML = time;
+                if(time === 0){
+                    clearInterval(interval);  
+                    document.querySelector("#program").pause();
+                }
+            }, 1000);
         }
-
-        canal.init();
-        /*
-        document.querySelector("body").innerHTML += "<button id='pagar'>Pagar</button>";
-        document.querySelector("body").innerHTML += "<button id='tancar'>Tancar</button>";
+        
+        Tele = new Tele(0);
+        Tele.init(); 
+        counter();
+        
+        const body = document.querySelector("");
+        body.innerHTML += "<button id='pagar'>Pagar</button>";
+        body.innerHTML += "<button id='tancar'>Tancar</button>";
+ 
         var paypal;
         document.querySelector("#pagar").addEventListener("click", function () {
             paypal = window.open("https://www.paypal.com/es/signin", "paypal", "width=600, height=400");
         })
         document.querySelector("#tancar").addEventListener("click", function () {
             paypal.close();
-        }) */
+        })
     </script>
 </body>
 
