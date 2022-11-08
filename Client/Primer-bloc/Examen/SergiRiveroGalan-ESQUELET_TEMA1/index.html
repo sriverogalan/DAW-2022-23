@@ -41,11 +41,7 @@
                 }
                 document.querySelector("#program-source").src = videos[canal];
                 document.querySelector("#program").load(); 
-<<<<<<< Updated upstream
-                time.start();  
-=======
-                
->>>>>>> Stashed changes
+                time.start(); 
             }
             this.play = () => {
                 document.querySelector("#program").play();  
@@ -64,8 +60,7 @@
                 document.querySelector("#program").load();
                 time.start();
             }
-            this.init = function () { 
-                time.start();
+            this.init = function () {  
                 document.querySelector("#anterior").addEventListener("click", this.anterior)
                 document.querySelector("#play").addEventListener("click", this.play)
                 document.querySelector("#stop").addEventListener("click", this.stop)
@@ -136,6 +131,7 @@
         var pay = new payButton();
         pay.init();
         pay.redirect();
+        
     </script>
 </body>
 
