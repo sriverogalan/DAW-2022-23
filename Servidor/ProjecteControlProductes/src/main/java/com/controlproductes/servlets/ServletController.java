@@ -20,13 +20,16 @@ public class ServletController extends HttpServlet {
         String action = req.getParameter("action");
         IDataAccess dataAccess = new MySQLImpl();
         List<Producte> productList = dataAccess.llistarProductes();
-
-        //req.getRequestDispatcher("index.jsp").forward(req, resp);
-
         switch (action) {
             case "llistar":
                 req.setAttribute("productList", productList);
                 req.getRequestDispatcher("llistaProductes.jsp").forward(req, resp);
+                break;
+            case "visualitza":
+                int id = Integer.parseInt(req.getParameter("id"));
+                Producte product = dataAccess.search(id);
+                req.setAttribute("product", product);
+                req.getRequestDispatcher("visualitzaProducte.jsp").forward(req, resp);
                 break;
         }
     }

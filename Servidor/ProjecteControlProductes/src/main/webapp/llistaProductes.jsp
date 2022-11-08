@@ -18,42 +18,44 @@
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
             crossorigin="anonymous"></script>
 </head>
+<%@include file="header.jsp" %>
 <body>
-<h1>Productes:</h1>
-<table class="table table-dark table-striped">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Nom</th>
-        <th>Preu</th>
-        <th>Descripcio</th>
-        <th>Editar</th>
-        <th>Eliminar</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% List<Producte> products = (List<Producte>) request.getAttribute("productList");
-        for (Producte product : products) { %>
-    <tr>
-        <td>
-            <a href="controller?action=visualitza?id=<%= product.getId() %>"><%= product.getId() %>
-            </a>
-        </td>
-        <td><%= product.getNom() %>
-        </td>
-        <td><%= product.getPreu() %>
-        </td>
-        <td><%= product.getDescripcio() %>
-        </td>
-
-        <td>
-            <a class="btn btn-primary" href="controller?action=editProduct?id=<%= product.getId() %>">Editar</a>
-        </td>
-        <td>
-            <a class="btn btn-primary" href="controller?action=deleteProduct?id=<%= product.getId() %>">Eliminar</a>
-        </td>
-    </tr>
-    <% } %>
+    <div class="container">
+        <h1>Productes:</h1>
+        <table class="table table-dark table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Preu</th>
+                <th>Descripcio</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            </thead>
+            <tbody>
+        <% List<Producte> products = (List<Producte>) request.getAttribute("productList");
+            for (Producte product : products) { %>
+        <tr>
+            <td>
+                <a href="controller?action=visualitza?id=<%= product.getId() %>"><%= product.getId() %>
+                </a>
+            </td>
+            <td><%= product.getNom() %>
+            </td>
+            <td><%= product.getPreu() %>
+            </td>
+            <td><%= product.getDescripcio() %>
+            </td>
+            <td>
+                <a class="btn btn-primary" href="controller?action=editProduct?id=<%= product.getId() %>">Editar</a>
+            </td>
+            <td>
+                <a class="btn btn-primary" href="controller?action=deleteProduct?id=<%= product.getId() %>">Eliminar</a>
+            </td>
+        </tr>
+        <% } %>
+    </div>
     </tbody>
 </table>
 

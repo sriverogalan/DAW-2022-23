@@ -40,23 +40,47 @@ public class MySQLImpl implements IDataAccess {
     }
 
     @Override
-    public Producte cercar(Producte product) {
+    public Producte search(int id) {
+        try {
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM articles WHERE id = " + id);
+            if (rs.next()) {
+                return new Producte(rs.getInt("id"), rs.getString("nom"), rs.getDouble("preu"), rs.getString("descripcio"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
-    public void afegir(Producte product) {
-
+    public void add(Producte product) {
+        try {
+            Statement st = conn.createStatement();
+            st.executeUpdate("INSERT INTO articles (nom, preu, descripcio) VALUES ('" + product.getNom() + "', " + product.getPreu() + ", '" + product.getDescripcio() + "')");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void actualitzar(Producte product) {
-
+    public void update(int id, Producte product) {
+        try {
+            Statement st = conn.createStatement();
+            st.executeUpdate("UPDATE articles SET nom = '" + product.getNom() + "', preu = " + product.getPreu() + ", descripcio = '" + product.getDescripcio() + "' WHERE id = " + id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void eliminar(Producte product) {
-
+    public void drop(int id) {
+        try {
+            Statement st = conn.createStatement();
+            st.executeUpdate("DELETE FROM articles WHERE id = " + id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -11,6 +11,6 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="controller?action=llistar">Hello Servlet</a>
+<jsp:forward page="controller?action=llistar"/>
 </body>
 </html>
