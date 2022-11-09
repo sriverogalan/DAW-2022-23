@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: SERGI
@@ -7,9 +8,7 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page import="com.controlproductes.domain.Producte" %>
 <html>
 <head>
     <title>Visualitza Producte</title>
@@ -21,9 +20,11 @@
         crossorigin="anonymous"></script>
 <body>
     <%@include file="header.jsp" %>
-
-
-
+    <% Producte product = (Producte) request.getAttribute("product"); %>
+    <h2>Id : <%= product.getId() %> </h2>
+    <h2>Nom : <%= product.getNom() %> </h2>
+    <h2>Descripcio : <%= product.getDescripcio() %> </h2>
+    <h2>Preu : <%= product.getPreu() %> </h2>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
