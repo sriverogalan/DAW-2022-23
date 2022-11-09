@@ -19,12 +19,15 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
 <body>
-    <%@include file="header.jsp" %>
-    <% Producte product = (Producte) request.getAttribute("product"); %>
-    <h2>Id : <%= product.getId() %> </h2>
-    <h2>Nom : <%= product.getNom() %> </h2>
-    <h2>Descripcio : <%= product.getDescripcio() %> </h2>
-    <h2>Preu : <%= product.getPreu() %> </h2>
+<%@include file="capçalera.jsp" %>
+    <div class="container">
+        <% Producte product = (Producte) request.getAttribute("product"); %>
+        <p class="text-center">Id : <%= product.getId() %> </p>
+        <p class="text-center">Nom : <%= product.getNom() %> </p>
+        <p class="text-center">Descripcio : <%= product.getDescripcio() %> </p>
+        <p class="text-center">Preu : <%= product.getPreu() %> </p>
+        <a href="index.jsp" class="text-center btn btn-danger">Tornar</a>
+    </div>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

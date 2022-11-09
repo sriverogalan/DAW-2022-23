@@ -7,7 +7,6 @@
 --%>
 <%@ page import="com.controlproductes.domain.Producte" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,27 +17,28 @@
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
             crossorigin="anonymous"></script>
 </head>
-<%@include file="header.jsp" %>
+<%@include file="capçalera.jsp" %>
 <body>
-    <div class="container">
-        <h1>Productes:</h1>
-        <table class="table table-dark table-striped">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Preu</th>
-                <th>Descripcio</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
-            </tr>
-            </thead>
-            <tbody>
-        <% List<Producte> products = (List<Producte>) request.getAttribute("productList");
+<div class="container-md">
+    <%@include file="navegacio.jsp" %>
+    <h1>Productes:</h1>
+    <table class="table table-dark table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Preu</th>
+            <th>Descripcio</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% List<Producte> products = (List<Producte>) request.getAttribute("productList");
             for (Producte product : products) { %>
         <tr>
             <td>
-                <a href="controller?action=visualitza?id=<%= product.getId() %>"><%= product.getId() %>
+                <a href="controller?action=visualitza&id=<%= product.getId() %>"><%= product.getId() %>
                 </a>
             </td>
             <td><%= product.getNom() %>
@@ -48,25 +48,50 @@
             <td><%= product.getDescripcio() %>
             </td>
             <td>
-                <a class="btn btn-primary" href="controller?action=editProduct?id=<%= product.getId() %>">Editar</a>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#modal<%= product.getId() %>"
+                        data-bs-whatever="@fat">Editar
+                </button>
+
+                <div class="modal fade" id="modal<%= product.getId() %>" tabindex="-1"
+                     aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form action="controller" method="post">
+                                <div class="modal-body" style="color: black;">
+                                    <label >Id :</label>
+                                    <input type="text" name="id" value="<%= product.getId() %>" readonly> <br>
+
+                                    <label >Nom :</label>
+                                    <input type="text" name="nom" value="<%= product.getNom() %>"><br>
+
+                                    <label>Descripcio :</label>
+                                    <input type="text" name="descripcio" value="<%= product.getDescripcio() %>"><br>
+
+                                    <label>Preu :</label>
+                                    <input type="text" name="preu" value="<%= product.getPreu() %>"><br>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Tancar </button>
+                                    <input type="submit" class="btn btn-primary" value="Enviar">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </td>
             <td>
-                <a class="btn btn-primary" href="controller?action=deleteProduct?id=<%= product.getId() %>">Eliminar</a>
+                <a class="btn btn-primary" href="controller?action=borrar&id=<%= product.getId() %>">Eliminar</a>
             </td>
         </tr>
-        <% } %>
-    </div>
-    </tbody>
+            <% } %>
+</div>
+</tbody>
 </table>
-
-
-<a href="controller?action=insertProduct" class="btn btn-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square"
-             viewBox="0 0 16 16">
-            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-        </svg>
-</a>
+<%@include file="peu.jsp" %>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

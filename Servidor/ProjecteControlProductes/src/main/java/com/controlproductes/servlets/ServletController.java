@@ -20,6 +20,7 @@ public class ServletController extends HttpServlet {
         String action = req.getParameter("action");
         IDataAccess dataAccess = new MySQLImpl();
         List<Producte> productList = dataAccess.llistarProductes();
+
         switch (action) {
             case "llistar":
                 req.setAttribute("productList", productList);
@@ -29,8 +30,35 @@ public class ServletController extends HttpServlet {
                 int id = Integer.parseInt(req.getParameter("id"));
                 Producte product = dataAccess.search(id);
                 req.setAttribute("product", product);
-                req.getRequestDispatcher("visualitzaProducte.jsp").forward(req, resp);
+                req.getRequestDispatcher("producte.jsp").forward(req, resp);
+                break;
+            case "actualitzar":
+                id = Integer.parseInt(req.getParameter("id"));
+                product = dataAccess.search(id);
+                req.setAttribute("product", product);
+                req.getRequestDispatcher("formProd.jsp").forward(req, resp);
+                break;
+            case "borrar":
+                id = Integer.parseInt(req.getParameter("id"));
+                dataAccess.drop(id);
+                resp.sendRedirect("controller?action=llistar");
+                break;
+            default:
                 break;
         }
+    }
+
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        int id = Integer.parseInt(req.getParameter("id"));
+        String nom = req.getParameter("nom");
+        String desc = req.getParameter("descripcio");
+        double preu = Double.parseDouble(req.getParameter("preu"));
+
+        Producte product = new Producte(nom, preu, desc);
+        IDataAccess dataAccess = new MySQLImpl();
+        dataAccess.update(id, product);
+
+        resp.sendRedirect("controller?action=llistar");
     }
 }
