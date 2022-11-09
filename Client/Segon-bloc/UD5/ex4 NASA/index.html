@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script> 
+        let table = "";
+        table = '<table id="taula">';
+        //Capçalera
+        table += '<tr>';
+        table += '<th>Nom</th>';
+        table += '<th>Potencialment perillos</th>';
+        table += '<th>Distancia Terra</th>'; 
+        table += '</tr>';
+        table += '</table>';
+        document.querySelector("#app").innerHTML += table;
+        async function init(){ 
+            const nasaFetch = await fetch("https://theteacher.codiblau.com/exercicis/nasa?date=2002-11-19")
+            const nasaJSON = await nasaFetch.json();
+            const meteoritos = nasaJSON;
+
+            const distancia = [] 
+
+
+
+
+
+
+            for (const meteorito of meteoritos){
+                const tr = document.createElement('tr');
+                const tdName = document.createElement('td');
+                tdName.innerHTML =  meteorito.name;
+
+                const tdPP = document.createElement('td');
+                tdPP.innerHTML =  meteorito.is_potentially_hazardous_asteroid ; 
+
+                const tdDistance = document.createElement('td');
+                tdDistance.innerHTML =  meteorito.miss_distance ;   
+                console.log(meteorito.close_approach_data)
+                tr.appendChild(tdName);
+                tr.appendChild(tdPP);
+                tr.appendChild(tdDistance); 
+
+                document.querySelector("table").appendChild(tr);
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>
