@@ -20,31 +20,31 @@
         <h1>Score Finder</h1>
     </div>
     <div class="piano">
-        <div class="btn-white C"></div>
-        <div class="btn-white D">
-            <div class="btn-black C#">
+        <div class="btn-white do"></div>
+        <div class="btn-white re">
+            <div class="btn-black re#">
             </div>
         </div>
-        <div class="btn-white E">
-            <div class="btn-black D#"></div>
+        <div class="btn-white mi">
+            <div class="btn-black mi#"></div>
         </div>
-        <div class="btn-white F"></div>
-        <div class="btn-white G">
-            <div class="btn-black F#"></div>
+        <div class="btn-white fa"></div>
+        <div class="btn-white sol">
+            <div class="btn-black sol#"></div>
         </div>
-        <div class="btn-white A">
-            <div class="btn-black G#"></div>
+        <div class="btn-white la">
+            <div class="btn-black la#"></div>
         </div>
-        <div class="btn-white B">
-            <div class="btn-black A#"></div>
+        <div class="btn-white si">
+            <div class="btn-black si#"></div>
         </div>
-        <div class="btn-white C"></div>
+        <div class="btn-white doA"></div>
     </div>
 
     <div class="piano-dev">
         <div class="search-song">
             <h2>CERCANT...</h2>
-            <p>Do Re Mi Fa#</p>
+            <p id="NotesDirecte"></p>
             <button class="btn-red" onclick=""> Esborrar </button>
         </div>
         <div class="results">
@@ -56,10 +56,39 @@
                 </div>
                 <button class="btn-red" onclick="">Reproduir <br> canço</button>
             </div>
+            <div>
+                <div>
+                    <h3>Sant Antoni i el dimoni</h3>
+                    <p>Lletra</p>
+                </div>
+                <button class="btn-red" onclick="">Reproduir <br> canço</button>
+            </div>
         </div>
     </div>
 
 </body>
+<script>
+    var notes = ["do", "re", "mi", "fa", "sol", "la", "si", "doA"];
+    var notesSharp = ["re#", "mi#", "sol#", "la#", "si#"];
+
+    function Nota(id) {
+        this.id = id;
+        this.pressed = false;
+        this.constructor = () => {
+            document.querySelector("." + this.id).addEventListener("click", function () {
+                if (this.pressed) {
+                    this.pressed = false;
+                    document.querySelector("." + this.id).classList.remove("pressed");
+                } else {
+                    this.pressed = true;
+                    document.querySelector("." + this.id).classList.add("pressed");
+                }
+            });
+        }
+    }
+
+
+    document.addEventListener()
+</script>
 
 </html>
-<script type="text/javascript" src="js/piano.js"></script>

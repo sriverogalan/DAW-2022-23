@@ -26,10 +26,10 @@
                 <li><a href="#" class="navbar-buttons"><i class="bi bi-person"></i> Login</a></li>
             </ul>
         </nav>
-    </header> 
+    </header>
 
-    <section> 
-        <div id="container"> 
+    <section>
+        <div id="container">
             <div class="add">
                 <button type="button" onclick="addSong()" class="btn-add-songs">Afegir cançó</button>
             </div>
@@ -42,19 +42,41 @@
                 </tr>
                 <tr>
                     <td>La Campanella</td>
-                    <td>Italian</td>
-                    <td><a href="#"><i class="bi bi-pencil-square"></i> Editar</a>  <a href="#"><i class="bi bi-trash"></i> Esborrar</a></td>
+                    <td>Italian</td> 
+                    <td>
+                        <i class="bi bi-pencil-square">Editar</i>
+                        <i class="bi bi-trash">Esborrar</i>
+                    </td>
                 </tr>
 
                 <tr>
                     <td>La Campanella</td>
                     <td>Italian</td>
-                    <td><a href="#"><i class="bi bi-pencil-square"></i> Editar</a>  <a href="#"><i class="bi bi-trash"></i> Esborrar</a></td>
+                    <td>
+                        <i class="bi bi-pencil-square">Editar</i>
+                        <i class="bi bi-trash">Esborrar</i>
+                    </td>
                 </tr>
 
             </table>
         </div>
     </section>
+
+    <script>
+        let articleRepetit = "";
+        articleRepetit += "<tr>";
+        articleRepetit += "<td>La Campanella</td>";
+        articleRepetit += "<td>Italian</td>";
+        articleRepetit += "<td>";
+        articleRepetit += "<i class='bi bi-pencil-square'>Editar</i>";
+        articleRepetit += "<i class='bi bi-trash'>Esborrar</i>";
+        articleRepetit += "</td>";
+        articleRepetit += "</tr>";
+
+        for (let i = 0; i < 99; i++) {
+            document.querySelector("table").innerHTML += articleRepetit;
+        }
+    </script>
 
 
 </body>
