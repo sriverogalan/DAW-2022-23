@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: SERGI
@@ -11,6 +11,7 @@
 <%@ page import="com.controlproductes.domain.Producte" %>
 <html>
 <head>
+    <fmt:setLocale value = "es_ES"/>
     <title>Visualitza Producte</title>
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -20,14 +21,21 @@
         crossorigin="anonymous"></script>
 <body>
 <%@include file="capçalera.jsp" %>
-    <div class="container">
-        <% Producte product = (Producte) request.getAttribute("product"); %>
-        <p class="text-center">Id : <%= product.getId() %> </p>
-        <p class="text-center">Nom : <%= product.getNom() %> </p>
-        <p class="text-center">Descripcio : <%= product.getDescripcio() %> </p>
-        <p class="text-center">Preu : <%= product.getPreu() %> </p>
-        <a href="index.jsp" class="text-center btn btn-danger">Tornar</a>
-    </div>
+<div class="container">
+    <% Producte product = (Producte) request.getAttribute("product"); %>
+    <p class="text-center">Id : <%= product.getId() %>
+    </p>
+    <p class="text-center">Nom : <%= product.getNom() %>
+    </p>
+    <p class="text-center">Descripcio : <%= product.getDescripcio() %>
+    </p>
+    <p class="text-center">Preu :
+    <td> <fmt:formatNumber value="<%= product.getPreu() %>" type="currency" currencySymbol="€"
+                           currencyCode="EUR"/>
+    </td>
+    </p>
+    <a href="index.jsp" class="text-center btn btn-danger">Tornar</a>
+</div>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: srive
@@ -21,6 +22,7 @@
 <body>
 <div class="container-md">
     <%@include file="navegacio.jsp" %>
+    <fmt:setLocale value = "es_ES"/>
     <h1>Productes:</h1>
     <table class="table table-dark table-striped">
         <thead>
@@ -43,7 +45,8 @@
             </td>
             <td><%= product.getNom() %>
             </td>
-            <td><%= product.getPreu() %>
+            <td> <fmt:formatNumber value="<%= product.getPreu() %>" type="currency" currencySymbol="€"
+                                   currencyCode="EUR"/>
             </td>
             <td><%= product.getDescripcio() %>
             </td>
@@ -84,7 +87,7 @@
 
             </td>
             <td>
-                <a class="btn btn-primary" href="controller?action=borrar&id=<%= product.getId() %>">Eliminar</a>
+                <a class="btn btn-danger" href="controller?action=borrar&id=<%= product.getId() %>">Eliminar</a>
             </td>
         </tr>
             <% } %>
