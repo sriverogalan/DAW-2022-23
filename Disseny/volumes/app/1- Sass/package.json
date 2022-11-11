@@ -12,10 +12,11 @@
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat-css": "^3.1.0",
+    "gulp-image-resize": "^0.13.1",
     "gulp-sass": "^5.1.0",
-    "gulp-w3c-css": "^2.0.0",
+    "gulp-sequence": "^1.0.0",
     "gulp-watch": "^5.0.1",
-    "sass": "^1.55.0"
+    "sass": "1.32.13"
   },
   "dependencies": {
     "gulp-cli": "^2.3.0",
