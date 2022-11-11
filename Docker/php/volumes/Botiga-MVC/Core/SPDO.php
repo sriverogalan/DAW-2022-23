@@ -1,4 +1,4 @@
-<?php
+<?php 
 class SPDO extends PDO
 {
     private static $instance = null;

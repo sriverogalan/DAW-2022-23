@@ -25,7 +25,7 @@ class ProductController
         $data['listado'] = $listado;
 
         //Finalmente presentamos nuestra plantilla
-        $this->view->show("listar.php", $data);
+        $this->view->show("llistar.php", $data);
     }
 
     public function agregar()

@@ -10,10 +10,8 @@ class FrontController
 
         require 'config.php'; //Archivo con configuraciones.
 
-        if (isset($_GET['controlador']))
-            $controllerName = $_GET['controlador'] . 'Controller';
-        else
-            $controllerName = "ProductController";
+        if (isset($_GET['controlador'])) $controllerName = $_GET['controlador'] . 'Controller';
+        else $controllerName = "ProductController";
 
         //Lo mismo sucede con las acciones, si no hay acción, tomamos index como acción
         if (isset($_GET['accion'])) $actionName = $_GET['accion'];

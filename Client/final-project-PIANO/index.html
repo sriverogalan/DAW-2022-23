@@ -68,27 +68,37 @@
 
 </body>
 <script>
-    var notes = ["do", "re", "mi", "fa", "sol", "la", "si", "doA"];
-    var notesSharp = ["re#", "mi#", "sol#", "la#", "si#"];
 
-    function Nota(id) {
-        this.id = id;
-        this.pressed = false;
-        this.constructor = () => {
-            document.querySelector("." + this.id).addEventListener("click", function () {
-                if (this.pressed) {
-                    this.pressed = false;
-                    document.querySelector("." + this.id).classList.remove("pressed");
-                } else {
-                    this.pressed = true;
-                    document.querySelector("." + this.id).classList.add("pressed");
-                }
-            });
+    let notes = ["do", "re", "mi", "fa", "sol", "la", "si", "doA"]
+    var notesSost = ["re#", "mi#", "sol#", "la#", "si#"];
+
+    const cerca = [];
+
+
+    function Nota() {
+
+        this.addCerca = function(nom, tipus) {
+            let nota = new Nota();
+            cerca.push(nota);
         }
+
     }
 
 
-    document.addEventListener()
+
+
+    function cercador() {
+
+    }
+
+
+
+
+
+    const partitures = {
+        "La Balanguera": ["do", "re", "mi", "fa", "fa", "sol", "la#", "la#"],
+        "Happy Birthday": ["do", "do", "re", "do", "fa", "mi", "do", "do", "re", "do", "sol", "fa"],
+    }
 </script>
 
 </html>
