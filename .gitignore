@@ -13,3 +13,4 @@ Docker/volums
 Docker/php/volumes/PDO-Desplegament/config/config.php
 
 /**/node_modules/**/*/ 
+.vscode/sftp.json 
