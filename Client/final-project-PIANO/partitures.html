@@ -1,69 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PIANO</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-</head>
+  </head>
 
-
-<body>
+  <body>
     <header>
-        <nav>
-            <h1 class="logo-name">Score Finder</h1>
-            <ul>
-                <li><a href="#" class="navbar-buttons">Partitures</a></li>
-                <li><a href="#" class="navbar-buttons"><i class="bi bi-person"></i> Login</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <h1 class="logo-name">Score Finder</h1>
+        <ul>
+          <li onclick="partitures()"><p class="navbar-buttons" >Partitures</p></li>
+          <li onclick="login()">
+            <p class="navbar-buttons"  ><i class="fa-regular fa-user"></i> Login</p>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <section>
-        <div id="container">
-            <div class="add">
-                <button type="button" onclick="addSong()" class="btn-add-songs">Afegir cançó</button>
-            </div> 
+      <div id="container">
+        <div class="add">
+          <button type="button" onclick="addSong()" class="btn-add-songs">
+            Afegir cançó
+          </button>
         </div>
+      </div>
     </section>
 
     <script>
-        let table = "";
-        table = ` <table>
+      let table = "";
+      table = ` <table>
                 <tr>
                     <th>Titol</th>
                     <th>Idioma Original</th>
                     <th>Accions</th>
-                </tr> `;
-        document.querySelector("#container").innerHTML += table;
+                </tr> `; 
 
+      let article1 = ""; 
+      article1 += "<tr>";
+            article1 += "<td>La Balanguera</td>";
+            article1 += "<td>Catala</td>";
+            article1 += "<td class='btn'>";
+                article1 += "<p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>";
+                article1 += "<p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>";
+            article1 += "</td>";
+            article1 += "</tr>"; 
+        table += article1;
+
+        let article2 = "";
+        article2 += "<tr>";
+            article2 += "<td>Happy Birthday</td>";
+            article2 += "<td>Anglès</td>"; 
+            article2 += "<td class='btn'>";
+                article2 += "<p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>";
+                article2 += "<p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>";
+            article2 += "</td>";
+            article2 += "</tr>";
+        table += article2;
+ 
+
+      for (let i = 0; i < 98; i++) {
         let articleRepetit = "";
-        
         articleRepetit += "<tr>";
         articleRepetit += "<td>La Campanella</td>";
         articleRepetit += "<td>Italian</td>";
-        articleRepetit += "<td>";
-        articleRepetit += "<i class='bi bi-pencil-square'>Editar</i>";
-        articleRepetit += "<i class='bi bi-trash'>Esborrar</i>";
+        articleRepetit += "<td class='btn'>";
+            articleRepetit += "<p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>";
+            articleRepetit += "<p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>";
         articleRepetit += "</td>";
         articleRepetit += "</tr>";
+        table += articleRepetit;
+      }  
+      table +="</table>";
+      document.querySelector("#container").innerHTML += table;
 
-        for (let i = 0; i < 99; i++) {
-            document.querySelector("table").innerHTML += articleRepetit;
+      function edita(){
+        if(confirm("estas segur que vols editar aquesta cançó?")){
+            alert("Element esborrt");
+        } else {
+            alert("Ha cancel·lat l'acció");
         }
+      }
+      function borrar(){
+        alert("Element esborrat");
+      }
+
+      function login(){ 
+        let url = "login.html"; 
+         let height = 300;
+         let width = 500;
+         var left = ( screen.width - width ) / 2;
+         var top = ( screen.height - height ) / 2;
+         var newWindow = window.open( url, "", 'width=' + width + ', height=' + height + ', top='+ top + ', left=' + left);
+      
+      }
+
+      function partitures(){
+        window.open("partitura.html", "_self");
+      
+    }
+
     </script>
-
-
-</body>
-
-
+  </body>
 </html>

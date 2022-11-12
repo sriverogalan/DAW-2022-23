@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partitura</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <script>
+    function validationForm(){ 
+        
+        function init() {
+            var button = document.querySelector("#button");
+            button.addEventListener("click", validationForm);
+        }
+
+        function validateTitol(){
+            var titol = document.querySelector("#titol").value;
+            if (titol === ""){  
+                return false;
+            }
+            return true;
+        }
+
+    }
+  </script>
+  <body>
+    <header>
+      <nav>
+        <h1 class="logo-name">Score Finder</h1>
+      </nav>
+    </header>
+
+    <section>
+      <form id="formulario" action="" onsubmit="return validationForm().init()">
+        <label for="titol">Títol</label>
+        <input type="text" name="titol" id="titol" />
+        <label for="idiomaOriginal">Idioma Original</label>
+        <select name="idiomaOriginal" id="idiomaOriginal">
+          <option value="0">Català</option>
+          <option value="1">Castellà</option>
+          <option value="2">Anglès</option>
+          <option value="3">Francès</option>
+          <option value="4">Alemany</option>
+          <option value="5">Italià</option>
+          <option value="6">Portuguès</option>
+        </select>
+        <label for="lletraOriginal">Lletra Original</label>
+        <textarea
+          name="lletraOriginal"
+          id="lletraOriginal"
+          cols="10"
+          rows="5"
+        ></textarea>
+        <label for="traduccio">Traducció</label>
+        <textarea name="traduccio" id="traduccio" cols="10" rows="5"></textarea>
+        <input type="submit" value="Desar partitura" id="submit" />
+      </form>
+    </section>
+  </body>
+</html>
