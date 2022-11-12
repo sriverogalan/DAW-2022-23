@@ -32,38 +32,22 @@
         <div id="container">
             <div class="add">
                 <button type="button" onclick="addSong()" class="btn-add-songs">Afegir cançó</button>
-            </div>
-
-            <table>
-                <tr>
-                    <th>Titol</th>
-                    <th>Idioma Original</th>
-                    <th>Accions</th>
-                </tr>
-                <tr>
-                    <td>La Campanella</td>
-                    <td>Italian</td> 
-                    <td>
-                        <i class="bi bi-pencil-square">Editar</i>
-                        <i class="bi bi-trash">Esborrar</i>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>La Campanella</td>
-                    <td>Italian</td>
-                    <td>
-                        <i class="bi bi-pencil-square">Editar</i>
-                        <i class="bi bi-trash">Esborrar</i>
-                    </td>
-                </tr>
-
-            </table>
+            </div> 
         </div>
     </section>
 
     <script>
+        let table = "";
+        table = ` <table>
+                <tr>
+                    <th>Titol</th>
+                    <th>Idioma Original</th>
+                    <th>Accions</th>
+                </tr> `;
+        document.querySelector("#container").innerHTML += table;
+
         let articleRepetit = "";
+        
         articleRepetit += "<tr>";
         articleRepetit += "<td>La Campanella</td>";
         articleRepetit += "<td>Italian</td>";
