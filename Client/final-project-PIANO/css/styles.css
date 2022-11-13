@@ -258,7 +258,11 @@ table tr th{
   color: white;
   padding: 10px;
   text-align: center;
-}
+} 
+ 
+table tr:nth-child(even){
+  background-color: #c9c9c9;
+} 
  
 .btn{
   display: flex;

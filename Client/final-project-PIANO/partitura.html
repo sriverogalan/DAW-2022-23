@@ -18,24 +18,6 @@
       rel="stylesheet"
     />
   </head>
-  <script>
-    function validationForm(){ 
-        
-        function init() {
-            var button = document.querySelector("#button");
-            button.addEventListener("click", validationForm);
-        }
-
-        function validateTitol(){
-            var titol = document.querySelector("#titol").value;
-            if (titol === ""){  
-                return false;
-            }
-            return true;
-        }
-
-    }
-  </script>
   <body>
     <header>
       <nav>
@@ -44,11 +26,13 @@
     </header>
 
     <section>
-      <form id="formulario" action="" onsubmit="return validationForm().init()">
+      <form name="formulari" onsubmit="check()" method="post" method="dialog">
         <label for="titol">Títol</label>
         <input type="text" name="titol" id="titol" />
+
         <label for="idiomaOriginal">Idioma Original</label>
         <select name="idiomaOriginal" id="idiomaOriginal">
+          <option value="-1">Elige un idioma</option>
           <option value="0">Català</option>
           <option value="1">Castellà</option>
           <option value="2">Anglès</option>
@@ -57,6 +41,7 @@
           <option value="5">Italià</option>
           <option value="6">Portuguès</option>
         </select>
+
         <label for="lletraOriginal">Lletra Original</label>
         <textarea
           name="lletraOriginal"
@@ -64,10 +49,58 @@
           cols="10"
           rows="5"
         ></textarea>
+
         <label for="traduccio">Traducció</label>
         <textarea name="traduccio" id="traduccio" cols="10" rows="5"></textarea>
-        <input type="submit" value="Desar partitura" id="submit" />
+
+        <input type="submit" />
       </form>
+      <script>
+        function titleCheck() {
+          var titol = document.querySelector("#titol").value;
+          var regex = /\w+\s\w+\s\w+/;
+          if (!regex.test(titol)) {
+            document.querySelector("#titol").style.border = "1px solid darkred";
+            document.querySelector("#titol").style.backgroundColor = "red";
+            return false;
+          }
+          document.querySelector("#titol").style.border = "1px solid green";
+          document.querySelector("#titol").style.backgroundColor = "green"; 
+        }
+ 
+        function idiomaOriginalCheck() {
+          var idiomaOriginal = document.getElementById("idiomaOriginal").value;
+          if (idiomaOriginal == -1) {
+            document.querySelector("#idiomaOriginal").style.border =
+              "1px solid darkred";
+            document.querySelector("#idiomaOriginal").style.backgroundColor =
+              "red";
+            return false;
+          }
+          document.querySelector("#idiomaOriginal").style.border =
+            "1px solid green";
+          document.querySelector("#idiomaOriginal").style.backgroundColor =
+            "green"; 
+        }
+        function traduccioCheck() {
+          var traduccio = document.getElementById("traduccio").value;
+          if (traduccio == "") {
+            document.querySelector("#traduccio").style.border =
+              "1px solid darkred";
+            document.querySelector("#traduccio").style.backgroundColor = "red";
+            return false;
+          }
+          document.querySelector("#traduccio").style.border = "1px solid green";
+          document.querySelector("#traduccio").style.backgroundColor = "green"; 
+        }
+
+        function check() { 
+          traduccioCheck();
+          idiomaOriginalCheck();
+          lletraOriginalCheck();
+          titleCheck();
+        }
+      </script>
     </section>
   </body>
 </html>

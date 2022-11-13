@@ -52,31 +52,12 @@
       </div>
       <div class="results">
         <h2>RESULTATS:</h2>
-        <div>
-          <div>
-            <h3>La Balanguera</h3>
-            <p>Lletra</p>
-          </div>
-          <button class="btn-red" id="balanguera">
-            Reproduir <br />
-            canço
-          </button>
-        </div>
-        <div>
-          <div>
-            <h3>Happy Birthday</h3>
-            <p>Lletra</p>
-          </div>
-          <button class="btn-red" id="happybirthday">
-            Reproduir <br />
-            canço
-          </button>
-        </div>
+        <div id="resultats"></div>
       </div>
     </div>
   </body>
   <script>
-    let notes = [
+    const notes = [
       "do",
       "re",
       "mi",
@@ -91,10 +72,9 @@
       "la-sust",
       "do7",
     ];
-
     const partitures = {
-      balanguera: ["do", "re", "mi", "fa", "fa", "sol", "la-sust", "la-sust"],
-      happybirthday: [
+      "La Balanguera": ["do", "re", "mi", "fa", "fa", "sol", "la-sust", "la-sust"],
+      "Happy Birthday": [
         "do",
         "do",
         "re",
@@ -109,7 +89,6 @@
         "fa",
       ],
     };
-
     let cerca = [];
 
     function Nota(nom) {
@@ -123,9 +102,10 @@
       audio.play();
     }
 
-    function borrarCerca() { 
-        cerca = [];
-        document.getElementById("cerca").innerHTML = "";
+    function borrarCerca() {
+      cerca = [];
+      document.querySelector("#cerca").innerHTML = "";
+      document.getElementById("#result").innerHTML = "";
     }
 
     function assignarTeclesPiano() {
@@ -136,11 +116,30 @@
           .addEventListener("click", () => {
             sonarTecla(nota);
             cerca.push(nota);
+            cercadorPartitures();
             document.querySelector("#cerca").innerHTML = cerca;
           });
       }
-    } 
+    }
 
+    function cercadorPartitures() { 
+      let results = document.querySelector("#resultats");
+      results.innerHTML = "";
+
+      for (const notaCerca of cerca) {
+        for (const partitura in partitures) {
+          for (const notaPartitura of partitures[partitura]) {
+            if (notaCerca === notaPartitura) {
+              let p = document.createElement("p");
+              p.innerHTML = partituresKeys[i];
+              results.appendChild(p);
+              break;
+            }
+          }
+        }
+      }
+    }
+ 
     assignarTeclesPiano();
 
     function sonarPartitura(partitura) {
@@ -157,17 +156,38 @@
       }, 700);
     }
 
-    function cercadorPartitures() {
-        
-    }
-
-    /* sonar tecla partitures*/
-
+    /* sonar tecla partitures
+          <div>
+            <h3>${titol}</h3>
+            <p>Lletra</p>
+          </div>
+          <button class="btn-red" id="${titol}">
+            Reproduir <br>
+            canço
+          </button>
     document
       .querySelector("#balanguera")
       .addEventListener("click", () => sonarPartitura("balanguera"));
     document
       .querySelector("#happybirthday")
       .addEventListener("click", () => sonarPartitura("happybirthday"));
+      
+      
+      let partituresKeys = Object.keys(partitures);
+      let partituresValues = Object.values(partitures);
+      let partituresValuesString = partituresValues.map((x) => x.join(" "));
+      let cercaString = cerca.join(" ");
+      let results = document.querySelector("#resultats");
+      results.innerHTML = "";
+      for (let i = 0; i < partituresValuesString.length; i++) {
+        if (partituresValuesString[i].includes(cercaString)) {
+          let p = document.createElement("p");
+          p.innerHTML = partituresKeys[i];
+          results.appendChild(p);
+        }
+      } 
+      
+      
+      */
   </script>
 </html>
