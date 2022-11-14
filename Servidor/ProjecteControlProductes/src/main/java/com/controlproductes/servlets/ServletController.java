@@ -8,9 +8,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(name = "controller", value = "/controller")
@@ -20,6 +20,16 @@ public class ServletController extends HttpServlet {
         String action = req.getParameter("action");
         IDataAccess dataAccess = new MySQLImpl();
         List<Producte> productList = dataAccess.llistarProductes();
+        int id = -1;
+        HttpSession session = req.getSession(false);
+        if (session == null){
+            resp.sendRedirect("login.jsp");
+            return;
+        }
+        if (session.getAttribute("username") == null) {
+            resp.sendRedirect("login.jsp");
+            return;
+        }
 
         switch (action) {
             case "llistar":
@@ -27,7 +37,7 @@ public class ServletController extends HttpServlet {
                 req.getRequestDispatcher("llistaProductes.jsp").forward(req, resp);
                 break;
             case "visualitza":
-                int id = Integer.parseInt(req.getParameter("id"));
+                id = Integer.parseInt(req.getParameter("id"));
                 Producte product = dataAccess.search(id);
                 req.setAttribute("product", product);
                 req.getRequestDispatcher("producte.jsp").forward(req, resp);

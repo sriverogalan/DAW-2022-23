@@ -73,7 +73,16 @@
       "do7",
     ];
     const partitures = {
-      "La Balanguera": ["do", "re", "mi", "fa", "fa", "sol", "la-sust", "la-sust"],
+      "La Balanguera": [
+        "do",
+        "re",
+        "mi",
+        "fa",
+        "fa",
+        "sol",
+        "la-sust",
+        "la-sust",
+      ],
       "Happy Birthday": [
         "do",
         "do",
@@ -87,7 +96,7 @@
         "do",
         "sol",
         "fa",
-      ],
+      ]
     };
     let cerca = [];
 
@@ -122,24 +131,20 @@
       }
     }
 
-    function cercadorPartitures() { 
-      let results = document.querySelector("#resultats");
-      results.innerHTML = "";
-
-      for (const notaCerca of cerca) {
-        for (const partitura in partitures) {
-          for (const notaPartitura of partitures[partitura]) {
-            if (notaCerca === notaPartitura) {
-              let p = document.createElement("p");
-              p.innerHTML = partituresKeys[i];
-              results.appendChild(p);
-              break;
+    function cercadorPartitures() {
+      for (let i = 0; i < cerca.length; i++) {
+        for (let j = 0; j < partitures.length; j++) {
+          for (let k = 0; k < partitures[j].length; k++) {
+            if (cerca[i] == partitures[k]) {
+              console.log(partitures[j]);
             }
           }
         }
       }
     }
- 
+
+    cercadorPartitures();
+
     assignarTeclesPiano();
 
     function sonarPartitura(partitura) {
@@ -157,14 +162,7 @@
     }
 
     /* sonar tecla partitures
-          <div>
-            <h3>${titol}</h3>
-            <p>Lletra</p>
-          </div>
-          <button class="btn-red" id="${titol}">
-            Reproduir <br>
-            canço
-          </button>
+
     document
       .querySelector("#balanguera")
       .addEventListener("click", () => sonarPartitura("balanguera"));
@@ -172,6 +170,7 @@
       .querySelector("#happybirthday")
       .addEventListener("click", () => sonarPartitura("happybirthday"));
       
+      document.querySelector("#resultats").innerHTML += `<p>${partitura}</p>`;
       
       let partituresKeys = Object.keys(partitures);
       let partituresValues = Object.values(partitures);

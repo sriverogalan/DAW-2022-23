@@ -34,7 +34,7 @@
                            currencyCode="EUR"/>
     </td>
     </p>
-    <a href="index.jsp" class="text-center btn btn-danger">Tornar</a>
+    <a href="controller?action=llistar" class="text-center btn btn-danger">Tornar</a>
 </div>
 </body>
 </html>

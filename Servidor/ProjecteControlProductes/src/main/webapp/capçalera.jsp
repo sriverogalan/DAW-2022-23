@@ -7,6 +7,9 @@
 --%>
 <nav class="navbar bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.jsp">Productes</a>
+    <a class="navbar-brand" href="controller?action=llistar">Productes</a>
+    <div class="d-flex">
+      <a href="login"> Logout</a>
+    </div>
   </div>
 </nav>

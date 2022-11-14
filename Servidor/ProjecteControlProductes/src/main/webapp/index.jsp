@@ -11,6 +11,6 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<jsp:forward page="controller?action=llistar"/>
+<jsp:forward page="login.jsp"/>
 </body>
 </html>
