@@ -96,7 +96,7 @@
         "do",
         "sol",
         "fa",
-      ]
+      ],
     };
     let cerca = [];
 
@@ -114,7 +114,7 @@
     function borrarCerca() {
       cerca = [];
       document.querySelector("#cerca").innerHTML = "";
-      document.getElementById("#result").innerHTML = "";
+      document.querySelector("#resultats").innerHTML = "";
     }
 
     function assignarTeclesPiano() {
@@ -132,22 +132,53 @@
     }
 
     function cercadorPartitures() {
-      for (let i = 0; i < cerca.length; i++) {
-        for (let j = 0; j < partitures.length; j++) {
-          for (let k = 0; k < partitures[j].length; k++) {
-            if (cerca[i] == partitures[k]) {
-              console.log(partitures[j]);
-            }
+      document.querySelector("#resultats").innerHTML = "";
+      let counter = 0;
+      for (let partitura in partitures) {
+        counter = 0;
+        console.log("Partitura: " + partitura);
+        for (let j = 0; j < partitures[partitura].length; j++) {
+          if (partitures[partitura][j] === cerca[counter]) {
+            console.log(
+              "n-" +
+                j +
+                " - notaPartitura " +
+                partitures[partitura][j] +
+                " || n-" +
+                counter +
+                " -  nota Cerca: " +
+                cerca[counter]
+            );
+            counter++;
+          } else {
+            counter = 0;
+            break;
+          }
+          if (counter === cerca.length) {
+            pintaPartitura(partitura);
+            break;
           }
         }
       }
     }
 
-    cercadorPartitures();
+    function pintaPartitura(partitura) {
+      document.querySelector("#resultats").innerHTML += `
+            <div>
+              <div>
+                  <h3>${partitura}</h3>
+                  <p>Lletra</p>
+              </div> 
+                <div>
+                  <button class="btn-red" onclick="reproduirPartitura('${partitura}')">Reproduir <br> canço</button>
+                </div>
+              </div>
+        `;
+    }
 
     assignarTeclesPiano();
 
-    function sonarPartitura(partitura) {
+    function reproduirPartitura(partitura) {
       let partituraSeleccionada = partitures[partitura];
       let i = 0;
       let interval;
@@ -158,10 +189,43 @@
         if (i >= partituraSeleccionada.length) {
           clearInterval(interval);
         }
-      }, 700);
+      }, 500);
     }
 
     /* sonar tecla partitures
+
+    function cercadorPartitures() {
+      document.querySelector("#resultats").innerHTML = "";
+      let counter = 0;
+      for (let partitura in partitures) {
+        counter = 0; 
+        for (let j = 0; j < partitures[partitura].length; j++) {
+          if (partitures[partitura][j] === cerca[counter]) { 
+            counter++;
+
+            if (counter === cerca.length) {
+              console.log("Partitura trobada: " + partitura);
+              document.querySelector("#resultats").innerHTML += `
+              <div class="resultat">
+                <p>${partitura}</p>
+                <button class="btn-red" onclick="sonarPartitura('${partitura}')">Reproduir</button>
+              </div>
+              `;
+              break;
+            }
+          } else {
+            counter = 0;
+
+          }
+          
+
+        } 
+      }
+    }
+
+
+
+
 
     document
       .querySelector("#balanguera")

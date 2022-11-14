@@ -26,6 +26,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -203,13 +204,14 @@ header{
   width: 100%; 
 }
 
-@media screen and (max-width: 768px) { 
+@media screen and (max-width: 1024px) {  
   .piano{ 
     width: 100%;
   }
   .piano-dev{
     width: 100%;
   }
+   
 } 
 
 

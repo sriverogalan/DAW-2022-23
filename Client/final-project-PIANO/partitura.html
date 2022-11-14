@@ -42,7 +42,7 @@
           <option value="6">Portuguès</option>
         </select>
 
-        <label for="lletraOriginal">Lletra Original</label>
+        <label for="lletraOriginal" >Lletra Original</label>
         <textarea
           name="lletraOriginal"
           id="lletraOriginal"
@@ -57,48 +57,62 @@
       </form>
       <script>
         function titleCheck() {
-          var titol = document.querySelector("#titol").value;
-          var regex = /\w+\s\w+\s\w+/;
-          if (!regex.test(titol)) {
-            document.querySelector("#titol").style.border = "1px solid darkred";
-            document.querySelector("#titol").style.backgroundColor = "red";
+          const titol = document.querySelector("#titol").value;
+          const regex = /\w+\s\w+\s\w+/;
+          if (regex.test(titol)) {
+            document.querySelector("#titol").style.backgroundColor = "green"; 
+            return true;
+          } else {
+            document.querySelector("#titol").style.backgroundColor = "red"; 
             return false;
-          }
-          document.querySelector("#titol").style.border = "1px solid green";
-          document.querySelector("#titol").style.backgroundColor = "green"; 
+          } 
         }
  
         function idiomaOriginalCheck() {
-          var idiomaOriginal = document.getElementById("idiomaOriginal").value;
-          if (idiomaOriginal == -1) {
-            document.querySelector("#idiomaOriginal").style.border =
-              "1px solid darkred";
-            document.querySelector("#idiomaOriginal").style.backgroundColor =
-              "red";
+          const idiomaOriginal = document.getElementById("idiomaOriginal").value;
+          if (idiomaOriginal != -1) {
+            document.querySelector("#idiomaOriginal").style.backgroundColor = "green"; 
+            return true;
+          } else {
+            document.querySelector("#idiomaOriginal").style.backgroundColor = "red"; 
             return false;
           }
-          document.querySelector("#idiomaOriginal").style.border =
-            "1px solid green";
-          document.querySelector("#idiomaOriginal").style.backgroundColor =
-            "green"; 
-        }
-        function traduccioCheck() {
-          var traduccio = document.getElementById("traduccio").value;
-          if (traduccio == "") {
-            document.querySelector("#traduccio").style.border =
-              "1px solid darkred";
-            document.querySelector("#traduccio").style.backgroundColor = "red";
-            return false;
-          }
-          document.querySelector("#traduccio").style.border = "1px solid green";
-          document.querySelector("#traduccio").style.backgroundColor = "green"; 
         }
 
-        function check() { 
-          traduccioCheck();
-          idiomaOriginalCheck();
-          lletraOriginalCheck();
-          titleCheck();
+        function lletraOriginalCheck() {
+          // comprobar si no esta vacio
+          const lletraOriginal = document.querySelector("#lletraOriginal").value;
+          if (lletraOriginal != "") {
+            document.querySelector("#lletraOriginal").style.backgroundColor = "green"; 
+            return true;
+          } else {
+            document.querySelector("#lletraOriginal").style.backgroundColor = "red"; 
+            return false;
+          }
+        }
+
+        function traduccioCheck() {
+          const traduccio = document.getElementById("traduccio").value;
+          if (traduccio != "") {
+            document.querySelector("#traduccio").style.backgroundColor = "green"; 
+            return true;
+          } else {
+            document.querySelector("#traduccio").style.backgroundColor = "red"; 
+            return false;
+          }
+        }
+        function checkAll() { 
+            titleCheck() 
+            idiomaOriginalCheck() 
+            lletraOriginalCheck()  
+            traduccioCheck() 
+            return titleCheck() && idiomaOriginalCheck() && lletraOriginalCheck() && traduccioCheck()
+        }
+
+        function check() {   
+          if (checkAll()) {
+            window.location = "http://iesmanacor.cat/"
+          }  
         }
       </script>
     </section>
