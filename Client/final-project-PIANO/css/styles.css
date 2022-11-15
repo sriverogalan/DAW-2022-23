@@ -12,6 +12,9 @@ body {
   font-family: 'Oswald', sans-serif;
 }
 
+h2{
+  text-align: center;
+}
 .bg { 
   background-image: url(../images/background.jpg) ;
 }
@@ -90,13 +93,7 @@ body {
   border-radius: 0 0 10px 10px;
   box-shadow: 0 0 10px black;
 }
-
-.piano-dev div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+ 
 
 .piano {
   display: flex;
@@ -140,28 +137,29 @@ body {
   cursor: pointer; 
 }
 
-.results{
+.results #resultats{
   width: 100%;
-  display: flex;
-  flex-direction: row; 
-}
-
-.results div {
-  text-align: start;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.results div div {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-right: 10px;
 }
+
+#resultats div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%; 
+}
+#resultats div div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; 
+}
+
 
 nav{ 
   height: 60px;

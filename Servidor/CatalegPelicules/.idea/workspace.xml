@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
-      <change afterPath="$PROJECT_DIR$/../ProjecteControlProductes/src/main/java/com/controlproductes/servlets/ServletSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ProjecteControlProductes/src/main/webapp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProjecteControlProductes/src/main/java/com/controlproductes/servlets/CreateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjecteControlProductes/src/main/java/com/controlproductes/servlets/ServletCreate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProjecteControlProductes/src/main/java/com/controlproductes/servlets/ServletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjecteControlProductes/src/main/java/com/controlproductes/servlets/ServletController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProjecteControlProductes/src/main/webapp/capçalera.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjecteControlProductes/src/main/webapp/capçalera.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProjecteControlProductes/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjecteControlProductes/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProjecteControlProductes/src/main/webapp/producte.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjecteControlProductes/src/main/webapp/producte.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Client/final-project-PIANO/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/final-project-PIANO/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Client/final-project-PIANO/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/final-project-PIANO/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Client/final-project-PIANO/partitures.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/final-project-PIANO/partitures.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Core/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Core/Config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Core/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Core/FrontController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Core/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Core/View.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Model/ProductModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Model/ProductModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/View/llistar.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/View/llistar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/View/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/View/navbar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,6 +183,7 @@
       <workItem from="1667051871670" duration="1188000" />
       <workItem from="1667054222710" duration="40000" />
       <workItem from="1668413009006" duration="804000" />
+      <workItem from="1668502632735" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
       <created>1666453172806</created>

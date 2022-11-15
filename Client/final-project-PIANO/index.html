@@ -132,48 +132,34 @@
     }
 
     function cercadorPartitures() {
-      document.querySelector("#resultats").innerHTML = "";
-      let counter = 0;
-      for (let partitura in partitures) {
-        counter = 0;
-        console.log("Partitura: " + partitura);
-        for (let j = 0; j < partitures[partitura].length; j++) {
-          if (partitures[partitura][j] === cerca[counter]) {
-            console.log(
-              "n-" +
-                j +
-                " - notaPartitura " +
-                partitures[partitura][j] +
-                " || n-" +
-                counter +
-                " -  nota Cerca: " +
-                cerca[counter]
-            );
-            counter++;
-          } else {
-            counter = 0;
-            break;
+      document.querySelector("#resultats").innerHTML = ""; 
+      let i = 0;
+      for (const partitura in partitures) {
+         i = 0;
+          for (let j = 0; j < cerca.length; j++) { 
+            if (partitures[partitura][i] === cerca[j]) { 
+                pintaPartitura(partitura); 
+                i++;
+                j++
+              } else {
+                i = 0;
+                break;
+              }
+
           }
-          if (counter === cerca.length) {
-            pintaPartitura(partitura);
-            break;
-          }
-        }
       }
     }
 
     function pintaPartitura(partitura) {
       document.querySelector("#resultats").innerHTML += `
-            <div>
-              <div>
-                  <h3>${partitura}</h3>
-                  <p>Lletra</p>
-              </div> 
                 <div>
-                  <button class="btn-red" onclick="reproduirPartitura('${partitura}')">Reproduir <br> canço</button>
+                  <div>
+                      <h3>${partitura}</h3>
+                      <p>Lletra</p>
+                  </div>
+                      <button id="${partitura}" class="btn-red" onclick="reproduirPartitura('${partitura}')">Reproduir <br> canço</button>
                 </div>
-              </div>
-        `;
+            `;
     }
 
     assignarTeclesPiano();
@@ -183,74 +169,76 @@
       let i = 0;
       let interval;
       let interval2 = clearInterval(interval);
-      interval = setInterval(() => {
+      let temps = 500;
+      interval = setInterval(() => { 
         sonarTecla(partituraSeleccionada[i]);
         i++;
         if (i >= partituraSeleccionada.length) {
           clearInterval(interval);
         }
-      }, 500);
+      }, temps);
     }
 
-    /* sonar tecla partitures
 
-    function cercadorPartitures() {
-      document.querySelector("#resultats").innerHTML = "";
-      let counter = 0;
-      for (let partitura in partitures) {
-        counter = 0; 
-        for (let j = 0; j < partitures[partitura].length; j++) {
-          if (partitures[partitura][j] === cerca[counter]) { 
-            counter++;
-
-            if (counter === cerca.length) {
-              console.log("Partitura trobada: " + partitura);
-              document.querySelector("#resultats").innerHTML += `
-              <div class="resultat">
-                <p>${partitura}</p>
-                <button class="btn-red" onclick="sonarPartitura('${partitura}')">Reproduir</button>
-              </div>
-              `;
-              break;
-            }
-          } else {
+    /*
+    document.querySelector("#resultats").innerHTML = "";
+          let counter = 0;
+          for (let partitura in partitures) {
             counter = 0;
+            console.log("Partitura: " + partitura);
+            for (let j = 0; j < partitures[partitura].length; j++) {
+              if (partitures[partitura][j] === cerca[counter]) {
+                console.log(
+                  "n-" +
+                    j +
+                    " - notaPartitura " +
+                    partitures[partitura][j] +
+                    " || n-" +
+                    counter +
+                    " -  nota Cerca: " +
+                    cerca[counter]
+                );
 
+                counter++;
+              } else {
+                counter = 0;
+                break;
+              }
+              if (counter === cerca.length) {
+                pintaPartitura(partitura);
+                break;
+              }
+            }
           }
-          
-
-        } 
-      }
-    }
-
-
-
-
-
-    document
-      .querySelector("#balanguera")
-      .addEventListener("click", () => sonarPartitura("balanguera"));
-    document
-      .querySelector("#happybirthday")
-      .addEventListener("click", () => sonarPartitura("happybirthday"));
-      
-      document.querySelector("#resultats").innerHTML += `<p>${partitura}</p>`;
-      
-      let partituresKeys = Object.keys(partitures);
-      let partituresValues = Object.values(partitures);
-      let partituresValuesString = partituresValues.map((x) => x.join(" "));
-      let cercaString = cerca.join(" ");
-      let results = document.querySelector("#resultats");
-      results.innerHTML = "";
-      for (let i = 0; i < partituresValuesString.length; i++) {
-        if (partituresValuesString[i].includes(cercaString)) {
-          let p = document.createElement("p");
-          p.innerHTML = partituresKeys[i];
-          results.appendChild(p);
         }
-      } 
-      
-      
-      */
+
+
+
+
+        document
+          .querySelector("#balanguera")
+          .addEventListener("click", () => sonarPartitura("balanguera"));
+        document
+          .querySelector("#happybirthday")
+          .addEventListener("click", () => sonarPartitura("happybirthday"));
+
+          document.querySelector("#resultats").innerHTML += `<p>${partitura}</p>`;
+
+          let partituresKeys = Object.keys(partitures);
+          let partituresValues = Object.values(partitures);
+          let partituresValuesString = partituresValues.map((x) => x.join(" "));
+          let cercaString = cerca.join(" ");
+          let results = document.querySelector("#resultats");
+          results.innerHTML = "";
+          for (let i = 0; i < partituresValuesString.length; i++) {
+            if (partituresValuesString[i].includes(cercaString)) {
+              let p = document.createElement("p");
+              p.innerHTML = partituresKeys[i];
+              results.appendChild(p);
+            }
+          }
+
+
+          */
   </script>
 </html>

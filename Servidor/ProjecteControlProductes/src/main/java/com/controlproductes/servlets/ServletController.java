@@ -20,6 +20,8 @@ public class ServletController extends HttpServlet {
         String action = req.getParameter("action");
         IDataAccess dataAccess = new MySQLImpl();
         List<Producte> productList = dataAccess.llistarProductes();
+        resp.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
+        resp.setHeader("Pragma", "no-cache");
         int id = -1;
         HttpSession session = req.getSession(false);
         if (session == null){

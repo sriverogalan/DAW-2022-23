@@ -5,7 +5,7 @@ class FrontController
     {
 
         require 'Core/Config.php'; //de configuración
-        require 'Core/SPDO.php'; //PDO con singleton
+        require 'Core/SPDO.php'; 
         require 'Core/View.php'; //Mini motor de plantillas
 
         require 'config.php'; //Archivo con configuraciones.
@@ -13,7 +13,6 @@ class FrontController
         if (isset($_GET['controlador'])) $controllerName = $_GET['controlador'] . 'Controller';
         else $controllerName = "ProductController";
 
-        //Lo mismo sucede con las acciones, si no hay acción, tomamos index como acción
         if (isset($_GET['accion'])) $actionName = $_GET['accion'];
         else $actionName = "listar";
 

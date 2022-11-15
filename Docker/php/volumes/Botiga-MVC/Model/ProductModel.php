@@ -4,17 +4,25 @@ class ProductModel
     protected $db;
 
     public function __construct()
-    {
-        //Traemos la única instancia de PDO
+    { 
         $this->db = SPDO::singleton();
     }
 
     public function listadoTotal()
-    {
-        //realizamos la consulta de todos los items
+    { 
         $consulta = $this->db->prepare('SELECT * FROM articles');
-        $consulta->execute();
-        //devolvemos la colección para que la vista la presente.
+        $consulta->execute(); 
         return $consulta;
+    }
+    public function obtenerProductoPorId($id)
+    {
+        $consulta = $this->db->prepare('SELECT * FROM articles where id = ' . $id);
+        $consulta->execute(); 
+        return $consulta;
+    }
+    public function insertarProducto($name, $desc, $price)
+    {
+        $query = $this->db->prepare("INSERT INTO articles (nom, descripcio, preu) VALUES ('$name', '$desc', '$price')");
+        $query->execute();
     }
 }
