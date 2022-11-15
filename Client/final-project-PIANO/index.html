@@ -48,7 +48,7 @@
       <div class="search-song">
         <h2>CERCANT...</h2>
         <p id="cerca"></p>
-        <button class="btn-red" onclick="borrarCerca()">Esborrar</button>
+        <button class="btn-red" id="borrar">Esborrar</button>
       </div>
       <div class="results">
         <h2>RESULTATS:</h2>
@@ -57,136 +57,134 @@
     </div>
   </body>
   <script>
-    const notes = [
-      "do",
-      "re",
-      "mi",
-      "fa",
-      "sol",
-      "la",
-      "si",
-      "do-sust",
-      "re-sust",
-      "fa-sust",
-      "sol-sust",
-      "la-sust",
-      "do7",
-    ];
-    const partitures = {
-      "La Balanguera": [
-        "do",
-        "re",
-        "mi",
-        "fa",
-        "fa",
-        "sol",
-        "la-sust",
-        "la-sust",
-      ],
-      "Happy Birthday": [
-        "do",
-        "do",
-        "re",
-        "do",
-        "fa",
-        "mi",
-        "do",
-        "do",
-        "re",
-        "do",
-        "sol",
-        "fa",
-      ],
-    };
-    let cerca = [];
-
     function Nota(nom) {
       this.nom = nom;
       this.src = `audio/${nom}.mp3`;
     }
 
- 
-    function sonarTecla(nota) {
-      let n = new Nota(nota);
-      let audio = new Audio(n.src);
-      audio.play();
-    }
+    function Piano() {
+      this.notes = [
+        "do",
+        "re",
+        "mi",
+        "fa",
+        "sol",
+        "la",
+        "si",
+        "do-sust",
+        "re-sust",
+        "fa-sust",
+        "sol-sust",
+        "la-sust",
+        "do7",
+      ];
+      this.partitures = {
+        "La Balanguera": [
+          "do",
+          "re",
+          "mi",
+          "fa",
+          "fa",
+          "sol",
+          "la-sust",
+          "la-sust",
+        ],
+        "Happy Birthday": [
+          "do",
+          "do",
+          "re",
+          "do",
+          "fa",
+          "mi",
+          "do",
+          "do",
+          "re",
+          "do",
+          "sol",
+          "fa",
+        ],
+      };
+      this.cerca = [];
 
-    function borrarCerca() {
-      cerca = [];
-      document.querySelector("#cerca").innerHTML = "";
-      document.querySelector("#resultats").innerHTML = "";
-    }
-
-    function assignarTeclesPiano() {
-      for (let i = 0; i < notes.length; i++) {
-        let nota = notes[i];
-        let tecla = document
-          .querySelector("#" + notes[i])
-          .addEventListener("click", () => {
-            sonarTecla(nota);
-            cerca.push(nota);
-            cercadorPartitures();
-            document.querySelector("#cerca").innerHTML = cerca;
-          });
-      }
-    }
-
-    function cercadorPartitures() {
-      document.querySelector("#resultats").innerHTML = "";
-      for (let partitura in partitures) {
-        let partituraString = partitures[partitura].join(); // join converteix l'array en string separant els elements amb una coma
-        let cercaString = cerca.join();
-        if (partituraString.includes(cercaString)) {
-          // includes comprova si la partituraString inclou la cerca
-          pintaPartitura(partitura);
+      this.init = () => {
+        this.assignarTeclesPiano();
+        this.borrarCerca();
+      };
+      this.assignarTeclesPiano = () => {
+        for (let i = 0; i < this.notes.length; i++) {
+          let nota = this.notes[i];
+          let tecla = document
+            .querySelector("#" + this.notes[i])
+            .addEventListener("click", () => {
+              this.sonarTeclaPiano(nota);
+              this.cerca.push(nota);
+              document.querySelector("#cerca").innerHTML += nota + " ";
+              let cerca = new Cerca(this.cerca, this.partitures); //creem un objecte cerca;
+              cerca.init();
+            });
         }
-      }
+      };
+
+      this.partituraReproduir = (partitura) => {
+          let partituraSeleccionada = this.partitures[partitura]; //no se usa
+          let temps = 1000;
+          let crono = new Cronometro(temps, partituraSeleccionada).init(); 
+      };
+      
+      this.sonarTeclaPiano = (nota) => {
+        let n = new Nota(nota);
+        let audio = new Audio(n.src);
+        audio.play();
+      };
+
+      this.borrarCerca = function () {
+        document.querySelector("#borrar").addEventListener("click", () => {
+          this.cerca = [];
+          document.querySelector("#cerca").innerHTML = "";
+          document.querySelector("#resultats").innerHTML = "";
+        });
+      };
     }
 
-    function pintaPartitura(partitura) {
-      document.querySelector("#resultats").innerHTML += `
-                <div>
+    function Cerca(cerca, partitures) {
+      this.partitures = partitures;
+      this.cerca = cerca;
+      this.init = () => {
+        this.cercadorPartitures();
+      };
+
+      this.cercadorPartitures = () => {
+        document.querySelector("#resultats").innerHTML = "";
+        for (let partitura in this.partitures) {
+          let partituraString = this.partitures[partitura].join(); // join converteix l'array en string separant els elements amb una coma
+          let cercaString = this.cerca.join();
+          if (partituraString.includes(cercaString)) {
+            // cerca si quolca part del String coincideix amb el que hem escrit
+            this.pintaPartitura(partitura); // si coincideix, pintam sa partitura 
+          }
+        }
+      };
+
+      this.pintaPartitura = (partitura) => {
+        document.querySelector("#resultats").innerHTML += `
+                <div class="r">
                   <div>
                       <h3>${partitura}</h3>
                       <p>Lletra</p>
                   </div>
-                      <button name="${partitura}" class="btn-red" onclick="reproduirPartitura('${partitura}')">Reproduir <br> canço</button>
+                  <button name="${partitura}" class="btn-red" onclick="new Piano().partituraReproduir('${partitura}')">Reproduir <br> canço</button>
                 </div>
             `;
-    }
-
-    assignarTeclesPiano();
-
-    
-    function reproduirPartitura(partitura) {
-      let partituraSeleccionada = partitures[partitura];
-      let i = 0;
-      let interval;
-      clearInterval(interval);
-      let temps = 1000;
-      let crono = new Cronometro(temps, partitura).init();
-      interval = setInterval(() => {
-        if (i < partituraSeleccionada.length) {
-          sonarTecla(partituraSeleccionada[i]);
-          i++;
-        } else {
-          clearInterval(interval);
-        }
-      }, temps);
+      }; 
     }
 
     function Cronometro(tempsInterval, partitura) {
       this.tempsInterval = tempsInterval;
-      this.partitura = partitura;
-      this.hores = 0;
-      this.minuts = 0;
-      this.segons = 0;
-      this.milisegons = 0;
+      this.partitura = partitura;  
 
       this.milisegonsCanso = () => {
         let temps =
-          tempsInterval * partitures[partitura].length + tempsInterval;
+        this.tempsInterval * this.partitura.length + this.tempsInterval;
         return temps;
       };
 
@@ -210,11 +208,10 @@
         let minuts = Math.floor(temps / 1000 / 60);
         let segons = Math.floor((temps / 1000) % 60);
         let milisegons = Math.floor((temps % 1000) / 10);
-        document.querySelector(
-          "[name='" + this.partitura + "']"
-        ).innerText = ` ${hores}:${minuts}:${segons}.${milisegons}`;
-        console.log(this.partitura);
+        let tempsString = `${hores}:${minuts}:${segons}:${milisegons}`;  
       };
     }
+
+    let piano = new Piano().init();
   </script>
 </html>
