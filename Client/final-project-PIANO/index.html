@@ -131,23 +131,15 @@
       }
     }
 
-    function cercadorPartitures() {
-      document.querySelector("#resultats").innerHTML = ""; 
-      let i = 0;
-      for (const partitura in partitures) {
-         i = 0;
-          for (let j = 0; j < cerca.length; j++) { 
-            if (partitures[partitura][i] === cerca[j]) { 
-                pintaPartitura(partitura); 
-                i++;
-                j++
-              } else {
-                i = 0;
-                break;
-              }
-
-          }
-      }
+    function cercadorPartitures() { 
+      document.querySelector("#resultats").innerHTML = "";
+      for (let partitura in partitures) { 
+        let partituraCercada = partitures[partitura].join();
+        let cercaString = cerca.join();
+        if (partituraCercada.includes(cercaString)) {
+          pintaPartitura(partitura);
+        }
+      } 
     }
 
     function pintaPartitura(partitura) {
@@ -170,7 +162,7 @@
       let interval;
       let interval2 = clearInterval(interval);
       let temps = 500;
-      interval = setInterval(() => { 
+      interval = setInterval(() => {
         sonarTecla(partituraSeleccionada[i]);
         i++;
         if (i >= partituraSeleccionada.length) {
@@ -178,7 +170,6 @@
         }
       }, temps);
     }
-
 
     /*
     document.querySelector("#resultats").innerHTML = "";
@@ -213,17 +204,6 @@
         }
 
 
-
-
-        document
-          .querySelector("#balanguera")
-          .addEventListener("click", () => sonarPartitura("balanguera"));
-        document
-          .querySelector("#happybirthday")
-          .addEventListener("click", () => sonarPartitura("happybirthday"));
-
-          document.querySelector("#resultats").innerHTML += `<p>${partitura}</p>`;
-
           let partituresKeys = Object.keys(partitures);
           let partituresValues = Object.values(partitures);
           let partituresValuesString = partituresValues.map((x) => x.join(" "));
@@ -238,6 +218,7 @@
             }
           }
 
+ 
 
           */
   </script>
