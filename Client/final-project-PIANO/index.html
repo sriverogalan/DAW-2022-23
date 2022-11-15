@@ -134,9 +134,9 @@
     function cercadorPartitures() { 
       document.querySelector("#resultats").innerHTML = "";
       for (let partitura in partitures) { 
-        let partituraCercada = partitures[partitura].join();
+        let partituraString = partitures[partitura].join(); // join converteix l'array en string separant els elements amb una coma
         let cercaString = cerca.join();
-        if (partituraCercada.includes(cercaString)) {
+        if (partituraString.includes(cercaString)) { // includes comprova si la partituraString inclou la cerca
           pintaPartitura(partitura);
         }
       } 
