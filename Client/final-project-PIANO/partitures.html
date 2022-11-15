@@ -16,9 +16,14 @@
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css" /> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
 
   <body>
@@ -26,9 +31,13 @@
       <nav>
         <h1 class="logo-name">Score Finder</h1>
         <ul>
-          <li onclick="partitures()"><p class="navbar-buttons" >Partitures</p></li>
+          <li onclick="partitures()">
+            <p class="navbar-buttons">Partitures</p>
+          </li>
           <li onclick="login()">
-            <p class="navbar-buttons"  ><i class="fa-regular fa-user"></i> Login</p>
+            <p class="navbar-buttons">
+              <i class="fa-regular fa-user"></i> Login
+            </p>
           </li>
         </ul>
       </nav>
@@ -51,30 +60,33 @@
                     <th>Titol</th>
                     <th>Idioma Original</th>
                     <th>Accions</th>
-                </tr> `; 
+                </tr> `;
 
-      let article1 = ""; 
+      let article1 = "";
       article1 += "<tr>";
-            article1 += "<td>La Balanguera</td>";
-            article1 += "<td>Catala</td>";
-            article1 += "<td class='btn'>";
-                article1 += "<p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>";
-                article1 += "<p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>";
-            article1 += "</td>";
-            article1 += "</tr>"; 
-        table += article1;
+      article1 += "<td>La Balanguera</td>";
+      article1 += "<td>Catala</td>";
+      article1 += "<td class='btn'>";
+      article1 +=
+        "<p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>";
+      article1 +=
+        "<p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>";
+      article1 += "</td>";
+      article1 += "</tr>";
+      table += article1;
 
-        let article2 = "";
-        article2 += "<tr>";
-            article2 += "<td>Happy Birthday</td>";
-            article2 += "<td>Anglès</td>"; 
-            article2 += "<td class='btn'>";
-                article2 += "<p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>";
-                article2 += "<p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>";
-            article2 += "</td>";
-            article2 += "</tr>";
-        table += article2;
- 
+      let article2 = "";
+      article2 += "<tr>";
+      article2 += "<td>Happy Birthday</td>";
+      article2 += "<td>Anglès</td>";
+      article2 += "<td class='btn'>";
+      article2 +=
+        "<p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>";
+      article2 +=
+        "<p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>";
+      article2 += "</td>";
+      article2 += "</tr>";
+      table += article2;
 
       for (let i = 0; i < 98; i++) {
         let articleRepetit = "";
@@ -82,41 +94,53 @@
         articleRepetit += "<td>La Campanella</td>";
         articleRepetit += "<td>Italian</td>";
         articleRepetit += "<td class='btn'>";
-            articleRepetit += "<p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>";
-            articleRepetit += "<p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>";
+        articleRepetit +=
+          "<p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>";
+        articleRepetit +=
+          "<p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>";
         articleRepetit += "</td>";
         articleRepetit += "</tr>";
         table += articleRepetit;
-      }  
-      table +="</table>";
+      }
+      table += "</table>";
       document.querySelector("#container").innerHTML += table;
 
-      function edita(){
-        if(confirm("estas segur que vols editar aquesta cançó?")){
-            alert("Element esborrt");
+      function edita() {
+        if (confirm("estas segur que vols editar aquesta cançó?")) {
+          alert("Element esborrt");
         } else {
-            alert("Ha cancel·lat l'acció");
+          alert("Ha cancel·lat l'acció");
         }
       }
-      function borrar(){
+      function borrar() {
         alert("Element esborrat");
       }
-
-      function login(){ 
-        let url = "login.html"; 
-         let height = 300;
-         let width = 500;
-         var left = ( screen.width - width ) / 2;
-         var top = ( screen.height - height ) / 2;
-         var newWindow = window.open( url, "", 'width=' + width + ', height=' + height + ', top='+ top + ', left=' + left);
-      
+      function login() {
+          var url = "login.html";
+          var w = 600;
+          var h = 600;
+        var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+        var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+        width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+        height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+        var left = width / 2 - w / 2 + dualScreenLeft;
+        var top = height / 2 - h / 2 + dualScreenTop;
+        var newWindow = window.open(
+          url,
+          "",
+          "scrollbars=yes, width=" +
+            w +
+            ", height=" +
+            h +
+            ", top=" +
+            top +
+            ", left=" +
+            left
+        );
       }
-
-      function partitures(){
+      function partitures() {
         window.open("partitura.html", "_self");
-      
-    }
-
+      }
     </script>
   </body>
 </html>
