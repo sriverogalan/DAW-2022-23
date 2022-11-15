@@ -10,7 +10,7 @@
             <?php
             while ($item = $listado->fetch()) { ?>
                 <div class="col-md-4">
-                    <a href="index.php?controlador=&codi=<?php echo $item['id'] ?>" class="text-decoration-none p-1 border">
+                    <a href="index.php?accion=obtenerProductoPorId&codi=<?php echo $item['id'] ?>" class="text-decoration-none p-1 border">
                         <div class="card mb-4 shadow-sm ">
                             <img src="View/img/<?= $item['id']?>.jpg" class="align-self-center img-fluid">
                             <div class="card-body">

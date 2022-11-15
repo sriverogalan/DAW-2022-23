@@ -105,6 +105,7 @@
       this.src = `audio/${nom}.mp3`;
     }
 
+ 
     function sonarTecla(nota) {
       let n = new Nota(nota);
       let audio = new Audio(n.src);
@@ -157,19 +158,20 @@
 
     assignarTeclesPiano();
 
+    
     function reproduirPartitura(partitura) {
       let partituraSeleccionada = partitures[partitura];
       let i = 0;
       let interval;
-      let interval2 = clearInterval(interval);
+      clearInterval(interval);
       let temps = 1000;
       let crono = new Cronometro(temps, partitura).init();
-      interval = setInterval(() => { 
+      interval = setInterval(() => {
         if (i < partituraSeleccionada.length) {
           sonarTecla(partituraSeleccionada[i]);
           i++;
         } else {
-          clearInterval(interval); 
+          clearInterval(interval);
         }
       }, temps);
     }
@@ -183,88 +185,36 @@
       this.milisegons = 0;
 
       this.milisegonsCanso = () => {
-        let temps = tempsInterval * partitures[partitura].length;
+        let temps =
+          tempsInterval * partitures[partitura].length + tempsInterval;
         return temps;
       };
 
       this.init = () => {
-        this.tempsIni = new Date();
-        this.tempsIni = this.tempsIni.getTime();
+        this.tempsIni = new Date().getTime();
         this.tempsFi = this.tempsIni + this.milisegonsCanso();
-        this.tempsActual = this.tempsIni;
-
+        clearInterval(this.interval);
         this.interval = setInterval(() => {
           this.tempsActual = new Date();
           this.tempsActual = this.tempsActual.getTime();
           this.milisegons = this.tempsActual - this.tempsIni;
-          this.pinta();
+          this.pintarTempsBoto();
           if (this.tempsActual >= this.tempsFi) {
             clearInterval(this.interval);
           }
         }, 1);
-        
       };
-
-      this.pinta = () => {
+      this.pintarTempsBoto = () => {
         let temps = this.tempsActual - this.tempsIni;
         let hores = Math.floor(temps / 3600000);
         let minuts = Math.floor(temps / 1000 / 60);
         let segons = Math.floor((temps / 1000) % 60);
         let milisegons = Math.floor((temps % 1000) / 10);
-        document.querySelector("[name='"+this.partitura+"']").innerHTML = ` ${hores}:${minuts}:${segons}.${milisegons}  `;
+        document.querySelector(
+          "[name='" + this.partitura + "']"
+        ).innerText = ` ${hores}:${minuts}:${segons}.${milisegons}`;
         console.log(this.partitura);
       };
     }
-
-    /*
-    document.querySelector("#resultats").innerHTML = "";
-          let counter = 0;
-          for (let partitura in partitures) {
-            counter = 0;
-            console.log("Partitura: " + partitura);
-            for (let j = 0; j < partitures[partitura].length; j++) {
-              if (partitures[partitura][j] === cerca[counter]) {
-                console.log(
-                  "n-" +
-                    j +
-                    " - notaPartitura " +
-                    partitures[partitura][j] +
-                    " || n-" +
-                    counter +
-                    " -  nota Cerca: " +
-                    cerca[counter]
-                );
-
-                counter++;
-              } else {
-                counter = 0;
-                break;
-              }
-              if (counter === cerca.length) {
-                pintaPartitura(partitura);
-                break;
-              }
-            }
-          }
-        }
-
-
-          let partituresKeys = Object.keys(partitures);
-          let partituresValues = Object.values(partitures);
-          let partituresValuesString = partituresValues.map((x) => x.join(" "));
-          let cercaString = cerca.join(" ");
-          let results = document.querySelector("#resultats");
-          results.innerHTML = "";
-          for (let i = 0; i < partituresValuesString.length; i++) {
-            if (partituresValuesString[i].includes(cercaString)) {
-              let p = document.createElement("p");
-              p.innerHTML = partituresKeys[i];
-              results.appendChild(p);
-            }
-          }
-
- 
-
-          */
   </script>
 </html>
