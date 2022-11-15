@@ -131,15 +131,16 @@
       }
     }
 
-    function cercadorPartitures() { 
+    function cercadorPartitures() {
       document.querySelector("#resultats").innerHTML = "";
-      for (let partitura in partitures) { 
+      for (let partitura in partitures) {
         let partituraString = partitures[partitura].join(); // join converteix l'array en string separant els elements amb una coma
         let cercaString = cerca.join();
-        if (partituraString.includes(cercaString)) { // includes comprova si la partituraString inclou la cerca
+        if (partituraString.includes(cercaString)) {
+          // includes comprova si la partituraString inclou la cerca
           pintaPartitura(partitura);
         }
-      } 
+      }
     }
 
     function pintaPartitura(partitura) {
@@ -149,7 +150,7 @@
                       <h3>${partitura}</h3>
                       <p>Lletra</p>
                   </div>
-                      <button id="${partitura}" class="btn-red" onclick="reproduirPartitura('${partitura}')">Reproduir <br> canço</button>
+                      <button name="${partitura}" class="btn-red" onclick="reproduirPartitura('${partitura}')">Reproduir <br> canço</button>
                 </div>
             `;
     }
@@ -161,14 +162,58 @@
       let i = 0;
       let interval;
       let interval2 = clearInterval(interval);
-      let temps = 500;
-      interval = setInterval(() => {
-        sonarTecla(partituraSeleccionada[i]);
-        i++;
-        if (i >= partituraSeleccionada.length) {
-          clearInterval(interval);
+      let temps = 1000;
+      let crono = new Cronometro(temps, partitura).init();
+      interval = setInterval(() => { 
+        if (i < partituraSeleccionada.length) {
+          sonarTecla(partituraSeleccionada[i]);
+          i++;
+        } else {
+          clearInterval(interval); 
         }
       }, temps);
+    }
+
+    function Cronometro(tempsInterval, partitura) {
+      this.tempsInterval = tempsInterval;
+      this.partitura = partitura;
+      this.hores = 0;
+      this.minuts = 0;
+      this.segons = 0;
+      this.milisegons = 0;
+
+      this.milisegonsCanso = () => {
+        let temps = tempsInterval * partitures[partitura].length;
+        return temps;
+      };
+
+      this.init = () => {
+        this.tempsIni = new Date();
+        this.tempsIni = this.tempsIni.getTime();
+        this.tempsFi = this.tempsIni + this.milisegonsCanso();
+        this.tempsActual = this.tempsIni;
+
+        this.interval = setInterval(() => {
+          this.tempsActual = new Date();
+          this.tempsActual = this.tempsActual.getTime();
+          this.milisegons = this.tempsActual - this.tempsIni;
+          this.pinta();
+          if (this.tempsActual >= this.tempsFi) {
+            clearInterval(this.interval);
+          }
+        }, 1);
+        
+      };
+
+      this.pinta = () => {
+        let temps = this.tempsActual - this.tempsIni;
+        let hores = Math.floor(temps / 3600000);
+        let minuts = Math.floor(temps / 1000 / 60);
+        let segons = Math.floor((temps / 1000) % 60);
+        let milisegons = Math.floor((temps % 1000) / 10);
+        document.querySelector("[name='"+this.partitura+"']").innerHTML = ` ${hores}:${minuts}:${segons}.${milisegons}  `;
+        console.log(this.partitura);
+      };
     }
 
     /*
