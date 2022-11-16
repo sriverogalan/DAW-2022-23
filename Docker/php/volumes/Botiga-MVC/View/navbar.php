@@ -29,12 +29,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="llista.php">
-              Llista
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="formulari-alta.php">
+            <a class="nav-link" href="index.php?accion=insertarProducto">
               Alta Producte
             </a>
           </li>
