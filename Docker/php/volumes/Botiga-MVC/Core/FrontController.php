@@ -26,7 +26,9 @@ class FrontController
             return false;
         }
 
-        $controller = new $controllerName();
-        $controller->$actionName();
+        $controller = new $controllerName(); 
+        if (isset($_GET['id'])) {
+            $controller->$actionName($_GET['id']);
+        } else $controller->$actionName();
     }
 }

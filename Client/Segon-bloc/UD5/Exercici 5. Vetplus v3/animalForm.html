@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label>nom</label>
+    <input type="text" id="nom" />
+
+    <label>Sexe</label>
+    <input type="text" id="sexe" value="MASC" />
+
+    <label>Numero Registre</label>
+    <input type="text" id="numRegistre" />
+
+    <label>Tipus</label>
+    <input type="text" id="tipus" />
+
+    <button id="desar">Desar</button>
+
+    <script type="module">
+      import { AnimalService } from "./controller/AnimalService.js";
+      (function () {
+        document
+          .querySelector("#desar")
+          .addEventListener("click", async function () {
+            let nom = document.querySelector("#nom").value;
+            let sexe = document.querySelector("#sexe").value;
+            let numRegistre = document.querySelector("#numRegistre").value;
+            let tipus = document.querySelector("#tipus").value;
+
+            const animalService = AnimalService.getInstance();
+            const animals = await animalService.save(
+              nom,
+              sexe,
+              numRegistre,
+              tipus
+            );
+          });
+      })()
+    </script>
+  </body>
+</html>

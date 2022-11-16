@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <header>
     <title>Fitxa</title>
 </header>
 
 <?php require "navbar.php"; ?>
+
 <body>
-    <div class="container text-center mt-5">
-        <div class="row col-12">
-            <div class="col-md-6 row">
-            <img src="../img/' . $article['id'] . '.jpg" class="card-img-top col-12" >
-            </div>
-           <div class='col-md-6 text-center align-self-center row'>
-            <h1 class="col-12"> . $article['nom'] . </h1>
-            <p class="col-12">. $article['descripcio'] . </p>
-            <h2 class="col-12"> . $article['preu'] . </h2>
-            <div class="btn-group mt-5">';
-           <a href="llista.php" class="btn btn-sm btn-outline-secondary"><h5>Seguir comprant</h5></a>
-            <a href="carreto.php?codi=' . $article['id'] . '" class="btn btn-sm btn-outline-success"><h5>Afegir al carreto</h5></a>
-            </div>
+
+    <? while ($item = $listado->fetch()) { ?>
+
+        <div class="container text-center mt-5">
+            <div class="row col-12">
+                <div class="col-md-6 row">
+                    <img src="View/img/<?php echo $item['id'] ?>.jpg" class="card-img-top col-12">
+                </div>
+                <div class='col-md-6 text-center align-self-center row'>
+                    <h1 class="col-12"> <?php echo $item['nom'] ?> </h1>
+                    <p class="col-12"> <?php echo $item['descripcio'] ?></p>
+                    <h2 class="col-12"> <?php echo $item['preu'] ?> € </h2>
+                    <div class="btn-group mt-5"> 
+                        <a href="index.php" class="btn btn-sm btn-outline-secondary">
+                            <h5>Seguir comprant</h5>
+                        </a>
+                        <a href="carreto.php?codi=<?php echo $item['id'] ?>" class="btn btn-sm btn-outline-success">
+                            <h5>Afegir al carreto</h5>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    <? } ?>
 </body>
 
 </html>
