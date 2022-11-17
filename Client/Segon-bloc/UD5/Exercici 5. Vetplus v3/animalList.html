@@ -13,7 +13,8 @@
 
       (async function () {
         const animalService = AnimalService.getInstance();
-        const animals = await animalService.getAnimals();
+        const animals = await animalService.getAnimals(); 
+        const sorted = animals.sort((a, b) => a.name.localeCompare(b.name));
         pintar(animals);
 
         document.querySelector("#search").addEventListener("input", () => {
@@ -21,7 +22,9 @@
           const animalFilter = animals.filter((a) => a.name.toLowerCase().includes(value.toLowerCase()));
           pintar(animalFilter);
         });
-      })();
+
+      })(); 
+      
 
       function pintar(animals) {
         const taula = ` <table>

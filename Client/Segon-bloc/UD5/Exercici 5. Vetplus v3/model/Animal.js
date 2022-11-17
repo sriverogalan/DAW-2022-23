@@ -9,6 +9,13 @@ export class Animal{
     }
 
     static fromJSON(json){
-
+        return new Animal(
+            json.idanimal,
+            json.nom,
+            null,
+            json.sexe,
+            json.numregistre,
+            json.tipus
+            )
     }
 }
