@@ -29,8 +29,6 @@ class FrontController
         $controller = new $controllerName(); 
         if (isset($_GET['id'])) {
             $controller->$actionName($_GET['id']);
-        } else if (isset($_POST['nom'], $_POST['desc'], $_POST['preu'])) {
-            $controller->$actionName($_POST['nom'], $_POST['desc'], $_POST['preu']);
         } else {
             $controller->$actionName();
         } 

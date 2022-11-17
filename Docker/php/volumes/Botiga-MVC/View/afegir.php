@@ -6,7 +6,7 @@
 <body>
     <div class="container d-flex flex-column justify-content-center mt-4">
         <h2 class="text-center col-12">Formulari d'Alta de productes</h2>
-        <form action="index.php?accion=insertar" method="GET" enctype="multipart/form-data" class="row g-3 needs-validation">
+        <form action="index.php?accion=afegirForm" method="POST" enctype="multipart/form-data" class="row g-3 needs-validation">
             <div class="form-group">
                 <label for="nom">Nom del producte</label>
                 <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom del producte" required>

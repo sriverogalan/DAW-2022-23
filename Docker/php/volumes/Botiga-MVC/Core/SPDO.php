@@ -12,6 +12,10 @@ class SPDO extends PDO
             $config->get('dbpass')
         );
     }
+    public function getLastId()
+    { 
+        return $this->lastInsertId();
+    }
 
     public static function singleton()
     {
