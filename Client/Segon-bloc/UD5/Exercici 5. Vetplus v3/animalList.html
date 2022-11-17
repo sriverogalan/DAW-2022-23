@@ -15,12 +15,13 @@
         const animalService = AnimalService.getInstance();
         const animals = await animalService.getAnimals(); 
         const sorted = animals.sort((a, b) => a.name.localeCompare(b.name));
-        pintar(animals);
+        pintar(sorted);
 
         document.querySelector("#search").addEventListener("input", () => {
           const value = document.querySelector("#search").value;
           const animalFilter = animals.filter((a) => a.name.toLowerCase().includes(value.toLowerCase()));
-          pintar(animalFilter);
+          const animalFilter2 = animalFilter.filter((a) => !a.name.includes("<"));
+          pintar(animalFilter2);
         });
 
       })(); 
