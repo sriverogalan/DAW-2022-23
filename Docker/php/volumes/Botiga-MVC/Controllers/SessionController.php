@@ -1,17 +1,15 @@
 <?php
- 
+
 class SessionController
 {
     public function __construct()
     {
         session_start();
-    }
-
-    public function set($name, $value)
+    } 
+    public function set($id, $value)
     {
-        $_SESSION[$name] = $value;
+        $_SESSION[$id] = $value; 
     }
-
     public function get($name)
     {
         if (isset($_SESSION[$name])) {

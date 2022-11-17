@@ -49,10 +49,9 @@ class ProductController
         $arr['listado'] = $this->items->obtenerProductoPorId($id);
         $this->view->show("fitxa.php", $arr);
     } 
-
-    public function agregarAlCarrito($id)
+    public function meterCarrito($id)
     {
-        $arr['listado'] = $this->items->obtenerProductoPorId($id);
-        $this->view->show("afegirAlCarrito.php", $arr);
+        $this->session->set('carrito', $id);
+        $this->view->show("carrito.php");
     }
 }
