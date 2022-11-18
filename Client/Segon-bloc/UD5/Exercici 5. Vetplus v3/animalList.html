@@ -19,9 +19,11 @@
 
         document.querySelector("#search").addEventListener("input", () => {
           const value = document.querySelector("#search").value;
-          const animalFilter = animals.filter((a) => a.name.toLowerCase().includes(value.toLowerCase()));/* 
-          const animalFilter2 = animalFilter.filter((x) => !x.name.toLowerCase().includes("<", ">", '"', "'", "/", "\\", "(", ")")); */
-          pintar(animalFilter );
+          const animalFilter = animals.filter((a) => a.name.toLowerCase().includes(value.toLowerCase()));
+          
+          const array = ["<", ">","-",  "'", "/", "(", ")"]
+          const animalFilter2 = animalFilter.filter((x) => !array.includes(x.name));
+          pintar(animalFilter2 );
         });
 
       })(); 

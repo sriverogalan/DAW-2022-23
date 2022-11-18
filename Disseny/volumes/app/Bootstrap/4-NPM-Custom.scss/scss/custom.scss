@@ -17,6 +17,7 @@ $primary: green;
 $custom-colors: (
   "ies-manacor": rgb(255, 140, 0), // orange
   "sergi": #00f7ff,
+  "gris" : #7d7d7d,
   "hola": rgb(30, 198, 162) // blue 
 );
 
@@ -39,6 +40,19 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "../node_modules/bootstrap/scss/containers";
 @import "../node_modules/bootstrap/scss/grid";
 @import "../node_modules/bootstrap/scss/helpers";
+@import "../node_modules/bootstrap/scss/navbar";
+@import "../node_modules/bootstrap/scss/dropdown";
+@import "../node_modules/bootstrap/scss/badge";
+@import "../node_modules/bootstrap/scss/button-group"; 
+@import "../node_modules/bootstrap/scss/transitions";
+@import "../node_modules/bootstrap/scss/tables";
+@import "../node_modules/bootstrap/scss/carousel";
+@import "../node_modules/bootstrap/scss/forms";
+@import "../node_modules/bootstrap/scss/card";
+@import "../node_modules/bootstrap/scss/close";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/tooltip";
+@import "../node_modules/bootstrap/scss/popover";
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "../node_modules/bootstrap/scss/utilities/api";

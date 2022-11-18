@@ -97,6 +97,53 @@
         "sol",
         "fa",
       ],
+      "Sesion Quevedo - Bizarrap": [
+        "sol",
+        "fa-sust",
+        "fa-sust",
+        " ",
+        "fa-sust",
+        "fa-sust",
+        "sol",
+        "fa",
+        "mi",
+        "re",
+        "fa-sust",
+        " ",
+        "la",
+        "mi",
+        " ",
+        "do-sust",
+        "do-sust",
+        "do-sust",
+        "do-sust",
+        "do-sust",
+        "do-sust",
+        " ",
+        "mi",
+        "re",
+        "do-sust",
+        "mi",
+        "re",
+        "do-sust",
+        "mi",
+        "re",
+        " ", 
+        "re",
+        "fa-sust",
+        "fa-sust",
+        "fa-sust",
+        "fa-sust",
+        " ",
+        "sol",
+        "fa-sust",
+        "mi",
+        "sol",
+        "fa-sust",
+        "mi",
+        "sol",
+        "fa-sust"
+      ],
     };
     let cerca = [];
 
@@ -162,14 +209,14 @@
       let i = 0;
       let interval;
       let interval2 = clearInterval(interval);
-      let temps = 1000;
+      let temps = 500;
       let crono = new Cronometro(temps, partitura).init();
-      interval = setInterval(() => { 
+      interval = setInterval(() => {
         if (i < partituraSeleccionada.length) {
           sonarTecla(partituraSeleccionada[i]);
           i++;
         } else {
-          clearInterval(interval); 
+          clearInterval(interval);
         }
       }, temps);
     }
@@ -183,14 +230,15 @@
       this.milisegons = 0;
 
       this.milisegonsCanso = () => {
-        let temps = tempsInterval * partitures[partitura].length + tempsInterval;
+        let temps =
+          tempsInterval * partitures[partitura].length + tempsInterval;
         return temps;
       };
 
       this.init = () => {
         this.tempsIni = new Date();
         this.tempsIni = this.tempsIni.getTime();
-        this.tempsFi = this.tempsIni + this.milisegonsCanso() ;
+        this.tempsFi = this.tempsIni + this.milisegonsCanso();
         this.tempsActual = this.tempsIni;
 
         this.interval = setInterval(() => {
@@ -202,7 +250,6 @@
             clearInterval(this.interval);
           }
         }, 1);
-        
       };
 
       this.pinta = () => {
@@ -211,10 +258,11 @@
         let minuts = Math.floor(temps / 1000 / 60);
         let segons = Math.floor((temps / 1000) % 60);
         let milisegons = Math.floor((temps % 1000) / 10);
-        document.querySelector("[name='"+this.partitura+"']").innerHTML = ` ${hores}:${minuts}:${segons}.${milisegons}  `;
+        document.querySelector(
+          "[name='" + this.partitura + "']"
+        ).innerHTML = ` ${hores}:${minuts}:${segons}.${milisegons}  `;
         console.log(this.partitura);
       };
     }
- 
   </script>
-</html> 
+</html>
