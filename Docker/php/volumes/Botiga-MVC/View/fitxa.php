@@ -23,7 +23,7 @@
                         <a href="index.php" class="btn btn-sm btn-outline-secondary">
                             <h5>Seguir comprant</h5>
                         </a>
-                        <a href="carreto.php?codi=<?php echo $item['id'] ?>" class="btn btn-sm btn-outline-success">
+                        <a href="index.php?accion=meterCarrito&id=<?php echo $item['id'] ?>" class="btn btn-sm btn-outline-success">
                             <h5>Afegir al carreto</h5>
                         </a>
                     </div>
