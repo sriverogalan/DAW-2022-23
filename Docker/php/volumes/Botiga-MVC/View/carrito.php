@@ -28,6 +28,7 @@ require "navbar.php";
                     if ($producto['id'] === null) {
                         continue;
                     }
+                    $cantidad += $producto['quantitat'] 
                 ?>
                     <tr>
                         <td> <img src="View/img/<?php echo $producto['id'] ?>.jpg" width="100px"></td>
@@ -37,7 +38,7 @@ require "navbar.php";
                         <td>
                             <form action="index.php?accion=cambiarCantidad" method="POST">
                                 <input type="hidden" name="id" value="<?php echo $producto['id'] ?>">
-                                <input type="number" name="cantidad" value="<?php echo $producto['quantitat'] ?>" class="col-2">
+                                <input type="number" name="cantidad" value="<?php echo $producto['quantitat'] ?>" class="col-sm-2">
                                 <span style="font-size: 10px;">ud. </span>
                                 <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise"></i></button>
                             </form>
@@ -61,7 +62,8 @@ require "navbar.php";
                 </a>
             </div>
             <div class="col-6 text-end">
-                <h4>Total (+IVA incluido/s): <?php echo $_SESSION['total'] ?> €</h4>
+                <h4><? echo $cantidad ?> productos</h4>
+                <h4><span style=" font-weight: 600"> TOTAL   :</span> <?php echo $_SESSION['total'] ?> € <span style="font-weight: 600; font-size: 15px;"> + IVA incluido/s</span></h4>
             </div>
         </div>
             <div class="col-12 text-end">

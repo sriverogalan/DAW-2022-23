@@ -67,9 +67,11 @@ class ProductController
     }
     public function cambiarCantidad()
     {
-        $id = $_POST['id'];
-        $cantidad = $_POST['cantidad'];
-        $this->carrito->cambiarCantidad($id, $cantidad);
+        if (isset($_POST['id']) && isset($_POST['cantidad'])) {
+            $id = $_POST['id'];
+            $cantidad = $_POST['cantidad'];
+            $this->carrito->cambiarCantidad($id, $cantidad); 
+        } 
         $this->mostrarCarrito();
     }
     public function realizarCompra()
