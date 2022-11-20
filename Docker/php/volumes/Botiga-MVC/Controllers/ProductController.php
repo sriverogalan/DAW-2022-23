@@ -47,44 +47,38 @@ class ProductController
     {
         $arr['listado'] = $this->items->obtenerConsultaProductoPorId($id);
         $this->view->show("fitxa.php", $arr);
-    } 
+    }
     public function afegirCarrito()
-    { 
-        $id = $_POST['id']; 
-        $this->carrito->afegirCarrito($id); 
+    {
+        $id = $_POST['id'];
+        $this->carrito->afegirCarrito($id);
         $this->mostrarCarrito();
     }
 
     public function eliminarProductoCarrito($id)
     {
-        $this->carrito->eliminarProductoCarrito($id); 
+        $this->carrito->eliminarProductoCarrito($id);
         $this->mostrarCarrito();
-    } 
+    }
     public function vaciarCarrito()
     {
-        $this->carrito->vaciarCarrito(); 
+        $this->carrito->vaciarCarrito();
         $this->mostrarCarrito();
     }
     public function cambiarCantidad()
     {
-        if (isset($_POST['id']) && isset($_POST['cantidad'])) {
-            $id = $_POST['id'];
-            $cantidad = $_POST['cantidad'];
-            $this->carrito->cambiarCantidad($id, $cantidad); 
-        } 
+        $id = $_POST['id'];
+        $cantidad = $_POST['cantidad'];
+        $this->carrito->cambiarCantidad($id, $cantidad);
         $this->mostrarCarrito();
     }
     public function realizarCompra()
     {
-        $this->carrito->vaciarCarrito(); 
+        $this->carrito->vaciarCarrito();
         $this->mostrarCarrito();
-    }   
-     public function mostrarCarrito()
-    { 
+    }
+    public function mostrarCarrito()
+    {
         $this->view->show("carrito.php");
     }
-
-
-
-
 }

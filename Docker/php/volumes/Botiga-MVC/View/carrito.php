@@ -31,7 +31,7 @@ require "navbar.php";
                     $cantidad += $producto['quantitat'] 
                 ?>
                     <tr>
-                        <td> <img src="View/img/<?php echo $producto['id'] ?>.jpg" width="100px"></td>
+                        <td><a href="index.php?accion=obtenerProductoPorId&id=<?php echo $producto['id'] ?>"> <img src="View/img/<?php echo $producto['id'] ?>.jpg" width="100px"></a></td>
                         <td><?php echo $producto['id'] ?></td>
                         <td><?php echo $producto['nom'] ?></td>
                         <td><?php echo $producto['preu'] ?> €</td>
