@@ -1,17 +1,17 @@
 <?php
-require './Model/ProductModel.php';   
+require './Model/ProductModel.php';
 require './Controllers/SessionController.php';
 class ProductController
-{ 
+{
     private $view;
     private $items;
-    private $session;
+    private $carrito;
 
     function __construct()
     {
         $this->items = new ProductModel();
         $this->view = new View();
-        $this->session = new SessionController();
+        $this->carrito = new SessionController();
     }
 
     public function listar()
@@ -43,15 +43,46 @@ class ProductController
 
         $this->view->show("alta-producte.php");
     }
-
     public function obtenerProductoPorId($id)
     {
-        $arr['listado'] = $this->items->obtenerProductoPorId($id);
+        $arr['listado'] = $this->items->obtenerConsultaProductoPorId($id);
         $this->view->show("fitxa.php", $arr);
     } 
-    public function meterCarrito($id)
+    public function afegirCarrito()
+    { 
+        $id = $_POST['id']; 
+        $this->carrito->afegirCarrito($id); 
+        $this->mostrarCarrito();
+    }
+
+    public function eliminarProductoCarrito($id)
     {
-        $this->session->set('carrito', $id);
+        $this->carrito->eliminarProductoCarrito($id); 
+        $this->mostrarCarrito();
+    } 
+    public function vaciarCarrito()
+    {
+        $this->carrito->vaciarCarrito(); 
+        $this->mostrarCarrito();
+    }
+    public function cambiarCantidad()
+    {
+        $id = $_POST['id'];
+        $cantidad = $_POST['cantidad'];
+        $this->carrito->cambiarCantidad($id, $cantidad);
+        $this->mostrarCarrito();
+    }
+    public function realizarCompra()
+    {
+        $this->carrito->vaciarCarrito(); 
+        $this->mostrarCarrito();
+    }   
+     public function mostrarCarrito()
+    { 
         $this->view->show("carrito.php");
     }
+
+
+
+
 }

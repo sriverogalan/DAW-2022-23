@@ -14,13 +14,24 @@ class ProductModel
         $consulta->execute();
         return $consulta;
     }
-    public function obtenerProductoPorId($id)
+
+    public function obtenerConsultaProductoPorId($id)
     {
         $consulta = $this->db->prepare('SELECT * FROM articles where id = :id');
         $consulta->bindValue('id', $id);
         $consulta->execute();
         return $consulta;
     }
+
+
+    public function obtenerProductoPorId($id)
+    {
+        $consulta = $this->db->prepare('SELECT * FROM articles where id = :id');
+        $consulta->bindValue('id', $id);
+        $consulta->execute();
+        return $consulta->fetch();
+    }
+
     public function insertarProducto($nom, $desc, $preu)
     {
         $query = $this->db->prepare("INSERT INTO articles (nom, descripcio, preu) VALUES (:nom, :desc, :preu)");
@@ -28,13 +39,12 @@ class ProductModel
         $query->bindValue('desc', $desc);
         $query->bindValue('preu', $preu);
         $query->execute();
-    }
-
+    } 
     public function insertarFoto($image, $name, $size, $tmp, $file)
     {
         $directorioSubida = "./View/img/";
         $max_file_size = "512000";
-        $extensionesValidas = array("jpg", "png");
+        $extensionesValidas = array("jpg");
 
         if (isset($image)) {
             $errores = 0;

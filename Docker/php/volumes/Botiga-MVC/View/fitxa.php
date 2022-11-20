@@ -22,10 +22,14 @@
                     <div class="btn-group mt-5"> 
                         <a href="index.php" class="btn btn-sm btn-outline-secondary">
                             <h5>Seguir comprant</h5>
-                        </a>
-                        <a href="index.php?accion=meterCarrito&id=<?php echo $item['id'] ?>" class="btn btn-sm btn-outline-success">
-                            <h5>Afegir al carreto</h5>
-                        </a>
+                        </a> 
+                        <form action="index.php?accion=afegirCarrito" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $item['id'] ?>"> 
+                            <input type="hidden" name="quantitat" value="1">
+                            <button type="submit" class="btn btn-sm btn-outline-success">
+                                <h5>Añadir al carrito</h5>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
