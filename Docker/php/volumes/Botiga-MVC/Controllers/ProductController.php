@@ -1,6 +1,10 @@
 <?php
-require './Model/ProductModel.php';
-require './Controllers/SessionController.php';
+namespace Controllers;
+use Core\View as View;
+use Model\ProductModel as ProductModel;
+
+require_once './Model/ProductModel.php';
+require_once './Controllers/SessionController.php';
 class ProductController
 {
     private $view;

@@ -1,5 +1,6 @@
 <?php 
-
+namespace Controllers;
+use Model\ProductModel as ProductModel;
 class SessionController
 { 
     public $items;

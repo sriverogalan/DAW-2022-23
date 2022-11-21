@@ -1,4 +1,6 @@
 <?php
+
+namespace Core;
 class Config
 {
     private $vars;

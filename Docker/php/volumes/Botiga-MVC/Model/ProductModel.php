@@ -1,4 +1,6 @@
 <?php
+namespace Model;
+use Core\SPDO as SPDO;
 class ProductModel
 {
     protected $db;
