@@ -1,39 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
-<label>Nom</label>
-<input type="text" id="nom">
+  </head>
+  <body>
+    <label>Nom</label>
+    <input type="text" id="nom" />
 
-<label>Sexe</label>
-<input type="text" id="sexe" value="MASC">
+    <label for="sexe">Sexe</label>
+    <input type="radio" id="MASC" name="sexe" value="MASC" checked />
+    <label for="MASC">Masculí</label>
 
-<label>Número registre</label>
-<input type="text" id="numregistre">
+    <input type="radio" id="FEM" name="sexe" value="FEM" />
+    <label for="FEM">Femení</label>
 
-<label>Tipus</label>
-<input type="text" id="tipus" value="ca">
+    <div for="numregistre" id="tipusRegistre"></div>
 
-<button id="desar">Desa</button>
+    <label for="tipus">Tipus:</label>
+    <select name="tipus" id="tipus">
+      <option value="no-elegit">Elegeix una opcio</option>
+      <option id="ca" value="ca">Ca (de raça o no)</option>
+      <option id="cavall" value="cavall">Cavall (de carreres o no)</option>
+      <option id="moix" value="moix">Moix</option>
+    </select>
+    <br />
+    <button id="desar">Desa</button>
 
-<script type="module">
-    import {AnimalService} from './controller/AnimalService.js';
+    <script type="module">
+      import { AnimalService } from "./controller/AnimalService.js";
 
-    (function(){
-        document.querySelector("#desar").addEventListener('click',async function(){
+      (async () => {
+        document
+          .querySelector("#desar")
+          .addEventListener("click", async function () {
             //Recuperem les dades
             const nom = document.querySelector("#nom").value;
-            const sexe = document.querySelector("#sexe").value;
+            const sexe = document.querySelector(
+              'input[name="sexe"]:checked'
+            ).value;
             const numregistre = document.querySelector("#numregistre").value;
             const tipus = document.querySelector("#tipus").value;
 
             const animalService = AnimalService.getInstance();
-            const animalSaved = await animalService.save(nom,sexe,numregistre,tipus);
-        })
-    })()
-</script>
-</body>
+            const animalSaved = await animalService.save(
+              nom,
+              sexe,
+              numregistre,
+              tipus
+            );
+          });
+
+        const variablesUrl = window.location.search;
+        const urlParams = new URLSearchParams(variablesUrl);
+
+        const id = urlParams.get("id");
+        if (id) {
+          const animalService = AnimalService.getInstance();
+          const animal = await animalService.getAnimal(id);
+          console.log(animal);
+          pintarAnimal(animal);
+        }
+
+        displayTipus();
+      })();
+
+      function pintarAnimal(animal) {
+        document.querySelector("#nom").value = animal.name;
+        if (animal.sexe === "MASC") {
+          document.querySelector("#MASC").checked = true;
+        } else {
+          document.querySelector("#FEM").checked = true;
+        }
+        if (animal.type === "ca") {
+          document.querySelector("#ca").selected = true;
+        } else if (animal.type === "cavall") {
+          document.querySelector("#cavall").selected = true;
+        } else {
+          document.querySelector("#moix").selected = true;
+        }
+        document.querySelector("#numregistre").value = animal.register; 
+      }
+
+      function displayTipus() {
+        const tipus = document
+          .querySelector("#tipus")
+          .addEventListener("change", () => {
+            const value = document.querySelector("#tipus").value;
+            if (value === "ca") {
+              document.querySelector("#tipusRegistre").style.display = "block";
+              document.querySelector("#tipusRegistre").innerHTML =
+                "Número de registre ";
+              document.querySelector(
+                "#tipusRegistre"
+              ).innerHTML += `<input type="text" id="numregistre" />`;
+            } else if (value === "cavall") {
+              document.querySelector("#tipusRegistre").style.display = "block";
+              document.querySelector("#tipusRegistre").innerHTML =
+                "Número de federat ";
+              document.querySelector(
+                "#tipusRegistre"
+              ).innerHTML += `<input type="text" id="numregistre" />`;
+            } else {
+              document.querySelector("#tipusRegistre").style.display = "none";
+              document.querySelector(
+                "#tipusRegistre"
+              ).innerHTML += `<input type="text" id="numregistre" value="0">`;
+            }
+          });
+      }
+    </script>
+  </body>
 </html>

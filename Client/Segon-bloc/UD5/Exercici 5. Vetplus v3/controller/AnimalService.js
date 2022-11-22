@@ -26,7 +26,12 @@ export class AnimalService {
         return resultat; */
   }
 
-  getAnimal() {}
+  async getAnimal(id) {  
+    const animalsFetch = await fetch(this._URL + "/vetplus/getAnimals");
+    const animals = await animalsFetch.json();
+    const animal = await animals.find((a) => a.idanimal == id);
+    return Animal.fromJSON(animal);
+  }
 
   async save(nom, sexe, numregistre, tipus) {
     const saveFetch = await fetch(this._URL + "/vetplus/save", {
