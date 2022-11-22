@@ -59,7 +59,7 @@ class SessionController
     }  
     public function cambiarCantidad($id, $cantidad)
     {
-        if ($cantidad == 0) {
+        if ($cantidad <= 0) {
            $this->eliminarProductoCarrito($id);
         } else {
             $_SESSION['carrito'][$id]['quantitat'] = $cantidad;

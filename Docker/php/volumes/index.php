@@ -5,6 +5,6 @@
 <body>
 <a href="exercicisVideos/index.php">PRIMER VIDEOS PHP</a>
 <a href="PDO-Desplegament/views/llista.php">Llista php - PDO</a>
-<a href="Botiga-MVC/index.php">MVC - PHP</a>
+<a href="3-Botiga-MVC/index.php">MVC - PHP</a>
 </body>
 </html> 

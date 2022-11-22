@@ -1,5 +1,5 @@
 <?php
-require 'const.php' ;
+require 'const.php';
 
 $config = Config::singleton();
  
