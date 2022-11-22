@@ -15,7 +15,7 @@
     <input type="radio" id="FEM" name="sexe" value="FEM" />
     <label for="FEM">Femení</label>
 
-    <div for="numregistre" id="tipusRegistre"></div>
+    <div id="numregistreForm"></div>
 
     <label for="tipus">Tipus:</label>
     <select name="tipus" id="tipus">
@@ -30,7 +30,42 @@
     <script type="module">
       import { AnimalService } from "./controller/AnimalService.js";
 
-      (async () => {
+      ( 
+      async () => {
+        const variablesUrl = window.location.search;
+        const urlParams = new URLSearchParams(variablesUrl);
+
+        const id = urlParams.get("id");
+        if (id) {
+          const animalService = AnimalService.getInstance();
+          const animal = await animalService.getAnimal(id);
+          console.log(animal);
+          pintarAnimal(animal);
+        } else {
+          save();
+        }
+      })();
+
+
+      async function modificar(){
+        document.querySelector("#desar").addEventListener("click", async () => {
+          const nom = document.querySelector("#nom").value;
+          const sexe = document.querySelector('input[name="sexe"]:checked').value;
+          const tipus = document.querySelector("#tipus").value;
+          const numregistre = document.querySelector("#numregistre").value;
+          const animal = {
+            name: nom,
+            sexe: sexe,
+            tipus: tipus,
+            numregistre: numregistre,
+          };
+          const animalService = AnimalService.getInstance();
+          await animalService.update();
+          open("animalList.html", "_self");
+        });
+      }
+
+      async function save() {
         document
           .querySelector("#desar")
           .addEventListener("click", async function () {
@@ -50,64 +85,47 @@
               tipus
             );
           });
-
-        const variablesUrl = window.location.search;
-        const urlParams = new URLSearchParams(variablesUrl);
-
-        const id = urlParams.get("id");
-        if (id) {
-          const animalService = AnimalService.getInstance();
-          const animal = await animalService.getAnimal(id);
-          console.log(animal);
-          pintarAnimal(animal);
-        }
-
-        displayTipus();
-      })();
-
-      function pintarAnimal(animal) {
-        document.querySelector("#nom").value = animal.name;
-        if (animal.sexe === "MASC") {
-          document.querySelector("#MASC").checked = true;
-        } else {
-          document.querySelector("#FEM").checked = true;
-        }
-        if (animal.type === "ca") {
-          document.querySelector("#ca").selected = true;
-        } else if (animal.type === "cavall") {
-          document.querySelector("#cavall").selected = true;
-        } else {
-          document.querySelector("#moix").selected = true;
-        }
-        document.querySelector("#numregistre").value = animal.register; 
       }
 
-      function displayTipus() {
-        const tipus = document
-          .querySelector("#tipus")
-          .addEventListener("change", () => {
-            const value = document.querySelector("#tipus").value;
-            if (value === "ca") {
-              document.querySelector("#tipusRegistre").style.display = "block";
-              document.querySelector("#tipusRegistre").innerHTML =
-                "Número de registre ";
-              document.querySelector(
-                "#tipusRegistre"
-              ).innerHTML += `<input type="text" id="numregistre" />`;
-            } else if (value === "cavall") {
-              document.querySelector("#tipusRegistre").style.display = "block";
-              document.querySelector("#tipusRegistre").innerHTML =
-                "Número de federat ";
-              document.querySelector(
-                "#tipusRegistre"
-              ).innerHTML += `<input type="text" id="numregistre" />`;
-            } else {
-              document.querySelector("#tipusRegistre").style.display = "none";
-              document.querySelector(
-                "#tipusRegistre"
-              ).innerHTML += `<input type="text" id="numregistre" value="0">`;
-            }
-          });
+      function pintarAnimal(animal) {
+        const nom = animal.name;
+        const sexe = animal.gender;
+        const numregistre = animal.numregistre;
+        const tipus = animal.type;
+
+        document.querySelector("#nom").value = nom;
+        document.querySelector(`#${sexe}`).checked = true;
+        document.querySelector(`#${tipus}`).selected = true;  
+        displayTipus(tipus, numregistre);
+
+      }
+
+      function displayTipus(tipus, numregistre) {
+        const value = document.querySelector("#tipus").value; 
+        if (value === "ca") {
+          document.querySelector("#numregistreForm").innerHTML = `
+            <label for="numregistre">Número de registre</label>
+            <input type="text" id="numregistre" value="${numregistre}" />
+            `;
+        } else if (value === "cavall") {
+          document.querySelector("#numregistreForm").innerHTML = `
+            <label for="numregistre">Número de federat</label>
+            <input type="text" id="numregistre" value="${numregistre}" />
+            `;
+        } else if (value === "moix") {
+          document.querySelector("#numregistreForm").innerHTML = ` 
+            <input type="text" id="numregistre" value="0" style="display:none"/>
+            `; 
+        } else {
+          document.querySelector("#numregistreForm").innerHTML = "";
+        }
+        comprobarTipus(tipus, numregistre)
+      }
+
+      function comprobarTipus(tipus, numregistre) {
+        document.querySelector("#tipus").addEventListener("change", function () {
+          displayTipus(tipus, numregistre)
+        });
       }
     </script>
   </body>

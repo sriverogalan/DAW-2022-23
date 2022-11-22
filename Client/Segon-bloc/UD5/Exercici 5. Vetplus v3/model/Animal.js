@@ -1,10 +1,10 @@
 export class Animal{
-    constructor(id,name,age,gender,register,type) {
+    constructor(id,name,age,gender,numregistre,type) {
         this.id=id;
         this.name=name;
         this.age=age;
         this.gender=gender;
-        this.register=register;
+        this.numregistre=numregistre;
         this.type=type;
     }
 

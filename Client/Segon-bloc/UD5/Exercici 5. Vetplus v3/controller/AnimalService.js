@@ -52,4 +52,24 @@ export class AnimalService {
     const saved = await saveFetch.json();
     console.log(saved);
   }
+
+  async update(nom, sexe, numregistre, tipus) {
+    const updateFetch = await fetch(this._URL + "/vetplus/save", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        animal: { 
+          nom: nom,
+          sexe: sexe,
+          numregistre: numregistre,
+          tipus: tipus,
+        },
+      }),
+    });
+    const updated = await updateFetch.json();
+    console.log(updated);
+  }
+
 }
