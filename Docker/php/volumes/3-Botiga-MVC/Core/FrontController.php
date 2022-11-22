@@ -1,4 +1,5 @@
 <?php
+namespace Core;
 class FrontController
 {
     static function main()
@@ -21,12 +22,8 @@ class FrontController
         if (is_file($controllerPath)) require $controllerPath;
         else die('El controlador no existe - 404 not found');
 
-        if (!(is_callable(array($controllerName, $actionName)))) {
-            trigger_error($controllerName . '->' . $actionName . '` no existe', E_USER_NOTICE);
-            return false;
-        }
-
-        $controller = new $controllerName(); 
+        $class = "\\Controllers\\" . $controllerName;
+        $controller = new $class(); 
         if (isset($_GET['id'])) {
             $controller->$actionName($_GET['id']);
         } else {

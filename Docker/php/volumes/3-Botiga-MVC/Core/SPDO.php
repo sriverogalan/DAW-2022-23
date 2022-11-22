@@ -1,4 +1,6 @@
 <?php 
+namespace Core;
+use PDO;
 class SPDO extends PDO
 {
     private static $instance = null;

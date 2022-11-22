@@ -1,5 +1,7 @@
 <?php
-require 'const.php';
+namespace Index;
+use Core\Config as Config;
+require 'const.php' ;
 
 $config = Config::singleton();
  
