@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Animal {
+        constructor(name, tipus) {
+          this.name = name;
+          this.tipus = tipus;
+        }
+      }
+
+      (() => {
+        const llamp = new Animal("Llamp", "Ca");
+        const pablo = new Animal("Pablo", "Moix");
+        const goku = new Animal("Goku", "Moix");
+
+        const animals = [llamp, pablo, goku];
+
+        console.log("ANIMALS",animals);
+
+        canviarTipus(animals);
+
+        console.log("Copia",animals);
+      })();
+
+      function canviarTipus(arrayAnimals) {
+       // const copia = [...arrayAnimals];
+       //const copia = JSON.parse(JSON.stringify(arrayAnimals));
+       const copia = arrayAnimals.map(a=>{ return {...a} });
+        for (let animal of copia) {
+            animal.tipus = "Peix";
+        }
+        console.log("Copia",copia);
+      }
+    </script>
+  </body>
+</html>

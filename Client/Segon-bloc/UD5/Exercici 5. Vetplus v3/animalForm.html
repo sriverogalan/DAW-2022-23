@@ -41,27 +41,30 @@
           const animal = await animalService.getAnimal(id);
           console.log(animal);
           pintarAnimal(animal);
-        } else {
-          save();
+          modificar(id)
+        } else { 
+          const value = document.querySelector("#tipus").value; 
+          comprobarTipus(value);
+          save(); 
         }
       })();
 
 
-      async function modificar(){
+      async function modificar(id){
         document.querySelector("#desar").addEventListener("click", async () => {
           const nom = document.querySelector("#nom").value;
           const sexe = document.querySelector('input[name="sexe"]:checked').value;
           const tipus = document.querySelector("#tipus").value;
           const numregistre = document.querySelector("#numregistre").value;
           const animal = {
+            id : id,
             name: nom,
             sexe: sexe,
             tipus: tipus,
             numregistre: numregistre,
           };
           const animalService = AnimalService.getInstance();
-          await animalService.update();
-          open("animalList.html", "_self");
+          await animalService.update(animal); 
         });
       }
 
@@ -102,6 +105,10 @@
 
       function displayTipus(tipus, numregistre) {
         const value = document.querySelector("#tipus").value; 
+        if(numregistre === undefined || numregistre === null){
+          numregistre = "";
+        }
+
         if (value === "ca") {
           document.querySelector("#numregistreForm").innerHTML = `
             <label for="numregistre">Número de registre</label>
@@ -126,7 +133,7 @@
         document.querySelector("#tipus").addEventListener("change", function () {
           displayTipus(tipus, numregistre)
         });
-      }
+      } 
     </script>
   </body>
 </html>
