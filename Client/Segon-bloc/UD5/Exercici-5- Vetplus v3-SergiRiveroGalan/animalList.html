@@ -14,15 +14,15 @@
       (async function () {
         const animalService = AnimalService.getInstance();
         const animals = await animalService.getAnimals(); 
-        const sorted = animals.sort((a, b) => a.name.localeCompare(b.name));
+        const sorted = animals.sort((a, b) => a.nom.localeCompare(b.nom));
         pintar(sorted);
 
         document.querySelector("#search").addEventListener("input", () => {
           const value = document.querySelector("#search").value;
-          const animalFilter = animals.filter((a) => a.name.toLowerCase().includes(value.toLowerCase()));
+          const animalFilter = animals.filter((a) => a.nom.toLowerCase().includes(value.toLowerCase()));
           
           const array = ["<", ">","-",  "'", "/", "(", ")"]
-          const animalFilter2 = animalFilter.filter((x) => !array.includes(x.name));
+          const animalFilter2 = animalFilter.filter((x) => !array.includes(x.nom));
           pintar(animalFilter2 );
         });
 
@@ -37,25 +37,25 @@
                           <tr>
                             <th>Nom</th>
                             <th>Accions</th>
-                          </tr> 
+                          </tr>
+                          </table>
             `;
 
         document.querySelector("#taulaAnimals").innerHTML = taula;
 
-        const taulaAnimals = document.querySelector("#taulaAnimals table");
+        const taulaAnimals = document.querySelector("#taulaAnimals");
 
         for (let animal of animals) {
           const tr = document.createElement("tr");
           const tdNom = document.createElement("td");
-          tdNom.innerHTML = animal.name;
+          tdNom.innerHTML = animal.nom;
           const tdAccions = document.createElement("td");
-          tdAccions.innerHTML = `<a href="animalForm.html?id=${animal.id}">Editar</a>`;
+          tdAccions.innerHTML = `<a href="animalForm.html?id=${animal.idanimal}">Editar</a>`;
 
           tr.appendChild(tdNom);
           tr.appendChild(tdAccions); 
           taulaAnimals.appendChild(tr);
         }
-        taulaAnimals.innerHTML += `</table>`;
       }
     </script>
   </body>

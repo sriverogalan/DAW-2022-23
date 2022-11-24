@@ -1,18 +1,16 @@
 export class Animal{
-    constructor(idanimal,name,age,gender,numregistre,type) {
+    constructor(idanimal,nom,sexe,numregistre,tipus) {
         this.idanimal=idanimal;
-        this.name=name;
-        this.age=age;
-        this.gender=gender;
+        this.nom=nom;
+        this.sexe=sexe;
         this.numregistre=numregistre;
-        this.type=type;
+        this.tipus=tipus;
     }
 
     static fromJSON(json){
         return new Animal(
             json.idanimal,
             json.nom,
-            null,
             json.sexe,
             json.numregistre,
             json.tipus

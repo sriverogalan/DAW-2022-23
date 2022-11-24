@@ -29,50 +29,29 @@
 
     <script type="module">
       import { AnimalService } from "./controller/AnimalService.js";
+      import { Animal } from "./model/Animal.js";
 
-      ( 
-      async () => {
+      (async () => {
         const variablesUrl = window.location.search;
         const urlParams = new URLSearchParams(variablesUrl);
-
         const id = urlParams.get("id");
+
         if (id) {
           const animalService = AnimalService.getInstance();
           const animal = await animalService.getAnimal(id);
           console.log(animal);
           pintarAnimal(animal);
-          modificar(id)
-        } else { 
-          const value = document.querySelector("#tipus").value; 
+          save(animal.idanimal);
+        } else {
+          const value = document.querySelector("#tipus").value;
           comprobarTipus(value);
-          save(); 
+          save(null);
         }
       })();
-
-
-      async function modificar(id){
-        document.querySelector("#desar").addEventListener("click", async () => {
-          const nom = document.querySelector("#nom").value;
-          const sexe = document.querySelector('input[name="sexe"]:checked').value;
-          const tipus = document.querySelector("#tipus").value;
-          const numregistre = document.querySelector("#numregistre").value;
-          const animal = {
-            idanimal : id,
-            name: nom,
-            sexe: sexe,
-            tipus: tipus,
-            numregistre: numregistre,
-          };
-          const animalService = AnimalService.getInstance();
-          await animalService.update(animal); 
-        });
-      }
-
-      async function save() {
+      async function save(idanimal) {
         document
           .querySelector("#desar")
           .addEventListener("click", async function () {
-            //Recuperem les dades
             const nom = document.querySelector("#nom").value;
             const sexe = document.querySelector(
               'input[name="sexe"]:checked'
@@ -81,59 +60,55 @@
             const tipus = document.querySelector("#tipus").value;
 
             const animalService = AnimalService.getInstance();
-            const animalSaved = await animalService.save(
-              nom,
-              sexe,
-              numregistre,
-              tipus
-            );
+            const animalSaved = await animalService.save( 
+              new Animal(
+                idanimal,
+                nom,
+                sexe,
+                numregistre,
+                tipus
+              )
+            );  
           });
       }
-
       function pintarAnimal(animal) {
-        const nom = animal.name;
-        const sexe = animal.gender;
+        const nom = animal.nom;
+        const sexe = animal.sexe;
         const numregistre = animal.numregistre;
-        const tipus = animal.type;
+        const tipus = animal.tipus;
 
         document.querySelector("#nom").value = nom;
         document.querySelector(`#${sexe}`).checked = true;
-        document.querySelector(`#${tipus}`).selected = true;  
-        displayTipus(tipus, numregistre);
-
+        document.querySelector(`#${tipus}`).selected = true;
+        print(tipus, numregistre);
       }
-
-      function displayTipus(tipus, numregistre) {
-        const value = document.querySelector("#tipus").value; 
-        if(numregistre === undefined || numregistre === null){
-          numregistre = "";
-        }
+      function print(tipus, numregistre) {
+        const value = document.querySelector("#tipus").value;
+        if (numregistre === undefined || numregistre === null) numregistre = "";
 
         if (value === "ca") {
           document.querySelector("#numregistreForm").innerHTML = `
             <label for="numregistre">Número de registre</label>
-            <input type="text" id="numregistre" value="${numregistre}" />
-            `;
+            <input type="text" id="numregistre" value="${numregistre}" />`;
         } else if (value === "cavall") {
           document.querySelector("#numregistreForm").innerHTML = `
             <label for="numregistre">Número de federat</label>
-            <input type="text" id="numregistre" value="${numregistre}" />
-            `;
+            <input type="text" id="numregistre" value="${numregistre}" />`;
         } else if (value === "moix") {
           document.querySelector("#numregistreForm").innerHTML = ` 
-            <input type="text" id="numregistre" value="0" style="display:none"/>
-            `; 
+            <input type="text" id="numregistre" value="0" style="display:none"/>`;
         } else {
           document.querySelector("#numregistreForm").innerHTML = "";
         }
-        comprobarTipus(tipus, numregistre)
+        comprobarTipus(tipus, numregistre);
       }
-
       function comprobarTipus(tipus, numregistre) {
-        document.querySelector("#tipus").addEventListener("change", function () {
-          displayTipus(tipus, numregistre)
-        });
-      } 
+        document
+          .querySelector("#tipus")
+          .addEventListener("change", function () {
+            print(tipus, numregistre);
+          });
+      }
     </script>
   </body>
-</html> 
+</html>
