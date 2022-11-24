@@ -37,13 +37,12 @@
                           <tr>
                             <th>Nom</th>
                             <th>Accions</th>
-                          </tr>
-                          </table>
+                          </tr> 
             `;
 
         document.querySelector("#taulaAnimals").innerHTML = taula;
 
-        const taulaAnimals = document.querySelector("#taulaAnimals");
+        const taulaAnimals = document.querySelector("#taulaAnimals table");
 
         for (let animal of animals) {
           const tr = document.createElement("tr");
@@ -56,6 +55,7 @@
           tr.appendChild(tdAccions); 
           taulaAnimals.appendChild(tr);
         }
+        taulaAnimals.innerHTML += `</table>`;
       }
     </script>
   </body>

@@ -1,22 +1,25 @@
 package com.demospring.demospring.Entities;
 
-import lombok.*;
+import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity @Data
-@NoArgsConstructor
+@Entity
+@Table(name = "productesJAVA")
+@Data
 public class Producte {
-    @Id private int id;
-    private String nom;
-    private String descripcio;
-    private double preu;
 
-    public Producte(String nom, double preu, String descripcio) {
-        this.nom = nom;
-        this.preu = preu;
-        this.descripcio = descripcio;
-    }
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "nom")
+    private String nom;
+
+    @Column(name = "descripcio")
+    private String descripcio;
+
+    @Column(name = "preu")
+    private double preu;
 
 }
