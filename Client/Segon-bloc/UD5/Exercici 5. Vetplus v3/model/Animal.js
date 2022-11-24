@@ -1,6 +1,6 @@
 export class Animal{
-    constructor(id,name,age,gender,numregistre,type) {
-        this.id=id;
+    constructor(idanimal,name,age,gender,numregistre,type) {
+        this.idanimal=idanimal;
         this.name=name;
         this.age=age;
         this.gender=gender;

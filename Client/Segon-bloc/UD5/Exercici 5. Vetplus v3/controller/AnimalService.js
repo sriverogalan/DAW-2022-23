@@ -61,7 +61,7 @@ export class AnimalService {
       },
       body: JSON.stringify({
         animal: {  
-          id: animal.id,
+          idanimal: animal.idanimal,
           nom: animal.name,
           sexe: animal.sexe,
           numregistre: animal.numregistre,
