@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      (async () => {
+        const canalsFetch = await fetch(
+          "https://theteacher.codiblau.com/exercicis/programacio/info"
+        );
+        const programacioFetch = await fetch(
+          "https://theteacher.codiblau.com/exercicis/programacio/tv?can=2&hour=1",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            }  
+          }
+        );
+        const canals = await canalsFetch.json(); 
+        const programacio = await programacioFetch.json(); 
+        
+        console.log(canals);
+        console.log(programacio); 
+
+      })();
+    </script>
+  </body>
+</html>
