@@ -1,5 +1,4 @@
-import { Programa } from "../Model/Programa";
-import { Canal } from "../Model/Canal";
+import { Canal } from '../Model/Canal.js';
 
 export class CanalService {
   _URL = "https://theteacher.codiblau.com";
@@ -15,8 +14,14 @@ export class CanalService {
   }
 
   async getCanals() {
-    const aeroportFetch = await fetch(this._URL + "/exercicis/programacio/info");
-    const aerports = await aeroportFetch.json(); 
-    return aerports.map((a) => Canal.fromJSON(a));
+    const canalsFetch = await fetch(this._URL + "/exercicis/programacio/info"  );
+    const canals = await canalsFetch.json();  
+    const clau = Object.keys(canals);
+    const valor = Object.values(canals);
+    const canalsArray = [];
+    for (let i = 0; i < clau.length; i++) {
+      canalsArray.push(new Canal(clau[i], valor[i]));
+    } 
+    return canalsArray;
   }
 }

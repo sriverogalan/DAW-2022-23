@@ -1,9 +1,7 @@
-package com.daw.facturacio.controllers;
+package com.example.productes.controllers;
 
-import com.daw.facturacio.domini.Factura;
-import lombok.Data;
+import com.example.productes.domini.Factura;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

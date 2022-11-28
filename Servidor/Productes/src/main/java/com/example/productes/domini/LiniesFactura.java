@@ -1,4 +1,4 @@
-package com.daw.facturacio.domini;
+package com.example.productes.domini;
 
 import lombok.*;
 

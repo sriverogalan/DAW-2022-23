@@ -1,13 +1,10 @@
-package com.daw.facturacio.configuration;
+package com.example.productes.configuration;
 
-import com.daw.facturacio.domini.Factura;
-import com.daw.facturacio.domini.LiniesFactura;
-import com.daw.facturacio.domini.Producte;
+import com.example.productes.domini.LiniesFactura;
+import com.example.productes.domini.Producte;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.sound.sampled.Line;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

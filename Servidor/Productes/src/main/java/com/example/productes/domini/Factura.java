@@ -1,14 +1,15 @@
-package com.daw.facturacio.domini;
+package com.example.productes.domini;
 
 import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Data @NoArgsConstructor @AllArgsConstructor @Component
 public class Factura {
+    @Autowired
     Client client;
-    List<LiniesFactura> items; 
+    @Autowired
+    List<LiniesFactura> items;
 }

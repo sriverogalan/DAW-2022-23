@@ -7,27 +7,47 @@
     <title>Document</title>
   </head>
   <body>
-    <script>
+    <div id="canals"></div>
+    <script type="module">
+      import { CanalService } from "./Controller/CanalService.js";
       (async () => {
-        const canalsFetch = await fetch(
-          "https://theteacher.codiblau.com/exercicis/programacio/info"
-        );
-        const programacioFetch = await fetch(
-          "https://theteacher.codiblau.com/exercicis/programacio/tv?can=2&hour=1",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            }  
-          }
-        );
-        const canals = await canalsFetch.json(); 
-        const programacio = await programacioFetch.json(); 
-        
-        console.log(canals);
-        console.log(programacio); 
-
+        const canalService = new CanalService();
+        const canals = await canalService.getCanals();
+        printTable(canals);
       })();
+
+      const printTable = (canals) => {
+        const taula = ` <table id="taulaCanals">
+                            <tr>
+                                <th>Nom</th>
+                                <th>Descripcio</th>
+                                <th>Programació completa</th>
+                            </tr>
+                        </table>
+        `;
+        document.querySelector("#canals").innerHTML = taula;
+        const taulaCanals = document.querySelector("#taulaCanals");
+
+        canals.forEach((canal) => {
+          const fila = document.createElement("tr");
+          fila.innerHTML = `<td>${canal.nom}</td>
+                            <td>${canal.descripcio}</td> 
+                            <td>
+                              <table id="taula${canal.nom}">
+                                <tr>
+                                    <th>Nom del programa</th>
+                                    <th>Hora d'inici</th>
+                                    <th>Restricció d'edat. En cas que no n'hi hagi posar "S/C"</th>
+                                </tr>
+                              </table>
+                            `;
+          
+
+          taulaCanals.appendChild(fila);
+        });
+
+        taulaCanals.innerHTML += `</table>`;
+      };
     </script>
   </body>
 </html>

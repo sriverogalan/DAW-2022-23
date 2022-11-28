@@ -1,9 +1,9 @@
 export class Canal {
-  constructor(nom) {
+  constructor(nom, descripcio) {
     this.nom = nom;
-    this.programacio = [];
+    this.descripcio = descripcio;
   }
   static fromJSON(json) {
-    return new Canal(json.nom);
+    return new Canal(json.nom, json.descripcio);
   }
 }
