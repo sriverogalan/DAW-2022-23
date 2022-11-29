@@ -1,14 +1,17 @@
 {
-  "name": "bootstrap-parcel",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "my-project",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
+    "start": "parcel serve src/index.html --public-url / --dist-dir dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.8.0"
+    "@parcel/transformer-sass": "^2.8.0",
+    "parcel": "latest" 
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.3"
   }
 }

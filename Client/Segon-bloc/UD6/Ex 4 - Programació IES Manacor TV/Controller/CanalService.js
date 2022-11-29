@@ -1,4 +1,5 @@
 import { Canal } from "../Model/Canal.js";
+import { Programa } from "../Model/Programa.js";
 
 export class CanalService {
   _URL = "https://theteacher.codiblau.com";

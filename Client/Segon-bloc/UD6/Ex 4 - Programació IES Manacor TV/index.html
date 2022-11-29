@@ -12,13 +12,12 @@
       import { CanalService } from "./Controller/CanalService.js";
 
       (async () => {
-        printTable(canalService); 
+        const canalService = new CanalService();
+        const canals = await canalService.getCanals();
+        printTable(canals, canalService);
       })();
 
-      const printTable = ( canalService ) => {   
-        const canalService = new CanalService(); 
-        const canals = canalService.getCanals();
-
+      const printTable = async (canals, canalService) => {
         const taula = ` <table id="taulaCanals">
                             <tr>
                                 <th>Nom</th>
@@ -29,11 +28,6 @@
         `;
         document.querySelector("#canals").innerHTML = taula;
         const taulaCanals = document.querySelector("#taulaCanals");
-        printInfo(canals);
-        taulaCanals.innerHTML += `</table>`;
-      };
-
-      const printInfo = (canals) => {
         canals.forEach((canal) => {
           const fila = document.createElement("tr");
           fila.innerHTML = `<td>${canal.nom}</td>
@@ -46,13 +40,11 @@
                                     <th>Restricció d'edat. En cas que no n'hi hagi posar "S/C"</th>
                                 </tr>
                               </table>
-                            </td>
+                            </td> 
                             `;
-          const table = document.querySelector("table[name='${canal.nom}']");
-           
-
           taulaCanals.appendChild(fila);
         });
+        taulaCanals.innerHTML += `</table>`;
       };
     </script>
   </body>
