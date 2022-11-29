@@ -14,10 +14,18 @@
       (async () => {
         const canalService = new CanalService();
         const canals = await canalService.getCanals();
-        printTable(canals, canalService);
+        canalService.getCanals().then((canals) => {
+          printTableCanals(canals);
+        });
+        for (let i = 1; i < canals.length+1; i++) {
+          canalService.getProgramacions(i).then((programacions) => {
+            console.log(programacions);
+            printTableProgramacions(programacions);
+          });
+        }
       })();
 
-      const printTable = async (canals, canalService) => {
+      const printTableCanals = async (canals) => {
         const taula = ` <table id="taulaCanals">
                             <tr>
                                 <th>Nom</th>
@@ -38,13 +46,30 @@
                                     <th>Nom del programa</th>
                                     <th>Hora d'inici</th>
                                     <th>Restricció d'edat. En cas que no n'hi hagi posar "S/C"</th>
-                                </tr>
+                                </tr> 
                               </table>
-                            </td> 
-                            `;
+                            </td>`;
           taulaCanals.appendChild(fila);
         });
         taulaCanals.innerHTML += `</table>`;
+      };
+
+      const printTableProgramacions = async (programacions) => {
+        programacions.forEach((programacio) => {
+          const taula = document.querySelector(
+            `table[name="${programacio.name}"]`
+          );
+          const fila = document.createElement("tr");
+          fila.innerHTML = `<td>${programacio.program}</td>
+                            <td>${programacio.hour}</td>
+                            `;
+          if (!programacio.hasOwnProperty("age")) {
+            fila.innerHTML += `<td>S/C</td>`;
+          } else {
+            fila.innerHTML += `<td>${programacio.age}</td>`;
+          }
+          taula.appendChild(fila);
+        }); 
       };
     </script>
   </body>

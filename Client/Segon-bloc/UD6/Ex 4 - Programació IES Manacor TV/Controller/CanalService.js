@@ -38,7 +38,16 @@ export class CanalService {
         body: `can=${canal}&hour=${hour}`,
       }
     );
-    const programacio = await programacioFetch.json();
+    const programacio = await programacioFetch.json();  
     return programacio;
   }
+
+  async getProgramacions(numCanal) { 
+    const promises = [];
+    for (let i = 0; i < 24; i++) {
+      promises.push(this.getProgramacio(numCanal, i));
+    } 
+    const programacions = await Promise.all(promises);   
+    return programacions;
+  } 
 }
