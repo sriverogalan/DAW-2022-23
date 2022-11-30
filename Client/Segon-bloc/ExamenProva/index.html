@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Asteroid Project</title>
+
+    <link rel="stylesheet" href="assets/css/nasa.css" />
+  </head>
+
+  <body>
+    <header>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/1200px-NASA_logo.svg.png"
+        alt="logo nasa"
+        width="1200"
+        height="993"
+      />
+    </header>
+    <main>
+      <aside>
+        <select id="dates" multiple></select>
+        <button id="cerca">Cerca asteroides</button>
+        <p>Prem Ctrl o Cmd per seleccionar vàries dates a la vegada</p>
+      </aside>
+      <section>
+        <div>
+          <h2>Resultat</h2>
+        </div>
+        <div id="taula">Sense Resultats</div>
+        <div id="paginacio">
+          <button id="anterior">Anterior</button>
+          <button id="seguent">Següent</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <script type="module">
+      import { Dates } from "./assets/js/dates.js";
+
+      (() => {
+        const dates = new Dates();
+        const datesArray = dates.getDates();
+
+        const select = document.querySelector("#dates");
+        const cerca = document.querySelector("#cerca");
+
+        for (const date of datesArray) {
+          const option = document.createElement("option");
+          option.innerHTML = `<option value="${date.value}">${date.label}</option>`;
+          select.appendChild(option);
+        }
+
+        cerca.addEventListener("click", () => {
+          const datesSelected = select.selectedOptions;
+          const datesSelectedArray = [];
+          for (const date of datesSelected) {
+            datesSelectedArray.push({ value: date.value, label: date.label, options: ""});
+          }
+           const a =  dates.getSelectValues( datesSelectedArray ); 
+        });
+
+
+      })();
+    </script>
+  </body>
+</html>

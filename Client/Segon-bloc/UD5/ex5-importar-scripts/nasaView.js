@@ -17,5 +17,5 @@ export function pintarMeteorits(meteorits) {
       "</td>";
   }
   table += "</table>";
-  document.querySelector("#app").innerHTML += table;
+  document.querySelector("#app").innerHTML = table;
 }
