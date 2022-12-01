@@ -28,9 +28,10 @@ export class Dates {
   };
 
   getSelectValues = (select) => {
-    const options = select && select.options; // select.options is a collection of <option> elements
+    const options = select && select.options;
     return Array.from(options)
       .filter((opt) => opt.selected)
       .map((opt) => opt.value || opt.text);
   };
+
 }
