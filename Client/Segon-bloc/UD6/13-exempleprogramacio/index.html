@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script type="module">
+    import {CanalService} from "./service/CanalService.js";
+    import {ProgramaService} from "./service/ProgramaService.js";
+
+    (async ()=>{
+        const canals = await CanalService.loadCanals();
+        pintar(canals,null);
+        const programacions = await ProgramaService.loadProgrames(canals);
+        pintar(canals,programacions);
+    })()
+
+    function pintar(canals,programacions){
+        let llista = '';
+        for(let canal of canals){
+             llista += `<ul>
+                <li>${canal.nom}</li>
+                <li>${canal.descripcio}</li>`;
+            if(programacions) {
+                const programacionsCanal = programacions.filter(programa=>programa.canal===canal);
+                for (let programacio of programacionsCanal) {
+                    llista += `<li>${programacio.horari}:00 - ${programacio.nom} - ${programacio.edat}</li>`;
+                }
+            } else {
+                llista += `<li>Carregant programació...</li>`;
+            }
+            llista += `</ul>`;
+        }
+        document.querySelector("#app").innerHTML = llista;
+    }
+</script>
+</body>
+</html>

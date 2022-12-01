@@ -23,8 +23,7 @@
           printTableCanals(canals);
         });
         for (let i = 1; i < canals.length+1; i++) {
-          canalService.getProgramacions(i).then((programacions) => {
-            console.log(programacions);
+          canalService.getProgramacions(i).then((programacions) => { 
             printTableProgramacions(programacions);
           });
         }

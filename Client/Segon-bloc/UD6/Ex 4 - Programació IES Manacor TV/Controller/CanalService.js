@@ -24,28 +24,24 @@ export class CanalService {
     return canalsArray;
   }
 
-  async getProgramacio(canal, hour) {
-    const programacioFetch = await fetch(
-      this._URL + "/exercicis/programacio/tv",
-      {
-        method: "POST",
-        headers: {
-          "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-        },
-        credentials: "include",
-        body: `can=${canal}&hour=${hour}`,
-      }
-    );
-    const programacio = await programacioFetch.json();  
-    return programacio;
+  getProgramacio(canal, hour) {
+    const promises = fetch(this._URL + "/exercicis/programacio/tv", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+      },
+      credentials: "include",
+      body: `can=${canal}&hour=${hour}`,
+    }).then((response) => response.json());
+    return promises;
   }
 
-  async getProgramacions(numCanal) { 
+  getProgramacions(numCanal) {
     const promises = [];
     for (let i = 0; i < 24; i++) {
       promises.push(this.getProgramacio(numCanal, i));
-    } 
-    const programacions = await Promise.all(promises);   
+    }
+    const programacions = Promise.all(promises);
     return programacions;
-  } 
+  }
 }
