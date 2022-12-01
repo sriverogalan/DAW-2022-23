@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <h1>Puzzle Drag and drop</h1>
+    <img id="img1" src="./img/p1.jpg" draggable="true" ondragstart="drag(event)" />
+    <img id="img2" src="./img/p2.jpg" draggable="true" ondragstart="drag(event)" />
+    <img id="img3" src="./img/p3.jpg" draggable="true" ondragstart="drag(event)" />
+    <img id="img4" src="./img/p4.jpg" draggable="true" ondragstart="drag(event)" />
+    <div id="puzzle">
+      <div id="p1" ondrop="drop(event, 'img1')" ondragover="allowDrop(event)"></div>
+      <div id="p2" ondrop="drop(event, 'img2')" ondragover="allowDrop(event)"></div>
+      <div id="p3" ondrop="drop(event, 'img3')" ondragover="allowDrop(event)"></div>
+      <div id="p4" ondrop="drop(event, 'img4')" ondragover="allowDrop(event)"></div>
+    </div>
+    <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("posicio", ev.target.id);
+      }
+
+      function drop(ev, sol) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("posicio");
+
+        if (data == sol) {
+          ev.target.appendChild(document.getElementById(data));
+        } 
+      }
+    </script>
+  </body>
+</html>

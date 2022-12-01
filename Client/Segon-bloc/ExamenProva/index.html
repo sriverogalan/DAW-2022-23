@@ -37,8 +37,9 @@
     <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
     <script type="module">
       import { Dates } from "./assets/js/dates.js";
+      
 
-      const init = () => { 
+      (() => {
         const dates = new Dates();
         const datesArray = dates.getDates();
 
@@ -52,16 +53,11 @@
           option.text = date.label;
           datesSelect.appendChild(option);
         });
-
+ 
         cerca.addEventListener("click", () => {
-          const a = dates.getSelectValues(select);
+          const a = dates.getSelectValues(select); 
         });
-      };
-      
-      (() => {
-        init();
       })();
-
     </script>
   </body>
 </html>
