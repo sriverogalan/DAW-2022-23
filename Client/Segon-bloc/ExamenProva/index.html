@@ -43,7 +43,7 @@
         const nasaController = new AsteroidService();
         const dates = new Dates();
         const datesArray = dates.getDates();
-        pinta(datesArray);
+        pintaDates(datesArray);
 
         document.querySelector("#cerca").addEventListener("click", () => {
           const selectedDates =
@@ -53,6 +53,7 @@
           for (let i = 0; i < selectedDates.length; i++) {
             dates.push(selectedDates[i].value);
           }
+
           const arrayMeteorits = nasaController
             .getAllMeteorits(dates)
             .then((arrayDates) => {
@@ -61,14 +62,13 @@
                   allMeteorits.push(meteorit);
                 });
               });
-            })
-            .then(() => {
+            }).then(() => {
               pintaMeteorits(allMeteorits);
             });
         });
       })();
 
-      function pinta(datesArray) {
+      function pintaDates(datesArray) {
         const datesSelect = document.querySelector("#dates");
         datesArray.forEach((date) => {
           const option = document.createElement("option");
@@ -97,7 +97,7 @@
           } else {
             info.isPerillos = "No";
           }
-          tr.innerHTML = `<td>${info.nom}</td>
+          tr.innerHTML = `    <td>${info.nom}</td>
                               <td>${info.isPerillos}</td>
                               <td>${info.diametreMin}</td>
                               <td>${info.diametreMax}</td>
@@ -111,7 +111,7 @@
         const seguent = document.querySelector("#seguent");
         const anterior = document.querySelector("#anterior");
         let pagina = 0;
-        const meteoritsPagina = 5;
+        const meteoritsPagina = 5; 
 
         pintaTaula(allMeteorits.slice(pagina, meteoritsPagina));
         anterior.disabled = true;
@@ -130,6 +130,7 @@
             anterior.disabled = false;
           }
         });
+
         anterior.addEventListener("click", () => {
           pagina -= meteoritsPagina;
           pintaTaula(allMeteorits.slice(pagina, pagina + meteoritsPagina));
@@ -140,7 +141,6 @@
             seguent.disabled = false;
           }
         });
-
       }
     </script>
   </body>
