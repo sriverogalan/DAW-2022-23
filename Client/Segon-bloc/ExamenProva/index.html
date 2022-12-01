@@ -38,30 +38,30 @@
     <script type="module">
       import { Dates } from "./assets/js/dates.js";
 
-      (() => {
+      const init = () => { 
         const dates = new Dates();
         const datesArray = dates.getDates();
 
-        const select = document.querySelector("#dates");
+        const datesSelect = document.querySelector("#dates");
+        const select = document.querySelector("select");
         const cerca = document.querySelector("#cerca");
 
-        for (const date of datesArray) {
+        datesArray.forEach((date) => {
           const option = document.createElement("option");
-          option.innerHTML = `<option value="${date.value}">${date.label}</option>`;
-          select.appendChild(option);
-        }
-
-        cerca.addEventListener("click", () => {
-          const datesSelected = select.selectedOptions;
-          const datesSelectedArray = [];
-          for (const date of datesSelected) {
-            datesSelectedArray.push({ value: date.value, label: date.label, options: ""});
-          }
-           const a =  dates.getSelectValues( datesSelectedArray ); 
+          option.value = date.value;
+          option.text = date.label;
+          datesSelect.appendChild(option);
         });
 
-
+        cerca.addEventListener("click", () => {
+          const a = dates.getSelectValues(select);
+        });
+      };
+      
+      (() => {
+        init();
       })();
+
     </script>
   </body>
 </html>
