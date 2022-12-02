@@ -59,8 +59,9 @@
       </div>
     </main>
     <script src="clock.js"></script>
-    <script>
-      (() => {
+    <script type="module">
+      import { HoresMonService } from "./js/controller/HoresMonService.js";
+      (async () => {
         // Ex1
         limitarRellotge();
 
@@ -418,8 +419,14 @@
         zonesMon(timeZones);
 
         // Ex3
+        document.querySelector("#stop").disabled = true;
         play();
         stop();
+
+        // Ex4
+
+        const horesMonService = new HoresMonService();
+        const getPaisos = await horesMonService.getPais();
       })();
       // Ex1
       function limitarRellotge() {
@@ -508,44 +515,39 @@
         play.addEventListener("click", (e) => {
           play.disabled = true;
           stop.disabled = false;
-          this.stop( setInterval(() => {
-              // cambiar valores
-              const hours = document.querySelector("#hours");
-              const minutes = document.querySelector("#minutes");
-              const seconds = document.querySelector("#seconds");
+          const interval = setInterval(() => {
+            // cambiar valores
+            const hours = document.querySelector("#hours");
+            const minutes = document.querySelector("#minutes");
+            const seconds = document.querySelector("#seconds");
 
-              if (seconds.value == 59) {
-                seconds.value = 0;
-                minutes.value++;
-              } else {
-                seconds.value++;
-              }
-              if (minutes.value == 59) {
-                minutes.value = 0;
-                hours.value++;
-              }
-              if (hours.value == 12) {
-                hours.value = 0;
-              }
-              drawRange(hoursRange, hours);
-              drawRange(minutesRange, minutes);
-              drawRange(secondsRange, seconds);
+            if (seconds.value == 59) {
+              seconds.value = 0;
+              minutes.value++;
+            } else {
+              seconds.value++;
+            }
+            if (minutes.value == 59) {
+              minutes.value = 0;
+              hours.value++;
+            }
+            if (hours.value == 12) {
+              hours.value = 0;
+            }
+            drawRange(hoursRange, hours);
+            drawRange(minutesRange, minutes);
+            drawRange(secondsRange, seconds);
 
-              drawClock();
-            }, 1000)
-          );
+            drawClock();
+          }, 1000);
+          stop.addEventListener("click", (e) => {
+            play.disabled = false;
+            stop.disabled = true;
+            clearInterval(interval);
+          });
         });
       }
-      function stop(interval) {
-        const play = document.querySelector("#play");
-        const stop = document.querySelector("#stop");
-
-        stop.addEventListener("click", (e) => {
-          clearInterval(interval);
-          play.disabled = false;
-          stop.disabled = true;
-        });
-      }
+      // Ex4
     </script>
   </body>
 </html>
