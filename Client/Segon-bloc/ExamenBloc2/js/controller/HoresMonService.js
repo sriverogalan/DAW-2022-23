@@ -23,4 +23,25 @@ export class HoresMonService {
     }
     return paisosArray;
   }
+
+  getPartHora(codi, tipus) {
+    const horaFetch = fetch(this._URL + "/exercicis/data/worldtime", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+      },
+      credentials: "include",
+      body: `codi=${codi}&tipus=${tipus}`,
+    }).then((response) => response.json()); 
+    return horaFetch;
+  }
+
+  async getHora(codi) {
+    const promises = [];
+    promises.push(this.getPartHora(codi, "HOUR"));
+    promises.push(this.getPartHora(codi, "MINUTE"));
+    promises.push(this.getPartHora(codi, "SECOND"));
+    const hora = await Promise.all(promises);
+    return hora;
+  }
 }
