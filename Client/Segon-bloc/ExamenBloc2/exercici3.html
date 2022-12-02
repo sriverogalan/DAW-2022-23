@@ -58,7 +58,13 @@
         <button id="stop">Stop</button>
       </div>
     </main>
-    <script src="clock.js"></script>
+    <script src="./js/model/Clock.js">
+
+        (()=>{
+            const clock = new Clock();
+            clock.init();
+        })(); 
+    </script> 
     <script type="module">
       import { HoresMonService } from "./js/controller/HoresMonService.js";
       (async () => {
