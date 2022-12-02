@@ -416,6 +416,10 @@
           "Africa/Johannesburg",
         ];
         zonesMon(timeZones);
+
+        // Ex3
+        play();
+        stop();
       })();
       // Ex1
       function limitarRellotge() {
@@ -428,7 +432,7 @@
         const secondsRange = document.querySelector("#secondsRange");
 
         hoursRange.min = 0;
-        hoursRange.max = 12;
+        hoursRange.max = 11;
         minutesRange.min = 0;
         minutesRange.max = 59;
         secondsRange.min = 0;
@@ -456,7 +460,6 @@
         const asia = document.querySelector("#asia");
         const america = document.querySelector("#america");
         const altres = document.querySelector("#altres");
-  
 
         totes.addEventListener("click", (e) => {
           printZones(timesZones);
@@ -478,12 +481,18 @@
           printZones(zones);
         });
         altres.addEventListener("click", (e) => {
-          const zones = timesZones.filter((zone) => !zone.includes("America") && !zone.includes("Asia") && !zone.includes("Pacific") && !zone.includes("Europe"));
+          const zones = timesZones.filter(
+            (zone) =>
+              !zone.includes("America") &&
+              !zone.includes("Asia") &&
+              !zone.includes("Pacific") &&
+              !zone.includes("Europe")
+          );
           printZones(zones);
-        }); 
+        });
       }
-      function printZones(zones) { 
-        const printZones = document.querySelector("#printZones"); 
+      function printZones(zones) {
+        const printZones = document.querySelector("#printZones");
         printZones.innerHTML = "";
         zones.forEach((zone) => {
           const option = document.createElement("li");
@@ -491,6 +500,51 @@
           option.innerHTML = zone;
           printZones.appendChild(option);
         });
+      }
+      //Ex3
+      function play() {
+        const play = document.querySelector("#play");
+        play.addEventListener("click", (e) => {
+          const interval = setInterval(() => {
+            // cambiar valores
+            const hours = document.querySelector("#hours");
+            const minutes = document.querySelector("#minutes");
+            const seconds = document.querySelector("#seconds");
+
+            if (seconds.value == 59) {
+              seconds.value = 0;
+              minutes.value++;
+            } else {
+              seconds.value++;
+            }
+            if (minutes.value == 59) {
+              minutes.value = 0;
+              hours.value++;
+            }
+            if (hours.value == 12) {
+              hours.value = 0;
+            }
+            drawRange(hoursRange, hours);
+            drawRange(minutesRange, minutes);
+            drawRange(secondsRange, seconds);
+
+            drawClock();
+          }, 1000);
+          play.disabled = true; 
+          stop(interval);
+        });
+      }
+      function stop(interval) {
+        const stop = document.querySelector("#stop"); 
+        const play = document.querySelector("#play");
+
+        stop.addEventListener("click", (e) => {
+          clearInterval(interval); 
+            play.disabled = false;
+            stop.disabled = true;
+        });
+
+
       }
     </script>
   </body>

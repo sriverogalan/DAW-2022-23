@@ -10,9 +10,7 @@ function drawClock() {
     drawFace(ctx, radius);
     drawNumbers(ctx, radius);
     drawTime(ctx, radius);
-}
-
-
+} 
 function drawFace(ctx, radius) {
     var grad;
     ctx.beginPath();
@@ -76,4 +74,4 @@ function drawHand(ctx, pos, length, width) {
     ctx.lineTo(0, -length);
     ctx.stroke();
     ctx.rotate(-pos);
-}
+} 
