@@ -1,3 +1,0 @@
-hola soy un fichero
-soy la segunda linea
-soy la tercera linea
