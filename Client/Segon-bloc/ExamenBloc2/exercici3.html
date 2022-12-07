@@ -455,7 +455,7 @@
         drawRange(secondsRange, seconds);
       }
       function drawRange(hoursRangeDOM, timeDOM) {
-        hoursRangeDOM.addEventListener("change", (e) => {
+        hoursRangeDOM.addEventListener("input", (e) => {
           timeDOM.value = e.target.value;
           drawClock();
         });
@@ -522,17 +522,17 @@
             const minutes = document.querySelector("#minutes");
             const seconds = document.querySelector("#seconds");
 
-            if (seconds.value == 59) {
+            if (seconds.value === 59) {
               seconds.value = 0;
               minutes.value++;
             } else {
               seconds.value++;
             }
-            if (minutes.value == 59) {
+            if (minutes.value === 59) {
               minutes.value = 0;
               hours.value++;
             }
-            if (hours.value == 12) {
+            if (hours.value === 12) {
               hours.value = 0;
             }
             drawRange(hoursRange, hours);
@@ -574,9 +574,9 @@
         const minutes = document.querySelector("#minutes");
         const seconds = document.querySelector("#seconds");
 
-        hours.value = hores[0];
-        minutes.value = hores[1];
-        seconds.value = hores[2];
+        hours.value = parseInt(hores[0]); 
+        minutes.value = parseInt(hores[1]);
+        seconds.value = parseInt(hores[2]);
 
         drawRange(hoursRange, hours);
         drawRange(minutesRange, minutes);
