@@ -50,4 +50,17 @@ services:
     expose:
       - 5432
 
+  tomcat:
+    image: tomcat:9.0.70-jdk17-corretto 
+    volumes:
+      - ./volums/tomcat:/usr/local/tomcat/webapps
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+    environment:
+      - CATALINA_OPTS=-Xms512m -Xmx1024m -XX:MaxPermSize=256m
+
+
+
 
