@@ -6,7 +6,7 @@ require 'const.php' ;
 $config = Config::singleton();
  
 $config->set('controllersFolder', $controllers);
-$config->set('modelsFolder', $model);
+$config->set('modelsFolder', $models);
 $config->set('viewsFolder', $views);
  
 $config->set('dbhost', 'mysql');

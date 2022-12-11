@@ -10,9 +10,9 @@
             <?php
             while ($item = $listado->fetch()) { ?>
                 <div class="col-md-4">
-                    <a href="index.php?accion=obtenerProductoPorId&id=<?php echo $item['id'] ?>" class="text-decoration-none p-1 border">
+                    <a href="/product/<?php echo $item['id'] ?>" class="text-decoration-none p-1 border">
                         <div class="card mb-4 shadow-sm ">
-                            <img src="View/img/<?= $item['id']?>.jpg" class="align-self-center img-fluid">
+                            <img src="../view/img/<?= $item['id']?>.jpg" class="align-self-center img-fluid">
                             <div class="card-body">
                                 <h3 class="card-title"><?php echo $item['preu'] ?> €</h3>
                                 <h5 class="card-text"><?php echo $item['nom'] ?></h5>

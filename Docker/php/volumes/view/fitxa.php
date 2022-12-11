@@ -13,7 +13,7 @@
         <div class="container text-center mt-5">
             <div class="row col-12">
                 <div class="col-md-6 row">
-                    <img src="View/img/<?php echo $item['id'] ?>.jpg" class="card-img-top col-12">
+                    <img src="../view/img/<?php echo $item['id'] ?>.jpg" class="card-img-top col-12">
                 </div>
                 <div class='col-md-6 text-center align-self-center row'>
                     <h1 class="col-12"> <?php echo $item['nom'] ?> </h1>

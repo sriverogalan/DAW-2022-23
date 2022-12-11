@@ -1,4 +1,4 @@
-FROM php:7.4.30-apache-bullseye
+FROM php:8-apache-bullseye
 WORKDIR /var/www/html/ 
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql

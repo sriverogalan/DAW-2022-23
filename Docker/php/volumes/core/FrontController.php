@@ -4,14 +4,7 @@ class FrontController
 {
     static function main()
     { 
-        spl_autoload_register(function ($class) {
-            $classfile = str_replace('\\', '/', $class) . '.php';
-            if (FALSE === stream_resolve_include_path($classfile)) {
-                return;
-            }
-            include $classfile;
-        });
-
+        
         require 'config.php'; 
 
         if (isset($_GET['controlador'])) $controllerName = $_GET['controlador'] . 'Controller';

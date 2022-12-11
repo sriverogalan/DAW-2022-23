@@ -1,36 +1,107 @@
 <?
-
 namespace Core;
 
 class Router
 {
-  private $request;
-  public function __construct()
-  {
-    $this->request = $_SERVER['REQUEST_URI'];
-    switch ($this->request) {
-      case '/':
-        require __DIR__ . '/view/index.php';
-        break;
-      case '':
-        require __DIR__ . '/view/index.php';
-        break;
-      case '/index':
-        require __DIR__ . '/view/index.php';
-        break;
-      case 'afegir':
-        require __DIR__ . '/view/afegir.php';
-        break;
-      case 'afegir/':
-        require __DIR__ . '/view/afegir.php';
-        break;
-      case '/fitxa':
-        require __DIR__ . '/view/fitxa.php';
-        break;
-      default:
-        http_response_code(404);
-        require __DIR__ . '/views/404.php';
-        break;
+
+    private static $routes = array();
+    private static $pathNotFound = null;
+    private static $methodNotAllowed = null;
+
+    public static function add($expression, $function, $method = 'get')
+    {
+        array_push(self::$routes, array(
+            'expression' => $expression,
+            'function' => $function,
+            'method' => $method
+        ));
     }
-  }
+
+    public static function pathNotFound($function)
+    {
+        self::$pathNotFound = $function;
+    }
+
+    public static function methodNotAllowed($function)
+    {
+        self::$methodNotAllowed = $function;
+    }
+
+    public static function run($basepath = '/')
+    {
+
+        // Parse current url
+        $parsed_url = parse_url($_SERVER['REQUEST_URI']); //Parse Uri
+
+        if (isset($parsed_url['path'])) {
+            $path = $parsed_url['path'];
+        } else {
+            $path = '/';
+        }
+
+        // Get current request method
+        $method = $_SERVER['REQUEST_METHOD'];
+
+        $path_match_found = false;
+
+        $route_match_found = false;
+
+        foreach (self::$routes as $route) {
+
+            // If the method matches check the path
+
+            // Add basepath to matching string
+            if ($basepath != '' && $basepath != '/') {
+                $route['expression'] = '(' . $basepath . ')' . $route['expression'];
+            }
+
+            // Add 'find string start' automatically
+            $route['expression'] = '^' . $route['expression'];
+
+            // Add 'find string end' automatically
+            $route['expression'] = $route['expression'] . '$';
+
+            // echo $route['expression'].'<br/>';
+
+            // Check path match	
+            if (preg_match('#' . $route['expression'] . '#', $path, $matches)) {
+
+                $path_match_found = true;
+
+                // Check method match
+                if (strtolower($method) == strtolower($route['method'])) {
+
+                    array_shift($matches); // Always remove first element. This contains the whole string
+
+                    if ($basepath != '' && $basepath != '/') {
+                        array_shift($matches); // Remove basepath
+                    }
+
+                    call_user_func_array($route['function'], $matches);
+
+                    $route_match_found = true;
+
+                    // Do not check other routes
+                    break;
+                }
+            }
+        }
+
+        // No matching route was found
+        if (!$route_match_found) {
+
+            // But a matching path exists
+            if ($path_match_found) {
+                header("HTTP/1.0 405 Method Not Allowed");
+                if (self::$methodNotAllowed) {
+                    call_user_func_array(self::$methodNotAllowed, array($path, $method));
+                }
+            } else {
+                header("HTTP/1.0 404 Not Found");
+                if (self::$pathNotFound) {
+                    call_user_func_array(self::$pathNotFound, array($path));
+                }
+            }
+        }
+    }
 }

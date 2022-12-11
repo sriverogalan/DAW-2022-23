@@ -1,4 +1,5 @@
 <?  
-$controllers = 'Controllers/';
-$models = 'Model/';
-$views = 'View/'; 
+namespace Index;
+$controllers = './controllers/';
+$models = './model/';
+$views = './view/'; 
