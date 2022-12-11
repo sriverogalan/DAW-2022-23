@@ -36,6 +36,7 @@ class SessionController
                 "subtotal" => $subtotal
             );
         }
+        $_SESSION['productos'] = $this->totalProductos();
         $_SESSION['total'] = $this->totalCarrito();
     }
     public function eliminarProductoCarrito($id)
@@ -57,6 +58,7 @@ class SessionController
     {
         $_SESSION['carrito'] = array();
         $_SESSION['total'] = 0;
+        $_SESSION['productos'] = 0;
     }  
     public function cambiarCantidad($id, $cantidad)
     {
@@ -66,6 +68,17 @@ class SessionController
             $_SESSION['carrito'][$id]['quantitat'] = $cantidad;
             $_SESSION['carrito'][$id]['subtotal'] = $_SESSION['carrito'][$id]['preu'] * $_SESSION['carrito'][$id]['quantitat'];
         }
+        $_SESSION['productos'] = $this->totalProductos();
         $_SESSION['total'] = $this->totalCarrito();
+    } 
+    public function totalProductos()
+    {
+        $total = 0;
+        foreach ($_SESSION['carrito'] as $key => $value) {
+            if ($key != 'total') {
+                $total += $value['quantitat'];
+            }
+        }
+        return $total;
     }
 }

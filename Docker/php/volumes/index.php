@@ -45,10 +45,30 @@ Route::add('/carreto', function () {
     $controller = new ProductController;
     $controller->mostrarCarrito();
 });
+ 
+Route::add('/cambiarCantidad', function () {
+    $controller = new ProductController;
+    $controller->cambiarCantidad();
+}, 'post');
+
+Route::add('/vaciarCarrito', function () {
+    $controller = new ProductController;
+    $controller->vaciarCarrito();
+});
+
+Route::add('/realizarCompra', function () {
+    $controller = new ProductController;
+    $controller->realizarCompra();
+});
+
+Route::add('/eliminarProductoCarrito/(\d+)', function ($id) {
+    $controller = new ProductController;
+    $controller->eliminarProductoCarrito($id);
+});
 
 Route::add('/insert', function () {
     $controller = new ProductController;
-    $controller->insertarProducto();
+    $controller->afegirForm();
 }, 'post');
 
 Route::add('/api/products', function () {
@@ -57,15 +77,13 @@ Route::add('/api/products', function () {
     while ($row = $products->fetch(PDO::FETCH_ASSOC)) {
         $fetch[] = $row;
     }
-    echo json_encode($fetch);
+    echo json_encode($fetch, JSON_PRETTY_PRINT);
 });
 
 Route::add('/api/products/(\d+)', function ($id) {
     $model = new Product();
-    $product = $model->obtenerProductoPorId($id);
-    $data = $product->fetch(PDO::FETCH_ASSOC);
-
-    echo json_encode($data);
+    $product = $model->obtenerProductoPorId($id); 
+    echo json_encode($product);
 });
 
 Route::run('/');

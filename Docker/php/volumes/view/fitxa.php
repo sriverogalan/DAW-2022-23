@@ -20,10 +20,10 @@
                     <p class="col-12"> <?php echo $item['descripcio'] ?></p>
                     <h2 class="col-12"> <?php echo $item['preu'] ?> € </h2>
                     <div class="btn-group mt-5"> 
-                        <a href="index.php" class="btn btn-sm btn-outline-secondary">
+                        <a href="/" class="btn btn-sm btn-outline-secondary">
                             <h5>Seguir comprant</h5>
                         </a> 
-                        <form action="index.php?accion=afegirCarrito" method="POST">
+                        <form action="/product/add" method="POST">
                             <input type="hidden" name="id" value="<?php echo $item['id'] ?>"> 
                             <input type="hidden" name="quantitat" value="1">
                             <button type="submit" class="btn btn-sm btn-outline-success">

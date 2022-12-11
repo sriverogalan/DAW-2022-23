@@ -79,7 +79,7 @@ class ProductController
     public function realizarCompra()
     {
         $this->carrito->vaciarCarrito();
-        $this->mostrarCarrito();
+        $this->listar();
     }
     public function mostrarCarrito()
     {

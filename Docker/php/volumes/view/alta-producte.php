@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <a href="index.php">
+    <a href="/">
         <button>Tornar a la pagina principal</button>
     </a>
 </body>
