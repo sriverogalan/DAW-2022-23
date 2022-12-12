@@ -1,4 +1,4 @@
-package com.demospring.demospring.Entities;
+package com.demospring.demospring.entities;
 
 import lombok.Data;
 

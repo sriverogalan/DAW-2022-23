@@ -1,6 +1,6 @@
-package com.demospring.demospring.Repositories;
+package com.demospring.demospring.repositories;
 
-import com.demospring.demospring.Entities.Producte;
+import com.demospring.demospring.entities.Producte;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ProductRespository extends CrudRepository<Producte, Integer> {
