@@ -13,8 +13,8 @@ Aqui es poden veure tots els projectes programats amb Java, Servlets i amb Sprin
 https://github.com/sriverogalan/DAW-22-23/tree/main/Servidor 
 
 ## Ruta Diseny :
-Aqui podem veure tot el que he fet de disseny aquest any
-https://github.com/sriverogalan/DAW-22-23/tree/main/Disseny/Docker
+Aqui podem veure tot el que he fet de disseny aquest any 
+https://github.com/sriverogalan/DAW-22-23/tree/main/Disseny/Docker/volumes/app
 
 ## Ruta Desplegament :
 Aqui hi ha la ruta de Desplegament que com son mes configuracions son archius que els empleiaba per modificar coses
