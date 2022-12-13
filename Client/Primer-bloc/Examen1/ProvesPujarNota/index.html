@@ -44,52 +44,69 @@
           "videos/technologytoday.webm",
           "videos/xtremsports.webm",
         ];
-
-        this.canalAnterior = () => {
-          if (this.canal > 0) {
-            this.canal--;
-          } else {
+        this.counter = new Counter();
+        this.play = () => {
+          document.querySelector("#program").play();
+          this.counter.init();
+        };
+        this.stop = () => {
+          document.getElementById("program").pause();
+        };
+        this.anterior = () => {
+          this.canal = this.canal - 1;
+          if (this.canal < 0) {
             this.canal = videos.length - 1;
           }
           document.querySelector("#program-source").src = videos[this.canal];
+          document.querySelector("#program").load();
+          this.counter.init();
         };
-
-        this.canalSeguent = () => {
-          if (this.canal < videos.length - 1) {
-            this.canal++;
-          } else {
+        this.seguent = () => {
+          this.canal = this.canal + 1;
+          if (this.canal > videos.length - 1) {
             this.canal = 0;
           }
           document.querySelector("#program-source").src = videos[this.canal];
+          document.querySelector("#program").load();
+          this.counter.init();
         };
-
-        this.play = () => {
-          document.querySelector("#program").play();
-        };
-
-        this.stop = () => {
-          document.querySelector("#program").pause();
-        }; 
-
-        this.init = () => {
+        this.init = () => { 
+          this.play();
+          document.querySelector("#anterior").addEventListener("click", () => {
+            this.anterior();
+          });
           document.querySelector("#play").addEventListener("click", () => {
             this.play();
           });
-
           document.querySelector("#stop").addEventListener("click", () => {
             this.stop();
           });
-
-          document.querySelector("#anterior").addEventListener("click", () => {
-            this.canalAnterior();
-          });
-
           document.querySelector("#seguent").addEventListener("click", () => {
-            this.canalSeguent();
-          });
-
-        }; 
+            this.seguent();
+          }); 
+        };
       }
+
+      function Counter() {
+        this.time = 5;
+        this.interval;
+        this.init = () => { 
+          clearInterval(this.interval);
+          document.querySelector("#timer").innerHTML = this.time;
+          this.interval = setInterval(() => {
+            this.time = this.time - 1;
+            document.querySelector("#timer").innerHTML = this.time;
+            if (this.time === 0) {
+              clearInterval(this.interval);
+              document.getElementById("program").pause();
+              this.time = 5;
+            }
+          }, 1000);
+        };
+      }
+
+      const tele = new Tele(0);
+      tele.init();
 
 
       function payButton (){
