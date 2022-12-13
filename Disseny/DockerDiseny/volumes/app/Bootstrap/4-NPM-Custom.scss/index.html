@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/custom.css"> <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+</head>
+<body class="bg-black">
+    <button class="btn btn-primary">Color btn-primary</button>
+    <button class="btn btn-secondary">Color btn-secondary</button>
+    <button class="btn btn-ies-manacor">Color btn-ies-manacor</button>
+    <button class="btn btn-sergi">Color Sergi</button> 
+    <button class="btn btn-hola">btn-hola</button>
+</body>
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://assets-es.imgfoot.com/media/cache/642x382/cr7-mu-pl-img1.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.telam.com.ar/thumbs/bluesteel/advf/imagenes/2022/11/636e99be15add_1200.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://img.olympicchannel.com/images/image/private/t_social_share_thumb/f_auto/primary/wfrhxc0kh2vvq77sonki" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <div class="modal" tabindex="-1" id="myModal" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Cookies</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Closºe"></button>
+        </div>
+        <div class="modal-body">
+          <p>Aceptas cukies</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-primary">Si empre</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <script>
+    const myModal= new bootstrap.Modal('#myModal', {
+      backdrop: 'static',
+
+    })
+    myModal.show() 
+    myModal.document.querySelector("#myModal").addEventListener('show.bs.modal', function(){
+      
+    })
+  </script>
+
+</html>

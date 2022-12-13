@@ -1,0 +1,31 @@
+.b {
+  color: red;
+}
+.c {
+  color: green;
+}
+.a {
+  color: blue;
+}
+
+.perro {
+  background: url("../../img/perro.jpg");
+}
+
+.gato {
+  background: url("../../img/gato.jpg");
+}
+.colors {
+  background-color: #ff0000;
+  color: #00ff00;
+}
+
+.awd {
+  background-color: #0000ff;
+  color: #ffff00;
+}
+
+.table {
+  background-color: #ffa500;
+  color: #800080;
+}
