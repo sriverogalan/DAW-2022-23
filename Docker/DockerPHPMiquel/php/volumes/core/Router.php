@@ -2,8 +2,7 @@
 namespace Core;
 
 class Router
-{
-
+{ 
     private static $routes = array();
     private static $pathNotFound = null;
     private static $methodNotAllowed = null;
