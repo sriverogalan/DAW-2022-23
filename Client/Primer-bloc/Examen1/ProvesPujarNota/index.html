@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <title>Examen Javascript</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/tv.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="title">
+      <h1>Examen Vanilla JS</h1>
+    </div>
+    <div id="timer">5</div>
+    <div id="screen">
+      <img src="img/tv.png" alt="tv" id="tv" />
+      <video autoplay loop id="program">
+        <source
+          src="videos/alldayfilms.webm"
+          type="video/webm"
+          id="program-source"
+        />
+      </video>
+    </div>
+    <div id="cabinet">
+      <img src="img/tvcabinet.png" alt="cabinet" id="tvcabinet" />
+
+      <div id="remote">
+        <button id="anterior" class="button">&lt;&lt;</button>
+        <button id="play" class="button">Play</button>
+        <button id="stop" class="button">Stop</button>
+        <button id="seguent" class="button">&gt;&gt;</button>
+      </div>
+    </div>
+    <script>
+      /* EXAMEN JS - ESCRIVIU AQUÍ LA VOSTRA SOLUCIÓ */
+      function Tele(num) {
+        this.canal = num;
+        const videos = [
+          "videos/alldayfilms.webm",
+          "videos/kidstv.webm",
+          "videos/natureplus.webm",
+          "videos/sportstv.webm",
+          "videos/technologytoday.webm",
+          "videos/xtremsports.webm",
+        ];
+        this.counter = new Counter();
+        this.play = () => {
+          document.querySelector("#program").play();
+          this.counter.init();
+        };
+        this.stop = () => {
+          document.getElementById("program").pause();
+        };
+        this.anterior = () => {
+          this.canal = this.canal - 1;
+          if (this.canal < 0) {
+            this.canal = videos.length - 1;
+          }
+          document.querySelector("#program-source").src = videos[this.canal];
+          document.querySelector("#program").load();
+          this.counter.init();
+        };
+        this.seguent = () => {
+          this.canal = this.canal + 1;
+          if (this.canal > videos.length - 1) {
+            this.canal = 0;
+          }
+          document.querySelector("#program-source").src = videos[this.canal];
+          document.querySelector("#program").load();
+          this.counter.init();
+        };
+        this.init = () => { 
+          this.play();
+          document.querySelector("#anterior").addEventListener("click", () => {
+            this.anterior();
+          });
+          document.querySelector("#play").addEventListener("click", () => {
+            this.play();
+          });
+          document.querySelector("#stop").addEventListener("click", () => {
+            this.stop();
+          });
+          document.querySelector("#seguent").addEventListener("click", () => {
+            this.seguent();
+          }); 
+        };
+      }
+
+      function Counter() {
+        this.time = 5;
+        this.interval;
+        this.init = () => { 
+          clearInterval(this.interval);
+          document.querySelector("#timer").innerHTML = this.time;
+          this.interval = setInterval(() => {
+            this.time = this.time - 1;
+            document.querySelector("#timer").innerHTML = this.time;
+            if (this.time === 0) {
+              clearInterval(this.interval);
+              document.getElementById("program").pause();
+              this.time = 5;
+            }
+          }, 1000);
+        };
+      }
+
+      const tele = new Tele(0);
+      tele.init();
+
+
+      function payButton (){
+        let openButton;
+        let closeButton;
+        let windowApp;
+
+        openButton = document.createElement("button");
+        openButton.innerHTML = "Pagar";
+        openButton.id = "openButton";
+        document.querySelector("#remote").appendChild(openButton);
+
+        closeButton = document.createElement("button");
+        closeButton.innerHTML = "Tancar";
+        closeButton.id = "closeButton";
+        document.querySelector("#remote").appendChild(closeButton);
+
+        openButton.addEventListener("click", () => { 
+          windowApp = window.open("https://www.paypal.com/", "PayPal", "width=400,height=600");
+        });
+
+        closeButton.addEventListener("click", () => { 
+          windowApp.close();
+        }); 
+      }
+
+      payButton();
+    </script>
+  </body>
+</html>
