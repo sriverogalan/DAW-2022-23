@@ -5,16 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7517fcb2-f6e8-41de-909b-e7ecf1cd51c1" name="Changes" comment="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
-      <change beforePath="$PROJECT_DIR$/../../Client/final-project-PIANO/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/final-project-PIANO/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Client/final-project-PIANO/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/final-project-PIANO/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Client/final-project-PIANO/partitures.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Client/final-project-PIANO/partitures.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Core/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Core/Config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Core/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Core/FrontController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Core/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Core/View.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Model/ProductModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/Model/ProductModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/View/llistar.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/View/llistar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/View/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/php/volumes/Botiga-MVC/View/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#ib_16384_0.dblwr" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#ib_16384_0.dblwr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_1.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_1.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_10.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_10.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_2.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_2.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_3.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_3.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_4.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_4.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_5.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_5.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_6.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_6.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_7.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_7.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_8.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_8.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_9.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/#innodb_temp/temp_9.ibt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/Botiga/articles.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/Botiga/articles.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/binlog.000031" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/binlog.000031" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/binlog.index" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/binlog.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/ib_buffer_pool" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/ib_buffer_pool" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/ib_logfile0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/ibdata1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/ibtmp1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/mysql.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/mysql.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/undo_001" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/undo_001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/undo_002" beforeDir="false" afterPath="$PROJECT_DIR$/../../Docker/DockerPHPMiquel/mysql/volumes/undo_002" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,30 +56,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/RepositoriosGithub/GrauSuperior-2022-23/Servidor/CatalegPelicules&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/srive/Documents/IdeaProjects/Projectes-Classe/Servidor/CatalegPelicules",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;,
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.catalegpelicules.presentacio.Main" />
@@ -184,6 +195,7 @@
       <workItem from="1667054222710" duration="40000" />
       <workItem from="1668413009006" duration="804000" />
       <workItem from="1668502632735" duration="6000" />
+      <workItem from="1671102404884" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="Changes in the project all functional Java PostgreSQL AND MySQL in localhost server">
       <created>1666453172806</created>
