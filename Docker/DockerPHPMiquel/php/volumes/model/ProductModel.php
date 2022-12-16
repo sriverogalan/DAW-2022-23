@@ -63,11 +63,12 @@ class ProductModel
             $errores = 1;
         }
 
-        if ($errores == 0) {
-            $nombreArchivo = $this->db->getLastId() . ".jpg";
+        if ($errores == 0) {    
+            $nombreArchivo =  $this->db->getLastIdTableArticles()["MAX(id)"]+1 .  ".jpg";
             $nombreCompleto = $directorioSubida . $nombreArchivo;
             move_uploaded_file($directorioTemp, $nombreCompleto);
             echo "Archivo subido correctamente";
         }
+        return $errores;
     }
 }

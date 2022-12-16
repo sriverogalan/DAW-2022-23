@@ -24,7 +24,8 @@ require "navbar.php";
             </thead>
             <tbody>
                 <?php
-                foreach ($_SESSION['carrito'] as $producto) {
+
+                while ($producto = $carrito->fetch()) {  
                     if ($producto['id'] === null) {
                         continue;
                     }
@@ -65,14 +66,14 @@ require "navbar.php";
                 <h4><span style=" font-weight: 600"> TOTAL :</span> <?php echo $_SESSION['total'] ?> € <span style="font-weight: 600; font-size: 15px;"> + IVA incluido/s</span></h4>
             </div>
         </div>
-            <div class="col-12 text-end">
-                <a href="/vaciarCarrito" class="btn btn-sm btn-outline-danger">
-                    <h5>Vaciar carrito</h5>
-                </a>
-                <a href="/realizarCompra" class="btn btn-sm btn-outline-success">
-                    <h5>Realizar compra</h5>
-                </a>
-            </div>
+        <div class="col-12 text-end">
+            <a href="/vaciarCarrito" class="btn btn-sm btn-outline-danger">
+                <h5>Vaciar carrito</h5>
+            </a>
+            <a href="/realizarCompra" class="btn btn-sm btn-outline-success">
+                <h5>Realizar compra</h5>
+            </a>
+        </div>
     </div>
 
 </body>

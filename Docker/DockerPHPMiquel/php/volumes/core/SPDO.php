@@ -14,9 +14,12 @@ class SPDO extends PDO
             $config->get('dbpass')
         );
     }
-    public function getLastId()
-    { 
-        return $this->lastInsertId();
+    public function getLastIdTableArticles()
+    {   
+        $query = $this->prepare("SELECT MAX(id) FROM articles");
+        $query->execute();
+        $id = $query->fetch();
+        return $id;
     }
 
     public static function singleton()

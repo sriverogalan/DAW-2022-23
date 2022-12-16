@@ -2,6 +2,7 @@
 namespace Index;
 
 use Controllers\ProductController;
+use Controllers\CarritoController;
 use Core\Router as Route;
 use \PDO;
 use Model\ProductModel as Product;
@@ -31,40 +32,10 @@ Route::add('/product/(\d+)', function ($id) {
     $controller->obtenerProductoPorId($id);
 });
 
-Route::add('/product/add', function () {
-    $controller = new ProductController;
-    $controller->afegirCarrito();
-}, 'post');
-
 Route::add('/addproduct', function () {
     $controller = new ProductController;
     $controller->insertarProducto();
-});
-
-Route::add('/carreto', function () {
-    $controller = new ProductController;
-    $controller->mostrarCarrito();
-});
- 
-Route::add('/cambiarCantidad', function () {
-    $controller = new ProductController;
-    $controller->cambiarCantidad();
-}, 'post');
-
-Route::add('/vaciarCarrito', function () {
-    $controller = new ProductController;
-    $controller->vaciarCarrito();
-});
-
-Route::add('/realizarCompra', function () {
-    $controller = new ProductController;
-    $controller->realizarCompra();
-});
-
-Route::add('/eliminarProductoCarrito/(\d+)', function ($id) {
-    $controller = new ProductController;
-    $controller->eliminarProductoCarrito($id);
-});
+}); 
 
 Route::add('/insert', function () {
     $controller = new ProductController;
@@ -85,5 +56,17 @@ Route::add('/api/products/(\d+)', function ($id) {
     $product = $model->obtenerProductoPorId($id); 
     echo json_encode($product);
 });
+
+/* --------------------------------- shoppingcart -------------------------------- */
+
+Route::add('/carreto', function () {
+    $controller = new CarritoController; 
+    $controller->mostrarCarrito();
+});
+
+Route::add('/product/add/shoppingcart', function () {
+    $controller = new CarritoController;
+    $controller->afegirCarrito();
+}, 'post');
 
 Route::run('/');
