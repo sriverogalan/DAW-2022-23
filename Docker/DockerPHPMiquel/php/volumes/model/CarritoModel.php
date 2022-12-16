@@ -84,4 +84,10 @@ class CarritoModel
         $consulta->bindParam(':id', $id);
         $consulta->execute();
     }
+
+    public function deleteAllProducts()
+    {
+        $consulta = $this->db->prepare('DELETE FROM carrito');
+        $consulta->execute();
+    }
 }

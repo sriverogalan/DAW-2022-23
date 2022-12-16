@@ -78,8 +78,20 @@ Route::add('/delete/shoppingcart/(\d+)', function ($id) {
 
 Route::add('/update/shoppingcart', function () {
     $controller = new CarritoController;
-    $controller->actualizarCarrito();
+    $controller->actualizarCarrito(); 
     header('Location: http://localhost/carreto');
 }, 'post');
+
+Route::add('/delete/shoppingcart', function () {
+    $controller = new CarritoController;
+    $controller->vaciarCarrito();
+    header('Location: http://localhost/carreto');
+});
+
+Route::add('/pay/shoppingcart', function () {
+    $controller = new CarritoController;
+    $controller->vaciarCarrito();
+    header('Location: http://localhost/');
+});
 
 Route::run('/');

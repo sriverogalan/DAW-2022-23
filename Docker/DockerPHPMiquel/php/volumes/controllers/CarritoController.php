@@ -40,4 +40,10 @@ class CarritoController
         $subtotal = $_POST['subtotal'];
         $this->carrito->updateProduct($id, $quantitat, $subtotal); 
     } 
+
+    public function vaciarCarrito() {  
+        $this->carrito->deleteAllProducts(); 
+    }
+
+    
 }

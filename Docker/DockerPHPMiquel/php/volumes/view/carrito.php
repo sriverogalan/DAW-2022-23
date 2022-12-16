@@ -30,6 +30,8 @@ require "navbar.php";
                     if ($producto['id'] === null) {
                         continue;
                     }
+                    $counterTotalProductes += $producto['quantitat'];
+                    $totalPreu += $producto['subtotal'];
                 ?>
                     <tr>
                         <td><a href="./product/<?php echo $producto['id'] ?>"> <img src="../view/img/<?php echo $producto['id'] ?>.jpg" width="100px"></a></td>
@@ -53,8 +55,6 @@ require "navbar.php";
                     </tr>
 
                 <?php
-                    $counterTotalProductes += $producto['quantitat'];
-                    $totalPreu += $producto['subtotal'];
                 }
                 ?>
             </tbody>
@@ -71,10 +71,10 @@ require "navbar.php";
             </div>
         </div>
         <div class="col-12 text-end">
-            <a href="/vaciarCarrito" class="btn btn-sm btn-outline-danger">
+            <a href="http://localhost/delete/shoppingcart" class="btn btn-sm btn-outline-danger">
                 <h5>Vaciar carrito</h5>
             </a>
-            <a href="/realizarCompra" class="btn btn-sm btn-outline-success">
+            <a href="http://localhost/pay/shoppingcart" class="btn btn-sm btn-outline-success">
                 <h5>Realizar compra</h5>
             </a>
         </div>
