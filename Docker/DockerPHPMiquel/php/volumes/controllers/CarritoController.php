@@ -24,8 +24,9 @@ class CarritoController
 
     public function afegirCarrito() {
         $id = $_POST['id'];
-        $id$product = $this->items->obtenerProductoPorId($id);
-        $this->carrito->insertarProducto($id, $product);
-        $this->mostrarCarrito();
+        $quantitat = $_POST['quantitat'];
+        $subtotal = $_POST['subtotal'];
+        $product = $this->items->obtenerProductoPorId($id);
+        $this->carrito->insertProduct($product, $quantitat, $subtotal); 
     }
 }

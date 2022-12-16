@@ -67,6 +67,7 @@ Route::add('/carreto', function () {
 Route::add('/product/add/shoppingcart', function () {
     $controller = new CarritoController;
     $controller->afegirCarrito();
+    header('Location: http://localhost:80/carreto');
 }, 'post');
 
 Route::run('/');

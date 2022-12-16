@@ -23,9 +23,10 @@
                         <a href="/" class="btn btn-sm btn-outline-secondary">
                             <h5>Seguir comprant</h5>
                         </a> 
-                        <form action="/product/add" method="POST">
+                        <form action="/product/add/shoppingcart" method="POST">
                             <input type="hidden" name="id" value="<?php echo $item['id'] ?>"> 
                             <input type="hidden" name="quantitat" value="1">
+                            <input type="hidden" name="subtotal" value="<?php echo $item['preu'] ?>">
                             <button type="submit" class="btn btn-sm btn-outline-success">
                                 <h5>Añadir al carrito</h5>
                             </button>
