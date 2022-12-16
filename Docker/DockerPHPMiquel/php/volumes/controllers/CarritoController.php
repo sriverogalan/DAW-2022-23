@@ -34,7 +34,10 @@ class CarritoController
         $this->carrito->deleteProduct($id); 
     }
 
-    public function actualizarCarrito($id, $quantitat, $subtotal) {  
+    public function actualizarCarrito() {  
+        $id = $_POST['id'];
+        $quantitat = $_POST['quantitat'];
+        $subtotal = $_POST['subtotal'];
         $this->carrito->updateProduct($id, $quantitat, $subtotal); 
     } 
 }

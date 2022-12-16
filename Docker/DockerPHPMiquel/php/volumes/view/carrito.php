@@ -37,9 +37,9 @@ require "navbar.php";
                         <td><?php echo $producto['nom'] ?></td>
                         <td><?php echo $producto['preu'] ?> €</td>
                         <td>
-                            <form action="/cambiarCantidad" method="POST">
+                            <form action="http://localhost/update/shoppingcart" method="POST">
                                 <input type="hidden" name="id" value="<?php echo $producto['id'] ?>">
-                                <input type="number" name="cantidad" value="<?php echo $producto['quantitat'] ?>" class="col-sm-2"> 
+                                <input type="number" name="quantitat" value="<?php echo $producto['quantitat'] ?>" class="col-sm-2">
                                 <input type="hidden" name="subtotal" value="<?php echo $producto['preu'] * $producto['quantitat'] ?>">
                                 <span style="font-size: 10px;">ud. </span>
                                 <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-clockwise"></i></button>
@@ -52,11 +52,11 @@ require "navbar.php";
                         </td>
                     </tr>
 
-                    <?php
-                    $counterTotalProductes += $producto['quantitat'] ;
+                <?php
+                    $counterTotalProductes += $producto['quantitat'];
                     $totalPreu += $producto['subtotal'];
                 }
-?>
+                ?>
             </tbody>
         </table>
         <div class="row">

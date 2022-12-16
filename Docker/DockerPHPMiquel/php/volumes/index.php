@@ -64,7 +64,7 @@ Route::add('/carreto', function () {
     $controller->mostrarCarrito();
 });
 
-Route::add('/product/add/shoppingcart', function () {
+Route::add('/product/add/shoppingcart/(\d+)', function () {
     $controller = new CarritoController;
     $controller->afegirCarrito();
     header('Location: http://localhost/carreto');
@@ -76,10 +76,10 @@ Route::add('/delete/shoppingcart/(\d+)', function ($id) {
     header('Location: http://localhost/carreto');
 });
 
-Route::add('/update/shoppingcart/(\d+)', function ($id) {
+Route::add('/update/shoppingcart', function () {
     $controller = new CarritoController;
-    $controller->actualizarCarrito($id);
+    $controller->actualizarCarrito();
     header('Location: http://localhost/carreto');
-});
+}, 'post');
 
 Route::run('/');
