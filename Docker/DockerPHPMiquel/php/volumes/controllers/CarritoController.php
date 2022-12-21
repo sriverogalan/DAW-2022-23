@@ -22,11 +22,28 @@ class CarritoController
         $this->view->show("carrito.php", $data);
     }
 
-    public function afegirCarrito() {
+    public function afegirCarrito() { 
         $id = $_POST['id'];
         $quantitat = $_POST['quantitat'];
         $subtotal = $_POST['subtotal'];
         $product = $this->items->obtenerProductoPorId($id);
         $this->carrito->insertProduct($product, $quantitat, $subtotal); 
     }
+
+    public function eliminarCarrito($id) {  
+        $this->carrito->deleteProduct($id); 
+    }
+
+    public function actualizarCarrito() {  
+        $id = $_POST['id'];
+        $quantitat = $_POST['quantitat'];
+        $subtotal = $_POST['subtotal'];
+        $this->carrito->updateProduct($id, $quantitat, $subtotal); 
+    } 
+
+    public function vaciarCarrito() {  
+        $this->carrito->deleteAllProducts(); 
+    }
+
+    
 }

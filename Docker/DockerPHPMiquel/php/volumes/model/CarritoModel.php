@@ -22,30 +22,46 @@ class CarritoModel
 
     public function insertProduct($product, $quantitat, $subtotal)
     {
-        $consulta = $this->db->prepare('SELECT * FROM carrito WHERE id = :id');
-        $consulta->bindParam(':id', $product['id']);
-        $consulta->execute();
-        $productExists = $consulta->fetch();
-        if ($productExists) {
-            $this->updateProduct($product, $quantitat);
+        if ($this->existsProduct($product) === true) {
+            $product = $this->returnProduct($product);
+            $this->updateProductInserted($product);
             return;
-        } else {
-            $consulta = $this->db->prepare('INSERT INTO carrito (id, nom, descripcio, preu, quantitat, subtotal) VALUES (:id, :nom, :descripcio, :preu, :quantitat, :subtotal)');
-            $consulta->bindParam(':id', $product['id']);
-            $consulta->bindParam(':nom', $product['nom']);
-            $consulta->bindParam(':descripcio', $product['descripcio']);
-            $consulta->bindParam(':preu', $product['preu']);
-            $consulta->bindParam(':quantitat', $quantitat);
-            $consulta->bindParam(':subtotal', $subtotal);
-            $consulta->execute();
-        }
+        } 
+        $consulta = $this->db->prepare('INSERT INTO carrito (id, nom, descripcio, preu, quantitat, subtotal) VALUES (:id, :nom, :descripcio, :preu, :quantitat, :subtotal)');
+        $consulta->bindParam(':id', $product['id']);
+        $consulta->bindParam(':nom', $product['nom']);
+        $consulta->bindParam(':descripcio', $product['descripcio']);
+        $consulta->bindParam(':preu', $product['preu']);
+        $consulta->bindParam(':quantitat', $quantitat);
+        $consulta->bindParam(':subtotal', $subtotal);
+        $consulta->execute();
         return $consulta->fetch();
     }
 
-    public function updateProduct($product,  $quantitat)
+    public function existsProduct($product)
+    { 
+        $consulta = $this->db->prepare('SELECT * FROM carrito WHERE id = :id');
+        $consulta->bindParam(':id', $product['id']);
+        $consulta->execute();
+        if ($consulta->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } 
+
+    public function returnProduct($product)
     {
-        $quantitat = $quantitat + 1;
-        $subtotal = $this->calculateSubtotal($product, $quantitat);
+        $consulta = $this->db->prepare('SELECT * FROM carrito WHERE id = :id');
+        $consulta->bindParam(':id', $product['id']);
+        $consulta->execute();  
+        return $consulta->fetch(); 
+    } 
+
+    public function updateProductInserted($product)
+    { 
+        $quantitat = $product['quantitat']+1 ;
+        $subtotal = $product['preu'] * $quantitat;
         $consulta = $this->db->prepare('UPDATE carrito SET quantitat = :quantitat, subtotal = :subtotal WHERE id = :id');
         $consulta->bindParam(':id', $product['id']);
         $consulta->bindParam(':quantitat', $quantitat);
@@ -53,10 +69,25 @@ class CarritoModel
         $consulta->execute();
     }
 
-
-
-    public function calculateSubtotal($product, $quantitat)
+    public function updateProduct($id, $quantitat, $subtotal)
     {
-        return $product['preu'] * $quantitat;
+        $consulta = $this->db->prepare('UPDATE carrito SET quantitat = :quantitat, subtotal = :subtotal WHERE id = :id');
+        $consulta->bindParam(':id', $id);
+        $consulta->bindParam(':quantitat', $quantitat);
+        $consulta->bindParam(':subtotal', $subtotal);
+        $consulta->execute();
+    }
+
+    public function deleteProduct($id)
+    {
+        $consulta = $this->db->prepare('DELETE FROM carrito WHERE id = :id');
+        $consulta->bindParam(':id', $id);
+        $consulta->execute();
+    }
+
+    public function deleteAllProducts()
+    {
+        $consulta = $this->db->prepare('DELETE FROM carrito');
+        $consulta->execute();
     }
 }
