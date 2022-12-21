@@ -8,5 +8,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN apt install -y git
 
 # Install Laravel
-RUN composer global require laravel/installer 
-
+RUN composer create-project laravel/laravel:^9.0 test-app
