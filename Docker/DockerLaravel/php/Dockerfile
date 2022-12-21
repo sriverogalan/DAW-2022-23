@@ -4,8 +4,11 @@ RUN apt update
 RUN apt install -y curl
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Install git
-RUN apt install -y git
+# Install & run the MySQL Client
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN docker-php-ext-enable mysqli pdo pdo_mysql
 
-# Install Laravel
-RUN composer create-project laravel/laravel:^9.0 test-app
+
+# Install git
+RUN apt install -y git 
+RUN composer global require laravel/installer 

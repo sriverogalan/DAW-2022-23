@@ -6,12 +6,10 @@ services:
     volumes: 
       - ./php/volumes:/var/www/html
     tty: true
-    ports:
-      - 80:80
-      - 8000:8000
-    expose:
+    ports: 
+      - 80:8000
+    expose: 
       - 80
-      - 8000
   
   mysql:
     image: mysql:8.0.23
