@@ -1,21 +1,37 @@
 services:
-  mariadb:
-    image: docker.io/bitnami/mariadb:10.6
-    environment:
-      # ALLOW_EMPTY_PASSWORD is recommended only for development.
-      - ALLOW_EMPTY_PASSWORD=yes
-      - MARIADB_USER=bn_myapp
-      - MARIADB_DATABASE=bitnami_myapp
-  myapp:
-    image: docker.io/bitnami/laravel:9
+  laravel:  
+    build: 
+      context: ./php
+      dockerfile: Dockerfile
+    volumes: 
+      - ./php/volumes:/var/www/html
+    tty: true
     ports:
-      - '8000:8000'
-    environment:
-      - DB_HOST=mariadb
-      - DB_PORT=3306
-      - DB_USERNAME=bn_myapp
-      - DB_DATABASE=bitnami_myapp
+      - 80:80
+      - 8000:8000
+    expose:
+      - 80
+      - 8000
+  
+  mysql:
+    image: mysql:8.0.23
     volumes:
-      - './my-project:/app'
-    depends_on:
-      - mariadb 
+      - ./mysql/volumes:/var/lib/mysql
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravel
+
+  phpmyadmin: 
+    image: phpmyadmin:5.1.3-apache 
+    environment:
+      - PMA_ARBITRARY=1
+    ports:
+      - 8083:80
+    expose:
+      - 8083 
