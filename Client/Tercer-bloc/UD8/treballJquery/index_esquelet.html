@@ -13,8 +13,13 @@
       href="lib/select2-4.0.3/dist/css/select2.min.css"
       rel="stylesheet"
       type="text/css"
-    /> 
-    <link href="css/style.css" rel="stylesheet" type="text/css" />  
+    />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
 
   <body>
@@ -64,35 +69,56 @@
       src="lib/select2-4.0.3/dist/js/select2.full.min.js"
       type="text/javascript"
     ></script>
+    <script
+      src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"
+      type="text/javascript"
+    ></script>
+
     <script>
-      /* Exercici 1 */ 
-       
+      /* Exercici 1 */
+
       $('main').hide()
-      $('main').delay(2000).fadeIn() 
-      
-      $('#formulari').append("<div div class='submit'><input type='button' value='Search Flights' onclick='send()' /></div>")
-    
-      /* Exercici 2*/ 
+      $('main').delay(2000).fadeIn()
+
+      $('#formulari').append(
+        "<div div class='submit'><input type='button' value='Search Flights' onclick='send()' /></div>",
+      )
+
+      /* Exercici 2*/
+
       $.ajax({
         url: 'https://theteacher.codiblau.com/exercicis/airports',
         method: 'GET',
-        dataType: 'json', //si no es fa amb dataType: 'json' cal fer JSON.parse(resp) 
-        success: function (resp) { 
+        dataType: 'json', //si no es fa amb dataType: 'json' cal fer JSON.parse(resp)
+        success: function (resp) {
           for (var airport of resp) {
             $('#from').append(
-              "<option value='"+ airport.code+"'>"+airport.name+"</option>"
+              "<option value='" +
+                airport.code +
+                "'>" +
+                airport.name +
+                '</option>',
             )
             $('#to').append(
-              "<option value='"+ airport.code+"'>"+airport.name+"</option>"
-            ) 
+              "<option value='" +
+                airport.code +
+                "'>" +
+                airport.name +
+                '</option>',
+            )
           }
-        }, 
+        },
       })
 
+      /* Exercici 3 */
+
+
       $('#departure').datepicker({
+        // ver 3 meses desde hoy
         dateFormat: 'dd/mm/yy',
         minDate: 0,
-        maxDate: '+1y', 
+        maxDate: '+3m',
+        firstDay: 1,
         onSelect: function (selectedDate) {
           $('#return').datepicker('option', 'minDate', selectedDate)
         },
@@ -101,7 +127,8 @@
       $('#return').datepicker({
         dateFormat: 'dd/mm/yy',
         minDate: 0,
-        maxDate: '+1y', 
+        maxDate: '+3m',
+        firstDay: 1,
         onSelect: function (selectedDate) {
           $('#departure').datepicker('option', 'maxDate', selectedDate)
         },
@@ -109,37 +136,58 @@
 
       $('#passengers').spinner({
         min: 1,
-        max: 20, 
-      }) 
+        max: 50,
+      })
 
+      $('#from').append("<option value=''>Seleccioni aeroport</option>")
+      $('#from').val('')
+      $('#from').select2()
+      $('#to').append("<option value=''>Seleccioni aeroport</option>")
+      $('#to').val('')
+      $('#to').select2()
 
-      /* Exercici 3 */
+      function send() {
+        $.ajax({
+          url: 'https://theteacher.codiblau.com/exercicis/airports/search',
+          method: 'GET',
+          dataType: 'json',
+          data: {
+            from: $('#from').val(),
+            to: $('#to').val(),
+            departure: $('#departure').val(),
+            return: $('#return').val(),
+            passengers: $('#passengers').val(),
+          },
+          success: function (resp) {
+            $('#resultat').empty()
+            $('#resultat').append(
+              "<table id='datatable'> <thead> <tr> <th>Hora Partida</th> <th>Hora Tornada</th> <th>Aerolinia partida</th> <th>Aerolinia tornada</th> <th>Preu per persona</th> <th>Preu Total</th> </tr> </thead> <tbody> ",
+            )
+            for (var flight of resp) {
+              $('#resultat table').append(
+                '<tr> <td>' +
+                  flight.departureHour +
+                  '</td> <td>' +
+                  flight.returnHour +
+                  '</td> <td>' +
+                  flight.departureAirline +
+                  '</td> <td>' +
+                  flight.returnAirline +
+                  '</td> <td>' +
+                  flight.pricePerPerson +
+                  '</td> <td>' +
+                  flight.price +
+                  '</td> </tr>',
+              )
+            }
+            $('#resultat').append('</tbody> </table> ') 
 
-      function send() { $.ajax({
-            url: 'https://theteacher.codiblau.com/exercicis/airports/search',
-            method: 'GET',
-            dataType: 'json',
-            data: {
-              from: $('#from').val(),
-              to: $('#to').val(),
-              departure: $('#departure').val(),
-              return: $('#return').val(),
-              passengers: $('#passengers').val(),
-            },
-            success: function (resp) {
-              $('#resultat').empty()
-              for (var flight of resp) {
-
-                $('#resultat').append(
-                  flight.departureAirline + " "+
-                  flight.departureHour + " "+
-                  flight.price + " "+
-                  flight.pricePerPerson+ " "+ 
-                  flight.returnAirline + " "+
-                  flight.returnHour )
-              }
-            },
-          })}
+            $(document).ready(function () {
+              $('#datatable').DataTable()
+            })
+          },
+        })
+      }
     </script>
   </body>
 </html>
