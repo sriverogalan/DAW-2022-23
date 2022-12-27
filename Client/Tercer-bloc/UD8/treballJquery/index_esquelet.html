@@ -91,6 +91,8 @@
         method: 'GET',
         dataType: 'json', //si no es fa amb dataType: 'json' cal fer JSON.parse(resp)
         success: function (resp) {
+          $('#from').append("<option disabled selected>Seleccioni aeroport</option>") 
+          $('#to').append("<option disabled selected>Seleccioni aeroport</option>") 
           for (var airport of resp) {
             $('#from').append(
               "<option value='" +
@@ -113,22 +115,23 @@
       /* Exercici 3 */
 
 
-      $('#departure').datepicker({
-        // ver 3 meses desde hoy
-        dateFormat: 'dd/mm/yy',
-        minDate: 0,
-        maxDate: '+3m',
+      $('#departure').datepicker({ 
+        dateFormat: 'dd/mm/yy',  
         firstDay: 1,
+        numberOfMonths: 3, 
+        minDate: 0,
+        maxDate: '+1y', 
         onSelect: function (selectedDate) {
           $('#return').datepicker('option', 'minDate', selectedDate)
         },
       })
 
       $('#return').datepicker({
-        dateFormat: 'dd/mm/yy',
-        minDate: 0,
-        maxDate: '+3m',
+        dateFormat: 'dd/mm/yy', 
         firstDay: 1,
+        numberOfMonths: 3,
+        minDate: 0,
+        maxDate: '+1y', 
         onSelect: function (selectedDate) {
           $('#departure').datepicker('option', 'maxDate', selectedDate)
         },
@@ -138,13 +141,11 @@
         min: 1,
         max: 50,
       })
+ 
+      $('select').css('width', '100%') 
+      $('#from').select2()    
+      $('#to').select2() 
 
-      $('#from').append("<option value=''>Seleccioni aeroport</option>")
-      $('#from').val('')
-      $('#from').select2()
-      $('#to').append("<option value=''>Seleccioni aeroport</option>")
-      $('#to').val('')
-      $('#to').select2()
 
       function send() {
         $.ajax({
@@ -184,7 +185,7 @@
 
             $(document).ready(function () {
               $('#datatable').DataTable()
-            })
+            })  
           },
         })
       }
