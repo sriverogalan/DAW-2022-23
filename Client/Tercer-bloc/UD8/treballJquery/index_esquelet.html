@@ -47,9 +47,9 @@
           <input id="passengers" name="passengers" />
         </div>
 
-        <div class="submit">
+        <!-- <div class="submit">
           <input type="button" value="Search Flights" onclick="send()" />
-        </div>
+        </div> -->
       </section>
 
       <section id="resultat"></section>
@@ -69,6 +69,8 @@
        
       $('main').hide()
       $('main').delay(2000).fadeIn() 
+      
+      $('#formulari').append("<div div class='submit'><input type='button' value='Search Flights' onclick='send()' /></div>")
     
       /* Exercici 2*/ 
       $.ajax({
@@ -76,19 +78,68 @@
         method: 'GET',
         dataType: 'json', //si no es fa amb dataType: 'json' cal fer JSON.parse(resp) 
         success: function (resp) { 
-          resp.forEach((airport) => {
+          for (var airport of resp) {
             $('#from').append(
               "<option value='"+ airport.code+"'>"+airport.name+"</option>"
             )
             $('#to').append(
               "<option value='"+ airport.code+"'>"+airport.name+"</option>"
-            )
-          })
+            ) 
+          }
         }, 
       })
+
+      $('#departure').datepicker({
+        dateFormat: 'dd/mm/yy',
+        minDate: 0,
+        maxDate: '+1y', 
+        onSelect: function (selectedDate) {
+          $('#return').datepicker('option', 'minDate', selectedDate)
+        },
+      })
+
+      $('#return').datepicker({
+        dateFormat: 'dd/mm/yy',
+        minDate: 0,
+        maxDate: '+1y', 
+        onSelect: function (selectedDate) {
+          $('#departure').datepicker('option', 'maxDate', selectedDate)
+        },
+      })
+
+      $('#passengers').spinner({
+        min: 1,
+        max: 20, 
+      }) 
+
+
       /* Exercici 3 */
 
-      function send() {}
+      function send() { $.ajax({
+            url: 'https://theteacher.codiblau.com/exercicis/airports/search',
+            method: 'GET',
+            dataType: 'json',
+            data: {
+              from: $('#from').val(),
+              to: $('#to').val(),
+              departure: $('#departure').val(),
+              return: $('#return').val(),
+              passengers: $('#passengers').val(),
+            },
+            success: function (resp) {
+              $('#resultat').empty()
+              for (var flight of resp) {
+
+                $('#resultat').append(
+                  flight.departureAirline + " "+
+                  flight.departureHour + " "+
+                  flight.price + " "+
+                  flight.pricePerPerson+ " "+ 
+                  flight.returnAirline + " "+
+                  flight.returnHour )
+              }
+            },
+          })}
     </script>
   </body>
 </html>
