@@ -36,7 +36,8 @@
           </li>
           <li onclick="login()">
             <p class="navbar-buttons">
-              <i class="fa-regular fa-user"></i> Login
+              <i class="fa-regular fa-user"></i>
+              Login
             </p>
           </li>
         </ul>
@@ -54,102 +55,101 @@
     </section>
 
     <script>
-      let table = "";
+      'use strict'
+      let table = ``
       table = ` <table>
                 <tr>
                     <th>Titol</th>
                     <th>Idioma Original</th>
                     <th>Accions</th>
-                </tr> `;
+                </tr> `
 
-      let article1 = "";
-      article1 += "<tr>";
-      article1 += "<td>La Balanguera</td>";
-      article1 += "<td>Catala</td>";
-      article1 += "<td class='btn'>";
-      article1 +=
-        "<p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>";
-      article1 +=
-        "<p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>";
-      article1 += "</td>";
-      article1 += "</tr>";
-      table += article1;
+      let article1 = ``
+      article1`<tr>
+        <td>La Balanguera</td>
+        <td>Catala</td>
+        <td class='btn'>
+          <p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>
+          <p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>";
+        </td>
+        </tr>`
+      table += article1
 
-      let article2 = "";
-      article2 += "<tr>";
-      article2 += "<td>Happy Birthday</td>";
-      article2 += "<td>Anglès</td>";
-      article2 += "<td class='btn'>";
-      article2 +=
-        "<p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>";
-      article2 +=
-        "<p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>";
-      article2 += "</td>";
-      article2 += "</tr>";
-      table += article2;
+      let article2 = ``
+      article2 += `<tr>
+        <td>Happy Birthday</td>
+        <td>Anglès</td>
+        <td class='btn'>
+          <p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>
+          <p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>
+        </td>
+      </tr>`
+      table += article2
 
       for (let i = 0; i < 98; i++) {
-        let articleRepetit = "";
-        articleRepetit += "<tr>";
-        articleRepetit += "<td>La Campanella</td>";
-        articleRepetit += "<td>Italian</td>";
-        articleRepetit += "<td class='btn'>";
-        articleRepetit +=
-          "<p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>";
-        articleRepetit +=
-          "<p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>";
-        articleRepetit += "</td>";
-        articleRepetit += "</tr>";
-        table += articleRepetit;
+        let articleRepetit = `
+        <tr>
+          <td>La Campanella</td>
+          <td>Italian</td>
+          <td class='btn'>
+            <p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>
+            <p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>
+            </td>
+            </tr>`
+        table += articleRepetit
       }
-      table += "</table>";
-      document.querySelector("#container").innerHTML += table;
+      table += `</table>`
+      document.querySelector('#container').innerHTML += table
 
       function edita() {
-        if (confirm("estas segur que vols editar aquesta cançó?")) {
-          alert("Element esborrt");
+        if (confirm('estas segur que vols editar aquesta cançó?')) {
+          alert('Element esborrt')
         } else {
-          alert("Ha cancel·lat l'acció");
+          alert("Ha cancel·lat l'acció")
         }
       }
       function borrar() {
-        alert("Element esborrat");
+        if (confirm('estas segur que vols borrar aquesta cançó?')) {
+          alert('Element esborrt')
+        } else {
+          alert("Ha cancel·lat l'acció")
+        }
       }
       function login() {
-        let url = "login.html";
-        let w = 600;
-        let h = 600;
+        let url = 'login.html'
+        let w = 600
+        let h = 600
         let dualScreenLeft =
-          window.screenLeft != undefined ? window.screenLeft : screen.left;
+          window.screenLeft != undefined ? window.screenLeft : screen.left
         let dualScreenTop =
-          window.screenTop != undefined ? window.screenTop : screen.top;
+          window.screenTop != undefined ? window.screenTop : screen.top
         width = window.innerWidth
           ? window.innerWidth
           : document.documentElement.clientWidth
           ? document.documentElement.clientWidth
-          : screen.width;
+          : screen.width
         height = window.innerHeight
           ? window.innerHeight
           : document.documentElement.clientHeight
           ? document.documentElement.clientHeight
-          : screen.height;
-        let left = width / 2 - w / 2 + dualScreenLeft;
-        let top = height / 2 - h / 2 + dualScreenTop;
+          : screen.height
+        let left = width / 2 - w / 2 + dualScreenLeft
+        let top = height / 2 - h / 2 + dualScreenTop
         let newWindow = window.open(
           url,
-          "",
-          "scrollbars=yes, width=" +
+          '',
+          'scrollbars=yes, width=' +
             w +
-            ", height=" +
+            ', height=' +
             h +
-            ", top=" +
+            ', top=' +
             top +
-            ", left=" +
-            left
-        );
+            ', left=' +
+            left,
+        )
       }
       function partitures() {
-        window.open("partitura.html", "_self");
+        window.open('partitura.html', '_self')
       }
     </script>
   </body>

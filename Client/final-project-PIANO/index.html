@@ -55,8 +55,9 @@
         <div id="resultats"></div>
       </div>
     </div>
-  </body>
+  </body> 
   <script>
+    "use strict";
     const notes = [
       "do",
       "re",
@@ -243,6 +244,7 @@
           this.milisegons = this.tempsActual - this.tempsIni;
           this.pinta();
           if (this.tempsActual >= this.tempsFi) {
+            
             clearInterval(this.interval);
           }
         }, 1);
