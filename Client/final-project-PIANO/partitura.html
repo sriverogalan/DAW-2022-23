@@ -42,7 +42,7 @@
           <option value="6">Portuguès</option>
         </select>
 
-        <label for="lletraOriginal" >Lletra Original</label>
+        <label for="lletraOriginal">Lletra Original</label>
         <textarea
           name="lletraOriginal"
           id="lletraOriginal"
@@ -56,37 +56,44 @@
         <input type="submit" />
       </form>
       <script>
+        "use strict";
         function titleCheck() {
           const titol = document.querySelector("#titol").value;
           const regex = /\w+\s\w+\s\w+/;
           if (regex.test(titol)) {
-            document.querySelector("#titol").style.backgroundColor = "green"; 
+            document.querySelector("#titol").style.backgroundColor = "green";
             return true;
           } else {
-            document.querySelector("#titol").style.backgroundColor = "red"; 
+            document.querySelector("#titol").style.backgroundColor = "red";
             return false;
-          } 
+          }
         }
- 
+
         function idiomaOriginalCheck() {
-          const idiomaOriginal = document.getElementById("idiomaOriginal").value;
+          const idiomaOriginal =
+            document.getElementById("idiomaOriginal").value;
           if (idiomaOriginal != -1) {
-            document.querySelector("#idiomaOriginal").style.backgroundColor = "green"; 
+            document.querySelector("#idiomaOriginal").style.backgroundColor =
+              "green";
             return true;
           } else {
-            document.querySelector("#idiomaOriginal").style.backgroundColor = "red"; 
+            document.querySelector("#idiomaOriginal").style.backgroundColor =
+              "red";
             return false;
           }
         }
 
         function lletraOriginalCheck() {
           // comprobar si no esta vacio
-          const lletraOriginal = document.querySelector("#lletraOriginal").value;
+          const lletraOriginal =
+            document.querySelector("#lletraOriginal").value;
           if (lletraOriginal != "") {
-            document.querySelector("#lletraOriginal").style.backgroundColor = "green"; 
+            document.querySelector("#lletraOriginal").style.backgroundColor =
+              "green";
             return true;
           } else {
-            document.querySelector("#lletraOriginal").style.backgroundColor = "red"; 
+            document.querySelector("#lletraOriginal").style.backgroundColor =
+              "red";
             return false;
           }
         }
@@ -94,25 +101,31 @@
         function traduccioCheck() {
           const traduccio = document.getElementById("traduccio").value;
           if (traduccio != "") {
-            document.querySelector("#traduccio").style.backgroundColor = "green"; 
+            document.querySelector("#traduccio").style.backgroundColor =
+              "green";
             return true;
           } else {
-            document.querySelector("#traduccio").style.backgroundColor = "red"; 
+            document.querySelector("#traduccio").style.backgroundColor = "red";
             return false;
           }
         }
-        function checkAll() { 
-            titleCheck() 
-            idiomaOriginalCheck() 
-            lletraOriginalCheck()  
-            traduccioCheck() 
-            return titleCheck() && idiomaOriginalCheck() && lletraOriginalCheck() && traduccioCheck()
+        function checkAll() {
+          titleCheck();
+          idiomaOriginalCheck();
+          lletraOriginalCheck();
+          traduccioCheck();
+          return (
+            titleCheck() &&
+            idiomaOriginalCheck() &&
+            lletraOriginalCheck() &&
+            traduccioCheck()
+          );
         }
 
-        function check() {   
+        function check() {
           if (checkAll()) {
-            window.location = "http://iesmanacor.cat/"
-          }  
+            window.location = "http://iesmanacor.cat/";
+          }
         }
       </script>
     </section>

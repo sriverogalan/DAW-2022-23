@@ -182,10 +182,9 @@
     function cercadorPartitures() {
       document.querySelector("#resultats").innerHTML = "";
       for (let partitura in partitures) {
-        let partituraString = partitures[partitura].join(); // join converteix l'array en string separant els elements amb una coma
+        let partituraString = partitures[partitura].join();  
         let cercaString = cerca.join();
-        if (partituraString.includes(cercaString)) {
-          // includes comprova si la partituraString inclou la cerca
+        if (partituraString.includes(cercaString)) { 
           pintaPartitura(partitura);
         }
       }

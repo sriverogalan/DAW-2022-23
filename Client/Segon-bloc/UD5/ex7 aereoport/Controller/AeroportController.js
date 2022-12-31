@@ -15,8 +15,7 @@ export class AeroportController {
 
   async getAeroports() {
     const aeroportFetch = await fetch(this._URL + "/exercicis/airports");
-    const aerports = await aeroportFetch.json();
-
+    const aerports = await aeroportFetch.json(); 
     return aerports.map((a) => Aeroport.fromJSON(a));
   }
 }
