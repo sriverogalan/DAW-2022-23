@@ -31,10 +31,10 @@
       <nav>
         <h1 class="logo-name">Score Finder</h1>
         <ul>
-          <li onclick="partitures()">
+          <li id="partitures">
             <p class="navbar-buttons">Partitures</p>
           </li>
-          <li onclick="login()">
+          <li id="login">
             <p class="navbar-buttons">
               <i class="fa-regular fa-user"></i>
               Login
@@ -54,11 +54,11 @@
       </div>
     </section>
     <script type="module">
-      "use strict";
-      import {PartituraService} from "./js/service/PartituraService.js";
-      (() => {
-        const partituraService = PartituraService().getInstance();
-        let arrayPartitures = partituraService.getPartitures();
+      import { PartituraService } from "./js/service/PartituraService.js";
+      (async () => {
+        const partituraService = PartituraService.getInstance();
+        let arrayPartitures = await partituraService.getPartitures();
+
         let table = ``;
         table = ` <table>
                 <tr>
@@ -66,39 +66,65 @@
                     <th>Idioma Original</th>
                     <th>Accions</th>
                 </tr> `;
-        for (let i = 0; i < arrayPartitures  ; i++) {
+        for (let partitura of arrayPartitures) {
           let articleRepetit = `
-        <tr>
-          <td> ${ arrayPartitures[i].titol } </td>
-          <td>Italian</td>
-          <td class='btn'>
-            <p onclick='edita()'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>
-            <p onclick='borrar()'> <i class='fa-solid fa-trash'></i> Esborrar</p>
-            </td>
-            </tr>`;
+                                <tr>
+                                  <td>${partitura.titol}</td>
+                                  <td>${partitura.idiomaOriginal.toUpperCase()}</td>
+                                  <td class='btn'>
+                                    <p style="cursor:pointer;"  id='edit${
+                                      partitura.id
+                                    }'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>
+                                    <p style="cursor:pointer;"  id='borrar${
+                                      partitura.id
+                                    }'> <i class='fa-solid fa-trash'></i> Esborrar</p>
+                                  </td>
+                                </tr>`;
           table += articleRepetit;
         }
         table += `</table>`;
         document.querySelector("#container").innerHTML += table;
+        for (let partitura of arrayPartitures) {
+          document
+            .querySelector("#edit" + partitura.id)
+            .addEventListener("click", () => {
+              editar(partitura.id);
+            });
+          document
+            .querySelector("#borrar" + partitura.id)
+            .addEventListener("click", () => {
+              borrar(partitura.id);
+            });
+        }
+
+        document.querySelector("#partitures").addEventListener("click", () => {
+          partitures();
+        });
+
+        document.querySelector("#login").addEventListener("click", () => {
+          login();
+        });
+
       })();
-      function partitures() {
+      const partitures = () => {
         window.open("partitura.html", "_self");
-      }
-      function edita() {
+      };
+      const editar = (id) => {
         if (confirm("estas segur que vols editar aquesta cançó?")) {
-          alert("Element esborrt");
+          window.location.href = "partitura.html?id=" + id;
         } else {
           alert("Ha cancel·lat l'acció");
         }
-      }
-      function borrar() {
+      };
+      const borrar = (id) => {
         if (confirm("estas segur que vols borrar aquesta cançó?")) {
-          alert("Element esborrt");
+        const partituraService = PartituraService.getInstance();
+        partituraService.deletePartitura(id);
         } else {
           alert("Ha cancel·lat l'acció");
         }
-      }
-      function login() {
+      };
+      const login = () => {
         let url = "login.html";
         let w = 600;
         let h = 600;
@@ -130,7 +156,7 @@
             ", left=" +
             left
         );
-      }
+      };
     </script>
   </body>
 </html>

@@ -1,10 +1,10 @@
 "use strict";
-export class Partitura {
-  constructor(codi, nom) {
-    this.codi = codi;
+export class Idioma {
+  constructor(id, nom) {
+    this.id = id;
     this.nom = nom;
   }
   static fromJSON(json) {
-    return new Partitura(json.codi, json.nom);
+    return new Idioma(json.code, json.name);
   }
 }

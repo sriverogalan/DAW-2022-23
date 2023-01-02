@@ -8,22 +8,23 @@ export class GoogleService {
 
   static getInstance() {
     if (!this._instance) {
-      this._instance = new Idioma();
+      this._instance = new GoogleService();
     }
     return this._instance;
   }
 
-  async getPartitures() {
-    let response = await fetch(this._URL + "/piano/nologin/score/list", {
+  async getIdiomes() {
+    let response = await fetch(this._URL + "/piano/nologin/google/translate/languages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
     });
     let json = await response.json();
-    const partitures = json.map((p) => Partitura.fromJSON(p));
-    return partitures;
-  }
-  async addCerca() {}
-  async cercador() {}
+    let idiomes = [];
+    for (let idioma of json) {
+      idiomes.push(Idioma.fromJSON(idioma));
+    }
+    return idiomes;
+  } 
 }

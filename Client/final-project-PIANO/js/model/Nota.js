@@ -9,4 +9,6 @@ export class Nota {
   static fromJSON(json) {
     return new Canal(json.id, json.nom, json.alteracio, json.ordre);
   }
+  
+  
 }

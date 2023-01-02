@@ -26,38 +26,72 @@
     </header>
 
     <section>
-      <form name="formulari" onsubmit="check()" method="dialog">
-        <label for="titol">Títol</label>
-        <input type="text" name="titol" id="titol" />
+      <form name="formulari" method="dialog">
+        <input type="number" name="idpartitura" id="id" hidden />
 
-        <label for="idiomaOriginal">Idioma Original</label>
-        <select name="idiomaOriginal" id="idiomaOriginal">
-          <option value="-1">Elige un idioma</option>
-          <option value="0">Català</option>
-          <option value="1">Castellà</option>
-          <option value="2">Anglès</option>
-          <option value="3">Francès</option>
-          <option value="4">Alemany</option>
-          <option value="5">Italià</option>
-          <option value="6">Portuguès</option>
+        <label for="titol">Títol</label>
+        <input type="text" name="name" id="titol" />
+
+        <label for="idiomaoriginal">Idioma Original</label>
+        <select name="idiomaoriginal" id="idiomaOriginal">
+          <option selected disabled>Elige un idioma</option>
         </select>
 
-        <label for="lletraOriginal">Lletra Original</label>
+        <input type="text" name="idiomatraduccio" value="ca" hidden />
+
+        <label for="partituratraduccio">Lletra Original</label>
         <textarea
-          name="lletraOriginal"
+          name="partituratraduccio"
           id="lletraOriginal"
           cols="10"
           rows="5"
         ></textarea>
 
-        <label for="traduccio">Traducció</label>
+        <label for="traduccio">Traducció al català</label>
         <textarea name="traduccio" id="traduccio" cols="10" rows="5"></textarea>
 
-        <input type="submit" />
+        <input type="submit" id="submit" />
       </form>
-      <script>
+      <script type="module">
         "use strict";
-        function titleCheck() {
+        import { GoogleService } from "./js/service/GoogleService.js";
+        import { PartituraService } from "./js/service/PartituraService.js"; 
+
+        (async () => {
+          const googleService = GoogleService.getInstance();
+          const idiomes = await googleService.getIdiomes();
+
+          const idiomaOriginal = document.querySelector("#idiomaOriginal");
+          idiomes.forEach((idioma) => {
+            const option = document.createElement("option");
+            option.value = idioma.id;
+            option.textContent = idioma.nom;
+            idiomaOriginal.appendChild(option);
+          });
+
+          const variablesUrl = window.location.search;
+          const urlParams = new URLSearchParams(variablesUrl);
+          const id = urlParams.get("id");
+
+          if (id) {
+            const partituraService = PartituraService.getInstance();
+            const partitura = await partituraService.getPartituraById(id);
+            document.querySelector("#id").value = partitura.id;
+            document.querySelector("#titol").value = partitura.titol;
+            document.querySelector("#idiomaOriginal").value =
+              partitura.idiomaOriginal;
+            document.querySelector("[name=idiomatraduccio]").value =
+              partitura.idiomaTraduccio;
+            document.querySelector("#lletraOriginal").value =
+              partitura.lletraOriginal;
+            document.querySelector("#traduccio").value =
+              partitura.lletraTraduccio;
+          }
+          document
+            .querySelector("#submit")
+            .addEventListener("click", () => check());
+        })();
+        const titleCheck = () => {
           const titol = document.querySelector("#titol").value;
           const regex = /\w+\s\w+\s\w+/;
           if (regex.test(titol)) {
@@ -67,9 +101,8 @@
             document.querySelector("#titol").style.backgroundColor = "red";
             return false;
           }
-        }
-
-        function idiomaOriginalCheck() {
+        };
+        const idiomaOriginalCheck = () => {
           const idiomaOriginal =
             document.getElementById("idiomaOriginal").value;
           if (idiomaOriginal != -1) {
@@ -81,9 +114,8 @@
               "red";
             return false;
           }
-        }
-
-        function lletraOriginalCheck() {
+        };
+        const lletraOriginalCheck = () => {
           // comprobar si no esta vacio
           const lletraOriginal =
             document.querySelector("#lletraOriginal").value;
@@ -96,9 +128,8 @@
               "red";
             return false;
           }
-        }
-
-        function traduccioCheck() {
+        };
+        const traduccioCheck = () => {
           const traduccio = document.getElementById("traduccio").value;
           if (traduccio != "") {
             document.querySelector("#traduccio").style.backgroundColor =
@@ -108,8 +139,8 @@
             document.querySelector("#traduccio").style.backgroundColor = "red";
             return false;
           }
-        }
-        function checkAll() {
+        };
+        const checkAll = () => {
           titleCheck();
           idiomaOriginalCheck();
           lletraOriginalCheck();
@@ -120,13 +151,23 @@
             lletraOriginalCheck() &&
             traduccioCheck()
           );
-        }
+        };
 
-        function check() {
+        const check = () => {
           if (checkAll()) {
-            window.location = "http://iesmanacor.cat/";
+            const partituraService = PartituraService.getInstance();
+            const a = partituraService.savePartitura(
+              document.querySelector("#id").value,
+              document.querySelector("#titol").value,
+              document.querySelector("#idiomaOriginal").value,
+              document.querySelector("[name=idiomatraduccio]").value,
+              document.querySelector("#lletraOriginal").value, 
+              document.querySelector("#traduccio").value,
+              []
+            );
+            console.log(a);
           }
-        }
+        };
       </script>
     </section>
   </body>
