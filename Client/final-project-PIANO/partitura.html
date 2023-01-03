@@ -56,7 +56,7 @@
         "use strict";
         import { GoogleService } from "./js/service/GoogleService.js";
         import { PartituraService } from "./js/service/PartituraService.js"; 
-
+        import { Partitura } from "./js/model/Partitura.js";
         (async () => {
           const googleService = GoogleService.getInstance();
           const idiomes = await googleService.getIdiomes();
@@ -153,19 +153,21 @@
           );
         };
 
-        const check = () => {
+        const check = async () => {
           if (checkAll()) {
             const partituraService = PartituraService.getInstance();
-            const a = partituraService.savePartitura(
-              document.querySelector("#id").value,
+            const partitura = new Partitura(document.querySelector("#id").value,
               document.querySelector("#titol").value,
               document.querySelector("#idiomaOriginal").value,
               document.querySelector("[name=idiomatraduccio]").value,
               document.querySelector("#lletraOriginal").value, 
               document.querySelector("#traduccio").value,
-              []
-            );
-            console.log(a);
+              []); 
+            partituraService.savePartitura(partitura).then((a) => {
+              alert(a.notifyMessage); 
+              window.location.href = "partitures.html";
+            })
+            
           }
         };
       </script>

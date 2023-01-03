@@ -66,25 +66,27 @@
                     <th>Idioma Original</th>
                     <th>Accions</th>
                 </tr> `;
-        for (let partitura of arrayPartitures) {
+
+        arrayPartitures.forEach((partitura) => {
           let articleRepetit = `
-                                <tr>
-                                  <td>${partitura.titol}</td>
-                                  <td>${partitura.idiomaOriginal.toUpperCase()}</td>
-                                  <td class='btn'>
-                                    <p style="cursor:pointer;"  id='edit${
-                                      partitura.id
-                                    }'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>
-                                    <p style="cursor:pointer;"  id='borrar${
-                                      partitura.id
-                                    }'> <i class='fa-solid fa-trash'></i> Esborrar</p>
-                                  </td>
-                                </tr>`;
+                  <tr>
+                    <td>${partitura.titol}</td>
+                    <td>${partitura.idiomaOriginal.toUpperCase()}</td>
+                    <td class='btn'>
+                      <p style="cursor:pointer;"  id='edit${
+                        partitura.id
+                      }'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>
+                      <p style="cursor:pointer;"  id='borrar${
+                        partitura.id
+                      }'> <i class='fa-solid fa-trash'></i> Esborrar</p>
+                    </td>
+                  </tr>`;
           table += articleRepetit;
-        }
+        });
+
         table += `</table>`;
         document.querySelector("#container").innerHTML += table;
-        for (let partitura of arrayPartitures) {
+        /* for (let partitura of arrayPartitures) {
           document
             .querySelector("#edit" + partitura.id)
             .addEventListener("click", () => {
@@ -95,7 +97,19 @@
             .addEventListener("click", () => {
               borrar(partitura.id);
             });
-        }
+        } */
+        arrayPartitures.forEach((partitura) => {
+          document
+            .querySelector("#edit" + partitura.id)
+            .addEventListener("click", () => {
+              editar(partitura.id);
+            });
+          document
+            .querySelector("#borrar" + partitura.id)
+            .addEventListener("click", () => {
+              borrar(partitura.id);
+            });
+        });
 
         document.querySelector("#partitures").addEventListener("click", () => {
           partitures();
@@ -104,7 +118,6 @@
         document.querySelector("#login").addEventListener("click", () => {
           login();
         });
-
       })();
       const partitures = () => {
         window.open("partitura.html", "_self");
@@ -118,8 +131,9 @@
       };
       const borrar = (id) => {
         if (confirm("estas segur que vols borrar aquesta cançó?")) {
-        const partituraService = PartituraService.getInstance();
-        partituraService.deletePartitura(id);
+          const partituraService = PartituraService.getInstance();
+          partituraService.deletePartitura(id);
+          window.location.href = "partitures.html";
         } else {
           alert("Ha cancel·lat l'acció");
         }

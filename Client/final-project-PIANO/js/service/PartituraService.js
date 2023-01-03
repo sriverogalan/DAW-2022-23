@@ -38,20 +38,11 @@ export class PartituraService {
     return partitura;
   }
 
-  async savePartitura(
-    idpartitura,
-    name,
-    idiomaoriginal,
-    idiomatraduccio,
-    partituraoriginal,
-    partituratraduccio,
-    notes
-  ) {
-    let a = new Partitura(idpartitura, name,idiomaoriginal,idiomatraduccio,partituraoriginal,partituratraduccio,notes);
-    score = score.toJSON();
+  async savePartitura(s) {  
+    s = s.toJSON(); 
     let response = await fetch(this._URL + "/piano/nologin/score/save", {
       method: "POST", 
-      body: {score: JSON.stringify(score)},
+      body: JSON.stringify({ score: s }),
     });
     let json = await response.json();
     return json;

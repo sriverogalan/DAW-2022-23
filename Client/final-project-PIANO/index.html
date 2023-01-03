@@ -166,6 +166,7 @@
     }
 
     function assignarTeclesPiano() {
+      /*
       for (let i = 0; i < notes.length; i++) {
         let nota = notes[i];
         let tecla = document
@@ -176,18 +177,31 @@
             cercadorPartitures();
             document.querySelector("#cerca").innerHTML = cerca;
           });
-      }
+      }*/ 
+      notes.forEach((nota) => {
+        let tecla = document
+          .querySelector("#" + nota)
+          .addEventListener("click", () => {
+            sonarTecla(nota);
+            cerca.push(nota);
+            cercadorPartitures();
+            document.querySelector("#cerca").innerHTML = cerca;
+          });
+      });
     }
 
     function cercadorPartitures() {
       document.querySelector("#resultats").innerHTML = "";
-      for (let partitura in partitures) {
-        let partituraString = partitures[partitura].join();  
-        let cercaString = cerca.join();
-        if (partituraString.includes(cercaString)) { 
+      /* for (let partitura in partitures) { 
+        if (partitures[partitura].join().includes(cerca.join())) { 
           pintaPartitura(partitura);
         }
-      }
+      } */ 
+      Object.keys(partitures).forEach((partitura) => {
+        if (partitures[partitura].join().includes(cerca.join())) {
+          pintaPartitura(partitura);
+        }
+      });
     }
 
     function pintaPartitura(partitura) {
@@ -204,11 +218,10 @@
 
     assignarTeclesPiano();
 
-    function reproduirPartitura(partitura) {
+    function reproduirPartitura(partitura) { 
       let partituraSeleccionada = partitures[partitura];
       let i = 0;
-      let interval;
-      let interval2 = clearInterval(interval);
+      let interval; 
       let temps = 500;
       let crono = new Cronometro(temps, partitura).init();
       interval = setInterval(() => {
