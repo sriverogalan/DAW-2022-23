@@ -173,8 +173,7 @@
               editor.on("input", () => {
                 const texto = editor.getContent();
                 document.querySelector("#lletraOriginaltext").value = texto; 
-                
-                translateToCatalan();
+                document.querySelector("#lletraTraduccio").innerHTML = "magranes";
               });
             },
           });
@@ -187,8 +186,8 @@
               document.querySelector("#titol").value,
               document.querySelector("#lletraOriginaltext").value,
               document.querySelector("#lletraTraduccio").innerHTML,
-              "ca",
               document.querySelector("#idiomaDesti").value,
+              "ca",
               []
             );
             partituraService.savePartitura(partitura).then((a) => {

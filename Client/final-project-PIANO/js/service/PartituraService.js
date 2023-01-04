@@ -56,8 +56,7 @@ export class PartituraService {
       },
       body: JSON.stringify({ id: id }),
     });
-    let json = await response.json();
-    return json;
+    return await response.json();
   }
 
   async addCerca() {}

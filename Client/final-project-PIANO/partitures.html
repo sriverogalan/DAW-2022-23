@@ -68,6 +68,7 @@
                 </tr> `;
 
         arrayPartitures.forEach((partitura) => {
+          console.log(partitura);
           let articleRepetit = `
                   <tr>
                     <td>${partitura.titol}</td>
@@ -85,7 +86,7 @@
         });
 
         table += `</table>`;
-        document.querySelector("#container").innerHTML += table; 
+        document.querySelector("#container").innerHTML += table;
         arrayPartitures.forEach((partitura) => {
           document
             .querySelector("#edit" + partitura.id)
@@ -120,8 +121,10 @@
       const borrar = (id) => {
         if (confirm("estas segur que vols borrar aquesta cançó?")) {
           const partituraService = PartituraService.getInstance();
-          partituraService.deletePartitura(id);
-          window.location.href = "partitures.html";
+          partituraService.deletePartitura(id).then(() => {
+            alert("Se ha borrado la partitura correctamente");
+            return (window.location.href = "partitures.html");
+          })
         } else {
           alert("Ha cancel·lat l'acció");
         }
