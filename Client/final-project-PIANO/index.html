@@ -24,24 +24,21 @@
       <h1>Score Finder</h1>
     </div>
     <div class="piano">
-      <div class="btn-white" id="do"></div>
-      <div class="btn-white" id="re">
+      <div class="buttons">
+        <div class="btn-white" id="do"></div>
         <div class="btn-black" id="do-sust"></div>
-      </div>
-      <div class="btn-white" id="mi">
+        <div class="btn-white" id="re"></div>
         <div class="btn-black" id="re-sust"></div>
-      </div>
-      <div class="btn-white" id="fa"></div>
-      <div class="btn-white" id="sol">
+        <div class="btn-white" id="mi"></div>
+        <div class="btn-white" id="fa"></div>
         <div class="btn-black" id="fa-sust"></div>
-      </div>
-      <div class="btn-white" id="la">
+        <div class="btn-white" id="sol"></div>
         <div class="btn-black" id="sol-sust"></div>
-      </div>
-      <div class="btn-white" id="si">
+        <div class="btn-white" id="la"></div>
         <div class="btn-black" id="la-sust"></div>
+        <div class="btn-white" id="si"></div>
+        <div class="btn-white" id="do7"></div>
       </div>
-      <div class="btn-white" id="do7"></div>
     </div>
 
     <div class="piano-dev">
@@ -55,7 +52,7 @@
         <div id="resultats"></div>
       </div>
     </div>
-  </body> 
+  </body>
   <script>
     "use strict";
     const notes = [
@@ -166,18 +163,6 @@
     }
 
     function assignarTeclesPiano() {
-      /*
-      for (let i = 0; i < notes.length; i++) {
-        let nota = notes[i];
-        let tecla = document
-          .querySelector("#" + notes[i])
-          .addEventListener("click", () => {
-            sonarTecla(nota);
-            cerca.push(nota);
-            cercadorPartitures();
-            document.querySelector("#cerca").innerHTML = cerca;
-          });
-      }*/ 
       notes.forEach((nota) => {
         let tecla = document
           .querySelector("#" + nota)
@@ -192,11 +177,6 @@
 
     function cercadorPartitures() {
       document.querySelector("#resultats").innerHTML = "";
-      /* for (let partitura in partitures) { 
-        if (partitures[partitura].join().includes(cerca.join())) { 
-          pintaPartitura(partitura);
-        }
-      } */ 
       Object.keys(partitures).forEach((partitura) => {
         if (partitures[partitura].join().includes(cerca.join())) {
           pintaPartitura(partitura);
@@ -218,10 +198,10 @@
 
     assignarTeclesPiano();
 
-    function reproduirPartitura(partitura) { 
+    function reproduirPartitura(partitura) {
       let partituraSeleccionada = partitures[partitura];
       let i = 0;
-      let interval; 
+      let interval;
       let temps = 500;
       let crono = new Cronometro(temps, partitura).init();
       interval = setInterval(() => {
@@ -256,7 +236,6 @@
           this.milisegons = this.tempsActual - this.tempsIni;
           this.pinta();
           if (this.tempsActual >= this.tempsFi) {
-            
             clearInterval(this.interval);
           }
         }, 1);

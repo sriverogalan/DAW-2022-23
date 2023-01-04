@@ -19,6 +19,66 @@ h2{
   background-image: url(../images/background.jpg) ;
 }
 
+input#submit{ 
+  background-color: rgb(231, 0, 0);
+  border: 1px solid rgb(231, 0, 0);
+  border-radius: 5px; 
+  height: 45px;
+  width: 100px;
+  color: white;
+  box-shadow: 0 0 10px rgb(231, 0, 0);  
+}
+.logo {
+  color: white;
+  text-decoration: none;
+}
+
+input#submit:hover{
+  background-color: rgb(236, 236, 236);
+  color: black;
+  box-shadow: 0 0 10px white;
+  cursor: pointer; 
+}
+
+section form { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#titol {
+  width: 100%;
+  height: 100%;
+  border:  1px solid black;
+  background-color: transparent; 
+  font-size: 20px;  
+  font-family: 'Oswald', sans-serif;
+}
+
+#lletraTraduccio{
+  width: 100%;
+  height: 100%;
+  background-color: transparent; 
+  font-size: 20px;  
+  font-family: 'Oswald', sans-serif;
+}
+
+label {
+  width: 100%;
+  height: 100%;
+  background-color: transparent; 
+  font-size: 20px;  
+  font-family: 'Oswald', sans-serif;
+}
+
+select {
+  width: 100%;
+  height: 100%;
+  border:  1px solid black;
+  background-color: transparent; 
+  font-size: 20px;  
+  font-family: 'Oswald', sans-serif;
+} 
 .div-title h1 {
   font-family: 'Dancing Script', cursive;
   font-size: 100px;
@@ -33,54 +93,8 @@ h2{
   width: 100%;
   margin: 0;
   padding: 0;
-}
-
-.btn-white {
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 60px;
-  height: 300px;
-  margin: 1;
-  padding: 0;
-  box-shadow: 0 0 10px black; 
-}
-
-.btn-white:active {
-  background-color: black;
-  color: white;
-  box-shadow: 0 0 10px white;   
-}
-
-.btn-white:hover {
-  background-color: rgb(236, 236, 236);
-  color: white;
-  box-shadow: 0 0 10px white;
-  cursor: pointer; 
-}
-
-.btn-black { 
-  background-color: black;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 50%;
-  height: 50%;   
-  box-shadow: 0 0 10px white;
-}
-
-.btn-black:active {
-  background-color: white;
-  color: black;
-  box-shadow: 0 0 10px black;
-}
-
-.btn-black:hover {
-  background-color: rgb(36, 36, 36);
-  color: white;
-  box-shadow: 0 0 10px rgb(0, 0, 0);
-  cursor: pointer; 
-}
-
+} 
+ 
 .piano-dev {
   display: flex;
   flex-direction: column;
@@ -95,12 +109,8 @@ h2{
 }
  
 
-.piano {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-image: url("https://wallpaperaccess.com/full/173801.png");
+.piano { 
+  background-image: url("https://images.hdqwalls.com/download/ios-13-gold-4k-yz-3840x2160.jpg");
   background-size: cover;
   width: 50%;
   margin-left: auto;
@@ -109,6 +119,52 @@ h2{
   border-radius: 10px 10px 0 0; 
   box-shadow: 0 0 10px black;
 } 
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;  
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;  
+  width: 75%;
+  height: 100%; 
+} 
+
+.btn-white{ 
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px; 
+  height: 300px;
+  width: 150px;
+  color: black;
+  box-shadow: 0 0 10px black;
+}
+.btn-white:hover{
+  background-color: rgb(236, 236, 236);
+  color: black;
+  box-shadow: 0 0 10px white;
+  cursor: pointer; 
+}
+
+.btn-black{
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 5px; 
+  height: 300px;
+  width: 150px;
+  margin-left: auto;
+  color: white;
+  box-shadow: 0 0 10px black;
+}
+
+.btn-black:hover{
+  background-color: rgb(236, 236, 236);
+  color: black;
+  box-shadow: 0 0 10px white;
+  cursor: pointer; 
+}
+
 .search-song {
   margin-top: 10px;
   margin-bottom: 10px;

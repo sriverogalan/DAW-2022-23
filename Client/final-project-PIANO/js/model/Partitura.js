@@ -21,10 +21,10 @@ export class Partitura {
     return new Partitura(
         json.idpartitura,
         json.titol,
-        json.idiomaoriginal,
-        json.idiomatraduccio,
         json.lletraoriginal,
         json.lletratraduccio,
+        json.idiomaoriginal,
+        json.idiomatraduccio,
         json.notes
     );
   }

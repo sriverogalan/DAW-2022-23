@@ -71,7 +71,7 @@
           let articleRepetit = `
                   <tr>
                     <td>${partitura.titol}</td>
-                    <td>${partitura.idiomaOriginal.toUpperCase()}</td>
+                    <td>${partitura.lletraOriginal.toUpperCase()}</td>
                     <td class='btn'>
                       <p style="cursor:pointer;"  id='edit${
                         partitura.id
@@ -85,19 +85,7 @@
         });
 
         table += `</table>`;
-        document.querySelector("#container").innerHTML += table;
-        /* for (let partitura of arrayPartitures) {
-          document
-            .querySelector("#edit" + partitura.id)
-            .addEventListener("click", () => {
-              editar(partitura.id);
-            });
-          document
-            .querySelector("#borrar" + partitura.id)
-            .addEventListener("click", () => {
-              borrar(partitura.id);
-            });
-        } */
+        document.querySelector("#container").innerHTML += table; 
         arrayPartitures.forEach((partitura) => {
           document
             .querySelector("#edit" + partitura.id)

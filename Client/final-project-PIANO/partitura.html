@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script
+      src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
       rel="stylesheet"
@@ -21,7 +25,9 @@
   <body>
     <header>
       <nav>
-        <h1 class="logo-name">Score Finder</h1>
+        <a href="./partitures.html" class="logo">
+          <h1 class="logo-name">Score Finder</h1>
+        </a>
       </nav>
     </header>
 
@@ -29,44 +35,46 @@
       <form name="formulari" method="dialog">
         <input type="number" name="idpartitura" id="id" hidden />
 
-        <label for="titol">Títol</label>
-        <input type="text" name="name" id="titol" />
+        <label for="titol">Títol</label><br />
+        <input type="text" name="name" id="titol" /><br /><br />
 
-        <label for="idiomaoriginal">Idioma Original</label>
-        <select name="idiomaoriginal" id="idiomaOriginal">
-          <option selected disabled>Elige un idioma</option>
-        </select>
+        <label for="idiomaDesti">Idioma Original</label><br />
+        <select name="idiomaDesti" id="idiomaDesti">
+          <option selected disabled>Elige un idioma</option></select
+        ><br /><br />
 
-        <input type="text" name="idiomatraduccio" value="ca" hidden />
+        <input type="text" name="idiomaOriginal" value="ca" hidden />
 
-        <label for="partituratraduccio">Lletra Original</label>
+        <label for="lletraOriginal">Lletra Original</label><br />
         <textarea
-          name="partituratraduccio"
+          name="lletraOriginal"
           id="lletraOriginal"
           cols="10"
           rows="5"
-        ></textarea>
+        ></textarea
+        ><br /><br />
 
-        <label for="traduccio">Traducció al català</label>
-        <textarea name="traduccio" id="traduccio" cols="10" rows="5"></textarea>
+        <label for="lletraTraduccio">Traducció al català</label><br />
+        <span name="lletraTraduccio" id="lletraTraduccio"></span><br /><br />
 
         <input type="submit" id="submit" />
       </form>
+
       <script type="module">
         "use strict";
         import { GoogleService } from "./js/service/GoogleService.js";
-        import { PartituraService } from "./js/service/PartituraService.js"; 
+        import { PartituraService } from "./js/service/PartituraService.js";
         import { Partitura } from "./js/model/Partitura.js";
         (async () => {
           const googleService = GoogleService.getInstance();
           const idiomes = await googleService.getIdiomes();
 
-          const idiomaOriginal = document.querySelector("#idiomaOriginal");
+          const idiomaDesti = document.querySelector("#idiomaDesti");
           idiomes.forEach((idioma) => {
             const option = document.createElement("option");
             option.value = idioma.id;
             option.textContent = idioma.nom;
-            idiomaOriginal.appendChild(option);
+            idiomaDesti.appendChild(option);
           });
 
           const variablesUrl = window.location.search;
@@ -78,15 +86,22 @@
             const partitura = await partituraService.getPartituraById(id);
             document.querySelector("#id").value = partitura.id;
             document.querySelector("#titol").value = partitura.titol;
-            document.querySelector("#idiomaOriginal").value =
-              partitura.idiomaOriginal;
-            document.querySelector("[name=idiomatraduccio]").value =
-              partitura.idiomaTraduccio;
+            document.querySelector("#idiomaDesti").value =
+              partitura.idiomaDesti;
             document.querySelector("#lletraOriginal").value =
               partitura.lletraOriginal;
-            document.querySelector("#traduccio").value =
+            document.querySelector("#lletraTraduccio").innerHTML =
               partitura.lletraTraduccio;
           }
+
+          const lletraOriginalInput = document.createElement("input");
+          lletraOriginalInput.type = "text";
+          lletraOriginalInput.id = "lletraOriginaltext";
+          lletraOriginalInput.style.display = "none";
+          document.querySelector("form").appendChild(lletraOriginalInput);
+
+          tinymceInit(); 
+
           document
             .querySelector("#submit")
             .addEventListener("click", () => check());
@@ -102,21 +117,19 @@
             return false;
           }
         };
-        const idiomaOriginalCheck = () => {
-          const idiomaOriginal =
-            document.getElementById("idiomaOriginal").value;
+        const idiomaDestiCheck = () => {
+          const idiomaOriginal = document.querySelector("#idiomaDesti").value;
           if (idiomaOriginal != -1) {
-            document.querySelector("#idiomaOriginal").style.backgroundColor =
+            document.querySelector("#idiomaDesti").style.backgroundColor =
               "green";
             return true;
           } else {
-            document.querySelector("#idiomaOriginal").style.backgroundColor =
+            document.querySelector("#idiomaDesti").style.backgroundColor =
               "red";
             return false;
           }
         };
         const lletraOriginalCheck = () => {
-          // comprobar si no esta vacio
           const lletraOriginal =
             document.querySelector("#lletraOriginal").value;
           if (lletraOriginal != "") {
@@ -130,44 +143,58 @@
           }
         };
         const traduccioCheck = () => {
-          const traduccio = document.getElementById("traduccio").value;
+          const traduccio = document.querySelector("#lletraTraduccio").value;
           if (traduccio != "") {
-            document.querySelector("#traduccio").style.backgroundColor =
+            document.querySelector("#lletraTraduccio").style.backgroundColor =
               "green";
             return true;
           } else {
-            document.querySelector("#traduccio").style.backgroundColor = "red";
+            document.querySelector("#lletraTraduccio").style.backgroundColor =
+              "red";
             return false;
           }
         };
         const checkAll = () => {
           titleCheck();
-          idiomaOriginalCheck();
+          idiomaDestiCheck();
           lletraOriginalCheck();
           traduccioCheck();
           return (
             titleCheck() &&
-            idiomaOriginalCheck() &&
+            idiomaDestiCheck() &&
             lletraOriginalCheck() &&
             traduccioCheck()
           );
         };
-
+        const tinymceInit = () => {
+          const tiny = tinymce.init({
+            selector: "#lletraOriginal",
+            setup: (editor) => {
+              editor.on("input", () => {
+                const texto = editor.getContent();
+                document.querySelector("#lletraOriginaltext").value = texto; 
+                
+                translateToCatalan();
+              });
+            },
+          });
+        };
         const check = async () => {
           if (checkAll()) {
             const partituraService = PartituraService.getInstance();
-            const partitura = new Partitura(document.querySelector("#id").value,
+            const partitura = new Partitura(
+              document.querySelector("#id").value,
               document.querySelector("#titol").value,
-              document.querySelector("#idiomaOriginal").value,
-              document.querySelector("[name=idiomatraduccio]").value,
-              document.querySelector("#lletraOriginal").value, 
-              document.querySelector("#traduccio").value,
-              []); 
+              document.querySelector("#lletraOriginaltext").value,
+              document.querySelector("#lletraTraduccio").innerHTML,
+              "ca",
+              document.querySelector("#idiomaDesti").value,
+              []
+            );
             partituraService.savePartitura(partitura).then((a) => {
-              alert(a.notifyMessage); 
+              alert(a.notifyMessage);
               window.location.href = "partitures.html";
-            })
-            
+            });
           }
         };
       </script>
