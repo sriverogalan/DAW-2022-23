@@ -24,20 +24,20 @@
       <h1>Score Finder</h1>
     </div>
     <div class="piano">
-      <div class="buttons">
-        <div class="btn-white" id="do"></div>
-        <div class="btn-black" id="do-sust"></div>
-        <div class="btn-white" id="re"></div>
-        <div class="btn-black" id="re-sust"></div>
-        <div class="btn-white" id="mi"></div>
-        <div class="btn-white" id="fa"></div>
-        <div class="btn-black" id="fa-sust"></div>
-        <div class="btn-white" id="sol"></div>
-        <div class="btn-black" id="sol-sust"></div>
-        <div class="btn-white" id="la"></div>
-        <div class="btn-black" id="la-sust"></div>
-        <div class="btn-white" id="si"></div>
-        <div class="btn-white" id="do7"></div>
+      <div class="piano-teclas">
+        <div class="tecla-blanca-piano" id="do" data-tecla="A"></div> 
+        <div class="tecla-negra-piano" id="do-sust" data-tecla="W"></div>
+        <div class="tecla-blanca-piano" id="re" data-tecla="S"></div>
+        <div class="tecla-negra-piano" id="re-sust" data-tecla="E"></div>
+        <div class="tecla-blanca-piano" id="mi" data-tecla="D"></div>
+        <div class="tecla-blanca-piano" id="fa" data-tecla="F"></div>
+        <div class="tecla-negra-piano" id="fa-sust" data-tecla="G"></div>
+        <div class="tecla-blanca-piano" id="sol" data-tecla="Y"></div>
+        <div class="tecla-negra-piano" id="sol-sust" data-tecla="Y"></div>
+        <div class="tecla-blanca-piano" id="la" data-tecla="H"> </div>
+        <div class="tecla-negra-piano" id="la-sust" data-tecla="U"></div>
+        <div class="tecla-blanca-piano" id="si" data-tecla="J"></div>
+        <div class="tecla-blanca-piano" id="do7" data-tecla="K"></div>
       </div>
     </div>
 
@@ -162,16 +162,14 @@
       document.querySelector("#resultats").innerHTML = "";
     }
 
-    function assignarTeclesPiano() {
+    function assignarTeclesPiano() { 
       notes.forEach((nota) => {
-        let tecla = document
-          .querySelector("#" + nota)
-          .addEventListener("click", () => {
-            sonarTecla(nota);
-            cerca.push(nota);
-            cercadorPartitures();
-            document.querySelector("#cerca").innerHTML = cerca;
-          });
+        document.querySelector(`#${nota}`).addEventListener("click", () => {
+          sonarTecla(nota);
+          cerca.push(nota);
+          document.querySelector("#cerca").innerHTML = cerca.join(" ");
+          cercadorPartitures();
+        });
       });
     }
 

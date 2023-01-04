@@ -27,4 +27,19 @@ export class GoogleService {
     }
     return idiomes;
   } 
+
+  async translate(idiomaOrigen, texte) {
+    let response = await fetch(this._URL + "/piano/nologin/google/translate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        languageFrom: idiomaOrigen,
+        languageTo: "ca",
+        text: texte,
+      }),
+    }); 
+    return await response.text(); 
+  }
 }

@@ -92,7 +92,7 @@
               partitura.lletraOriginal;
             document.querySelector("#lletraTraduccio").innerHTML =
               partitura.lletraTraduccio;
-          }
+          } 
 
           const lletraOriginalInput = document.createElement("input");
           lletraOriginalInput.type = "text";
@@ -100,7 +100,7 @@
           lletraOriginalInput.style.display = "none";
           document.querySelector("form").appendChild(lletraOriginalInput);
 
-          tinymceInit(); 
+          tinymceInit();
 
           document
             .querySelector("#submit")
@@ -154,11 +154,7 @@
             return false;
           }
         };
-        const checkAll = () => {
-          titleCheck();
-          idiomaDestiCheck();
-          lletraOriginalCheck();
-          traduccioCheck();
+        const checkAll = () => { 
           return (
             titleCheck() &&
             idiomaDestiCheck() &&
@@ -171,9 +167,20 @@
             selector: "#lletraOriginal",
             setup: (editor) => {
               editor.on("input", () => {
-                const texto = editor.getContent();
-                document.querySelector("#lletraOriginaltext").value = texto; 
-                document.querySelector("#lletraTraduccio").innerHTML = "magranes";
+                const texto = editor.getContent();  
+                document.querySelector("#lletraOriginaltext").value = texto;
+
+                const googleService = GoogleService.getInstance();
+                if (document.querySelector("#idiomaDesti").value !== "ca") {
+                  googleService.translate(
+                      document.querySelector("#idiomaDesti").value,
+                      document.querySelector("#lletraOriginaltext").value
+                  ).then((traduccio) => {
+                    document.querySelector("#lletraTraduccio").innerHTML = traduccio;
+                  });
+                } else {
+                  document.querySelector("#lletraTraduccio").innerHTML = document.querySelector("#lletraOriginaltext").value;
+                }
               });
             },
           });
