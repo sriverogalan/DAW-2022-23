@@ -58,8 +58,4 @@ export class PartituraService {
     });
     return await response.json();
   }
-
-  async addCerca() {}
-
-  async cercador() {}
 }

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIANO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <h1 class="logo-name">Score Finder</h1>
+        <ul>
+          <li id="partitures">
+            <p class="navbar-buttons">Partitures</p>
+          </li>
+          <li id="login">
+            <p class="navbar-buttons">
+              <i class="fa-regular fa-user"></i>
+              Login
+            </p>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <div id="container">
+        <div class="add">
+          <button type="button" onclick="addSong()" class="btn-add-songs">
+            Afegir cançó
+          </button>
+        </div>
+      </div>
+    </section>
+    <script type="module">
+      import { PartituraService } from "../js/service/PartituraService.js";
+      (async () => {
+        const partituraService = PartituraService.getInstance();
+        let arrayPartitures = await partituraService.getPartitures();  
+        arrayPartitures.sort((a, b) => {
+          if (a.titol < b.titol) {
+            return -1;
+          }
+          if (a.titol > b.titol) {
+            return 1;
+          }
+          return 0;
+        }); 
+        
+        printTable(arrayPartitures)
+        
+        arrayPartitures.forEach((partitura) => {
+          document
+            .querySelector("#edit" + partitura.id)
+            .addEventListener("click", () => {
+              editar(partitura.id);
+            });
+          document
+            .querySelector("#borrar" + partitura.id)
+            .addEventListener("click", () => {
+              borrar(partitura.id);
+            });
+        });
+
+        document.querySelector("#partitures").addEventListener("click", () => {
+          partitures();
+        });
+
+        document.querySelector("#login").addEventListener("click", () => {
+          login();
+        });
+      })();
+
+      const printTable = (arrayPartitures) => {
+        let table = ``;
+        table = ` <table>
+                <tr>
+                    <th>Titol</th>
+                    <th>Idioma Original</th>
+                    <th>Accions</th>
+                </tr> `; 
+
+        arrayPartitures.forEach((partitura) => {
+          console.log(partitura);
+          let articleRepetit = `
+                  <tr>
+                    <td>${partitura.titol}</td>
+                    <td>${partitura.idiomaOriginal.toUpperCase()}</td>
+                    <td class='btn'>
+                      <p style="cursor:pointer;"  id='edit${
+                        partitura.id
+                      }'> <i class='fa-solid fa-pen-to-square'> </i> Editar<p>
+                      <p style="cursor:pointer;"  id='borrar${
+                        partitura.id
+                      }'> <i class='fa-solid fa-trash'></i> Esborrar</p>
+                    </td>
+                  </tr>`;
+          table += articleRepetit;
+        });
+
+        table += `</table>`;
+        document.querySelector("#container").innerHTML += table;
+      }
+
+      const partitures = () => {
+        window.open("partitura.html", "_self");
+      };
+      const editar = (id) => {
+        if (confirm("estas segur que vols editar aquesta cançó?")) {
+          window.location.href = "partitura.html?id=" + id;
+        } else {
+          alert("Ha cancel·lat l'acció");
+        }
+      };
+      const borrar = (id) => {
+        if (confirm("estas segur que vols borrar aquesta cançó?")) {
+          const partituraService = PartituraService.getInstance(); 
+          partituraService.deletePartitura(id).then(() => {
+            alert("Se ha borrado la partitura correctamente");
+            return (window.location.href = "partitures.html");
+          });
+          alert("La partitura se esta borrant pot tardar uns segons");
+        } else {
+          alert("Ha cancel·lat l'acció");
+        }
+      };
+      const login = () => {
+        let url = "login.html";
+        let w = 600;
+        let h = 600;
+        let dualScreenLeft =
+          window.screenLeft != undefined ? window.screenLeft : screen.left;
+        let dualScreenTop =
+          window.screenTop != undefined ? window.screenTop : screen.top;
+        let width = window.innerWidth
+          ? window.innerWidth
+          : document.documentElement.clientWidth
+          ? document.documentElement.clientWidth
+          : screen.width;
+        let height = window.innerHeight
+          ? window.innerHeight
+          : document.documentElement.clientHeight
+          ? document.documentElement.clientHeight
+          : screen.height;
+        let left = width / 2 - w / 2 + dualScreenLeft;
+        let top = height / 2 - h / 2 + dualScreenTop;
+        let newWindow = window.open(
+          url,
+          "",
+          "scrollbars=yes, width=" +
+            w +
+            ", height=" +
+            h +
+            ", top=" +
+            top +
+            ", left=" +
+            left
+        );
+      };
+    </script>
+  </body>
+</html>
