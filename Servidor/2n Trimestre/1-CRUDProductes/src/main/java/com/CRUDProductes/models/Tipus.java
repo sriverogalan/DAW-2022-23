@@ -13,6 +13,5 @@ public @Data class Tipus {
     private Long id;
 
     @Column(name = "nom_tipus")
-    private String nom;
-
+    private String nom; 
 }
