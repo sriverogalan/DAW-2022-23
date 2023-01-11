@@ -28,8 +28,10 @@
                 <td th:text="${product.descripcio}"></td>
                 <td th:text="${product.preu}"></td>
                 <td th:text="${product.proveidor.nom}"></td>
-                <td th:text="${product.tipus}"></td>
-                <td th:text="${product.detallProducte }"></td>
+                <td th:each="tipus : ${product.tipus}">
+                    <span th:text="${tipus.nom}"></span>
+                </td>
+                <td th:text="${product.detallProducte.nom }"></td>
             </tr>
         </table>
     </div>

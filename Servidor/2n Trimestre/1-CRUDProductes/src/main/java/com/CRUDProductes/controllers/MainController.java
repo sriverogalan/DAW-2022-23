@@ -32,7 +32,6 @@ public class MainController {
 
     @RequestMapping("/addProduct")
     public String addProduct() {
-
         return "addProduct";
     }
 }

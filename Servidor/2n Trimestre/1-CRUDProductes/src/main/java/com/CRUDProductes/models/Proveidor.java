@@ -11,6 +11,7 @@ import java.util.Set;
 public @Data class Proveidor {
     @Id
     @GeneratedValue
+    @Column(name = "id_proveidor")
     private Long id;
     @Column(name = "nom_proveidor")
     private String nom;

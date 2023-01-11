@@ -10,8 +10,9 @@ import java.util.Set;
 public @Data class Tipus {
     @Id
     @GeneratedValue
+    @Column(name = "id_tipus")
     private Long id;
 
     @Column(name = "nom_tipus")
-    private String nom; 
+    private String nom;
 }

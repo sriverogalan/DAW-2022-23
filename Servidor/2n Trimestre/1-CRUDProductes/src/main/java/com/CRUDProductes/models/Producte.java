@@ -12,6 +12,7 @@ import java.util.Set;
 public @Data class Producte {
     @Id
     @GeneratedValue
+    @Column(name = "id_producte")
     private Long id;
     @Column(name = "nom_producte")
     private String nom;
@@ -20,9 +21,16 @@ public @Data class Producte {
     @Column(name = "preu")
     private double preu;
     @ManyToOne
+    @JoinColumn(name = "id_proveidor")
     private Proveidor proveidor;
-    @ManyToMany
-    private Set<Tipus> tipus;
     @OneToOne
+    @JoinColumn(name = "id_detall")
     private DetallProducte detallProducte;
+    @ManyToMany
+    @JoinTable(
+            name = "producte_tipus",
+            joinColumns = @JoinColumn(name = "id_producte"),
+            inverseJoinColumns = @JoinColumn(name = "id_tipus")
+    )
+    private Set<Tipus> tipus;
 }
