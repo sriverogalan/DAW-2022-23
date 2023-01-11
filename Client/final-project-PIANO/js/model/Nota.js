@@ -7,8 +7,9 @@ export class Nota {
     this.ordre = ordre;
   }
   static fromJSON(json) {
-    return new Canal(json.id, json.nom, json.alteracio, json.ordre);
+    return new Nota(json.idnota, json.nom, json.alteracio, json.ordre);
   }
-  
-  
+   
+
+
 }

@@ -25,7 +25,7 @@
     </div>
     <div class="piano">
       <div class="piano-teclas">
-        <div class="tecla-blanca-piano" id="do" data-tecla="A"></div> 
+        <div class="tecla-blanca-piano" id="do" data-tecla="A"></div>
         <div class="tecla-negra-piano" id="do-sust" data-tecla="W"></div>
         <div class="tecla-blanca-piano" id="re" data-tecla="S"></div>
         <div class="tecla-negra-piano" id="re-sust" data-tecla="E"></div>
@@ -34,7 +34,7 @@
         <div class="tecla-negra-piano" id="fa-sust" data-tecla="G"></div>
         <div class="tecla-blanca-piano" id="sol" data-tecla="Y"></div>
         <div class="tecla-negra-piano" id="sol-sust" data-tecla="Y"></div>
-        <div class="tecla-blanca-piano" id="la" data-tecla="H"> </div>
+        <div class="tecla-blanca-piano" id="la" data-tecla="H"></div>
         <div class="tecla-negra-piano" id="la-sust" data-tecla="U"></div>
         <div class="tecla-blanca-piano" id="si" data-tecla="J"></div>
         <div class="tecla-blanca-piano" id="do7" data-tecla="K"></div>
@@ -45,7 +45,7 @@
       <div class="search-song">
         <h2>CERCANT...</h2>
         <p id="cerca"></p>
-        <button class="btn-red" onclick="borrarCerca()">Esborrar</button>
+        <button class="btn-red" id="borrar">Esborrar</button>
       </div>
       <div class="results">
         <h2>RESULTATS:</h2>
@@ -53,8 +53,9 @@
       </div>
     </div>
   </body>
-  <script>
+  <script type="module">
     "use strict";
+    import { PartituraService } from "../js/service/PartituraService.js";
     const notes = [
       "do",
       "re",
@@ -70,7 +71,7 @@
       "la-sust",
       "do7",
     ];
-    const partitures = {
+    /* const partitures = {
       "La Balanguera": [
         "do",
         "re",
@@ -143,7 +144,23 @@
         "fa-sust",
       ],
     };
+     */
+
+    let partitures;
     let cerca = [];
+
+    (async () => {
+      const partituraService = PartituraService.getInstance();
+      partitures = await partituraService.getNotesPartitura();
+
+      console.log(partitures);
+
+      document.querySelector("#borrar").addEventListener("click", () => {
+        borrarCerca();
+      });
+
+      
+    })();
 
     function Nota(nom) {
       this.nom = nom;
@@ -162,7 +179,7 @@
       document.querySelector("#resultats").innerHTML = "";
     }
 
-    function assignarTeclesPiano() { 
+    function assignarTeclesPiano() {
       notes.forEach((nota) => {
         document.querySelector(`#${nota}`).addEventListener("click", () => {
           sonarTecla(nota);
@@ -179,6 +196,10 @@
         if (partitures[partitura].join().includes(cerca.join())) {
           pintaPartitura(partitura);
         }
+        document.querySelector(`button[name=${partitura}]`).addEventListener('click', ()=>{ 
+          let partituraSeleccionada = partitures[partitura];
+          reproduirPartitura(partituraSeleccionada);
+        })
       });
     }
 
@@ -189,15 +210,17 @@
                       <h3>${partitura}</h3>
                       <p>Lletra</p>
                   </div>
-                      <button name="${partitura}" class="btn-red" onclick="reproduirPartitura('${partitura}')">Reproduir <br> canço</button>
+                      <button name="${partitura}" class="btn-red">Reproduir <br> canço</button>
                 </div>
             `;
+
+
     }
 
     assignarTeclesPiano();
+ 
 
     function reproduirPartitura(partitura) {
-      let partituraSeleccionada = partitures[partitura];
       let i = 0;
       let interval;
       let temps = 500;
