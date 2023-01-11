@@ -159,7 +159,7 @@
         borrarCerca();
       });
 
-      
+      assignarTeclesPiano();
     })();
 
     function Nota(nom) {
@@ -196,10 +196,7 @@
         if (partitures[partitura].join().includes(cerca.join())) {
           pintaPartitura(partitura);
         }
-        document.querySelector(`button[name=${partitura}]`).addEventListener('click', ()=>{ 
-          let partituraSeleccionada = partitures[partitura];
-          reproduirPartitura(partituraSeleccionada);
-        })
+        
       });
     }
 
@@ -210,17 +207,20 @@
                       <h3>${partitura}</h3>
                       <p>Lletra</p>
                   </div>
-                      <button name="${partitura}" class="btn-red">Reproduir <br> canço</button>
+                      <button name="${partitura}" class="btn-red" id="`+partitura+`">Reproduir <br> canço</button>
                 </div>
             `;
 
+      document.querySelector(`#`+partitura).addEventListener("click", () => {
+        reproduirPartitura(partitura);
+      });
 
     }
 
-    assignarTeclesPiano();
- 
+     
 
-    function reproduirPartitura(partitura) {
+    async function reproduirPartitura(partitura) {
+      let partituraSeleccionada = await partitures[partitura];
       let i = 0;
       let interval;
       let temps = 500;
