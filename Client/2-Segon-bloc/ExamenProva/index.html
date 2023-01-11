@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Asteroid Project</title>
+
+    <link rel="stylesheet" href="assets/css/nasa.css" />
+  </head>
+
+  <body>
+    <header>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/1200px-NASA_logo.svg.png"
+        alt="logo nasa"
+        width="1200"
+        height="993"
+      />
+    </header>
+    <main>
+      <aside>
+        <select id="dates" multiple></select>
+        <button id="cerca">Cerca asteroides</button>
+        <p>Prem Ctrl o Cmd per seleccionar vàries dates a la vegada</p>
+      </aside>
+      <section>
+        <div>
+          <h2>Resultat</h2>
+        </div>
+        <div id="taula">Sense Resultats</div>
+        <div id="paginacio">
+          <button id="anterior">Anterior</button>
+          <button id="seguent">Següent</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <script type="module">
+      import { Dates } from "./assets/js/Dates.js";
+      import { AsteroidService } from "./assets/js/controller/AsteroidService.js";
+
+      (() => {
+        const nasaController = new AsteroidService();
+        const dates = new Dates();
+        const datesArray = dates.getDates();
+        pintaDates(datesArray);
+
+        document.querySelector("#cerca").addEventListener("click", () => {
+          const selectedDates =
+            document.querySelector("#dates").selectedOptions;
+          const dates = [];
+          const allMeteorits = [];
+          for (let i = 0; i < selectedDates.length; i++) {
+            dates.push(selectedDates[i].value);
+          }
+
+          const arrayMeteorits = nasaController
+            .getAllMeteorits(dates)
+            .then((arrayDates) => {
+              arrayDates.forEach((date) => {
+                date.forEach((meteorit) => {
+                  allMeteorits.push(meteorit);
+                });
+              });
+            }).then(() => {
+              pintaMeteorits(allMeteorits);
+            });
+        });
+      })();
+
+      function pintaDates(datesArray) {
+        const datesSelect = document.querySelector("#dates");
+        datesArray.forEach((date) => {
+          const option = document.createElement("option");
+          option.value = date.value;
+          option.text = date.label;
+          datesSelect.appendChild(option);
+        });
+      }
+
+      function pintaTaula(meteorits) {
+        const taula = document.querySelector("#taula");
+        taula.innerHTML = "";
+        const table = document.createElement("table");
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<th>Nom</th>
+                            <th>És perillos?</th>
+                            <th>Diametre min</th>
+                            <th>Diametre max</th>
+                            <th>URL</th> `;
+        table.appendChild(tr);
+
+        for (const info of meteorits) {
+          const tr = document.createElement("tr");
+          if (info.isPerillos) {
+            info.isPerillos = "Si";
+          } else {
+            info.isPerillos = "No";
+          }
+          tr.innerHTML = `    <td>${info.nom}</td>
+                              <td>${info.isPerillos}</td>
+                              <td>${info.diametreMin}</td>
+                              <td>${info.diametreMax}</td>
+                              <td><a href="${info.url}">Fitxa</a></td>`;
+          table.appendChild(tr);
+        }
+        taula.appendChild(table);
+      }
+
+      function pintaMeteorits(allMeteorits) {
+        const seguent = document.querySelector("#seguent");
+        const anterior = document.querySelector("#anterior");
+        let pagina = 0;
+        const meteoritsPagina = 5; 
+
+        pintaTaula(allMeteorits.slice(pagina, meteoritsPagina));
+        anterior.disabled = true;
+
+        if (allMeteorits.length > meteoritsPagina) {
+          seguent.disabled = false;
+        }
+
+        seguent.addEventListener("click", () => {
+          pagina += meteoritsPagina;
+          pintaTaula(allMeteorits.slice(pagina, pagina + meteoritsPagina));
+          if (pagina + meteoritsPagina >= allMeteorits.length) {
+            seguent.disabled = true;
+          }
+          if (pagina === meteoritsPagina) {
+            anterior.disabled = false;
+          }
+        });
+
+        anterior.addEventListener("click", () => {
+          pagina -= meteoritsPagina;
+          pintaTaula(allMeteorits.slice(pagina, pagina + meteoritsPagina));
+          if (pagina === 0) {
+            anterior.disabled = true;
+          }
+          if (pagina + meteoritsPagina < allMeteorits.length) {
+            seguent.disabled = false;
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

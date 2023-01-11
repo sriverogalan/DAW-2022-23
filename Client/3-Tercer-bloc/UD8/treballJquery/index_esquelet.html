@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="lib/jquery-ui-1.12.1/jquery-ui.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="lib/select2-4.0.3/dist/css/select2.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <div class="decoration"></div>
+    <main>
+      <h1>Es Liceu Airlines</h1>
+      <section id="formulari">
+        <div>
+          <label for="from">From</label>
+          <select id="from" class="select" name="from"></select>
+        </div>
+
+        <div>
+          <label for="to">To</label>
+          <select id="to" class="select" name="to"></select>
+        </div>
+
+        <div>
+          <label for="departure">Departure</label>
+          <input type="text" id="departure" name="departure" />
+        </div>
+
+        <div>
+          <label for="return">Return</label>
+          <input type="text" id="return" name="return" />
+        </div>
+
+        <div>
+          <label for="passengers">Passengers</label>
+          <input id="passengers" name="passengers" />
+        </div>
+
+        <!-- <div class="submit">
+          <input type="button" value="Search Flights" onclick="send()" />
+        </div> -->
+      </section>
+
+      <section id="resultat"></section>
+    </main>
+
+    <script src="lib/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script
+      src="lib/jquery-ui-1.12.1/jquery-ui.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="lib/select2-4.0.3/dist/js/select2.full.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"
+      type="text/javascript"
+    ></script>
+
+    <script>
+      /* Exercici 1 */
+
+      $('main').hide()
+      $('main').delay(2000).fadeIn()
+
+      $('#formulari').append(
+        "<div div class='submit'><input type='button' value='Search Flights' onclick='send()' /></div>",
+      )
+
+      /* Exercici 2*/
+
+      $.ajax({
+        url: 'https://theteacher.codiblau.com/exercicis/airports',
+        method: 'GET',
+        dataType: 'json', //si no es fa amb dataType: 'json' cal fer JSON.parse(resp)
+        success: function (resp) {
+          $('#from').append("<option disabled selected>Seleccioni aeroport</option>") 
+          $('#to').append("<option disabled selected>Seleccioni aeroport</option>") 
+          for (var airport of resp) {
+            $('#from').append(
+              "<option value='" +
+                airport.code +
+                "'>" +
+                airport.name +
+                '</option>',
+            )
+            $('#to').append(
+              "<option value='" +
+                airport.code +
+                "'>" +
+                airport.name +
+                '</option>',
+            )
+          }
+        },
+      })
+
+      /* Exercici 3 */
+
+
+      $('#departure').datepicker({ 
+        dateFormat: 'dd/mm/yy',  
+        firstDay: 1,
+        numberOfMonths: 3, 
+        minDate: 0,
+        maxDate: '+1y', 
+        onSelect: function (selectedDate) {
+          $('#return').datepicker('option', 'minDate', selectedDate)
+        },
+      })
+
+      $('#return').datepicker({
+        dateFormat: 'dd/mm/yy', 
+        firstDay: 1,
+        numberOfMonths: 3,
+        minDate: 0,
+        maxDate: '+1y', 
+        onSelect: function (selectedDate) {
+          $('#departure').datepicker('option', 'maxDate', selectedDate)
+        },
+      })
+
+      $('#passengers').spinner({
+        min: 1,
+        max: 50,
+      })
+ 
+      $('select').css('width', '100%') 
+      $('#from').select2()    
+      $('#to').select2() 
+
+
+      function send() {
+        $.ajax({
+          url: 'https://theteacher.codiblau.com/exercicis/airports/search',
+          method: 'GET',
+          dataType: 'json',
+          data: {
+            from: $('#from').val(),
+            to: $('#to').val(),
+            departure: $('#departure').val(),
+            return: $('#return').val(),
+            passengers: $('#passengers').val(),
+          },
+          success: function (resp) {
+            $('#resultat').empty()
+            $('#resultat').append(
+              "<table id='datatable'> <thead> <tr> <th>Hora Partida</th> <th>Hora Tornada</th> <th>Aerolinia partida</th> <th>Aerolinia tornada</th> <th>Preu per persona</th> <th>Preu Total</th> </tr> </thead> <tbody> ",
+            )
+            for (var flight of resp) {
+              $('#resultat table').append(
+                '<tr> <td>' +
+                  flight.departureHour +
+                  '</td> <td>' +
+                  flight.returnHour +
+                  '</td> <td>' +
+                  flight.departureAirline +
+                  '</td> <td>' +
+                  flight.returnAirline +
+                  '</td> <td>' +
+                  flight.pricePerPerson +
+                  '</td> <td>' +
+                  flight.price +
+                  '</td> </tr>',
+              )
+            }
+            $('#resultat').append('</tbody> </table> ') 
+
+            $(document).ready(function () {
+              $('#datatable').DataTable()
+            })  
+          },
+        })
+      }
+    </script>
+  </body>
+</html>

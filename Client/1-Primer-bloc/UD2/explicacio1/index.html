@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>Primer element</div>
+    <div class="rosa">Segon element</div>
+    <div class="rosa" id="darrer">Tercer element</div>
+    <div id="copiar">Quart element</div>
+    <img src="./img/gato.jpg" alt="gato">
+    <button onclick="changeCat()">Canviar per un ca</button>
+
+
+    <script>
+        /**
+        document.querySelector("div").style.backgroundColor = "red";
+        document.querySelector(".rosa").style.backgroundColor = "pink";
+        document.querySelector("#darrer").style.backgroundColor = "blue";  
+        */
+
+        // document.querySelector("div").style.color = "pink";
+        var nodes = document.querySelectorAll("div");
+        for (var i = 0; i < nodes.length; i++) {
+            nodes[i].style.color = "red";
+        }
+        for (var node of nodes) {
+            node.style.color = "blue";
+        }
+        var nodesRosa = document.querySelectorAll(".rosa");
+        for (var node of nodesRosa) {
+            node.style.color = "pink";
+        }
+        // nth-child 
+        document.querySelector("#darrer").style.color = "red";
+        document.querySelector("#copiar").style.color = document.querySelector("div:nth-child(2)").style.color;
+
+        document.querySelector("div").innerHTML = "<h1>Primer div modificat</h1>" + "<h1>Primer div modificat</h1>";
+        document.querySelector("img").style.width = "250px";
+        document.querySelector("img").style.width = "solid 20px black";
+        function changeCat() {
+            document.querySelector("img").src = "./img/perro.jpg";
+            document.querySelector("button").style.display = "none";
+        } 
+    </script>
+</body>
+
+</html>

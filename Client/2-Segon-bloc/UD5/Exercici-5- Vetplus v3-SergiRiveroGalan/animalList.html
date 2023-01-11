@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <button>Nou animal</button>
+    <input type="text" id="search" />
+    <div id="taulaAnimals"></div>
+    <script type="module">
+      import { AnimalService } from "./controller/AnimalService.js";
+
+      (async function () {
+        const animalService = AnimalService.getInstance();
+        const animals = await animalService.getAnimals(); 
+        const sorted = animals.sort((a, b) => a.nom.localeCompare(b.nom));
+        pintar(sorted);
+
+        document.querySelector("#search").addEventListener("input", () => {
+          const value = document.querySelector("#search").value;
+          const animalFilter = animals.filter((a) => a.nom.toLowerCase().includes(value.toLowerCase()));
+          
+          const array = ["<", ">","-",  "'", "/", "(", ")"]
+          const animalFilter2 = animalFilter.filter((x) => !array.includes(x.nom));
+          pintar(animalFilter2 );
+        });
+
+        document.querySelector("button").addEventListener("click", () => { 
+          open("animalForm.html", "_self");
+        });
+      })(); 
+      
+
+      function pintar(animals) {
+        const taula = ` <table>
+                          <tr>
+                            <th>Nom</th>
+                            <th>Accions</th>
+                          </tr>
+                          </table>
+            `;
+
+        document.querySelector("#taulaAnimals").innerHTML = taula;
+
+        const taulaAnimals = document.querySelector("#taulaAnimals");
+
+        for (let animal of animals) {
+          const tr = document.createElement("tr");
+          const tdNom = document.createElement("td");
+          tdNom.innerHTML = animal.nom;
+          const tdAccions = document.createElement("td");
+          tdAccions.innerHTML = `<a href="animalForm.html?id=${animal.idanimal}">Editar</a>`;
+
+          tr.appendChild(tdNom);
+          tr.appendChild(tdAccions); 
+          taulaAnimals.appendChild(tr);
+        }
+      }
+    </script>
+  </body>
+</html>

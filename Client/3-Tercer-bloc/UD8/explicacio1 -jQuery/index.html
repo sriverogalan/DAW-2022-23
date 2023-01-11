@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Prova jQuery</h1>
+    <div>
+      <p>Hola</p>
+      <p>Mon</p>
+      <p>Adeu</p>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.2.min.js"
+      integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // IMPORTANT PER EMPLEIAR JQUERY SE HA DE EMPLEIAR FUNCIONS PROPIES DEL FRAMEWORK
+      //$('div p').append("!")
+      $('div p').addClass('Hola')
+
+      var i = 0
+      $('div p').each(function () {
+        $(this).html(i + ' - ' + $(this).html() + '!')
+        i++
+      })
+
+      /* setTimeout(function(){ 
+        $('div p').fadeOut();
+      },2000) */
+
+      $('div p').fadeOut()
+      $('div p').delay(2000).fadeUp()
+
+      $('div p').click(function () {
+        $(this).css('color', 'red').css('background-color', 'blue');
+      })
+      /* $('div p').on('click', function(){
+
+      }) */
+    </script>
+  </body>
+</html>

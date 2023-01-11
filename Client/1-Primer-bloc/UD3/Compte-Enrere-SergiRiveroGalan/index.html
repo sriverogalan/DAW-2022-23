@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte-Enrere Sergi Rivero Galan</title>
+</head>
+<body> 
+    <input type="text" id="number"> 
+    <span id="counter"></span>
+    <script>
+        var number;
+        var inter; 
+        document.querySelector("#number").addEventListener("input", function(){
+            number = document.getElementById("number").value; 
+            if(!isNaN(number)) {
+                clearInterval(inter);
+                inter = setInterval(function(){
+                    document.querySelector("#counter").innerHTML = number--;
+                    if(number === -1) {
+                        clearInterval(inter);
+                        document.querySelector("#counter").innerHTML = '<span id="counter">SORPRESA!</span>';
+                    }
+                },1000)
+            } else {
+                clearInterval(inter);
+                document.querySelector("#counter").innerHTML = '<span id="counter">Error</span>';
+            }
+        }) 
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"path": "../../../../../ProjecteBotiga"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Projectes-Classe"
+	}
+}

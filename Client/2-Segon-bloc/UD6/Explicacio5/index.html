@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Vehicle {
+        constructor(marca, model) {
+          this.marca = marca;
+          this.model = model;
+        }
+      }
+
+      (() => {
+        const bici = new Vehicle("Orbea", "Orca");
+
+        Object.defineProperty(bici, "color", {
+          enumerable: false,
+          writable: true,
+          value: "vermell",
+        });
+
+        bici.color = "blau";
+
+        for (let propietat in Object.keys(bici)) {
+          console.log("Propietat", propietat);
+        }
+
+        console.log(
+          bici,
+          bici.color,
+          Object.keys(bici),
+          bici.hasOwnProperty("marca"), // true perque existeix la marca
+          bici.hasOwnProperty("color") // false perque no existeix el color
+        );
+      })();
+    </script>
+  </body>
+</html>

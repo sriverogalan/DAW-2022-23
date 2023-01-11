@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <label>Nom</label>
+    <input type="text" id="nom" />
+
+    <label for="sexe">Sexe</label>
+    <input type="radio" id="MASC" name="sexe" value="MASC" checked />
+    <label for="MASC">Masculí</label>
+
+    <input type="radio" id="FEM" name="sexe" value="FEM" />
+    <label for="FEM">Femení</label>
+
+    <div id="numregistreForm"></div>
+
+    <label for="tipus">Tipus:</label>
+    <select name="tipus" id="tipus">
+      <option value="no-elegit">Elegeix una opcio</option>
+      <option id="ca" value="ca">Ca (de raça o no)</option>
+      <option id="cavall" value="cavall">Cavall (de carreres o no)</option>
+      <option id="moix" value="moix">Moix</option>
+    </select>
+    <br />
+    <button id="desar">Desa</button>
+
+    <script type="module">
+      import { AnimalService } from "./controller/AnimalService.js";
+      import { Animal } from "./model/Animal.js";
+
+      (async () => {
+        const variablesUrl = window.location.search;
+        const urlParams = new URLSearchParams(variablesUrl);
+        const id = urlParams.get("id");
+
+        if (id) {
+          const animalService = AnimalService.getInstance();
+          const animal = await animalService.getAnimal(id);
+          console.log(animal);
+          pintarAnimal(animal);
+          save(animal.idanimal);
+        } else {
+          const value = document.querySelector("#tipus").value;
+          comprobarTipus(value);
+          save(null);
+        }
+      })();
+      async function save(idanimal) {
+        document
+          .querySelector("#desar")
+          .addEventListener("click", async function () {
+            const nom = document.querySelector("#nom").value;
+            const sexe = document.querySelector(
+              'input[name="sexe"]:checked'
+            ).value;
+            const numregistre = document.querySelector("#numregistre").value;
+            const tipus = document.querySelector("#tipus").value;
+
+            const animalService = AnimalService.getInstance();
+            const animalSaved = await animalService.save( 
+              new Animal(
+                idanimal,
+                nom,
+                sexe,
+                numregistre,
+                tipus
+              )
+            );  
+          });
+      }
+      function pintarAnimal(animal) {
+        const nom = animal.nom;
+        const sexe = animal.sexe;
+        const numregistre = animal.numregistre;
+        const tipus = animal.tipus;
+
+        document.querySelector("#nom").value = nom;
+        document.querySelector(`#${sexe}`).checked = true;
+        document.querySelector(`#${tipus}`).selected = true;
+        print(tipus, numregistre);
+      }
+      function print(tipus, numregistre) {
+        const value = document.querySelector("#tipus").value;
+        if (numregistre === undefined || numregistre === null) numregistre = "";
+
+        if (value === "ca") {
+          document.querySelector("#numregistreForm").innerHTML = `
+            <label for="numregistre">Número de registre</label>
+            <input type="text" id="numregistre" value="${numregistre}" />`;
+        } else if (value === "cavall") {
+          document.querySelector("#numregistreForm").innerHTML = `
+            <label for="numregistre">Número de federat</label>
+            <input type="text" id="numregistre" value="${numregistre}" />`;
+        } else if (value === "moix") {
+          document.querySelector("#numregistreForm").innerHTML = ` 
+            <input type="text" id="numregistre" value="0" style="display:none"/>`;
+        } else {
+          document.querySelector("#numregistreForm").innerHTML = "";
+        }
+        comprobarTipus(tipus, numregistre);
+      }
+      function comprobarTipus(tipus, numregistre) {
+        document
+          .querySelector("#tipus")
+          .addEventListener("change", function () {
+            print(tipus, numregistre);
+          });
+      }
+    </script>
+  </body>
+</html>

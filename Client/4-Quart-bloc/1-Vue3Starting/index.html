@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body >
+    <div id="aplicacio">
+      <h1 v-if="color.width%2===0">Missatge 1: {{ message }}</h1>
+      <h1 v-if="esAmpladaParell()">Missatge 2:{{ message }}</h1>
+      <p>{{ color.color }}</p>
+      <button @click="hola()">Canvia missatge</button>
+      <button @click="colorize()">Pinta</button>
+      <button @click="getAirports()">Mostrar aeroports</button>
+      <div
+        :style="`background: #${color.background}; color: #${color.color}; width: ${color.width}px; height: ${color.height}px`"
+      ></div>
+
+      <ul>
+        <li v-for="al in aliments">{{al}}</li>
+      </ul>
+
+      <input type="text" v-model="message">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Codi</th>
+            <th>Nom</th>
+            <th>Latitud</th>
+            <th>Longitud</th>
+            <th>Ciutat</th>
+          </tr>
+        </thead>
+        <tbody> 
+          <tr v-for="a in aeroports">
+            <td>{{a.code}}</td>
+            <td>{{a.name}}</td>
+            <td>{{a.lat}}</td>
+            <td>{{a.lon}}</td>
+            <td>{{a.city}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp } = Vue;
+      createApp({
+        data() {
+          return {
+            message: "Hello world!",
+            color: [],
+            aliments: ["platan", "pera", "maduixa", "poma"],
+            aeroports: {},
+          };
+        },
+        methods: {
+          hola() {
+            this.message = "Hola món!";
+          },
+          async colorize() {
+            const colorFetch = await fetch(
+              "https://theteacher.codiblau.com/exercicis/other/color?min=0&max=50"
+            );
+            this.color = await colorFetch.json();
+          },
+          esAmpladaParell() {
+            return this.color.width % 2;
+          },
+
+          async getAirports() {
+            const colorFetch = await fetch(
+              "https://theteacher.codiblau.com/exercicis/airports"
+            );
+            this.aeroports = await colorFetch.json();
+          },
+        },
+      }).mount("#aplicacio"); 
+    </script>
+  </body>
+</html>

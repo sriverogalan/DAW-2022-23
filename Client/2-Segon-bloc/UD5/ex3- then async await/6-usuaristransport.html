@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        let table = "";
+        table = '<table id="taula">';
+        //Capçalera
+        table += '<tr>';
+        table += '<th>Nom</th>';
+        table += '<th>Cognom 1</th>';
+        table += '<th>Cognom 2</th>';
+        table += '<th>Transport</th>';
+        table += '</tr>';
+        table += '</table>';
+        document.querySelector("#app").innerHTML += table;
+        async function init() {
+            const usuarisFetch = await fetch("https://theteacher.codiblau.com/exercicis/other/usuaris/list")
+            const usuariJSON = await usuarisFetch.json();
+            const usuaris = usuariJSON;
+
+            const transportsPromise = [];
+
+            for (let usuari of usuaris) {
+                const transportFetch = await fetch("https://theteacher.codiblau.com/exercicis/other/usuaris/transport", {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'idtransport=' + usuari.transport_idtransport
+                }).then(x => x.json());
+
+                transportsPromise.push(transportFetch); 
+            }
+
+            const transports = await Promise.all(transportsPromise);
+            let i = 0;
+            for (let transport of transports) {
+                const tr = document.createElement('tr');
+                const tdNom = document.createElement('td');
+                tdNom.innerHTML = usuaris[i].idusuari + " " + usuaris[i].nom;
+
+                const tdCognom1 = document.createElement('td');
+                tdCognom1.innerHTML = usuaris[i].cognom1;
+
+                const tdCognom2 = document.createElement('td');
+                tdCognom2.innerHTML = usuaris[i].cognom2;
+
+                const tdTransport = document.createElement('td');
+                tdTransport.innerHTML = transport.nom + '<img src="' + transport.url + '">';
+
+                tr.appendChild(tdNom);
+                tr.appendChild(tdCognom1);
+                tr.appendChild(tdCognom2);
+                tr.appendChild(tdTransport);
+
+                document.querySelector("table").appendChild(tr);
+                i++;
+            }
+        }
+
+        init()
+    </script>
+</body>
+
+</html>
