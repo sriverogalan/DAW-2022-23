@@ -72,16 +72,7 @@
       "do7",
     ];
     /* const partitures = {
-      "La Balanguera": [
-        "do",
-        "re",
-        "mi",
-        "fa",
-        "fa",
-        "sol",
-        "la-sust",
-        "la-sust",
-      ],
+      ,
       "Happy Birthday": [
         "do",
         "do",
@@ -151,10 +142,7 @@
 
     (async () => {
       const partituraService = PartituraService.getInstance();
-      partitures = await partituraService.getNotesPartitura();
-
-      console.log(partitures);
-
+      partitures = await partituraService.getNotesPartitura();  
       document.querySelector("#borrar").addEventListener("click", () => {
         borrarCerca();
       });
@@ -170,6 +158,7 @@
     function sonarTecla(nota) {
       let n = new Nota(nota);
       let audio = new Audio(n.src);
+      console.log(audio);
       audio.play();
     }
 
@@ -196,7 +185,12 @@
         if (partitures[partitura].join().includes(cerca.join())) {
           pintaPartitura(partitura);
         }
-        
+      });
+
+      document.querySelectorAll("#partitura").forEach((partitura) => {
+        partitura.addEventListener("click", () => {
+          reproduirPartitura(partitura.name);
+        });
       });
     }
 
@@ -207,23 +201,16 @@
                       <h3>${partitura}</h3>
                       <p>Lletra</p>
                   </div>
-                      <button name="${partitura}" class="btn-red" id="`+partitura+`">Reproduir <br> canço</button>
+                      <button name="${partitura}" class="btn-red" id="partitura">Reproduir <br> canço</button>
                 </div>
             `;
-
-      document.querySelector(`#`+partitura).addEventListener("click", () => {
-        reproduirPartitura(partitura);
-      });
-
     }
 
-     
-
-    async function reproduirPartitura(partitura) {
-      let partituraSeleccionada = await partitures[partitura];
+    function reproduirPartitura(partitura) {
+      let partituraSeleccionada = partitures[partitura];
       let i = 0;
       let interval;
-      let temps = 500;
+      let temps = 1000;
       let crono = new Cronometro(temps, partitura).init();
       interval = setInterval(() => {
         if (i < partituraSeleccionada.length) {
@@ -269,9 +256,8 @@
         let segons = Math.floor((temps / 1000) % 60);
         let milisegons = Math.floor((temps % 1000) / 10);
         document.querySelector(
-          "[name='" + this.partitura + "']"
-        ).innerHTML = ` ${hores}:${minuts}:${segons}.${milisegons}  `;
-        console.log(this.partitura);
+          '[name="' + this.partitura + '"]'
+        ).innerHTML = ` ${hores}:${minuts}:${segons}.${milisegons}  `; 
       };
     }
   </script>

@@ -60,7 +60,7 @@ export class PartituraService {
     return await response.json();
   }
 
-  async getNotesPartitura() {
+  async getNotesPartitura() { 
     let response = await fetch(this._URL + "/piano/nologin/score/list", {
       method: "POST",
       headers: {
@@ -80,11 +80,13 @@ export class PartituraService {
       notes.forEach((n) => {
         if (p.notes === n) {
           notesPartitures[p.titol] = n.map((n) => {
-            let nota = Nota.fromJSON(n); 
-    
+            let nota = Nota.fromJSON(n);  
             if (nota.alteracio === "SOSTINGUT") {
-              return nota.nom.toLowerCase() + "#";
-            }
+              return nota.nom.toLowerCase() + "-sust";
+            } 
+            if (nota.nom.toLowerCase() === "do_agut") {  
+              return "do7";
+            } 
             return nota.nom.toLowerCase();
           });
         }
