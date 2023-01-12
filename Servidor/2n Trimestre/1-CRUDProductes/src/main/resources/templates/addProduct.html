@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <form action="">
+    <form action="/add" method="post">
         <label for="nom">Nom</label>
         <input type="text" name="nom" id="nom">
 
@@ -19,6 +19,20 @@
         <label for="preu">Preu</label>
         <input type="text" name="preu" id="preu">
 
+        <label for="proveidor">Proveidor</label>
+        <select name="proveidor" id="proveidor">
+            <option th:each="proveidor : ${proveidors}" th:text="${proveidor.nom}" th:value="${proveidor.id}"></option>
+        </select>
+
+        <label for="tipus" >Tipus</label>
+        <select name="tipus" id="tipus" multiple >
+            <option th:each="tipus : ${tipus}" th:text="${tipus.nom}" th:value="${tipus.id}"></option>
+        </select>
+
+        <label for="detallProducte">Detall Producte</label>
+        <select name="detallProducte" id="detallProducte" >
+            <option th:each="detallProducte : ${detallProductes}" th:text="${detallProducte.nom}" th:value="${detallProducte.id}"></option>
+        </select>
 
         <button type="submit">Submit</button>
     </form>

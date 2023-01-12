@@ -160,7 +160,7 @@
             passengers: $('#passengers').val(),
           },
           success: function (resp) {
-            $('#resultat').empty()
+            $('#resultat').empty() // FER HO AMB UN .clear() i un .addRows()
             $('#resultat').append(
               "<table id='datatable'> <thead> <tr> <th>Hora Partida</th> <th>Hora Tornada</th> <th>Aerolinia partida</th> <th>Aerolinia tornada</th> <th>Preu per persona</th> <th>Preu Total</th> </tr> </thead> <tbody> ",
             )

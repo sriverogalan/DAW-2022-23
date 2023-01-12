@@ -6,24 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body> 
-
-    <div id="aplicacio">
-        v-
+  <body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+    <h1> Progrma de Font Awesome </h1>
+    <div id="app">
+      <input type="text" v-model="cerca" />
+      <button @click="cercar">Cerca</button>
+      <h2 :class="{error:!svg.label}">{{ svg.label }}</h2>
+      <div v-if="!message">
+        <svg :width="svg.width" :height="svg.height">
+          <path :d="svg.path"></path>
+        </svg>
+      </div>
     </div>
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-        const { createApp } = Vue;
-        createApp({
-        data() {
-          return { 
+      const { createApp } = Vue;
 
+      createApp({
+        data() {
+          return {
+            svg: {},
+            message: "",
+            notroba: "no s'ha trobat",
           };
         },
-        methods: { 
+        methods: {
+          async cercar() {
+            const cercaFetch = await fetch(
+              `https://theteacher.codiblau.com/exercicis/other/icons/get?nom=${this.cerca}`
+            );
+            if (cercaFetch.status === 200) {
+              this.svg = await cercaFetch.json();
+              this.message = null;
+            } else {
+              this.message = await cercaFetch.text(); 
+            }
+          },
         },
-      }).mount("#aplicacio"); 
+      }).mount("#app");
     </script>
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
   </body>
 </html>

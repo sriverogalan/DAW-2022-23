@@ -10,7 +10,9 @@ services:
     ports:
       - 8081:3000
       - 1234:1234
+      - 80:80
     expose:
       - 8081
       - 1234
+      - 80 
     tty: true

@@ -68,6 +68,7 @@ export class PartituraService {
       },
     });
     let json = await response.json();
+    console.log(json);
     const partitures = await json.map((p) => Partitura.fromJSON(p));
     const notes = await partitures.map((p) =>{  
       p.notes.sort((a, b) => a.ordre - b.ordre);  
@@ -92,6 +93,7 @@ export class PartituraService {
         }
       });
     });
+    console.log(notesPartitures)
     return notesPartitures;
   }
 }
