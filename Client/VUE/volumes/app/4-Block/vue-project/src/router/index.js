@@ -1,16 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import IconView from '../views/IconView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/icon',
+      name: 'icon',
+      component: IconView
+    },
     {
       path: '/',
       name: 'home',
       component: HomeView
     },
     {
-      path: '/about',
+      path: '/sergi',
       name: 'about',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
