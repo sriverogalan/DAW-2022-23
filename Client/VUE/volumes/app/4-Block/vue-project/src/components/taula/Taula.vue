@@ -1,6 +1,8 @@
 <template>
   <h1>{{ nom }}</h1>
   <table>
+    <slot> </slot>
+    <!--
     <tr>
       <th>Nom <button>Asc</button><button>Desc</button></th>
       <th>Cognoms <button @click="ordena('asc')">Asc</button><button @click="ordena('desc')">Desc</button></th>
@@ -8,7 +10,7 @@
     <tr v-for="u in usuaris">
       <Columna>{{ u.nom }}</Columna>
       <Columna>{{ u.cognoms }}</Columna>
-    </tr>
+    </tr>-->
   </table>
 </template>
 
@@ -40,12 +42,5 @@ export default {
 <style>
 table {
   border: solid 1px red;
-}
-table th {
-  text-transform: uppercase;
-}
-
-table td {
-  color: blue;
 }
 </style>
