@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="description" content="This is my PWA website">
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Prova JQuery</p>
+    <div>
+      <p>Hola</p>
+      <p>Mon</p>
+      <p>Adéu</p>
+    </div>
+  </body>
+
+  <script
+    src="https://code.jquery.com/jquery-3.6.2.min.js"
+    integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    // $("div p").append("!");
+    /* $("div p").each(function () {
+      $(this).html($(this).html() + "!");
+    }); */
+    /* 
+    var i = 1;
+    $("div p").each(function () {
+      $(this).html(i + "-" + $(this).html() + "!");
+    });
+
+    $("div p").click(function () {
+      $(this).css("color", "red");
+    }); */
+
+    $.ajax({
+      url: "https://theteacher.codiblau.com/exercicis/other/color",
+      method: "GET",
+      dataType: "json",
+      data: {
+        min: "100",
+        max: "150",
+      },
+      success: function (data) {
+        $("body").append(
+          '<div style="background-color: #' +
+            data.background +
+            "; width: " +
+            data.width +
+            "px; height: " +
+            data.height +
+            "px; color: #" +
+            data.color +
+            '">' +
+            data.color +
+            "</div>"
+        );
+      },
+      error: function (error) {
+        console.log(error);
+      },
+    });
+    // Jquery ajax per a fer una petició GET a la url https://theteacher.codiblau.com/exercicis/other/color amb els parametres color, background, width i height
+    // i que ens mostri per consola el resultat de la petició
+    // Si hi ha hagut un error, que ens mostri per consola el missatge d'error
+  </script>
+
+<script>
+  // Don't register the service worker
+  // until the page has fully loaded
+  window.addEventListener('load', () => {
+    // Is service worker available?
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').then(() => {
+        console.log('Service worker registered!');
+      }).catch((error) => {
+        console.warn('Error registering service worker:');
+        console.warn(error);
+      });
+    }
+  });
+</script>
+</html>

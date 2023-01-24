@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/custom.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body class="bg-black"> 
+  <img src="./images/lupa.png" />
+    <button class="btn btn-primary">Color btn-primary</button>
+    <button class="btn btn-secondary">Color btn-secondary</button>
+    <button class="btn btn-ies-manacor">Color btn-ies-manacor</button>
+    <button class="btn btn-sergi">Color Sergi</button>
+    <button class="btn btn-hola">btn-hola</button>
+  </body> 
+
+  <script>
+    /*     const myModal= new bootstrap.Modal('#myModal', {
+      backdrop: 'static',
+
+    })
+    myModal.show() 
+    myModal.document.querySelector("#myModal").addEventListener('show.bs.modal', function(){
+      
+    }) */
+
+    // Don't register the service worker
+    // until the page has fully loaded
+    window.addEventListener("load", () => {
+      // Is service worker available?
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("sw.js")
+          .then(() => {
+            console.log("Service worker registered!");
+          })
+          .catch((error) => {
+            console.warn("Error registering service worker:");
+            console.warn(error);
+          });
+      }
+    });
+  </script>
+</html>

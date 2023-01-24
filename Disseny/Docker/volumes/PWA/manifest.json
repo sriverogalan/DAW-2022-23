@@ -1,0 +1,15 @@
+{
+  "short_name": "DIW",
+  "name": "Disseny d'interficies web (DIW)",
+  "start_url": "index.html",
+  "scope": "/",
+  "theme_color": "#4DBA87",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "24-hours.png",
+      "sizes": "240x240",
+      "type": "image/png"
+    }
+  ]
+}

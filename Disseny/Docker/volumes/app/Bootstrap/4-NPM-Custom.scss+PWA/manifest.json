@@ -1,0 +1,16 @@
+{
+    "short_name": "DIW",
+    "name": "Diseny d'interficies web",
+    "start_url": "index.html",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#367Df5",
+    "icons": [
+      {
+        "src": "./images/lupa.png",
+        "sizes": "256x256",
+        "type": "image/png"
+      }
+    ]
+     
+  }
