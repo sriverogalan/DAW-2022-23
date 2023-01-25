@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link
+    href="lib/jquery-ui-1.12.1/jquery-ui.min.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link
+    href="lib/select2-4.0.3/dist/css/select2.min.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link
+    href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+    <link rel="stylesheet" href="lib/nasa.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/1200px-NASA_logo.svg.png"
+        alt="logo nasa"
+        width="1200"
+        height="993"
+      />
+    </header>
+
+    <main>
+      <aside>
+        <div id="select">
+          <select class="select" id="dies"></select>
+        </div>
+      </aside>
+      <section>
+        <div id="taula">
+          <table id="taulaAsteroides">
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script src="lib/jquery-3.1.1.min.js" type="text/javascript"></script>
+  <script
+    src="lib/jquery-ui-1.12.1/jquery-ui.min.js"
+    type="text/javascript"
+  ></script>
+  <script
+    src="lib/select2-4.0.3/dist/js/select2.full.min.js"
+    type="text/javascript"
+  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script
+    src="lib/select2-4.0.3/dist/js/select2.min.js"
+    type="text/javascript"
+  ></script>
+  <script
+    src="https://momentjs.com/downloads/moment-with-locales.js"
+    type="text/javascript"
+  ></script>  
+  <script
+  src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"
+  type="text/javascript"
+></script>
+
+  <script>
+    // Ex1  
+    var select = $("#dies"); 
+    for (var i = 0; i < 366; i++) {
+      var date = new Date();
+      var dia = date.getDate() - 1;
+      var mes = date.getMonth() + 1 ;
+      var any = date.getFullYear()-1; 
+      var fecha =  any + "-" + mes + "-" + dia;  
+
+      var data = moment(fecha, "YYYY-MM-DD", 'ca').add(i, "days").format("dddd, D MMMM YYYY");
+      select.append($("<option></option>").text(data).attr("value", fecha));
+    } 
+    $("#dies").select2();
+    
+    // Ex2
+    
+    var fecha = $("#dies").val();
+
+    $("#dies").change(function () { 
+      var fecha = $("#dies").val();
+      var api = "jCmSkD50T0oxOYolOYM2KIfXqh1N5J8NVWKwJp1T";
+      $.ajax({
+        url: 'https://api.nasa.gov/neo/rest/v1/feed?',
+        method: 'GET',
+        dataType: 'json',
+        data:{ 
+          start_date: fecha,
+          end_date: fecha,
+          api_key:api
+        },success: function (resp) {
+          console.log(resp);
+          $("#taulaAsteroides").empty();
+          $("#taulaAsteroides").append( 
+            "<thead>" +
+              "<tr>" +
+                "<th>Nom asteroide</th>" +
+                "<th>Pot ser perillós?</th>" +
+                "<th>Diametre estimat (min-max) en metres</th>" +
+                "<th>Velocitat (Km/h)</th>" +
+                "<th>Distància a la Terra (Km)</th>" +
+                "<th>Fitxa</th>" +
+              "</tr>" +
+            "</thead>" +
+            "<tbody id='cosTaula'></tbody>")
+
+            var asteroidesFechas = resp.near_earth_objects; 
+
+            for (var fecha in asteroidesFechas) {
+              var asteroides = asteroidesFechas[fecha];
+              for (var i = 0; i < asteroides.length; i++) {
+                var asteroide = asteroides[i];
+                var nom = asteroide.name;
+                var perill = asteroide.is_potentially_hazardous_asteroid; 
+                if (perill == true) {
+                  perill = "Sí";
+                } else {
+                  perill = "No";
+                } 
+                var diametre = asteroide.estimated_diameter.meters.estimated_diameter_min + " - " + asteroide.estimated_diameter.meters.estimated_diameter_max;
+                var velocitat = asteroide.close_approach_data[0].relative_velocity.kilometers_per_hour;
+                var distancia = asteroide.close_approach_data[0].miss_distance.kilometers;
+                var fitxa = asteroide.nasa_jpl_url;  
+
+                $("#cosTaula").append(
+                  "<tr>" +
+                    "<td>" + nom + "</td>" +
+                    "<td>" + perill + "</td>" +
+                    "<td>" + diametre + "</td>" +
+                    "<td>" + velocitat + "</td>" +
+                    "<td>" + distancia + "</td>" +
+                    "<td>" + "<a href='" +  fitxa +"'>Fitxa</a>" + "</td>" +
+                  "</tr>"
+                )
+              } 
+            }  
+           $('#taulaAsteroides').DataTable({
+              "language": {
+                "lengthMenu": "Mostrar _MENU_ registres per pàgina",
+                "zeroRecords": "No s'han trobat registres",
+                "info": "Mostrant pàgina _PAGE_ de _PAGES_",
+                "infoEmpty": "No hi ha registres disponibles",
+                "infoFiltered": "(filtrat de _MAX_ total de registres)",
+                "search": "Cerca:",
+                "paginate": {
+                  "first": "Primer",
+                  "last": "Últim",
+                  "next": "Següent",
+                  "previous": "Anterior"
+                } 
+              },  
+              "columnDefs": [
+                { "orderable": false, "targets": 5 }
+              ],
+              "stateSave": true,
+              dom: 'Bfrtip',
+              buttons: [
+                  'copy', 'csv', 'excel', 'pdf', 'print'
+              ] 
+            });
+             
+        }
+      }) 
+    })
+ 
+ 
+
+  </script>
+</html> 
