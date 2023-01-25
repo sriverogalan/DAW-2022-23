@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+}
+
+header img {
+    width: 200px;
+    height: auto;
+    margin: 10px;
+}
+
+body {
+    background-image: url('./stars-background.jpg');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    padding: 2vw;
+    margin-bottom: 5vh;
+}
+
+main {
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    border-radius: 4px;
+}
+
+main>aside {
+    order: 1;
+    flex-grow: 1;
+    padding: 20px;
+
+}
+
+main>section{
+    order: 2;
+    flex-grow: 5;
+    padding: 20px;
+}
