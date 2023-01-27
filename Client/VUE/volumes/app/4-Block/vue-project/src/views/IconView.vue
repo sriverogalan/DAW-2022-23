@@ -1,104 +1,166 @@
 <template>
-  <input type="text" v-model="cerca" @input="filtreUsuaris" />
-  <button @click="cercar">Cerca</button>
-  <h2 :class="{ error: !svg.label }">{{ svg.label }}</h2>
-  <div v-if="!message">
-    <svg :width="svg.width" :height="svg.height">
-      <path :d="svg.path"></path>
-    </svg>
-  </div>
+    <input type="text" v-model="logo" @input="filtreUsuaris">
+    <button @click="getLogo()">Get Icon</button>
 
-  <Taula :nom="' Taula ' + message" :usuaris="usuarisFilter" />
-  <Taula :nom="`Taula 2 ${message}`" :usuaris="usuarisFilter" />
+    <h2 v-if="missatge">{{ missatge }}</h2>
 
-  <Taula nom="Taula de prova">
-    <Fila>
-      <Columna :is-header="true">Nom</Columna>
-      <Columna 
-      :is-header="true" 
-      :sortable="true"
-      @sort-asc="ordenar('asc')"
-      @sort-desc="ordenar('desc')"
-      >Cognoms</Columna>
-      <Columna :is-header="true">Edad</Columna>
-    </Fila>
-    <Fila>
-      <Columna>Miquel</Columna>
-      <Columna>Gaia</Columna>
-      <Columna>124</Columna>
-    </Fila>
-    <Fila v-for="usuari in usuaris">
-      <Columna>{{usuari.nom}}</Columna>
-      <Columna>{{usuari.cognoms}}</Columna>
-      <Columna>{{usuari.id}}</Columna>
-    </Fila> 
-  </Taula>
+    <div v-if="!missatge">
+        <h2>{{ result.label }}</h2>
+        <svg :style="`width:${result.width}; height:${result.height}`">
+            <path :d="`${result.path}`"></path>
+        </svg>
+    </div>
 
-  <button @click="loadUsuaris">Load usuaris</button>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Cognoms</th>
+        </tr>
+
+        <tr>
+            <td>David</td>
+            <td>Alonso</td>
+        </tr>
+
+        <tr>
+            <td>Alvaro</td>
+            <td>Alonso</td>
+        </tr>
+    </table>
+
+    <button @click="loadUsuaris">Usuaris</button>
+
+    <Taula nom="Taula 2" :usuaris="usuarisFilter" />
+    <Taula nom="Taula 3" :usuaris="usuarisFilter" />
+
+    <Taula nom="Taula Components">
+        <Fila>
+            <Columna :isHeader="true" :sorteable="true" @sort-asc="ordena('asc')" @sort-desc="ordena('desc')">Nom
+            </Columna>
+            <Columna :isHeader="true">Cognoms</Columna>
+        </Fila>
+
+        <Fila>
+            <Columna>Sergi</Columna>
+            <Columna>Rivero</Columna>
+        </Fila>
+
+        <Fila v-for="usuari in usuaris">
+            <Columna>{{ usuari.nom }}</Columna>
+            <Columna>{{ usuari.cognoms }}</Columna>
+        </Fila>
+    </Taula>
+
+
 </template>
 
-
 <script>
-import Taula from "@/components/taula/Taula.vue";
-import Fila from "@/components/taula/Fila.vue";
-import Columna from "@/components/taula/Columna.vue";
+
+import Taula from '@/components/taula/Taula.vue'
+import Fila from '@/components/taula/Fila.vue'
+import Columna from '@/components/taula/Columna.vue'
+
+
 
 export default {
-  data() {
-    return {
-      svg: {},
-      message: "",
-      notroba: "no s'ha trobat",
-      usuaris: [],
-      usuarisFilter: [],
-    };
-  },
-  components: { Taula, Fila, Columna },
-  methods: {
-    async cercar() {
-      const cercaFetch = await fetch(
-        `https://theteacher.codiblau.com/exercicis/other/icons/get?nom=${this.cerca}`
-      );
-      if (cercaFetch.status === 200) {
-        this.svg = await cercaFetch.json();
-        this.message = this.notroba;
-      } else {
-        this.message = await cercaFetch.text();
-      }
-    },
-    async loadUsuaris() {
-      const usuarisFetch = await fetch(
-        `https://theteacher.codiblau.com/exercicis/other/usuaris/list`
-      );
-      const usuarisJson = await usuarisFetch.json();
-      this.usuaris = usuarisJson.map((u) => {
+    data() {
         return {
-          id: u.idusuari,
-          nom: u.nom,
-          cognoms: u.cognom1 + " " + u.cognom2,
-        };
-      });
-      this.usuarisFilter = this.usuaris;
+            message: 'Hello Vue!',
+            logo: '',
+            result: '',
+            missatge: '',
+            usuaris: [], //No se toca, lo unico que tiene que hacer es almacenar lo que trae de la api
+            usuarisFilter: [] //Depues de mapear el array de usuaris, se guarda aqui y se filtra
+        }
     },
-    async filtreUsuaris() {
-      this.usuarisFilter = this.usuaris.filter((u) => {
-       return u.nom.toLowerCase().includes(this.cerca.toLowerCase()) || u.cognoms.toLowerCase().includes(this.cerca.toLowerCase())
-      });
+
+    components: {
+        Taula, Fila, Columna
     },
-    async ordenar(ordre){
-      console.log(ordre)
-      if(ordre==='asc'){
-        this.usuaris.sort((a,b)=>a.cognoms.localeCompare(b.cognoms));
-      } else{
-        this.usuaris.sort((a,b)=>b.cognoms.localeCompare(a.cognoms));
-      }
-    }
-  },
-};
+
+    methods: {
+        async getLogo() {
+            const fetchLogo = await fetch(`https://theteacher.codiblau.com/exercicis/other/icons/get?nom=${this.logo}`);
+            if (fetchLogo.status === 200) {
+                const logo = await fetchLogo.json();
+                this.result = logo
+                this.missatge = null;
+            } else {
+                this.missatge = await fetchLogo.text();
+            }
+        },
+
+        async loadUsuaris() {
+            const fetchUsuaris = await fetch('https://theteacher.codiblau.com/exercicis/other/usuaris/list');
+
+            if (fetchUsuaris.status === 200) {
+                const usuaris = await fetchUsuaris.json();
+                console.log(usuaris);
+                this.usuaris = usuaris.map(u => {
+                    return {
+                        nom: u.nom,
+                        cognoms: u.cognom1 + ' ' + u.cognom2
+                    }
+                });
+
+                this.usuarisFilter = this.usuaris;
+            }
+        },
+
+        filtreUsuaris() {
+            this.usuarisFilter = this.usuaris.filter(u => {
+                return u.nom.toLowerCase().includes(this.logo.toLowerCase()) ||
+                    u.cognoms.toLowerCase().includes(this.logo.toLowerCase());
+            });
+        },
+
+        ordena(ordre) {
+
+            if (ordre === 'asc') {
+                this.usuaris.sort((a, b) => a.cognoms.localeCompare(b.cognoms))
+            } else this.usuaris.sort((a, b) => b.cognoms.localeCompare(a.cognoms))
+        }
+    },
+
+}
+
 </script>
 
-<style scoped >
+
+
+<style scoped>
 .error {
-  color: red;
+    color: red;
+}
+
+.gran {
+    font-size: 40pt;
+}
+
+.estilitzat {
+    text-decoration: underline;
+}
+
+table {
+    border: solid 1px red;
+}
+
+table th {
+    text-transform: uppercase;
+}
+
+table td {
+    color: blue;
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
 </style>

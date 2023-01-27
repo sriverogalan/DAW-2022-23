@@ -1,36 +1,44 @@
 <template>
-  <td v-if="!isHeader"><slot></slot></td> 
-  <th v-else>
-    <slot></slot>
-    <button v-if="sortable" @click="sortedBy('asc')">Sort</button>
-    <button v-if="sortable" @click="sortedBy('desc')">Desc</button>
-  </th> 
+    <td v-if="!this.isHeader">
+        <slot></slot>
+    </td>
+
+    <th v-if="this.isHeader">
+        <slot></slot>
+        <button v-if="sorteable" @click="sortBy('asc')">Asc</button>
+        <button v-if="sorteable" @click="sortBy('desc')" >Desc</button>
+</th>
 </template>
 
 <script>
+
 export default {
-  name: "Columna",
-  props: {
-    sortable: {
-      type: Boolean,
-      required: false,
+
+    name: "Columna",
+    props: { //Propiedades que se le pasan al componente booleano, string, array, etc
+        isHeader: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        sorteable:{
+            type: Boolean,
+            required: false,
+        }
     },
-    isHeader: {
-      type: Boolean,
-      required: false,
-    }, 
-  },
-  methods: {
-    sortedBy(type){
-      if(type === 'asc'){
-        this.$emit('sortAsc')
-      } else{ 
-        this.$emit('sortDesc')
-      }
+
+    methods:{
+        sortBy(type) {
+
+            if(type==='asc'){
+                this.$emit('sortAsc');
+            } else this.$emit('sortDesc');
+        }
     }
-  },
-};
+
+}
 </script>
 
-<style>
+<style scoped>
+
 </style>

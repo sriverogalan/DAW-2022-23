@@ -1,26 +1,17 @@
 <template>
-  <tr>
-    <slot> </slot></tr>
+    <tr><slot></slot></tr>
 </template>
 
 <script>
-export default { 
-  name: "Fila",
-  props: {
-    ordenacio: {
-      type: Function,
-      required: false,
+export default {
+    name: "Fila",
+    props: {
+
     },
-  },
+
 }
 </script>
 
-<style> 
-table th {
-  text-transform: uppercase;
-}
+<style lang="scss" scoped>
 
-table td {
-  color: blue;
-}
 </style>

@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import IconView from '../views/IconView.vue'
-import UserListView from '../views/usuaris/UserListView.vue'
-import UserFormView from '../views/usuaris/UserFormView.vue'
+import UsuariList from '../views/usuaris/UserListView.vue'
+import UsuariForm from '../views/usuaris/UserFormView.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,7 +11,7 @@ const router = createRouter({
     {
       path: '/icon',
       name: 'icon',
-      component: UserListView
+      component: IconView
     },
     {
       path: '/',
@@ -18,30 +19,30 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/sergi',
+      path: '/about',
       name: 'about',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
     },
+
     {
       path: '/usuaris',
-      children: [
+      children:[
         {
           path: 'llistat',
-          component : UserListView
+          component: UsuariList
         },
         {
           path: 'form',
-          component : UserFormView
+          component: UsuariForm
         },
         {
           path: 'form/:idusuari',
-          component : UserFormView
-        }]
-
-
+          component: UsuariForm
+        }
+      ]
     }
   ]
 })

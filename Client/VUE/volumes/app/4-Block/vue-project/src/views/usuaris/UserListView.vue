@@ -1,20 +1,19 @@
-<template lang="">
-    <RouterLink to="form">Form</RouterLink>
-    <h2 v-if="idusuari">
-        usuaris {{ idusuari }} carregat</h2>
-    <h3 v-if="displaySubjects"> Asignatura </h3>
+<template>
+<h1>Llistat d'usuaris</h1>
+<RouterLink to="/usuaris/form">Formulari<br></RouterLink>
 
-
-    <h1>
-        Llistat d'usuaris
-    </h1>
 </template>
+
 <script>
-export default {
-    name: "UserListView",
-    
-}
+    export default {
+        name: "UsuariListView",
+        async created() {
+            const peticio = await this.$axios.get("https://theteacher.codiblau.com/exercicis/other/color?min=24&max=244")
+            console.log(peticio.status, peticio.data.color)
+        },
+    }
 </script>
-<style lang="" scoped>
-    
+
+<style lang="scss" scoped>
+
 </style>
