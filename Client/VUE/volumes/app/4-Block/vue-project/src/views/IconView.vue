@@ -73,11 +73,9 @@ export default {
             usuarisFilter: [] //Depues de mapear el array de usuaris, se guarda aqui y se filtra
         }
     },
-
     components: {
         Taula, Fila, Columna
     },
-
     methods: {
         async getLogo() {
             const fetchLogo = await fetch(`https://theteacher.codiblau.com/exercicis/other/icons/get?nom=${this.logo}`);

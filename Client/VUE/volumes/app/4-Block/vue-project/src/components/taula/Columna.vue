@@ -15,7 +15,7 @@
 export default {
 
     name: "Columna",
-    props: { //Propiedades que se le pasan al componente booleano, string, array, etc
+    props: { //Propiedades que se le pasan al componente booleano, string, array, etc 
         isHeader: {
             type: Boolean,
             required: false,
@@ -28,8 +28,7 @@ export default {
     },
 
     methods:{
-        sortBy(type) {
-
+        sortBy(type) { 
             if(type==='asc'){
                 this.$emit('sortAsc');
             } else this.$emit('sortDesc');
