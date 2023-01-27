@@ -16,12 +16,12 @@
       function Paraula() {
         this.seleccionada;
         this.init = function (lletres) {
-          var paraules = ["windows", "linux", "mac"];
-          var paraulesArr = [];
-          for (var paraula of paraules) {
-            var current = [];
-            for (var lletraParaula of paraula) {
-              for (var lletra of lletres) {
+          const paraules = ["windows", "linux", "mac"];
+          let paraulesArr = [];
+          for (let paraula of paraules) {
+            let current = [];
+            for (let lletraParaula of paraula) {
+              for (let lletra of lletres) {
                 if (lletra.valor === lletraParaula) {
                   current.push(lletra);
                 }
@@ -40,14 +40,14 @@
         this.paraulaSeleccionada;
 
         this.init = function () {
-          var lletres = "abcdefghijklmnopqrstuvwxyzñçáàéèíóòú";
-          var i = 0;
-          for (var lletra of lletres) {
+          let lletres = "abcdefghijklmnopqrstuvwxyzñçáàéèíóòú";
+          let i = 0;
+          for (let lletra of lletres) {
             this.lletres.push(new Lletra("ll" + i, lletra));
             i++;
           }
 
-          var paraula = new Paraula();
+          const paraula = new Paraula();
           paraula.init(this.lletres);
           this.paraulaSeleccionada = paraula.seleccionada;
 
@@ -57,14 +57,14 @@
         this.pinta = function () {
           document.querySelector("#game").innerHTML = "";
 
-          var scriptInicial = document.querySelector("#game").innerHTML;
+          let scriptInicial = document.querySelector("#game").innerHTML;
 
           document.querySelector("#game").innerHTML =
             '<img src="img/' + this.imatge + '.PNG" alt="penjat">';
           document.querySelector("#game").innerHTML += scriptInicial;
 
-          for (var lletra of this.lletres) {
-            var boto = document.createElement("button");
+          for (let lletra of this.lletres) {
+            let boto = document.createElement("button");
             boto.addEventListener("click", this.play);
             boto.innerHTML = lletra.valor;
             boto.objLletra = lletra;
@@ -80,8 +80,8 @@
             document.querySelector("#game").appendChild(boto);
           }
 
-          for (var l of this.paraulaSeleccionada) {
-            var txt = document.createElement("span");
+          for (let l of this.paraulaSeleccionada) {
+            let txt = document.createElement("span");
             if (l.seleccionat) {
               txt.innerHTML += l.valor;
             } else {
@@ -92,7 +92,7 @@
         };
 
         this.play = function (evt) {
-          var lletra = evt.currentTarget.objLletra;
+          let lletra = evt.currentTarget.objLletra;
           lletra.seleccionat = true;
           if (!this.paraulaSeleccionada.includes(lletra)) {
             this.imatge++;
@@ -105,8 +105,8 @@
           if (this.imatge == 7) {
             document.querySelector("#game").innerHTML = "Has perdut";
           }
-          var guanyat = true;
-          for (var l of this.paraulaSeleccionada) {
+          let guanyat = true;
+          for (let l of this.paraulaSeleccionada) {
             if (!l.seleccionat) {
               guanyat = false;
               break;
@@ -117,7 +117,7 @@
           }
         };
       }
-      var penjat = new Penjat();
+      const penjat = new Penjat();
       penjat.init();
     </script>
   </body>
