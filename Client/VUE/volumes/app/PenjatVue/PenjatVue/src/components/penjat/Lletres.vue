@@ -4,18 +4,7 @@
 
 <script>
     export default {
-        name: "Lletres",
-        props: {
-            nom: {
-                type: String,
-                required: true,
-            },
-        },
-        methods: {
-            jugar() {
-                this.$emit('jugar');
-            }
-        }
+        name: "Lletres", 
     }
 </script>
 

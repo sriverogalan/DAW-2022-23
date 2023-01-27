@@ -8,14 +8,13 @@
 export default {
   name: "Lletra",
   props: {
-    //Propiedades que se le pasan al componente booleano, string, array, etc
-    lletra: {
-      type: String,
-      required: true,
+    lletra: String,
+    required: true,
+  },
+  methods: {
+    jugar() {
+      this.$emit("jugar", this.lletra);
     },
-    methods:{
-        
-    }
   },
 };
 </script>
