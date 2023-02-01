@@ -72,9 +72,9 @@
   <script>
     // Ex1  
     var select = $("#dies"); 
-    for (var i = 0; i < 366; i++) {
+    for (var i = 1; i < 366; i++) {
       var date = new Date();
-      var dia = date.getDate() - 1;
+      var dia = date.getDate();
       var mes = date.getMonth() + 1 ;
       var any = date.getFullYear()-1; 
       var fecha =  any + "-" + mes + "-" + dia;  
