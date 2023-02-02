@@ -15,10 +15,38 @@
       color="purple-6"
       multiple
     />
-  </q-page> 
+  </q-page>
 
   <div class="q-pa-md">
-    <q-table title="Sa meva tauleta" :rows="files" :columns="columnes" row-key="name" />
+    <q-table
+      title="Sa meva tauleta"
+      :rows="usuarisFilter"
+      :columns="columnes" row-key="name"
+    >
+      <template v-slot:top-right>
+        <q-input
+          color="purple-6"
+          v-model="filter"
+          rounded
+          outlined
+          @update:model-value="filtrar"
+        >
+          <template v-slot:prepend>
+            <q-icon name="search" />
+          </template>
+          <template v-slot:append>
+            <q-icon name="account_circle" />
+          </template>
+        </q-input>
+      </template>
+
+      <template v-slot:body-cell-sexe="props">
+        <q-td>
+          <q-icon v-if="props.value === 'HOME'" name="male"></q-icon>
+          <q-icon v-if="props.value === 'DONA'" name="female"></q-icon>
+        </q-td>
+      </template>
+    </q-table>
   </div>
 </template>
 
@@ -31,10 +59,19 @@ export default defineComponent({
     return {
       date: ref("2002/11/19"),
       columnes: [
-        { name: "nom", label: "nom", field: "nom", sortable: true },
-        { name: "cognoms", label: "cognoms", field: "cognoms", sortable: true },
+        { name: "nom", label: "nom", field: "nom", align: "center", sortable: true },
+        {
+          name: "cognoms",
+          label: "cognoms",
+          field: "cognoms",
+          align: "center",
+          sortable: true,
+        },
+        { name: "sexe", label: "sexe", field: "sexe", align: "center", sortable: true },
       ],
-      files: [],
+      usuaris: [],
+      usuarisFilter: [],
+      filter: "",
     };
   },
   methods: {
@@ -42,11 +79,22 @@ export default defineComponent({
       const usuaris = await this.$axios.get(
         "https://theteacher.codiblau.com/exercicis/other/usuaris/list"
       );
-      this.files = usuaris.data.map((u) => {
+      this.usuaris = usuaris.data.map((u) => {
         return {
           nom: u.nom,
           cognoms: u.cognom1 + " " + u.cognom2,
+          sexe: u.sexe,
         };
+      });
+
+      this.usuarisFilter = this.usuaris;
+    },
+    filtrar() {
+      this.usuarisFilter = this.usuaris.filter((u) => {
+        return (
+          u.nom.toLowerCase().includes(this.filter.toLowerCase()) ||
+          u.cognoms.toLowerCase().includes(this.filter.toLowerCase())
+        );
       });
     },
   },
