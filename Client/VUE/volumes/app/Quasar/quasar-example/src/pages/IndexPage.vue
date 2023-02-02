@@ -21,7 +21,8 @@
     <q-table
       title="Sa meva tauleta"
       :rows="usuarisFilter"
-      :columns="columnes" row-key="name"
+      :columns="columnes"
+      row-key="name"
     >
       <template v-slot:top-right>
         <q-input
