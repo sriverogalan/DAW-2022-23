@@ -49,6 +49,10 @@
       </template>
     </q-table>
   </div>
+
+  <div>
+    <q-btn color="purple-6" label="Botó" />
+  </div>
 </template>
 
 <script>
@@ -68,7 +72,7 @@ export default defineComponent({
           align: "center",
           sortable: true,
         },
-        { name: "sexe", label: "sexe", field: "sexe", align: "center", sortable: true },
+        { name: "sexe", label: "sexe", field: "sexe", sortable: true },
       ],
       usuaris: [],
       usuarisFilter: [],
