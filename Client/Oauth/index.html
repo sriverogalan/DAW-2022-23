@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script async defer src="https://accounts.google.com/gsi/client"></script>  
+    <script>
+      window.onload = function () {
+        google.accounts.id.initialize({
+          client_id: '327064841381-lloi1on6ses7vmjr72h2lptajd3g14fn.apps.googleusercontent.com',
+          ux_mode: 'redirect',
+          callback: async (responseGoogle) => { 
+            console.log(responseGoogle);
+
+            const tokenGoogle = responseGoogle.credential;
+            const respFetch = fetch('http://localhost:8080/auth/google',{
+              method: 'POST', 
+              body: tokenGoogle,
+            })
+            
+            const token = await respFetch.text();
+            console.log(token);
+
+            localStorage.setItem('token', token); 
+          },
+        });
+        google.accounts.id.prompt();
+      };
+    </script>
+  </body>
+</html>
