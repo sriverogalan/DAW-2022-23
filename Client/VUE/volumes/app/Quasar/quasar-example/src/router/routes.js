@@ -6,6 +6,12 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') }
     ]
+  },{
+    path: '/penjat',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/Penjat.vue') }
+    ]
   },
 
   // Always leave this as last one,

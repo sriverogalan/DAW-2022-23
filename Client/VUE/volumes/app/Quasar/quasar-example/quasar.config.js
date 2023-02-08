@@ -50,6 +50,22 @@ module.exports = configure(function (ctx) {
           poll: 1000,
         };
       },
+
+      /* env: {
+        CRIDADA: ctx.dev
+        ? 'https://theteacher.codiblau.com'
+        : 'https://produccio.com',
+        PRUEBA: 'hola'
+      }, */
+
+      env: require('dotenv').config({
+        path: (process.env.ENVIRONMENT)
+          ?`.env.${process.env.ENVIRONMENT}`
+          : '.env.developer.sergi',
+      }).parsed,
+
+
+
       // transpile: false,
       // publicPath: '/',
 

@@ -5,7 +5,8 @@
       src="~assets/quasar-logo-vertical.svg"
       style="width: 200px; height: 200px"
     />
-    <p>{{ date }}</p>
+    <p>{{ date }}</p> 
+
     <q-date
       v-model="date"
       :landscape="false"
@@ -56,12 +57,14 @@
 </template>
 
 <script>
+import process from "process";
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "IndexPage",
   data() {
     return {
+      prova: "",
       date: ref("2002/11/19"),
       columnes: [
         { name: "nom", label: "nom", field: "nom", align: "center", sortable: true },
@@ -82,8 +85,9 @@ export default defineComponent({
   methods: {
     async loadUsuaris() {
       const usuaris = await this.$axios.get(
-        "https://theteacher.codiblau.com/exercicis/other/usuaris/list"
+        process.env.CRIDADA+"/exercicis/other/usuaris/list"
       );
+      this.prova = process.env.PRUEBA
       this.usuaris = usuaris.data.map((u) => {
         return {
           nom: u.nom,
