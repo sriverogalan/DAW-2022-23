@@ -1,6 +1,5 @@
 <template>
-  <!-- <button>{{ valor }}</button> -->
-  <q-btn round color="purple" :label="valor" @click="get"> </q-btn>
+  <q-btn round :color="color" :label="valor" size="md" class="q-ma-xs"> </q-btn>
 </template>
 
 <script>
@@ -11,15 +10,15 @@ export default {
       type: String,
       required: true,
     },
-    isCorrect: {
-        type: String,
-        required: true,
-    }
+    color: {
+      type: String,
+      required: true,
+    },
   },
-  methods:{
-    get(){
-        this.$emit('calcularColor', this.valor);
-    }
-  }
+  methods: {
+    get() {
+      this.$emit("calcularColor", this.valor);
+    },
+  },
 };
 </script>
