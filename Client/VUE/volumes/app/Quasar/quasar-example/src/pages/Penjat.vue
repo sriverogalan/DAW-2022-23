@@ -83,6 +83,13 @@ export default defineComponent({
           this.lletres = [];
         }
       }
+    
+      if (win()) {
+        this.missatge = "Has guanyat";
+        this.lletres = [];
+        document.querySelector(".paraules").style.color = "green";
+      }
+
       this.lletresEmprades.push(lletra);
     },
     getColor(lletra) {
@@ -94,6 +101,12 @@ export default defineComponent({
       }
       return "primary";
     },
+    win(){
+      if (this.paraulaEncriptada.includes(this.lletresEmprades)){
+        return true;
+      } 
+      return false;
+    }
   },
 });
 </script>
@@ -111,5 +124,10 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.green {
+  background-color: green;
+
 }
 </style>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Press Start 2P", cursive;
+      }
+
+      body {
+        background-image: url(assets/legobg.jpg);
+        background-repeat: repeat;
+      }
+
+      header {
+        margin-top: 10vh;
+        text-align: center;
+      }
+
+      header h1 {
+        color: white;
+        text-shadow: 0px 0px 20px #000000;
+        font-size: 3em;
+      }
+
+      main {
+        width: 900px;
+        margin: 10px auto 0 auto;
+        padding: 25px;
+        height: auto;
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 2%;
+      }
+
+      #joc {
+        width: 400px;
+        float: left;
+      }
+
+      #solucio {
+        width: 400px;
+        float: right;
+      }
+
+      #peca {
+        width: 40px;
+        height: 40px;
+        background-color: #f1c40f;
+        float: left;
+        clear: both;
+        margin: 25px 180px;
+        cursor: pointer;
+      }
+
+      #autofill {
+        clear: both;
+        text-align: center;
+      }
+
+      #autofill button {
+        padding: 5px;
+        background: white;
+        font-size: 1em;
+      }
+
+      #changepuzzle {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      #changepuzzle img {
+        width: 15%;
+        cursor: pointer;
+      }
+
+      /* SI NECESSITEU AFEGIR CSS FEU-HO A PARTIR D'AQUÍ */
+    </style>
+    <script src="../../util.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Brick Designer</h1>
+    </header>
+    <main>
+      <div id="joc">
+        <h2>Puzzle:</h2>
+        <div id="taulell"></div>
+        <div id="peca" draggable="true" ondragstart="drag(event)"></div>
+      </div>
+      <div id="solucio">
+        <h2>Solution:</h2>
+        <img src="puzzles/house.png" alt="house" />
+      </div>
+      <!-- Exercici 1 c) -->
+      <div id="autofill">
+        <button onclick="sse()">Auto emplena</button>
+        <button onclick="stopSse()">Atura</button>
+      </div>
+      <!-- Exercici 1 d) -->
+      <div id="changepuzzle">
+        <img src="puzzles/house.png" alt="house" />
+        <img src="puzzles/heart.png" alt="heart" />
+        <img src="puzzles/smile.png" alt="smile" />
+      </div>
+      <!-- EL VOSTRE HTML VA AQUÍ -->
+    </main>
+    <script>
+      /* LES VOSTRES FUNCIONS VAN AQUÍ */
+      (() => {
+        initTaulell();
+        const source = new EventSource(
+          "https://theteacher.codiblau.com/exercicis/other/brickdesigner/stream?forma=house"
+        );
+        const house = [
+          4, 5, 13, 16, 22, 27, 31, 32, 33, 34, 35, 36, 37, 38, 41, 48, 51, 53,
+          56, 58, 61, 68, 71, 78, 81, 84, 85, 88, 91, 94, 95, 98,
+        ];
+        const aux = [];
+        source.onmessage = function (e) {
+          let data = JSON.parse(e.data);
+          let x = data.x;
+          let y = data.y;
+          document.querySelector(
+            "div #p" + (x * 10 + y)
+          ).style.backgroundColor = "#f1c40f";
+          console.log(data);
+          aux.push(x * 10 + y);
+          if (
+            aux.length === house.length &&
+            JSON.stringify(aux.sort()) === JSON.stringify(house)
+          ) {
+            source.close();
+          }
+        };
+      })();
+
+      /* Init taulell */
+      function initTaulell() {
+        document.querySelector("#taulell").innerHTML = "";
+        for (let i = 0; i < 10; i++) {
+          for (let j = 0; j < 10; j++) {
+            let div = document.createElement("DIV");
+            /* estil del div */
+            div.style.width = "40px";
+            div.style.height = "40px";
+            div.style.backgroundColor = "#95a5a6";
+            div.style.float = "left";
+            div.style.borderStyle = "solid";
+            div.style.borderWidth = "1px";
+            div.style.borderColor = "#7f8c8d";
+            if (j == 0) {
+              div.style.clear = "both";
+            }
+            /* Afegim una id única: id="p3" id="p23"*/
+            div.id = "p" + (i * 10 + j);
+
+            /* INSERIU AQUÍ EL CODI QUE FALTI DE L'ELEMENT DIV */
+            div.setAttribute("ondrop", "drop(event)");
+            div.setAttribute("ondragover", "allowDrop(event)");
+
+            /* Finalment afegim el div al taulell */
+            document.querySelector("#taulell").appendChild(div);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

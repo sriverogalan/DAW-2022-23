@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <video id="video"></video>
+  </body>
+  <script>
+    (() => {
+      if (navigator.mediaDevices.getUserMedia()) {
+        navigator.mediaDevices
+          .getUserMedia({
+            video: {
+              width: "500",
+              height: "500",
+            },
+            audio: true,
+          })
+          .then((stream) => {
+            const video = document.getElementById("video");
+            video.srcObject = stream;
+            video.onloadedmetadata = function (e) {
+              video.play();
+              video.muted = true;
+            };
+
+            // Gravacio
+            const mediaRecorder = new MediaRecorder(stream);
+            /*TODO: CANVIAR START PER UN BOTO*/
+            mediaRecorder.start();
+            mediaRecorder.ondataavailable = async (e) => {
+              const formData = new FormData();
+              formData.append("arxiu", e.data, "so.webm");
+
+              const response = await fetch(
+                "https://theteacher.codiblau.com/piano/nologin/google/transcribe",
+                {
+                  method: "POST",
+                  body: formData,
+                }
+              );
+              const data = await response;
+              console.log;
+            };
+            setTimeout(function () {
+              mediaRecorder.stop();
+            }, 5000);
+          });
+      }
+    })();
+  </script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <aside>
+      <button onclick="notifica()">Notifica</button>
+      <h1>Anima a en Joan</h1>
+      <div id="missatge"></div>
+    </aside>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7sDeOoFe2KTvrHeePf3zn43NMrGzVzXQ&callback=inicialitza&v=weekly"
+      defer
+    ></script>
+    <script>
+      let map;
+      let path = [];
+      function notifica() {
+        if (window.Notification && Notification.permission !== "denied") {
+          Notification.requestPermission(function (status) {
+            // status is "granted", if accepted by user
+            var n = new Notification("Title", {
+              body: "I am the body text!",
+              icon: "/path/to/icon.png", // optional
+            });
+          });
+        }
+      }
+
+      const source = new EventSource(
+        "https://theteacher.codiblau.com/exercicis/sporttracker/getcoords/stream"
+      );
+      source.onmessage = function (e) {
+        let pos = JSON.parse(e.data);
+        pos = pos.split(",");
+        const lat = parseFloat(pos[0]);
+        const lng = parseFloat(pos[1]);
+        updateMap(lat, lng);
+      };
+
+      function updateMap(lat, lng) {
+        const pos = {
+          lat,
+          lng,
+        };
+        map.setCenter(pos);
+        path.push(pos);
+
+        const p = new google.maps.Polyline({
+          path: path,
+          geodesic: true,
+          strokeColor: "#0000ff",
+          strokeWeight: 2,
+        });
+        p.setMap(map);
+      }
+
+      function inicialitza() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 41.3851, lng: 2.1734 },
+          zoom: 17,
+        });
+      }
+
+      if (typeof Worker) {
+        const w = new Worker("worker.js");
+        w.onmessage = (e) => {
+          document.querySelector(
+            "#missatge"
+          ).innerHTML += `<p>${e.data.user}: ${e.data.message}</p>`;
+        };
+      }
+    </script>
+     
+  </body>
+</html>

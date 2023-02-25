@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hola</h1>
+    <p>Comptador: <span><img style="width: 400px;" src="https://media.gettyimages.com/id/846141966/es/foto/lionel-messi-of-barcelona-celebrates-scoring-his-sides-first-goal-during-the-uefa-champions.jpg?s=2048x2048&w=gi&k=20&c=YACH1N0LyqeOYHCW3XzXR3TWSMdUunnVLbQRGQhMCTo="></span></p>
+    <script type="module">
+      // Web worker - Script en background que NO interfereix
+      // al rendiment del DOM
+      // IMPORTANT!! NO TENIM ACCESS AL DOM
+      // Per accedir al DOM, hem de fer-ho a través de postMessage
+      // Per a crear un web worker, hem de crear un fitxer JS
+      // i importar-lo des del HTML
+      let w;
+      if (typeof(Worker)){
+        w = new Worker("worker.js");
+        w.postMessage({
+            "ini":1000,
+            "fi":2000000000,
+        })
+        w.onmessage = function (event) {
+          document.querySelector("span").innerHTML = event.data;
+        };
+      } else {
+        document.querySelector("span").innerHTML = "Canvia de navegador noob";
+      } 
+      document.querySelector("h1").innerHTML = "Adeu";
+    </script>
+  </body>
+</html>
