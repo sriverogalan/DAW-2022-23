@@ -17,7 +17,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/styles.css" />
-  </head>
+  </head> 
+  
 
   <body class="bg">
     <div class="div-title">
@@ -142,7 +143,7 @@
 
     (async () => {
       const partituraService = PartituraService.getInstance();
-      partitures = await partituraService.getNotesPartitura();  
+      partitures = await partituraService.getNotesPartitura();
       document.querySelector("#borrar").addEventListener("click", () => {
         borrarCerca();
       });
@@ -257,7 +258,7 @@
         let milisegons = Math.floor((temps % 1000) / 10);
         document.querySelector(
           '[name="' + this.partitura + '"]'
-        ).innerHTML = ` ${hores}:${minuts}:${segons}.${milisegons}  `; 
+        ).innerHTML = ` ${hores}:${minuts}:${segons}.${milisegons}  `;
       };
     }
   </script>
